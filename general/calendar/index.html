@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layered Calendar — Gregorian + Hijri + HLA + HISD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F8F5;
+    --ink:#1C2B33;          /* Gregorian — base layer */
+    --ink-soft:#5C6B72;
+    --line:#DDE2DC;
+    --cell:#FFFFFF;
+    --hijri:#0E6B4F;        /* Hijri overlay — emerald */
+    --hijri-soft:#E2EFE9;
+    --hla:#6B3FA0;          /* HLA overlay — violet    */
+    --hla-soft:#EDE4F6;
+    --hisd:#1D6FB8;         /* HISD overlay — blue     */
+    --hisd-soft:#E1EDF8;
+    --gold:#B8862B;
+    --warn:#8A3A32;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.5;
+    padding:24px 16px 64px;
+  }
+  .wrap{max-width:840px;margin:0 auto}
+  header.masthead{text-align:center;padding:8px 0 18px;border-bottom:1px solid var(--line);margin-bottom:16px}
+  .masthead h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(26px,5vw,38px)}
+  .masthead .today-line{margin-top:6px;color:var(--ink-soft);font-size:13px}
+  .masthead .today-line b{color:var(--hijri);font-weight:600}
+  .masthead .today-line .sep{color:var(--gold);padding:0 8px}
+
+  /* Layer toggles */
+  .layers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
+  .layers .base{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:20px;
+    background:var(--ink);color:#fff;font-size:13px;font-weight:600}
+  .layers button{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:20px;
+    border:1.5px solid var(--line);background:var(--cell);color:var(--ink-soft);
+    font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+  .layers button .sw{width:11px;height:11px;border-radius:50%;background:currentColor;opacity:.35}
+  .layers button.on{color:#fff}
+  .layers button.on .sw{background:#fff;opacity:.9}
+  .layers button[data-layer="hijri"].on{background:var(--hijri);border-color:var(--hijri)}
+  .layers button[data-layer="hla"].on{background:var(--hla);border-color:var(--hla)}
+  .layers button[data-layer="hisd"].on{background:var(--hisd);border-color:var(--hisd)}
+  .layers button[data-layer="delta"].on{
+    background:linear-gradient(105deg,var(--hla) 0 45%,var(--hisd) 55% 100%);
+    border-color:var(--ink);color:#fff}
+  /* Δ emphasis: single-source days ring in their color, overlap days ring in ink,
+     everything else stays visible but recedes. */
+  .cal td.d-dim .d,.cal td.d-dim .hjn{opacity:.38}
+  .cal td.d-hla{box-shadow:inset 0 0 0 2.5px var(--hla)}
+  .cal td.d-hisd{box-shadow:inset 0 0 0 2.5px var(--hisd)}
+  .cal td.d-both{box-shadow:inset 0 0 0 2.5px var(--ink)}
+  .mcal.delta-on .c:not(.hla):not(.hisd):not(.both){opacity:.35}
+  .mcal.delta-on .c.hla{box-shadow:inset 0 0 0 1.5px var(--hla)}
+  .mcal.delta-on .c.hisd{box-shadow:inset 0 0 0 1.5px var(--hisd)}
+  .mcal.delta-on .c.both{box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .layers button:focus-visible,.seg button:focus-visible,.chip:focus-visible,
+  .lnk:focus-visible,.pager button:focus-visible{outline:3px solid var(--gold)}
+
+  /* Collapsible panels */
+  details.panel{background:var(--cell);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  details.panel>summary{cursor:pointer;padding:11px 14px;font-weight:600;font-size:13px;
+    text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px;
+    user-select:none;list-style:none;flex-wrap:wrap}
+  details.panel>summary::-webkit-details-marker{display:none}
+  details.panel>summary::before{content:'\25B8';color:var(--hijri);transition:transform .15s}
+  details.panel[open]>summary::before{transform:rotate(90deg)}
+  .panelbody{padding:2px 14px 14px}
+
+  /* Filter controls */
+  .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+  .seg{display:inline-flex;flex-wrap:wrap;background:var(--cell);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{border:0;background:none;padding:7px 13px;font:inherit;font-size:13px;font-weight:500;
+    color:var(--ink-soft);cursor:pointer;border-right:1px solid var(--line)}
+  .seg button:last-child{border-right:0}
+  .seg button.on{background:var(--ink);color:#fff}
+  .seg .winlbl{padding:7px 12px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink)}
+  .lnk{border:1px solid var(--line);background:var(--cell);color:var(--ink);font:inherit;font-size:11px;
+    font-weight:600;cursor:pointer;border-radius:14px;padding:4px 12px;letter-spacing:.03em}
+  .lnk:hover{border-color:var(--hijri)}
+  .lnk.clean{background:#F1F8EE;border-color:#BFD9B8;color:#3E6B34}
+  .lnk.dirty{background:#FBF1EF;border-color:#E0B4AE;color:var(--warn)}
+  .chip{display:inline-flex;align-items:center;gap:5px;background:var(--cell);border:1px solid var(--line);
+    border-radius:16px;padding:4px 11px;cursor:pointer;user-select:none;font-weight:600;font-size:12px}
+  .chip.off{opacity:.32}
+  .chip.season-winter{background:#EAF3F8;border-color:#BCD7E6;color:#2E5A73}
+  .chip.season-spring{background:#F6ECF4;border-color:#E2C4DB;color:#7A3E68}
+  .chip.season-summer{background:#FBF3DC;border-color:#EBD9A0;color:#7A5E14}
+  .chip.season-fall{background:#F8ECE2;border-color:#E5C6A8;color:#7A4A22}
+  .chip.mo{background:#FBF0E8;border-color:#EBD2C0;color:#8A5A32}
+  .chip.sem{background:#EAF0EC;border-color:#BDD4C6;color:#2C5A44}
+  .fnote{font-size:11px;color:var(--ink-soft);margin-top:4px}
+  .catgrp{margin:10px 0 4px;padding-top:8px;border-top:1px dashed var(--line)}
+  .catgrp.hidden{display:none}
+  .cathdr{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+  .cattitle{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em}
+  .chip .csw{width:12px;height:12px;border-radius:4px;border:1px solid rgba(0,0,0,.18);display:inline-block}
+  /* Timeline ribbon */
+  .rwrap{overflow-x:auto;margin:10px 0 2px}
+  .ribbon{min-width:680px}
+  .rlbl{font-size:9px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin:7px 0 2px}
+  .rband{display:grid;grid-template-columns:repeat(24,1fr);gap:2px}
+  .rband .seg{height:18px;border-radius:4px;font-size:9px;font-weight:700;display:flex;align-items:center;
+    justify-content:center;cursor:pointer;user-select:none;color:var(--ink);letter-spacing:.03em;
+    overflow:hidden;white-space:nowrap}
+  .rband .seg.dim{opacity:.35}
+  .rband .seg.oow{opacity:.15;cursor:default}
+  .rband .seg:focus-visible{outline:3px solid var(--gold)}
+  .rband .seg.sem{background:#EAF0EC;border:1px solid #2C5A44;color:#2C5A44}
+  .rmonths{display:grid;grid-template-columns:repeat(24,1fr);gap:2px}
+  .rmonths .m{height:38px;border-radius:5px;border:1.5px solid var(--line);background:#FCFCFA;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9px;font-weight:600;
+    color:var(--ink-soft);user-select:none;line-height:1.15}
+  .rmonths .m .yy{font-size:7.5px;opacity:.7}
+  .rmonths .m.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .rmonths .m.oow{opacity:.18;cursor:default}
+  .rmonths .m:focus-visible{outline:3px solid var(--gold)}
+  .season-w{background:#EAF3F8;border:1px solid #BCD7E6}
+  .season-sp{background:#F6ECF4;border:1px solid #E2C4DB}
+  .season-su{background:#FBF3DC;border:1px solid #EBD9A0}
+  .season-f{background:#F8ECE2;border:1px solid #E5C6A8}
+  #filterMsg{font-size:12px;color:var(--warn);margin:2px 0 10px;line-height:1.55}
+  #filterMsg:empty{display:none}
+
+  /* Focus month grid */
+  .pager{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+  .pager h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;text-align:center;flex:1}
+  .pager h2 .alt{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;color:var(--hijri)}
+  .pager h2 .alt.hidden{display:none}
+  .pager button{width:40px;height:40px;border:1px solid var(--line);border-radius:8px;
+    background:var(--cell);color:var(--ink);font-size:18px;cursor:pointer}
+  .pager button:disabled{opacity:.3;cursor:default}
+  table.cal{width:100%;border-collapse:collapse;background:var(--cell);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .cal th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-soft);padding:8px 2px;border-bottom:1px solid var(--line)}
+  .cal td{border:1px solid var(--line);height:62px;width:14.28%;vertical-align:top;
+    padding:4px 5px;position:relative;font-variant-numeric:tabular-nums}
+  .cal td.empty{background:var(--paper)}
+  .cal td .d{font-weight:600;font-size:14px;position:relative;z-index:2}
+  .cal td .hjn{position:absolute;top:4px;right:6px;z-index:2;font-size:10px;font-weight:600;color:var(--hijri)}
+  .cal td.today{outline:2px solid var(--ink);outline-offset:-2px}
+  .cal td.hol .d::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+    background:var(--gold);margin-left:4px;vertical-align:2px}
+  .cal td .band{position:absolute;left:0;right:0;z-index:1}
+  .cal td .band.hla{top:0;height:50%;background:var(--hla-soft);border-bottom:2px solid var(--hla)}
+  .cal td .band.hisd{bottom:0;height:50%;background:var(--hisd-soft);border-top:2px solid var(--hisd)}
+  .cal td .band.hla.full{height:100%;border-bottom:none;box-shadow:inset 0 -2.5px 0 var(--hla)}
+  .cal td .band.hisd.full{height:100%;border-top:none;box-shadow:inset 0 2.5px 0 var(--hisd)}
+  .legend{margin-top:10px;font-size:12px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 16px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend .k{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .legend .k.greg{background:var(--ink)}
+  .legend .k.dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .legend .k.hj{background:var(--hijri)}
+  .legend .k.hla{background:var(--hla-soft);box-shadow:inset 0 -3px 0 var(--hla)}
+  .legend .k.hisd{background:var(--hisd-soft);box-shadow:inset 0 3px 0 var(--hisd)}
+  .legend .off{opacity:.35}
+  #dayInfo{margin-top:10px;min-height:20px;font-size:13px;color:var(--ink-soft)}
+  #dayInfo b{color:var(--ink)}
+  #dayInfo .tag{font-weight:700}
+  #dayInfo .tag.hla{color:var(--hla)}
+  #dayInfo .tag.hisd{color:var(--hisd)}
+  #dayInfo .tag.hj{color:var(--hijri)}
+
+  /* Multi-month mini grids */
+  .mgrid{display:grid;gap:12px}
+  .mgrid.auto{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+  .mgrid.g4x3{grid-template-columns:repeat(4,minmax(200px,1fr))}
+  .mgrid.g3x4{grid-template-columns:repeat(3,minmax(200px,1fr))}
+  .mgridwrap{overflow-x:auto}
+  .mcard{background:var(--cell);border:1px solid var(--line);border-radius:10px;padding:10px}
+  .mcard h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:650;text-align:center;margin:0 0 2px}
+  .mcard .hjspan{display:block;text-align:center;font-size:9.5px;color:var(--hijri);margin-bottom:5px;min-height:12px}
+  .mcal{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+  .mcal .dh{font-size:9px;color:var(--ink-soft);text-align:center;font-weight:600;padding:2px 0}
+  .mcal .c{aspect-ratio:1;border-radius:5px;font-size:10px;display:flex;align-items:center;justify-content:center;
+    background:#FCFCFA;border:1px solid #F0F1EC;position:relative;cursor:default;font-variant-numeric:tabular-nums}
+  .mcal .c.blank{background:none;border:0}
+  .mcal .c.hla{background:var(--hla-soft);border-color:var(--hla);font-weight:700}
+  .mcal .c.hisd{background:var(--hisd-soft);border-color:var(--hisd);font-weight:700}
+  .mcal .c.both{background:linear-gradient(180deg,var(--hla-soft) 50%,var(--hisd-soft) 50%);
+    border-color:var(--ink);font-weight:700}
+  .mcal .c.hol::after{content:"";position:absolute;bottom:1.5px;left:50%;transform:translateX(-50%);
+    width:4px;height:4px;border-radius:50%;background:var(--gold)}
+  .mcal .c.today{outline:1.5px solid var(--ink);outline-offset:-1.5px}
+
+  /* Master table */
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--cell)}
+  #masterTbl{width:100%;border-collapse:collapse;font-size:13px}
+  #masterTbl th{text-align:left;padding:8px 10px;font-size:11px;font-weight:600;text-transform:uppercase;
+    letter-spacing:.07em;color:var(--ink-soft);border-bottom:1px solid var(--line);background:#FCFCFA;white-space:nowrap}
+  #masterTbl td{padding:6px 10px;vertical-align:top;border-bottom:1px solid #EEF0EA}
+  #masterTbl tr:last-child td{border-bottom:none}
+  #masterTbl td.dt{white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums}
+  #masterTbl td.hj{white-space:nowrap;color:var(--hijri);font-size:12px}
+  #masterTbl td.ev{font-size:12.5px}
+  #masterTbl td.ev.hol{background:#FBF5E4;box-shadow:inset 3px 0 0 var(--gold)}
+  #masterTbl td.ev.hla{background:var(--hla-soft);box-shadow:inset 3px 0 0 var(--hla)}
+  #masterTbl td.ev.hisd{background:var(--hisd-soft);box-shadow:inset 3px 0 0 var(--hisd)}
+  #masterTbl tr.ovl{background:#F4F5F1}
+  #masterTbl tr.ovl td.dt{box-shadow:inset 3px 0 0 var(--ink)}
+
+  @media (max-width:520px){
+    .cal td{height:52px;padding:3px 4px}
+    .cal td .hjn{font-size:9px}
+    #masterTbl{font-size:12px}
+    #masterTbl td{padding:5px 7px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <h1>Layered Calendar</h1>
+    <div class="today-line" id="todayLine"></div>
+  </header>
+
+  <div class="layers" role="group" aria-label="Calendar layers">
+    <span class="base">Gregorian</span>
+    <button data-layer="hijri" class="on" aria-pressed="true"><span class="sw"></span>Hijri</button>
+    <button data-layer="hla" aria-pressed="false"><span class="sw"></span>HLA</button>
+    <button data-layer="hisd" aria-pressed="false"><span class="sw"></span>HISD</button>
+    <button data-layer="delta" id="deltaBtn" aria-pressed="false"
+      title="Emphasize HLA-only, HISD-only, and overlapping days (turns both school layers on)">
+      <span class="sw"></span>&Delta; Delta</button>
+  </div>
+
+  <details class="panel" open id="filtersPanel">
+    <summary>&#128736;&#65039; Filters
+      <span style="flex:1"></span>
+      <button class="lnk" id="expandAll" type="button">&#8862; Expand all</button>
+      <button class="lnk" id="collapseAll" type="button">&#8863; Collapse all</button>
+      <button class="lnk clean" id="clearFilters" type="button">&#129529; Clear filters</button>
+    </summary>
+    <div class="panelbody">
+      <div class="frow">
+        <div class="seg" title="Adjust the visible month window">
+          <button data-win="s-" title="Roll window start earlier">&#8249;</button>
+          <button data-win="s+" title="Roll window start later">&#8250;</button>
+          <span class="winlbl" id="winLbl"></span>
+          <button data-win="e-" title="Pull window end earlier">&#8249;</button>
+          <button data-win="e+" title="Roll window end later">&#8250;</button>
+        </div>
+        <div class="seg" id="yearSeg">
+          <button data-year="all">Full range</button>
+          <button data-year="2026">2026</button>
+          <button data-year="2027">2027</button>
+        </div>
+        <div class="seg" id="gridSeg">
+          <button data-grid="auto">Auto</button>
+          <button data-grid="4x3">4&times;3</button>
+          <button data-grid="3x4">3&times;4</button>
+        </div>
+        <button class="lnk" data-mobulk="1">&#10003; ALL</button>
+        <button class="lnk" data-mobulk="0">&#10005; NONE</button>
+      </div>
+      <div class="rwrap"><div class="ribbon">
+        <div class="rlbl">Seasons</div><div class="rband" id="rSeason"></div>
+        <div class="rlbl">Semesters</div><div class="rband" id="rSem"></div>
+        <div class="rlbl">Months</div><div class="rmonths" id="rMonths"></div>
+      </div></div>
+      <div class="catgrp" id="hlaCatRow">
+        <div class="cathdr"><span class="cattitle" style="color:var(--hla)">HLA event key</span>
+          <button class="lnk" data-catbulk="hla:1">&#10003; ALL</button>
+          <button class="lnk" data-catbulk="hla:0">&#10005; NONE</button></div>
+        <div class="frow" data-catchips="hla"></div>
+      </div>
+      <div class="catgrp" id="hisdCatRow">
+        <div class="cathdr"><span class="cattitle" style="color:var(--hisd)">HISD event key</span>
+          <button class="lnk" data-catbulk="hisd:1">&#10003; ALL</button>
+          <button class="lnk" data-catbulk="hisd:0">&#10005; NONE</button></div>
+        <div class="frow" data-catchips="hisd"></div>
+      </div>
+      <div class="fnote" id="winNote"></div>
+    </div>
+  </details>
+
+  <div id="filterMsg"></div>
+
+  <details class="panel" open id="focusPanel">
+    <summary>&#128197; Focus month</summary>
+    <div class="panelbody">
+      <div class="pager">
+        <button id="prev" aria-label="Previous month">&#8249;</button>
+        <h2 id="title"></h2>
+        <button id="next" aria-label="Next month">&#8250;</button>
+      </div>
+      <table class="cal" id="grid"></table>
+      <div class="legend" id="legend"></div>
+      <div id="dayInfo">Tap or hover a day for details.</div>
+    </div>
+  </details>
+
+  <details class="panel" open id="monthsPanel">
+    <summary>&#128198; All months in window</summary>
+    <div class="panelbody mgridwrap"><div class="mgrid auto" id="mgrid"></div></div>
+  </details>
+
+  <details class="panel" open id="tablePanel">
+    <summary>&#128203; All dates &mdash; overlaps highlighted</summary>
+    <div class="panelbody">
+      <div class="frow" style="margin-top:0">
+        <div class="seg" id="tblViewSeg">
+          <button data-tv="all" class="on">All</button>
+          <button data-tv="shared">Shared</button>
+          <button data-tv="diff">Differences</button>
+        </div>
+        <span class="fnote" id="tblViewNote" style="margin-top:0"></span>
+      </div>
+      <div class="tblwrap"><table id="masterTbl"></table></div>
+    </div>
+  </details>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Range: Jan 1 2026 – Jul 31 2027 (full Gregorian 2026 + full Hijri 1448) ---------- */
+  const RANGE_START = new Date(2026, 0, 1);
+  const RANGE_END   = new Date(2027, 11, 31);
+
+  const HIJRI_MONTHS = ["Muharram","Safar","Rabi' al-Awwal","Rabi' al-Thani",
+    "Jumada al-Ula","Jumada al-Akhirah","Rajab","Sha'ban",
+    "Ramadan","Shawwal","Dhul-Qi'dah","Dhul-Hijjah"];
+  const GREG_MONTHS = ["January","February","March","April","May","June",
+    "July","August","September","October","November","December"];
+  const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  const hijriFmt = new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",
+    { day:"numeric", month:"numeric", year:"numeric" });
+  function toHijri(date){
+    const p = {};
+    for (const part of hijriFmt.formatToParts(date)) p[part.type] = part.value;
+    return { y: parseInt(p.year, 10), m: parseInt(p.month, 10), d: parseInt(p.day, 10) };
+  }
+  const key = d => d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+  const pd  = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
+
+  /* ---------- Day + month index ---------- */
+  const days = [], byGreg = new Map(), byHijri = new Map();
+  for (let t = new Date(RANGE_START); t <= RANGE_END; t.setDate(t.getDate()+1)){
+    const g = new Date(t), h = toHijri(g), rec = { g, h };
+    days.push(rec);
+    byGreg.set(key(g), rec);
+    byHijri.set(h.y + "-" + h.m + "-" + h.d, rec);
+  }
+  // Month index i: 0 = Jan 2026 … 18 = Jul 2027
+  const N_MONTHS = 24;
+  const miYear = i => 2026 + Math.floor(i / 12);
+  const miM0   = i => i % 12;
+  const miLbl  = i => GREG_MONTHS[miM0(i)].slice(0,3) + " '" + String(miYear(i)).slice(2);
+  const miKey  = i => GREG_MONTHS[miM0(i)].slice(0,3).toUpperCase() + "/" + miYear(i);
+  const miOfDate = d => 12*(d.getFullYear() - 2026) + d.getMonth();
+
+  /* ---------- Holidays (US + Islamic) ---------- */
+  function nthWeekday(y, m0, dow, n){
+    if (n > 0){
+      const first = new Date(y, m0, 1);
+      return new Date(y, m0, 1 + (dow - first.getDay() + 7) % 7 + (n-1)*7);
+    }
+    const lastD = new Date(y, m0+1, 0);
+    return new Date(y, m0, lastD.getDate() - (lastD.getDay() - dow + 7) % 7);
+  }
+  const usDefs = [
+    { name:"New Year's Day",      fn: y => new Date(y,0,1) },
+    { name:"Martin Luther King Jr. Day", fn: y => nthWeekday(y,0,1,3) },
+    { name:"Memorial Day",        fn: y => nthWeekday(y,4,1,-1) },
+    { name:"Juneteenth",          fn: y => new Date(y,5,19) },
+    { name:"Independence Day",    fn: y => new Date(y,6,4) },
+    { name:"Labor Day",           fn: y => nthWeekday(y,8,1,1) },
+    { name:"Thanksgiving",        fn: y => nthWeekday(y,10,4,4) },
+    { name:"Christmas Day",       fn: y => new Date(y,11,25) }
+  ];
+  const islamicDefs = [
+    { name:"Islamic New Year",  hm:1,  hd:1  },
+    { name:"Day of Ashura",     hm:1,  hd:10 },
+    { name:"Mawlid an-Nabi",    hm:3,  hd:12 },
+    { name:"Isra' and Mi'raj",  hm:7,  hd:27 },
+    { name:"First day of Ramadan", hm:9, hd:1 },
+    { name:"Laylat al-Qadr (27th night)", hm:9, hd:27 },
+    { name:"Eid al-Fitr",       hm:10, hd:1  },
+    { name:"Day of Arafah",     hm:12, hd:9  },
+    { name:"Eid al-Adha",       hm:12, hd:10 }
+  ];
+  const holidayByKey = new Map();
+  for (const def of usDefs) for (const y of [2026, 2027]){
+    const rec = byGreg.get(key(def.fn(y)));
+    if (!rec) continue;
+    const k = key(rec.g);
+    holidayByKey.set(k, (holidayByKey.get(k) || []).concat(def.name));
+  }
+  for (const def of islamicDefs)
+    for (const hy of [...new Set(days.map(r => r.h.y))]){
+      const rec = byHijri.get(hy + "-" + def.hm + "-" + def.hd);
+      if (!rec) continue;
+      const k = key(rec.g);
+      holidayByKey.set(k, (holidayByKey.get(k) || []).concat(def.name));
+    }
+
+  /* ---------- School events (from schedule.albaseeraacademy.com POC) ---------- */
+  const HLA_EVENTS = [
+    { s:"2026-07-03", n:"July 4th observed \u2014 closed", cat:"closed" },
+    { s:"2026-07-29", e:"2026-07-31", n:"New Teacher Orientation", cat:"psopen" },
+    { s:"2026-08-03", e:"2026-08-11", n:"Staff In-Service", cat:"psopen" },
+    { s:"2026-08-08", n:"New Parent Orientation", cat:"qtr" },
+    { s:"2026-08-13", n:"First Day \u2014 New Students \u00b7 Q1 starts", cat:"qtr" },
+    { s:"2026-08-14", n:"First Day \u2014 Returning Students", cat:"qtr" },
+    { s:"2026-09-07", n:"Labor Day \u2014 closed", cat:"closed" },
+    { s:"2026-10-09", n:"Staff In-Service \u2014 student holiday", cat:"psopen" },
+    { s:"2026-10-12", n:"Parent-Teacher Conference \u00b7 Early Dismissal", cat:"exams" },
+    { s:"2026-10-13", n:"PSAT/NMSQT (Grades 10-11)", cat:"exams" },
+    { s:"2026-11-23", e:"2026-11-25", n:"Thanksgiving Break \u2014 preschool open", cat:"psopen" },
+    { s:"2026-11-26", e:"2026-11-27", n:"Thanksgiving Break \u2014 all closed", cat:"closed" },
+    { s:"2026-12-11", n:"Staff In-Service / Student Holiday", cat:"psopen" },
+    { s:"2026-12-14", e:"2026-12-18", n:"Cumulative Exams S1 \u00b7 Early Dismissal", cat:"exams" },
+    { s:"2026-12-21", e:"2027-01-01", n:"Winter Break", cat:"closed" },
+    { s:"2027-01-04", n:"Staff In-Service \u2014 student holiday", cat:"psopen" },
+    { s:"2027-02-05", n:"Parent-Teacher Conference \u00b7 Early Dismissal", cat:"exams" },
+    { s:"2027-02-08", n:"Start of Ramadhan *", cat:"moon" },
+    { s:"2027-02-26", n:"Laylatul Qadr \u2014 closed", cat:"closed" },
+    { s:"2027-03-02", n:"Laylatul Qadr \u2014 closed", cat:"closed" },
+    { s:"2027-03-08", e:"2027-03-12", n:"Spring Break", cat:"closed" },
+    { s:"2027-03-10", n:"Eid ul Fitr *", cat:"moon" },
+    { s:"2027-03-23", n:"Holy Ramadhan observance \u2014 closed", cat:"closed" },
+    { s:"2027-04-09", n:"Staff In-Service \u2014 student holiday", cat:"psopen" },
+    { s:"2027-04-12", n:"PSAT 8/9 (TBD)", cat:"exams" },
+    { s:"2027-05-03", e:"2027-05-14", n:"AP Exams", cat:"exams" },
+    { s:"2027-05-14", n:"Awards Ceremony", cat:"qtr" },
+    { s:"2027-05-17", e:"2027-05-21", n:"Cumulative Exams S2 \u00b7 Early Dismissal", cat:"exams" },
+    { s:"2027-05-22", n:"Graduation Ceremony", cat:"qtr" },
+    { s:"2027-05-28", n:"Last Day for Teachers", cat:"qtr" },
+    { s:"2027-05-31", n:"Memorial Day \u2014 closed", cat:"closed" }
+  ];
+  const HISD_EVENTS = [
+    { s:"2026-06-05", n:"Staff PD Day", cat:"pd" },
+    { s:"2026-06-09", n:"5th Quarter Staff PD", cat:"q5pd" },
+    { s:"2026-06-10", e:"2026-06-30", n:"5th Quarter", cat:"q5" },
+    { s:"2026-06-19", n:"Juneteenth", cat:"hol" },
+    { s:"2026-07-01", e:"2026-07-17", n:"5th Quarter", cat:"q5" },
+    { s:"2026-07-02", n:"Recess", cat:"rec" },
+    { s:"2026-07-03", n:"Independence Day observed", cat:"hol" },
+    { s:"2026-07-20", e:"2026-07-29", n:"School Leaders' Induction & Preparation", cat:"pd" },
+    { s:"2026-07-30", e:"2026-08-07", n:"All Staff Induction & Preparation", cat:"pd" },
+    { s:"2026-08-10", n:"First Day for Students", cat:"mile" },
+    { s:"2026-09-07", n:"Labor Day", cat:"hol" },
+    { s:"2026-09-21", n:"Staff PD Day", cat:"pd" },
+    { s:"2026-09-25", n:"Report Card 1", cat:"mile" },
+    { s:"2026-10-09", n:"Staff PD Day", cat:"pd" },
+    { s:"2026-11-06", n:"Staff PD Day \u00b7 Report Card 2", cat:"pd" },
+    { s:"2026-11-23", e:"2026-11-27", n:"Thanksgiving Recess", cat:"rec" },
+    { s:"2026-11-26", n:"Thanksgiving Day", cat:"hol" },
+    { s:"2026-12-21", e:"2026-12-31", n:"Winter Recess", cat:"rec" },
+    { s:"2027-01-01", n:"New Year's Day", cat:"hol" },
+    { s:"2027-01-04", n:"Staff PD Day", cat:"pd" },
+    { s:"2027-01-08", n:"Report Card 3", cat:"mile" },
+    { s:"2027-01-18", n:"MLK Jr. Day", cat:"hol" },
+    { s:"2027-02-15", n:"Staff PD Day", cat:"pd" },
+    { s:"2027-02-26", n:"Report Card 4", cat:"mile" },
+    { s:"2027-03-08", e:"2027-03-12", n:"Spring Recess", cat:"rec" },
+    { s:"2027-03-26", n:"Recess Day", cat:"rec" },
+    { s:"2027-04-16", n:"Staff PD Day", cat:"pd" },
+    { s:"2027-04-23", n:"Report Card 5", cat:"mile" },
+    { s:"2027-05-28", n:"Last Day for Students", cat:"mile" },
+    { s:"2027-05-31", n:"Memorial Day", cat:"hol" },
+    { s:"2027-06-01", n:"Staff PD Day \u00b7 Last Day for Teachers", cat:"pd" },
+    { s:"2027-06-02", n:"Report Card 6", cat:"mile" },
+    { s:"2027-06-07", n:"5th Quarter Staff PD", cat:"q5pd" },
+    { s:"2027-06-08", e:"2027-06-30", n:"5th Quarter", cat:"q5" },
+    { s:"2027-06-18", n:"Juneteenth", cat:"hol" },
+    { s:"2027-07-01", e:"2027-07-15", n:"5th Quarter", cat:"q5" },
+    { s:"2027-07-02", n:"Recess", cat:"rec" },
+    { s:"2027-07-05", n:"Independence Day observed", cat:"hol" },
+    { s:"2027-07-16", n:"5th Quarter Staff PD", cat:"q5pd" }
+  ];
+  function expandToDays(events){
+    const m = new Map();
+    for (const ev of events){
+      const end = ev.e ? pd(ev.e) : pd(ev.s);
+      for (let t = pd(ev.s); t <= end; t.setDate(t.getDate()+1)){
+        const k = key(t);
+        m.set(k, m.has(k) ? m.get(k) + " / " + ev.n : ev.n);
+      }
+    }
+    return m;
+  }
+
+  /* ---------- Event categories (POC color key) ---------- */
+  const CATS = {
+    hla: {
+      psopen: { label:"K-12 Closed \u00b7 Preschool Open / Staff Workday", color:"#E4DFEC" },
+      closed: { label:"K-12 Closed \u00b7 Preschool Closed",              color:"#DAEEF3" },
+      exams:  { label:"Exams / Early Dismissal",                          color:"#F2DCDB" },
+      qtr:    { label:"Quarter / Milestone",                              color:"#8064A2" },
+      moon:   { label:"Islamic observance (* = moon sighting)",           color:"#EBF1DE" }
+    },
+    hisd: {
+      hol:  { label:"Holiday (no classes)",              color:"#38D9B0" },
+      rec:  { label:"Recess (no classes)",               color:"#61F700" },
+      pd:   { label:"Staff PD (no classes)",             color:"#E13F72" },
+      q5:   { label:"5th Quarter",                       color:"#FAD630" },
+      q5pd: { label:"5th Quarter Staff PD (no classes)", color:"#162F32" },
+      mile: { label:"Milestone",                         color:"#2636F0" }
+    }
+  };
+  const catSets = {
+    hla:  new Set(Object.keys(CATS.hla)),
+    hisd: new Set(Object.keys(CATS.hisd))
+  };
+  let hlaDays, hisdDays;
+  function rebuildDayMaps(){
+    hlaDays  = expandToDays(HLA_EVENTS.filter(ev => catSets.hla.has(ev.cat)));
+    hisdDays = expandToDays(HISD_EVENTS.filter(ev => catSets.hisd.has(ev.cat)));
+  }
+  rebuildDayMaps();
+
+  /* ---------- State ---------- */
+  const DEFAULTS = { winStart:0, winEnd:N_MONTHS-1, year:"all", grid:"auto" };
+  const layers = { hijri: true, hla: false, hisd: false };
+  let deltaOn = false;
+  let tblView = "all";   // all | shared | diff
+  const F = {
+    winStart: DEFAULTS.winStart,
+    winEnd:   DEFAULTS.winEnd,
+    months:   new Set(Array.from({length:N_MONTHS}, (_,i)=>i)),
+    year:     DEFAULTS.year,
+    grid:     DEFAULTS.grid
+  };
+  const SEASONS = [
+    ["winter","\u2744\uFE0F Winter",[11,0,1]],
+    ["spring","\uD83C\uDF38 Spring",[2,3,4]],
+    ["summer","\u2600\uFE0F Summer",[5,6,7]],
+    ["fall","\uD83C\uDF42 Fall",[8,9,10]]
+  ];
+  // Season id by month-of-year, for the ribbon's contiguous season runs
+  const SEASON_OF = ["w","w","sp","sp","sp","su","su","su","f","f","f","w"];
+  const SEASON_NAME = { w:"Winter", sp:"Spring", su:"Summer", f:"Fall" };
+  // Semesters as absolute month indexes (0 = Jan 2026). S1/S2 mark the 2026-27 school year.
+  const SEMESTERS = [
+    ["Spring '26", [0,1,2,3,4]],        // Jan–May 2026
+    ["Fall '26",   [7,8,9,10,11]],      // Aug–Dec 2026
+    ["Spring '27", [12,13,14,15,16]],   // Jan–May 2027
+    ["Fall '27",   [19,20,21,22,23]]    // Aug–Dec 2027
+  ];
+  function monthVisible(i){
+    if (i < F.winStart || i > F.winEnd) return false;
+    if (!F.months.has(i)) return false;
+    if (F.year !== "all" && String(miYear(i)) !== F.year) return false;
+    return true;
+  }
+  function dayVisible(d){ return monthVisible(miOfDate(d)); }
+
+  /* ---------- Formatting ---------- */
+  const GM = m => GREG_MONTHS[m].slice(0,3);
+  function fmtGreg(d){
+    return DOW[d.getDay()] + ", " + GREG_MONTHS[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  }
+  function fmtHijri(h){ return h.d + " " + HIJRI_MONTHS[h.m-1] + " " + h.y + " AH"; }
+  function fmtGregSpan(a, b){
+    if (!b || +a === +b) return GM(a.getMonth()) + " " + a.getDate() + ", " + a.getFullYear();
+    if (a.getFullYear() === b.getFullYear()){
+      if (a.getMonth() === b.getMonth())
+        return GM(a.getMonth()) + " " + a.getDate() + "\u2013" + b.getDate() + ", " + a.getFullYear();
+      return GM(a.getMonth()) + " " + a.getDate() + " \u2013 " + GM(b.getMonth()) + " " + b.getDate() + ", " + a.getFullYear();
+    }
+    return GM(a.getMonth()) + " " + a.getDate() + ", " + a.getFullYear() + " \u2013 " +
+           GM(b.getMonth()) + " " + b.getDate() + ", " + b.getFullYear();
+  }
+  function fmtHijriSpan(a, b){
+    const ha = toHijri(a), hb = b ? toHijri(b) : null;
+    if (!hb || (ha.y === hb.y && ha.m === hb.m && ha.d === hb.d)) return fmtHijri(ha);
+    if (ha.y === hb.y){
+      if (ha.m === hb.m) return ha.d + "\u2013" + hb.d + " " + HIJRI_MONTHS[ha.m-1] + " " + ha.y + " AH";
+      return ha.d + " " + HIJRI_MONTHS[ha.m-1] + " \u2013 " + hb.d + " " + HIJRI_MONTHS[hb.m-1] + " " + ha.y + " AH";
+    }
+    return ha.d + " " + HIJRI_MONTHS[ha.m-1] + " " + ha.y + " \u2013 " +
+           hb.d + " " + HIJRI_MONTHS[hb.m-1] + " " + hb.y + " AH";
+  }
+
+  /* ---------- Filter controls ---------- */
+  function renderFilters(){
+    document.getElementById("winLbl").textContent = miKey(F.winStart) + " \u2014 " + miKey(F.winEnd);
+    document.querySelectorAll("#yearSeg button").forEach(b =>
+      b.classList.toggle("on", b.dataset.year === F.year));
+    document.querySelectorAll("#gridSeg button").forEach(b =>
+      b.classList.toggle("on", b.dataset.grid === F.grid));
+
+    const inWin = [];
+    for (let i = F.winStart; i <= F.winEnd; i++) inWin.push(i);
+    const inWindow = i => i >= F.winStart && i <= F.winEnd;
+    const groupToggle = own => {
+      if (!own.length) return;
+      const turnOn = !own.every(i => F.months.has(i));
+      own.forEach(i => turnOn ? F.months.add(i) : F.months.delete(i));
+      renderAll();
+    };
+
+    // Season band: contiguous same-season runs across the full 24 months
+    // (so Dec '26 -> Feb '27 reads as one Winter segment)
+    const sb = document.getElementById("rSeason");
+    let sh = "", i0 = 0;
+    while (i0 < N_MONTHS){
+      let j = i0;
+      while (j+1 < N_MONTHS && SEASON_OF[miM0(j+1)] === SEASON_OF[miM0(i0)]) j++;
+      const sid = SEASON_OF[miM0(i0)], span = j - i0 + 1;
+      const own = [];
+      for (let k = i0; k <= j; k++) if (inWindow(k)) own.push(k);
+      const state = !own.length ? " oow" : (own.every(i => F.months.has(i)) ? "" : " dim");
+      sh += "<div class='seg season-" + sid + state + "' style='grid-column:span " + span +
+        "' data-sa='" + i0 + "' data-sb='" + j + "' tabindex='0' role='button' title='" +
+        (own.map(miLbl).join(", ") || "outside window") + "'>" + SEASON_NAME[sid] + "</div>";
+      i0 = j + 1;
+    }
+    sb.innerHTML = sh;
+    sb.querySelectorAll(".seg").forEach(s => s.onclick = () => {
+      const own = [];
+      for (let k = +s.dataset.sa; k <= +s.dataset.sb; k++) if (inWindow(k)) own.push(k);
+      groupToggle(own);
+    });
+
+    // Semester band, aligned under the months each semester covers
+    const smb = document.getElementById("rSem");
+    let mh = "", pos = 0;
+    SEMESTERS.forEach(([label, mis], si) => {
+      if (mis[0] > pos) mh += "<div style='grid-column:span " + (mis[0]-pos) + "'></div>";
+      const own = mis.filter(inWindow);
+      const state = !own.length ? " oow" : (own.every(i => F.months.has(i)) ? "" : " dim");
+      mh += "<div class='seg sem" + state + "' style='grid-column:span " + mis.length +
+        "' data-si='" + si + "' tabindex='0' role='button' title='" +
+        (own.map(miLbl).join(", ") || "outside window") + "'>\uD83C\uDF93 " + label + "</div>";
+      pos = mis[mis.length-1] + 1;
+    });
+    if (pos < N_MONTHS) mh += "<div style='grid-column:span " + (N_MONTHS-pos) + "'></div>";
+    smb.innerHTML = mh;
+    smb.querySelectorAll(".seg").forEach(s => s.onclick = () =>
+      groupToggle(SEMESTERS[+s.dataset.si][1].filter(inWindow)));
+
+    // Month strip: one cell per occurrence
+    const rm = document.getElementById("rMonths");
+    rm.innerHTML = Array.from({length:N_MONTHS}, (_,i) => {
+      const oow = !inWindow(i);
+      return "<div class='m" + (oow ? " oow" : (F.months.has(i) ? " on" : "")) +
+        "' data-i='" + i + "' tabindex='0' role='button' title='" + miKey(i) +
+        (oow ? " (outside window)" : "") + "'><span>" + GM(miM0(i)) +
+        "</span><span class='yy'>'" + String(miYear(i)).slice(2) + "</span></div>";
+    }).join("");
+    rm.querySelectorAll(".m:not(.oow)").forEach(c => c.onclick = () => {
+      const i = +c.dataset.i;
+      F.months.has(i) ? F.months.delete(i) : F.months.add(i);
+      renderAll();
+    });
+
+    for (const src of ["hla","hisd"]){
+      const grp = document.getElementById(src + "CatRow");
+      grp.classList.toggle("hidden", !layers[src]);
+      const row = grp.querySelector("[data-catchips]");
+      row.innerHTML = "";
+      if (!layers[src]) continue;
+      for (const [id, def] of Object.entries(CATS[src])){
+        const chip = document.createElement("span");
+        chip.className = "chip" + (catSets[src].has(id) ? "" : " off");
+        chip.tabIndex = 0; chip.setAttribute("role","button");
+        chip.innerHTML = "<span class='csw' style='background:" + def.color + "'></span>" + def.label;
+        chip.onclick = () => {
+          catSets[src].has(id) ? catSets[src].delete(id) : catSets[src].add(id);
+          rebuildDayMaps();
+          renderAll();
+        };
+        row.appendChild(chip);
+      }
+    }
+
+    document.getElementById("winNote").textContent =
+      "Window limits: JAN/2026 \u2192 DEC/2027 \u00b7 default shows the full range. " +
+      "Data \u2014 HLA: 2026-07-03 \u2192 2027-05-31 \u00b7 HISD: 2026-06-05 \u2192 2027-07-16.";
+  }
+
+  function filterDeviations(){
+    const msgs = [];
+    if (F.winStart !== DEFAULTS.winStart || F.winEnd !== DEFAULTS.winEnd)
+      msgs.push("window " + miKey(F.winStart) + " \u2014 " + miKey(F.winEnd));
+    const hiddenInWin = [];
+    for (let i = F.winStart; i <= F.winEnd; i++) if (!F.months.has(i)) hiddenInWin.push(miLbl(i));
+    if (hiddenInWin.length)
+      msgs.push(hiddenInWin.length + " month" + (hiddenInWin.length>1?"s":"") +
+        " hidden (" + hiddenInWin.join(", ") + ")");
+    if (F.year !== "all") msgs.push("year limited to " + F.year);
+    if (F.grid !== "auto") msgs.push("grid " + (F.grid === "4x3" ? "4\u00d73" : "3\u00d74"));
+    for (const src of ["hla","hisd"]){
+      if (!layers[src]) continue;
+      const hidden = Object.keys(CATS[src]).filter(id => !catSets[src].has(id));
+      if (hidden.length)
+        msgs.push(src.toUpperCase() + " categories hidden: " +
+          hidden.map(id => CATS[src][id].label).join(", "));
+    }
+    return msgs;
+  }
+  function renderFilterMsg(){
+    const msgs = filterDeviations();
+    document.getElementById("filterMsg").innerHTML =
+      msgs.length ? "Non-default view: " + msgs.join(" \u00b7 ") + " \u2014 \uD83E\uDDF9 Clear filters restores defaults." : "";
+    const btn = document.getElementById("clearFilters");
+    btn.classList.toggle("dirty", msgs.length > 0);
+    btn.classList.toggle("clean", msgs.length === 0);
+    btn.title = msgs.length ? "Filters are active \u2014 click to reset everything" : "No filters applied";
+  }
+
+  /* ---------- Focus month ---------- */
+  const todayKey = key(new Date());
+  let idx = (() => {
+    const now = new Date(), i = miOfDate(now);
+    return (i >= 0 && i < N_MONTHS) ? i : 0;
+  })();
+
+  function cellLayers(k){
+    return {
+      hol:  holidayByKey.has(k),
+      hla:  layers.hla  && hlaDays.has(k),
+      hisd: layers.hisd && hisdDays.has(k)
+    };
+  }
+
+  function renderFocus(){
+    const y = miYear(idx), m0 = miM0(idx);
+    const records = days.filter(r => r.g.getFullYear() === y && r.g.getMonth() === m0);
+    const hs = records[0].h, he = records[records.length-1].h;
+    const span = (hs.m === he.m && hs.y === he.y)
+      ? HIJRI_MONTHS[hs.m-1] + " " + hs.y + " AH"
+      : HIJRI_MONTHS[hs.m-1] + " " + hs.y + " \u2013 " + HIJRI_MONTHS[he.m-1] + " " + he.y + " AH";
+    document.getElementById("title").innerHTML =
+      GREG_MONTHS[m0] + " " + y +
+      "<span class='alt" + (layers.hijri ? "" : " hidden") + "'>" + span + "</span>";
+
+    let html = "<tr>" + DOW.map(d => "<th>" + d + "</th>").join("") + "</tr>";
+    let col = records[0].g.getDay();
+    let row = "<tr>" + "<td class='empty'></td>".repeat(col);
+    for (const rec of records){
+      if (col === 7){ html += row + "</tr>"; row = "<tr>"; col = 0; }
+      const k = key(rec.g), L = cellLayers(k);
+      let dcls = "";
+      if (deltaOn){
+        if (L.hla && L.hisd) dcls = " d-both";
+        else if (L.hla)      dcls = " d-hla";
+        else if (L.hisd)     dcls = " d-hisd";
+        else                 dcls = " d-dim";
+      }
+      const cls = ([k === todayKey ? "today" : "", L.hol ? "hol" : ""].join(" ").trim()) + dcls;
+      let bands = "";
+      if (L.hla)  bands += "<span class='band hla"  + (L.hisd ? "" : " full") + "'></span>";
+      if (L.hisd) bands += "<span class='band hisd" + (L.hla  ? "" : " full") + "'></span>";
+      row += "<td class='" + cls + "' data-k='" + k + "'>" + bands +
+             "<span class='d'>" + rec.g.getDate() + "</span>" +
+             (layers.hijri ? "<span class='hjn'>" + rec.h.d + (rec.h.d === 1 ? "\u00b7" + rec.h.m : "") + "</span>" : "") +
+             "</td>";
+      col++;
+    }
+    row += "<td class='empty'></td>".repeat(7 - col);
+    document.getElementById("grid").innerHTML = html + row + "</tr>";
+    document.getElementById("prev").disabled = idx === 0;
+    document.getElementById("next").disabled = idx === N_MONTHS - 1;
+    renderLegend();
+    wireDayInfo();
+  }
+
+  function renderLegend(){
+    document.getElementById("legend").innerHTML = [
+      "<span><span class='k greg'></span>Gregorian day</span>",
+      "<span><span class='k dot'></span>holiday (US / Islamic)</span>",
+      "<span class='" + (layers.hijri ? "" : "off") + "'><span class='k hj'></span>Hijri day (corner; \u00b7n marks a new Hijri month)</span>",
+      "<span class='" + (layers.hla ? "" : "off") + "'><span class='k hla'></span>HLA event (top band)</span>",
+      "<span class='" + (layers.hisd ? "" : "off") + "'><span class='k hisd'></span>HISD event (bottom band)</span>",
+      "<span class='" + (deltaOn ? "" : "off") + "'>&Delta; ring: <span style='color:var(--hla);font-weight:700'>HLA-only</span> / <span style='color:var(--hisd);font-weight:700'>HISD-only</span> / <span style='font-weight:700'>ink = both</span></span>"
+    ].join("");
+  }
+
+  function dayTitle(k, rec){
+    const bits = [fmtGreg(rec.g)];
+    if (layers.hijri) bits.push(fmtHijri(rec.h));
+    if (holidayByKey.has(k)) bits.push(holidayByKey.get(k).join(", "));
+    if (layers.hla  && hlaDays.has(k))  bits.push("HLA: "  + hlaDays.get(k));
+    if (layers.hisd && hisdDays.has(k)) bits.push("HISD: " + hisdDays.get(k));
+    return bits.join(" \u00b7 ");
+  }
+
+  function wireDayInfo(){
+    const info = document.getElementById("dayInfo");
+    document.querySelectorAll("#grid td[data-k]").forEach(td => {
+      const show = () => {
+        const k = td.dataset.k, rec = byGreg.get(k);
+        if (!rec) return;
+        const bits = ["<b>" + fmtGreg(rec.g) + "</b>"];
+        if (layers.hijri) bits.push("<span class='tag hj'>" + fmtHijri(rec.h) + "</span>");
+        if (holidayByKey.has(k)) bits.push(holidayByKey.get(k).join(", "));
+        if (layers.hla  && hlaDays.has(k))  bits.push("<span class='tag hla'>HLA:</span> "  + hlaDays.get(k));
+        if (layers.hisd && hisdDays.has(k)) bits.push("<span class='tag hisd'>HISD:</span> " + hisdDays.get(k));
+        info.innerHTML = bits.join(" \u00b7 ");
+      };
+      td.addEventListener("mouseenter", show);
+      td.addEventListener("click", show);
+    });
+  }
+
+  /* ---------- Multi-month mini grids ---------- */
+  function renderMonths(){
+    const wrap = document.getElementById("mgrid");
+    wrap.className = "mgrid " + (F.grid === "auto" ? "auto" : "g" + F.grid);
+    let html = "";
+    for (let i = 0; i < N_MONTHS; i++){
+      if (!monthVisible(i)) continue;
+      const y = miYear(i), m0 = miM0(i);
+      const records = days.filter(r => r.g.getFullYear() === y && r.g.getMonth() === m0);
+      const hs = records[0].h, he = records[records.length-1].h;
+      const span = layers.hijri
+        ? ((hs.m === he.m && hs.y === he.y)
+            ? HIJRI_MONTHS[hs.m-1] + " " + hs.y
+            : HIJRI_MONTHS[hs.m-1] + " \u2013 " + HIJRI_MONTHS[he.m-1] + " " + he.y)
+        : "";
+      let cells = DOW.map(d => "<div class='dh'>" + d[0] + "</div>").join("");
+      cells += "<div class='c blank'></div>".repeat(records[0].g.getDay());
+      for (const rec of records){
+        const k = key(rec.g), L = cellLayers(k);
+        const cls = ["c",
+          L.hla && L.hisd ? "both" : L.hla ? "hla" : L.hisd ? "hisd" : "",
+          L.hol ? "hol" : "",
+          k === todayKey ? "today" : ""].filter(Boolean).join(" ");
+        cells += "<div class='" + cls + "' title=\"" +
+          dayTitle(k, rec).replace(/"/g,"&quot;") + "\">" + rec.g.getDate() + "</div>";
+      }
+      html += "<div class='mcard' data-mi='" + i + "'><h4>" + GREG_MONTHS[m0] + " " + y + "</h4>" +
+        "<span class='hjspan'>" + span + "</span><div class='mcal" + (deltaOn ? " delta-on" : "") + "'>" + cells + "</div></div>";
+    }
+    wrap.innerHTML = html ||
+      "<p style='color:var(--ink-soft);font-size:13px'>No months selected \u2014 adjust the filters above.</p>";
+    // Click a mini card -> jump the focus month
+    wrap.querySelectorAll(".mcard").forEach(card => {
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        idx = +card.dataset.mi;
+        document.getElementById("focusPanel").open = true;
+        renderFocus();
+        const fp = document.getElementById("focusPanel");
+        if (fp.scrollIntoView) fp.scrollIntoView({ behavior:"smooth", block:"start" });
+      });
+    });
+  }
+
+  /* ---------- Master table ---------- */
+  function renderMaster(){
+    const tuple = k => ({
+      hol:  holidayByKey.has(k) ? holidayByKey.get(k).join(" / ") : "",
+      hla:  layers.hla  ? (hlaDays.get(k)  || "") : "",
+      hisd: layers.hisd ? (hisdDays.get(k) || "") : ""
+    });
+    const nonEmpty = t => !!(t.hol || t.hla || t.hisd);
+    const same = (a,b) => a.hol === b.hol && a.hla === b.hla && a.hisd === b.hisd;
+
+    const runs = [];
+    let run = null;
+    for (const rec of days){
+      if (!dayVisible(rec.g)){ run = null; continue; }
+      const t = tuple(key(rec.g));
+      if (!nonEmpty(t)){ run = null; continue; }
+      if (run && same(run.t, t) && (rec.g - run.b) === 86400000){
+        run.b = rec.g;
+      } else {
+        run = { a: rec.g, b: rec.g, t };
+        runs.push(run);
+      }
+    }
+
+    const viewOk = t => {
+      const a = !!t.hla, b = !!t.hisd;
+      if (tblView === "shared") return a && b;
+      if (tblView === "diff")   return a !== b;
+      return true;
+    };
+    const shown = runs.filter(r => viewOk(r.t));
+
+    const cols = ["<th>Date</th>"];
+    if (layers.hijri) cols.push("<th>Hijri</th>");
+    cols.push("<th>Holiday</th>");
+    if (layers.hla)  cols.push("<th>HLA</th>");
+    if (layers.hisd) cols.push("<th>HISD</th>");
+
+    let html = "<tr>" + cols.join("") + "</tr>";
+    for (const r of shown){
+      const b = +r.a === +r.b ? null : r.b;
+      const filled = [r.t.hol, r.t.hla, r.t.hisd].filter(Boolean).length;
+      const cells = ["<td class='dt'>" + fmtGregSpan(r.a, b) + "</td>"];
+      if (layers.hijri) cells.push("<td class='hj'>" + fmtHijriSpan(r.a, b) + "</td>");
+      cells.push("<td class='ev" + (r.t.hol ? " hol" : "") + "'>" + r.t.hol + "</td>");
+      if (layers.hla)  cells.push("<td class='ev" + (r.t.hla  ? " hla"  : "") + "'>" + r.t.hla  + "</td>");
+      if (layers.hisd) cells.push("<td class='ev" + (r.t.hisd ? " hisd" : "") + "'>" + r.t.hisd + "</td>");
+      html += "<tr" + (filled >= 2 ? " class='ovl'" : "") + ">" + cells.join("") + "</tr>";
+    }
+    if (!shown.length)
+      html += "<tr><td colspan='" + cols.length +
+        "' style='color:var(--ink-soft)'>" +
+        (tblView === "all"
+          ? "No dates for the current layer + filter selection."
+          : "No " + (tblView === "shared" ? "shared" : "single-source") +
+            " HLA/HISD dates \u2014 make sure both school layers are on.") +
+        "</td></tr>";
+    document.getElementById("masterTbl").innerHTML = html;
+    document.getElementById("tblViewNote").textContent =
+      tblView === "all" ? shown.length + " rows"
+      : tblView === "shared" ? shown.length + " rows on both HLA and HISD"
+      : shown.length + " rows on exactly one of HLA / HISD";
+  }
+
+  /* ---------- Wiring ---------- */
+  function renderAll(){
+    renderFilters();
+    renderFilterMsg();
+    renderFocus();
+    renderMonths();
+    renderMaster();
+  }
+
+  document.getElementById("prev").onclick = () => { idx--; renderFocus(); };
+  document.getElementById("next").onclick = () => { idx++; renderFocus(); };
+  function syncLayerBtns(){
+    document.querySelectorAll(".layers button").forEach(b => {
+      const l = b.dataset.layer;
+      const on = l === "delta" ? deltaOn : layers[l];
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on);
+    });
+  }
+  document.querySelectorAll(".layers button").forEach(btn => {
+    btn.onclick = () => {
+      const l = btn.dataset.layer;
+      if (l === "delta"){
+        deltaOn = !deltaOn;
+        if (deltaOn){ layers.hla = true; layers.hisd = true; }  // Δ needs both sides
+      } else {
+        layers[l] = !layers[l];
+        if ((l === "hla" || l === "hisd") && !layers[l]) deltaOn = false;  // Δ is meaningless one-sided
+      }
+      syncLayerBtns();
+      renderAll();
+    };
+  });
+  document.querySelectorAll("#tblViewSeg button").forEach(btn =>
+    btn.onclick = () => {
+      tblView = btn.dataset.tv;
+      document.querySelectorAll("#tblViewSeg button").forEach(b =>
+        b.classList.toggle("on", b.dataset.tv === tblView));
+      renderMaster();
+    });
+  document.querySelectorAll("[data-win]").forEach(btn => {
+    btn.onclick = () => {
+      const w = btn.dataset.win;
+      if (w === "s-" && F.winStart > 0){ F.winStart--; F.months.add(F.winStart); }
+      if (w === "s+" && F.winStart < F.winEnd){ F.months.delete(F.winStart); F.winStart++; }
+      if (w === "e-" && F.winEnd > F.winStart){ F.months.delete(F.winEnd); F.winEnd--; }
+      if (w === "e+" && F.winEnd < N_MONTHS-1){ F.winEnd++; F.months.add(F.winEnd); }
+      renderAll();
+    };
+  });
+  document.querySelectorAll("#yearSeg button").forEach(btn =>
+    btn.onclick = () => { F.year = btn.dataset.year; renderAll(); });
+  document.querySelectorAll("#gridSeg button").forEach(btn =>
+    btn.onclick = () => { F.grid = btn.dataset.grid; renderAll(); });
+  document.querySelectorAll("[data-mobulk]").forEach(btn =>
+    btn.onclick = () => {
+      if (btn.dataset.mobulk === "1")
+        for (let i = F.winStart; i <= F.winEnd; i++) F.months.add(i);
+      else
+        for (let i = F.winStart; i <= F.winEnd; i++) F.months.delete(i);
+      renderAll();
+    });
+  document.querySelectorAll("[data-catbulk]").forEach(btn =>
+    btn.onclick = e => {
+      e.preventDefault(); e.stopPropagation();
+      const [src, on] = btn.dataset.catbulk.split(":");
+      catSets[src] = on === "1" ? new Set(Object.keys(CATS[src])) : new Set();
+      rebuildDayMaps();
+      renderAll();
+    });
+  document.getElementById("clearFilters").onclick = e => {
+    e.preventDefault(); e.stopPropagation();
+    F.winStart = DEFAULTS.winStart; F.winEnd = DEFAULTS.winEnd;
+    F.year = DEFAULTS.year; F.grid = DEFAULTS.grid;
+    F.months = new Set(Array.from({length:N_MONTHS}, (_,i)=>i));
+    catSets.hla  = new Set(Object.keys(CATS.hla));
+    catSets.hisd = new Set(Object.keys(CATS.hisd));
+    rebuildDayMaps();
+    renderAll();
+  };
+  const PANELS = ["filtersPanel","focusPanel","monthsPanel","tablePanel"];
+  document.getElementById("expandAll").onclick = e => {
+    e.preventDefault(); e.stopPropagation();
+    PANELS.forEach(id => document.getElementById(id).open = true);
+  };
+  document.getElementById("collapseAll").onclick = e => {
+    e.preventDefault(); e.stopPropagation();
+    PANELS.forEach(id => { if (id !== "filtersPanel") document.getElementById(id).open = false; });
+  };
+
+  /* ---------- Today line ---------- */
+  const nowRec = byGreg.get(todayKey);
+  document.getElementById("todayLine").innerHTML = nowRec
+    ? "Today is <b>" + fmtGreg(nowRec.g) + "</b><span class='sep'>\u25c6</span><b>" + fmtHijri(nowRec.h) + "</b>"
+    : "Range: Jan 1, 2026 \u2013 Dec 31, 2027 (Gregorian 2026 \u00b7 Hijri 1448 AH)";
+
+  renderAll();
+})();
+</script>
+</body>
+</html>

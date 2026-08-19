@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arabic Vocabulary — Levels 1 &amp; 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b2a5e;
+    --primary-dark: #111c42;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.25rem, 4vw, 1.8rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 640px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(17,28,66,.25);
+  }
+  .controls select {
+    font-family: inherit; font-size: .92rem; padding: .5rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink);
+  }
+
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .month-theme { text-align: center; margin-bottom: 1.3rem; }
+  .month-theme h2 { font-weight: 500; font-size: 1.2rem; color: var(--primary); letter-spacing: .03em; }
+  .month-theme p { font-size: .88rem; color: #6b6a60; margin-top: .15rem; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: .8rem;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: 1rem 1rem .85rem; text-align: center;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06);
+    transition: border-color .12s, box-shadow .12s;
+  }
+  .card:hover { border-color: var(--gold); box-shadow: 0 4px 12px rgba(34,36,58,.1); }
+  .card .arabic { font-family: 'Amiri', serif; font-size: 2.1rem; color: var(--primary); line-height: 1.35; }
+  .card .translit { font-size: .98rem; font-weight: 600; margin-top: .1rem; }
+  .card .meaning { font-size: .86rem; color: #55544a; margin-top: .1rem; }
+
+  /* ---------- word bank summary strip ---------- */
+  .word-bank {
+    max-width: 860px; margin: 1.4rem auto 0; padding: 0 1.2rem;
+  }
+  .word-bank-inner {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    padding: .8rem 1rem; box-shadow: 0 2px 8px rgba(34,36,58,.06);
+  }
+  .word-bank-title {
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); text-align: center; margin-bottom: .55rem; font-weight: 600;
+  }
+  .bank-chips {
+    display: flex; flex-wrap: wrap; gap: .45rem; justify-content: center;
+    direction: rtl;   /* Arabic terms read right to left across the strip */
+  }
+  .bank-chip {
+    font-family: 'Amiri', serif;
+    font-size: 1.35rem; line-height: 1.4;
+    color: var(--primary);
+    background: var(--vellum);
+    border: 1px solid var(--vellum-dim);
+    border-radius: 999px;
+    padding: .18rem .85rem .1rem;
+    cursor: pointer;
+    transition: box-shadow .15s, border-color .15s, background .15s;
+  }
+  .bank-chip:hover { border-color: var(--gold); }
+  .bank-chip:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+  .bank-chip.glow {
+    border-color: var(--gold);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(201,161,59,.35), 0 0 14px 2px rgba(201,161,59,.55);
+  }
+  .bank-chips.en {
+    direction: ltr;                 /* English reads left to right */
+    margin-top: .55rem;
+    padding-top: .55rem;
+    border-top: 1px dashed var(--vellum-dim);
+  }
+  .bank-chips.en .bank-chip {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: .88rem;
+    line-height: 1.4;
+    padding: .3rem .8rem;
+    color: var(--ink);
+  }
+  .card.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,161,59,.3), 0 4px 14px rgba(201,161,59,.35);
+  }
+  @media (prefers-reduced-motion: reduce) { .bank-chip { transition: none; } }
+  footer { text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem; }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Arabic</div>
+  <h1>Arabic Vocabulary — Levels 1 &amp; 2</h1>
+  <div class="site-nav">
+    <a href="../letters/">Alphabet</a>
+    <a href="../numbers/">Numbers</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="levelSelect" aria-label="Choose level">
+    <option value="level1">Level 1</option>
+    <option value="level2">Level 2</option>
+  </select>
+  <select id="monthSelect" aria-label="Choose curriculum month"></select>
+</div>
+
+<div class="word-bank">
+  <div class="word-bank-inner">
+    <div class="word-bank-title">Word Bank</div>
+    <div class="bank-chips" id="bankChips"></div>
+    <div class="bank-chips en" id="bankChipsEn"></div>
+  </div>
+</div>
+
+<main>
+  <div class="month-theme" id="monthTheme"></div>
+  <div class="cards" id="cards"></div>
+</main>
+
+<footer>Curriculum months 1–12 per level — follow them in order at your own pace, any time of year.</footer>
+
+<script>
+let LEVELS = null;
+let level = 'level1', month = 1;
+
+
+/* ---------- word bank <-> cards selection sync ---------- */
+let selectedIdx = null;
+
+function renderBank() {
+  const words = LEVELS[level][String(month)].words;
+  const chip = (label, i) =>
+    '<button class="bank-chip' + (i === selectedIdx ? ' glow' : '') +
+    '" data-i="' + i + '" aria-pressed="' + (i === selectedIdx) + '">' + label + '</button>';
+  document.getElementById('bankChips').innerHTML =
+    words.map(([ar], i) => chip(ar, i)).join('');
+  document.getElementById('bankChipsEn').innerHTML =
+    words.map(([, , en], i) => chip(en, i)).join('');
+  document.querySelectorAll('.bank-chip').forEach(c => {
+    c.addEventListener('click', () => selectWord(parseInt(c.dataset.i)));
+  });
+}
+
+function syncSelection() {
+  document.querySelectorAll('.bank-chip').forEach(chip => {
+    const i = parseInt(chip.dataset.i);        /* two strips share indices */
+    chip.classList.toggle('glow', i === selectedIdx);
+    chip.setAttribute('aria-pressed', i === selectedIdx);
+  });
+  document.querySelectorAll('#cards .card').forEach((card, i) => {
+    card.classList.toggle('selected', i === selectedIdx);
+  });
+}
+
+function selectWord(i) {
+  selectedIdx = (selectedIdx === i) ? null : i;   /* tap again to clear */
+  syncSelection();
+  if (selectedIdx !== null) {
+    const card = document.querySelectorAll('#cards .card')[selectedIdx];
+    card && card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function wireCards() {
+  document.querySelectorAll('#cards .card').forEach((card, i) => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => selectWord(i));
+  });
+}
+function render() {
+  const d = LEVELS[level][String(month)];
+  if (!d) return;
+  const levelLabel = level === 'level1' ? 'Level 1' : 'Level 2';
+  document.getElementById('monthTheme').innerHTML =
+    '<h2>' + levelLabel + ' · Month ' + month + ' — ' + d.topic + '</h2>' +
+    '<p>' + d.words.length + ' words</p>';
+  document.getElementById('cards').innerHTML = d.words.map(([ar, tr, en]) =>
+    '<div class="card">' +
+      '<div class="arabic">' + ar + '</div>' +
+      '<div class="translit">' + tr + '</div>' +
+      '<div class="meaning">' + en + '</div>' +
+    '</div>').join('');
+  selectedIdx = null;
+  renderBank();
+  wireCards();
+  history.replaceState(null, '', '?level=' + (level === 'level1' ? 1 : 2) + '&month=' + month);
+}
+
+function fillMonths() {
+  const sel = document.getElementById('monthSelect');
+  sel.innerHTML = Object.keys(LEVELS[level]).map(k =>
+    '<option value="' + k + '">Month ' + k + ' — ' + LEVELS[level][k].topic + '</option>').join('');
+  sel.value = month;
+}
+
+(async function init() {
+  LEVELS = await (await fetch('levels.json')).json();
+  const params = new URLSearchParams(location.search);
+  const pl = params.get('level'), pm = parseInt(params.get('month'));
+  if (pl === '2') level = 'level2';
+  if (pm >= 1 && pm <= 12) month = pm;
+
+  const levelSel = document.getElementById('levelSelect');
+  levelSel.value = level;
+  levelSel.addEventListener('change', () => {
+    level = levelSel.value;
+    month = 1;           /* fresh level starts at its first month */
+    fillMonths();
+    render();
+  });
+  document.getElementById('monthSelect').addEventListener('change', (e) => {
+    month = parseInt(e.target.value);
+    render();
+  });
+
+  fillMonths();
+  render();
+})();
+</script>
+</body>
+</html>
