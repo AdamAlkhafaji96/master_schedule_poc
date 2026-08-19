@@ -1,0 +1,45 @@
+{
+  "note": "PLACEHOLDER legacy archive — old slideshow presentations and other legacy digital artifacts. Item fields: id, kind (slideshow | newsletter | photos | flyer | other), title, year, event, file (files/... once recovered into the repo) OR url (if it lives in Drive/YouTube/etc.), status (recovered | link-only | missing), notes. 'missing' items are known to exist but not yet located — they hold their spot and turn the page into a recovery checklist. Grouped by year, newest first. TOC CSV export is generated from this file.",
+  "items": [
+    {
+      "id": "grad-2025",
+      "kind": "slideshow",
+      "title": "Graduation Ceremony Slideshow",
+      "year": 2025,
+      "event": "Graduation 2025",
+      "url": "https://drive.google.com/",
+      "status": "link-only",
+      "notes": "Placeholder link — lives in the school Drive; replace with the real share URL."
+    },
+    {
+      "id": "science-fair-2024",
+      "kind": "slideshow",
+      "title": "Science Fair Presentation",
+      "year": 2024,
+      "event": "Science Fair 2024",
+      "url": "",
+      "status": "missing",
+      "notes": "Known to exist — check the old office laptop and the 2024 USB drives."
+    },
+    {
+      "id": "open-house-2023",
+      "kind": "slideshow",
+      "title": "Open House Welcome Deck",
+      "year": 2023,
+      "event": "Open House 2023",
+      "url": "",
+      "status": "missing",
+      "notes": "Referenced in 2023 emails; not yet located."
+    },
+    {
+      "id": "placeholder-item",
+      "kind": "other",
+      "title": "— item pending —",
+      "year": 2020,
+      "event": "",
+      "url": "",
+      "status": "missing",
+      "notes": "Placeholder — copy any entry as a template (newsletters, photos, flyers all fit; set kind accordingly)."
+    }
+  ]
+}

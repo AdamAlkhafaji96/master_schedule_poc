@@ -1,0 +1,60 @@
+{
+  "note": "PLACEHOLDER registration programs — replace titles, details, deadlines, and action URLs with real values. The portal presents and routes; it never collects form data. status: open | closed | waitlist | placeholder. A program past its deadline shows as closed automatically even if status still says open. url points at the real intake (Google Form, SIS, or mailto for the office).",
+  "office_note": "Questions about enrollment? Contact the school office — see the Connect panel on the home page.",
+  "programs": [
+    {
+      "id": "new-2627",
+      "title": "New Student Enrollment — 2026–27",
+      "audience": "New families, grades KG–12",
+      "desc": "Enrollment for students joining Al Baseera for the first time.",
+      "deadline": "2026-09-04",
+      "fees": "Registration fee — amount pending",
+      "documents": [
+        "Birth certificate",
+        "Immunization record",
+        "Previous report card (grades 1+)"
+      ],
+      "url": "https://forms.google.com/",
+      "action": "Start enrollment",
+      "status": "open"
+    },
+    {
+      "id": "returning-2627",
+      "title": "Returning Family Re-enrollment",
+      "audience": "Current families",
+      "desc": "Confirm your student's seat for the new school year.",
+      "deadline": "2026-08-28",
+      "fees": "Re-enrollment fee — amount pending",
+      "documents": [
+        "Updated contact information"
+      ],
+      "url": "https://forms.google.com/",
+      "action": "Re-enroll",
+      "status": "open"
+    },
+    {
+      "id": "weekend-quran",
+      "title": "Weekend Quran Program",
+      "audience": "Ages 6+",
+      "desc": "Saturday hifz and tajweed circles. Placeholder details.",
+      "deadline": null,
+      "fees": "Monthly fee — amount pending",
+      "documents": [],
+      "url": "mailto:office@albaseeraacademy.com?subject=Weekend%20Quran%20Program",
+      "action": "Email the office",
+      "status": "waitlist"
+    },
+    {
+      "id": "placeholder-evt",
+      "title": "— program pending —",
+      "audience": "",
+      "desc": "Placeholder — copy any entry above as a template (event RSVPs, summer program, etc.).",
+      "deadline": null,
+      "fees": "",
+      "documents": [],
+      "url": "",
+      "action": "",
+      "status": "placeholder"
+    }
+  ]
+}

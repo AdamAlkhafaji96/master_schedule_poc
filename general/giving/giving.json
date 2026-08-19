@@ -1,0 +1,51 @@
+{
+  "note": "PLACEHOLDER giving & payment channels — replace descriptions, goals, and URLs with the real processors (Zelle, PayPal, Mohid, LaunchGood...). goal/raised are manual figures: update them here when you update the campaign, or remove them to hide the progress bar. The portal never processes payments — every button routes out to an official channel. status: active | closed | placeholder.",
+  "verify_note": "These are the only official Al Baseera payment channels. The school will never request payment through personal accounts or direct messages.",
+  "tax_note": "Al Baseera Academy is a registered non-profit — EIN and 501(c)(3) statement pending; a receipt is provided for every donation.",
+  "campaigns": [
+    {
+      "id": "general-fund",
+      "kind": "Donate",
+      "title": "General Fund",
+      "desc": "Supports classrooms, teachers, and daily operations across the school.",
+      "goal": 50000,
+      "raised": 12500,
+      "url": "https://www.paypal.com/",
+      "action": "Donate",
+      "status": "active"
+    },
+    {
+      "id": "zakat",
+      "kind": "Zakat & Sadaqah",
+      "title": "Zakat & Sadaqah",
+      "desc": "Designated giving — zakat funds are tracked separately and disbursed per its rulings. Placeholder description.",
+      "goal": null,
+      "raised": null,
+      "url": "https://www.paypal.com/",
+      "action": "Give",
+      "status": "active"
+    },
+    {
+      "id": "tuition",
+      "kind": "Make a Payment",
+      "title": "Tuition & Fees",
+      "desc": "Pay tuition, registration, or program fees through the school's payment channel.",
+      "goal": null,
+      "raised": null,
+      "url": "https://zellepay.com/",
+      "action": "Make a payment",
+      "status": "active"
+    },
+    {
+      "id": "fundraiser-event",
+      "kind": "Fundraiser",
+      "title": "Annual Fundraising Dinner",
+      "desc": "Placeholder campaign — details, date, and goal to come.",
+      "goal": 25000,
+      "raised": 0,
+      "url": "",
+      "action": "",
+      "status": "placeholder"
+    }
+  ]
+}

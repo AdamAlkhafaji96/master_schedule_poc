@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archives — Legacy Presentations &amp; Materials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a35;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 640px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(38,42,53,.3);
+  }
+  .controls select {
+    font-family: inherit; font-size: .9rem; padding: .5rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink);
+  }
+  .controls .btn {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); cursor: pointer;
+  }
+  .controls .btn:hover { background: rgba(201,161,59,.15); }
+
+  main { max-width: 780px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .recovery {
+    text-align: center; font-size: .86rem; color: #6b6a60; margin-bottom: 1.2rem; line-height: 1.55;
+  }
+  .recovery b { color: var(--primary); }
+
+  .year-title { margin: 1.4rem 0 .6rem; color: var(--primary); font-weight: 600; font-size: 1.05rem;
+    border-bottom: 1px dashed var(--vellum-dim); padding-bottom: .25rem; }
+  .year-title:first-of-type { margin-top: 0; }
+
+  .item {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .6rem;
+    padding: .7rem .9rem; display: flex; gap: .7rem; align-items: baseline; flex-wrap: wrap;
+  }
+  .item.missing { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; }
+  .item .kind {
+    font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
+  }
+  .item .t { font-weight: 600; font-size: .95rem; }
+  .item .ev { font-size: .78rem; color: #8a887c; font-style: italic; }
+  .item .st { margin-left: auto; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+  .item .st.recovered { color: #1b4d38; }
+  .item .st.link-only { color: #6b5a9e; }
+  .item .st.missing { color: #a08a45; }
+  .item .go a {
+    font-size: .82rem; font-weight: 600; color: var(--primary);
+    text-decoration: none; border-bottom: 1px solid var(--gold-soft); white-space: nowrap;
+  }
+  .item .notes { flex-basis: 100%; font-size: .78rem; color: #6b6a60; line-height: 1.4; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General · Legacy</div>
+  <h1>Archives<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">الأرشيف</span></h1>
+  <div class="site-nav">
+    <a href="../teacher-notes/">Teacher Notes</a>
+    <a href="../materials/">Materials</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="kindSel" aria-label="Filter by kind">
+    <option value="all">All kinds</option>
+    <option value="slideshow">Slideshows</option>
+    <option value="newsletter">Newsletters</option>
+    <option value="photos">Photos</option>
+    <option value="flyer">Flyers</option>
+    <option value="other">Other</option>
+  </select>
+  <select id="stSel" aria-label="Filter by status">
+    <option value="all">All statuses</option>
+    <option value="recovered">Recovered</option>
+    <option value="link-only">Link only</option>
+    <option value="missing">Missing</option>
+  </select>
+  <button class="btn" id="exportCsv">⬇ TOC CSV</button>
+</div>
+
+<main>
+  <p class="recovery" id="recoveryLine"></p>
+  <div id="host">Loading…</div>
+  <p class="note">
+    <b>Missing</b> items are known to exist but not yet located — this page doubles
+    as the recovery checklist. When a file is found, drop it into <code>files/</code>
+    (or link its Drive/YouTube home) and update its entry in <code>archives.json</code>.
+  </p>
+</main>
+
+<footer>Old slideshows, newsletters, and other legacy artifacts of the school — preserved as they are recovered.</footer>
+
+<script>
+let D = null;
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function render() {
+  const kind = document.getElementById('kindSel').value;
+  const st = document.getElementById('stSel').value;
+  const items = D.items.filter(it =>
+    (kind === 'all' || it.kind === kind) && (st === 'all' || it.status === st));
+
+  const rec = D.items.filter(i => i.status === 'recovered').length;
+  const miss = D.items.filter(i => i.status === 'missing').length;
+  document.getElementById('recoveryLine').innerHTML =
+    '<b>' + rec + '</b> recovered · <b>' +
+    D.items.filter(i => i.status === 'link-only').length + '</b> linked · <b>' +
+    miss + '</b> still missing';
+
+  const years = [...new Set(items.map(i => i.year))].sort((a, b) => b - a);
+  document.getElementById('host').innerHTML = years.map(y =>
+    '<div class="year-title">' + y + '</div>' +
+    items.filter(i => i.year === y).map(it => {
+      const href = it.file || it.url;
+      return '<div class="item' + (it.status === 'missing' ? ' missing' : '') + '">' +
+        '<span class="kind">' + esc(it.kind) + '</span>' +
+        '<span class="t">' + esc(it.title) + '</span>' +
+        (it.event ? '<span class="ev">' + esc(it.event) + '</span>' : '') +
+        '<span class="st ' + esc(it.status) + '">' + esc(it.status) + '</span>' +
+        (href && it.status !== 'missing'
+          ? '<span class="go"><a href="' + esc(href) + '"' +
+              (String(href).startsWith('http') ? ' target="_blank" rel="noopener"' : ' download') +
+              '>' + (it.file ? '⬇ download' : 'open ↗') + '</a></span>'
+          : '') +
+        (it.notes ? '<span class="notes">' + esc(it.notes) + '</span>' : '') +
+      '</div>';
+    }).join('')
+  ).join('') || '<p class="recovery">Nothing matches these filters.</p>';
+}
+
+function csvEscape(v) {
+  v = String(v == null ? '' : v);
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+document.getElementById('exportCsv').addEventListener('click', () => {
+  const rows = [['year', 'kind', 'title', 'event', 'status', 'file', 'url', 'notes']];
+  D.items.slice().sort((a, b) => b.year - a.year).forEach(it =>
+    rows.push([it.year, it.kind, it.title, it.event || '', it.status, it.file || '', it.url || '', it.notes || '']));
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\n') + '\n';
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = 'archives-toc.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+document.getElementById('kindSel').addEventListener('change', render);
+document.getElementById('stSel').addEventListener('change', render);
+
+(async function init() {
+  D = await (await fetch('archives.json')).json();
+  render();
+})();
+</script>
+</body>
+</html>

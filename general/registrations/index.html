@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registrations — Al Baseera Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a35;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --open:       #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  main { max-width: 780px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+  .intro { text-align: center; font-size: .92rem; color: #6b6a60; margin-bottom: 1.4rem; line-height: 1.55; }
+
+  .prog {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: 1rem; padding: 1rem 1.1rem 1.05rem;
+  }
+  .prog.closed { opacity: .68; }
+  .prog.placeholder { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; }
+  .prog-head { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
+  .prog-head h2 { font-weight: 600; font-size: 1.05rem; color: var(--primary); }
+  .badge {
+    font-size: .64rem; letter-spacing: .14em; text-transform: uppercase;
+    border-radius: 999px; padding: .16rem .6rem; border: 1px solid;
+  }
+  .badge.open     { color: var(--open); border-color: #a9c9b4; background: #f2f7f2; }
+  .badge.soon     { color: #a05a00; border-color: #eac48a; background: #fdf5e6; }
+  .badge.closed   { color: #8a2f2f; border-color: #dcb2b2; background: #faf0f0; }
+  .badge.waitlist { color: #6b5a9e; border-color: #c9bfe3; background: #f5f2fb; }
+  .badge.placeholder { color: #a08a45; border-color: var(--gold-soft); background: #fbf8f0; }
+  .prog .aud { margin-left: auto; font-size: .78rem; color: #8a887c; font-style: italic; }
+  .prog .desc { font-size: .9rem; color: #55544a; margin-top: .45rem; line-height: 1.5; }
+  .prog .facts { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: .55rem; font-size: .82rem; color: #6b6a60; }
+  .prog .facts b { color: var(--ink); font-weight: 600; }
+  .prog .docs { margin-top: .5rem; font-size: .82rem; color: #6b6a60; }
+  .prog .docs span {
+    display: inline-block; border: 1px solid var(--vellum-dim); border-radius: 999px;
+    padding: .12rem .55rem; margin: .15rem .25rem .15rem 0; background: var(--vellum);
+  }
+  .prog .act { margin-top: .8rem; }
+  .prog .act a {
+    display: inline-block; font-size: .88rem; font-weight: 600;
+    color: #fff; background: var(--open); border-radius: 8px;
+    padding: .5rem 1rem; text-decoration: none;
+  }
+  .prog .act a:hover { background: #14563c; }
+  .prog.closed .act, .prog.placeholder .act { display: none; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General</div>
+  <h1>Registrations<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">التسجيل</span></h1>
+  <div class="site-nav">
+    <a href="../giving/">Giving</a>
+    <a href="../schedule/">Schedule</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<main>
+  <p class="intro" id="intro"></p>
+  <div id="host">Loading…</div>
+  <p class="note">
+    Registration forms and payments are handled through the school's official
+    systems — the buttons above take you there. This page only presents the
+    programs; nothing is collected here.
+  </p>
+</main>
+
+<footer>Deadlines close automatically at the end of their day.</footer>
+
+<script>
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function fmtDate(d) {
+  const [y, m, dd] = d.split('-').map(Number);
+  return new Date(y, m - 1, dd).toLocaleDateString('en-US',
+    { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' });
+}
+/* effective state: deadline in the past forces closed even if status says open */
+function stateOf(p, today) {
+  if (p.status === 'placeholder') return 'placeholder';
+  if (p.status === 'closed') return 'closed';
+  if (p.deadline && p.deadline < today) return 'closed';
+  if (p.status === 'waitlist') return 'waitlist';
+  if (p.deadline) {
+    const days = Math.round((new Date(p.deadline) - new Date(today)) / 86400000);
+    if (days <= 14) return 'soon';
+  }
+  return 'open';
+}
+const BADGE = { open: 'Open', soon: 'Closes soon', closed: 'Closed',
+                waitlist: 'Waitlist', placeholder: 'placeholder' };
+
+(async function init() {
+  const D = await (await fetch('registrations.json')).json();
+  document.getElementById('intro').textContent = D.office_note || '';
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById('host').innerHTML = D.programs.map(p => {
+    const st = stateOf(p, today);
+    const cls = st === 'closed' ? ' closed' : st === 'placeholder' ? ' placeholder' : '';
+    return '<div class="prog' + cls + '">' +
+      '<div class="prog-head">' +
+        '<h2>' + esc(p.title) + '</h2>' +
+        '<span class="badge ' + st + '">' + BADGE[st] + '</span>' +
+        (p.audience ? '<span class="aud">' + esc(p.audience) + '</span>' : '') +
+      '</div>' +
+      (p.desc ? '<p class="desc">' + esc(p.desc) + '</p>' : '') +
+      '<div class="facts">' +
+        (p.deadline ? '<span>Deadline: <b>' + fmtDate(p.deadline) + '</b></span>' : '') +
+        (p.fees ? '<span>Fees: <b>' + esc(p.fees) + '</b></span>' : '') +
+      '</div>' +
+      ((p.documents || []).length
+        ? '<div class="docs">Bring / upload: ' +
+            p.documents.map(x => '<span>' + esc(x) + '</span>').join('') + '</div>'
+        : '') +
+      (p.url && p.action
+        ? '<div class="act"><a href="' + esc(p.url) + '"' +
+            (p.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' +
+            esc(p.action) + ' &rarr;</a></div>'
+        : '') +
+    '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

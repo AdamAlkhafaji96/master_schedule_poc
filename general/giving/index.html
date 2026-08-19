@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giving — Fundraise, Donate &amp; Make a Payment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a35;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .verify {
+    max-width: 720px; margin: -1.2rem auto 0; position: relative; z-index: 2;
+    background: var(--primary-dark); color: var(--gold-soft);
+    border: 1px solid rgba(201,161,59,.45); border-radius: 14px;
+    padding: .75rem 1.1rem; font-size: .84rem; text-align: center; line-height: 1.5;
+    box-shadow: 0 10px 30px rgba(38,42,53,.3);
+  }
+
+  main { max-width: 780px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+
+  .camp {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); padding: 1rem 1.1rem 1.05rem;
+    display: flex; flex-direction: column;
+  }
+  .camp.placeholder { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; }
+  .camp .kind {
+    font-size: .64rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .15rem;
+  }
+  .camp h2 { font-weight: 600; font-size: 1.08rem; color: var(--primary); }
+  .camp .desc { font-size: .88rem; color: #55544a; margin-top: .4rem; line-height: 1.5; flex: 1; }
+  .goal-wrap { margin-top: .7rem; }
+  .goal-label { display: flex; justify-content: space-between; font-size: .78rem; color: #6b6a60; margin-bottom: .25rem; }
+  .goal-bar { height: 12px; border-radius: 6px; background: var(--vellum-dim); border: 1px solid #ddd3bd; overflow: hidden; }
+  .goal-bar .fill { height: 100%; background: var(--green); }
+  .camp .act { margin-top: .85rem; }
+  .camp .act a {
+    display: inline-block; font-size: .9rem; font-weight: 600;
+    color: var(--primary-dark); background: var(--gold); border-radius: 8px;
+    padding: .5rem 1.1rem; text-decoration: none;
+  }
+  .camp .act a:hover { background: #b8912f; }
+  .camp.placeholder .act { display: none; }
+  .ph-note { font-size: .74rem; color: #a08a45; margin-top: .6rem; font-style: italic; }
+
+  .tax {
+    margin-top: 1.3rem; text-align: center; font-size: .82rem; color: #6b6a60;
+    border-top: 1px dashed var(--vellum-dim); padding-top: 1rem; line-height: 1.55;
+  }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General · Support the School</div>
+  <h1>Giving<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">الصدقة والدعم</span></h1>
+  <div class="site-nav">
+    <a href="../registrations/">Registrations</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="verify" id="verifyNote"></div>
+
+<main>
+  <div class="grid" id="host">Loading…</div>
+  <p class="tax" id="taxNote"></p>
+</main>
+
+<footer>All payments are processed by the official channels linked above — nothing is collected on this page.</footer>
+
+<script>
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+const money = n => '$' + Number(n).toLocaleString();
+
+(async function init() {
+  const D = await (await fetch('giving.json')).json();
+  document.getElementById('verifyNote').textContent = D.verify_note || '';
+  document.getElementById('taxNote').textContent = D.tax_note || '';
+  document.getElementById('host').innerHTML = D.campaigns
+    .filter(c => c.status !== 'closed')
+    .map(c => {
+      const ph = c.status === 'placeholder';
+      const pct = (c.goal && c.raised != null)
+        ? Math.min(100, Math.round(100 * c.raised / c.goal)) : null;
+      return '<div class="camp' + (ph ? ' placeholder' : '') + '">' +
+        '<div class="kind">' + esc(c.kind) + '</div>' +
+        '<h2>' + esc(c.title) + '</h2>' +
+        '<p class="desc">' + esc(c.desc) + '</p>' +
+        (pct != null
+          ? '<div class="goal-wrap">' +
+              '<div class="goal-label"><span>' + money(c.raised) + ' raised</span>' +
+              '<span>goal ' + money(c.goal) + '</span></div>' +
+              '<div class="goal-bar"><div class="fill" style="width:' + pct + '%"></div></div>' +
+            '</div>'
+          : '') +
+        (c.url && c.action
+          ? '<div class="act"><a href="' + esc(c.url) + '"' +
+              (c.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' +
+              esc(c.action) + ' &rarr;</a></div>'
+          : '') +
+        (ph ? '<div class="ph-note">Placeholder campaign — details to come.</div>' : '') +
+      '</div>';
+    }).join('');
+})();
+</script>
+</body>
+</html>

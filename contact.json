@@ -4,30 +4,76 @@
     {
       "title": "Social Media",
       "links": [
-        { "id": "instagram", "label": "Instagram", "url": "https://www.instagram.com/" },
-        { "id": "facebook", "label": "Facebook", "url": "https://www.facebook.com/" },
-        { "id": "reddit", "label": "Reddit", "url": "https://www.reddit.com/" }
+        {
+          "id": "instagram",
+          "label": "Instagram",
+          "url": "https://www.instagram.com/"
+        },
+        {
+          "id": "facebook",
+          "label": "Facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "id": "reddit",
+          "label": "Reddit",
+          "url": "https://www.reddit.com/"
+        }
       ]
     },
     {
       "title": "Live Classroom",
       "links": [
-        { "id": "zoom", "label": "Zoom", "url": "https://zoom.us/" },
-        { "id": "classroom", "label": "G Classroom", "url": "https://classroom.google.com/" }
+        {
+          "id": "zoom",
+          "label": "Zoom",
+          "url": "https://zoom.us/"
+        },
+        {
+          "id": "classroom",
+          "label": "G Classroom",
+          "url": "https://classroom.google.com/"
+        }
       ]
     },
     {
       "title": "Phone",
       "links": [
-        { "id": "whatsapp", "label": "WhatsApp", "url": "https://www.whatsapp.com/" },
-        { "id": "telegram", "label": "Telegram", "url": "https://telegram.org/" },
-        { "id": "phone", "label": "Call", "url": "tel:+10000000000" }
+        {
+          "id": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://www.whatsapp.com/"
+        },
+        {
+          "id": "telegram",
+          "label": "Telegram",
+          "url": "https://telegram.org/"
+        },
+        {
+          "id": "phone",
+          "label": "Call",
+          "url": "tel:+10000000000"
+        }
       ]
     },
     {
       "title": "Email",
       "links": [
-        { "id": "email", "label": "Email", "url": "mailto:office@albaseeraacademy.com" }
+        {
+          "id": "email",
+          "label": "Email",
+          "url": "mailto:office@albaseeraacademy.com"
+        }
+      ]
+    },
+    {
+      "title": "Support",
+      "links": [
+        {
+          "id": "donate",
+          "label": "Donate",
+          "url": "general/giving/"
+        }
       ]
     }
   ]
