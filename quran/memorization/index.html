@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surah Memorization Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4d1b30;
+    --primary-dark: #33101f;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --done:       #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 1.8rem 1.5rem 2.2rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.25rem, 4vw, 1.8rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 760px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(51,16,31,.25);
+  }
+  .controls input[type=search] {
+    font-family: inherit; font-size: .92rem; padding: .5rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink); min-width: 220px;
+  }
+  .controls .btn {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); cursor: pointer;
+  }
+  .controls .btn:hover { background: rgba(201,161,59,.15); }
+
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .progress-wrap { margin-bottom: 1.2rem; text-align: center; }
+  .progress-label { font-size: .9rem; color: #6b6a60; margin-bottom: .4rem; }
+  .progress-bar {
+    height: 12px; border-radius: 6px; background: var(--vellum-dim);
+    overflow: hidden; border: 1px solid #ddd3bd;
+  }
+  .progress-bar .fill { height: 100%; background: var(--done); width: 0; transition: width .3s; }
+
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  th, td { padding: .55rem .7rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: middle; }
+  th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; }
+  td.num { color: var(--gold); font-weight: 600; width: 2.6rem; }
+  td .ar { font-family: 'Amiri', serif; font-size: 1.15rem; }
+  td .en { font-size: .88rem; color: #6b6a60; }
+  tr.done td { background: #f2f7f2; }
+  tr.done td .en::after { content: " ✓"; color: var(--done); }
+  select.grade, input.date {
+    font-family: inherit; font-size: .85rem; padding: .3rem .4rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); background: var(--vellum);
+    color: var(--ink);
+  }
+  select.grade:focus, input.date:focus { border-color: var(--gold); outline: none; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.5; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+  @media (max-width: 560px) {
+    th:nth-child(2), td:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Quran</div>
+  <h1>Surah Memorization Checklist</h1>
+  <div class="site-nav">
+    <a href="../text/">Full Text</a>
+    <a href="../recordings/">Recordings</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Find surah — number or name" aria-label="Search surahs">
+  <button class="btn" id="exportBtn">Export</button>
+  <button class="btn" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept="application/json" style="display:none">
+</div>
+
+<main>
+  <div class="progress-wrap">
+    <div class="progress-label" id="progressLabel">Loading…</div>
+    <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Surah</th><th>Recitation grade</th><th>Completed</th></tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="note">
+    In-class recitation is graded like a speech — once a surah is recited and graded,
+    record the grade and the completed date here. A surah counts as completed when it
+    has a completed date.<br>
+    Progress is saved on this device. Use Export / Import to move it between devices
+    or hand a copy to the teacher.
+  </p>
+</main>
+
+<footer>Surah list: Tanzil project index stored locally in <code>data/</code>.</footer>
+
+<script>
+const KEY = 'absr-quran-memorization-v1';
+const GRADES = ['', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'Pass', 'Redo'];
+
+let INDEX = [];
+let saved = {};          /* { "36": { g: "A", d: "2026-08-18" }, ... } */
+
+function load() {
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; }
+  catch (e) { saved = {}; }
+}
+function persist() {
+  localStorage.setItem(KEY, JSON.stringify(saved));
+}
+
+function updateProgress() {
+  const done = INDEX.filter(s => saved[s.number] && saved[s.number].d).length;
+  document.getElementById('progressLabel').textContent =
+    done + ' of ' + INDEX.length + ' surahs completed';
+  document.getElementById('progressFill').style.width =
+    (INDEX.length ? (100 * done / INDEX.length) : 0) + '%';
+}
+
+function rowMatches(s, q) {
+  if (!q) return true;
+  q = q.trim().toLowerCase();
+  if (!q) return true;
+  if (String(s.number) === q) return true;
+  return s.englishName.toLowerCase().replace(/[^a-z]/g, '')
+          .includes(q.replace(/[^a-z0-9]/g, ''));
+}
+
+function render() {
+  const q = document.getElementById('q').value;
+  const tb = document.getElementById('rows');
+  tb.innerHTML = INDEX.filter(s => rowMatches(s, q)).map(s => {
+    const rec = saved[s.number] || {};
+    return '<tr data-n="' + s.number + '"' + (rec.d ? ' class="done"' : '') + '>' +
+      '<td class="num">' + s.number + '</td>' +
+      '<td><span class="ar">' + s.name + '</span><br><span class="en">' +
+        s.englishName + ' · ' + s.ayahCount + ' ayahs</span></td>' +
+      '<td><select class="grade" aria-label="Grade for surah ' + s.number + '">' +
+        GRADES.map(g => '<option value="' + g + '"' +
+          ((rec.g || '') === g ? ' selected' : '') + '>' +
+          (g === '' ? '—' : g) + '</option>').join('') +
+      '</select></td>' +
+      '<td><input class="date" type="date" value="' + (rec.d || '') +
+        '" aria-label="Completed date for surah ' + s.number + '"></td>' +
+    '</tr>';
+  }).join('');
+
+  tb.querySelectorAll('tr').forEach(tr => {
+    const n = tr.dataset.n;
+    tr.querySelector('.grade').addEventListener('change', e => {
+      saved[n] = saved[n] || {};
+      saved[n].g = e.target.value;
+      /* a grade implies the recitation happened — default the date if empty */
+      if (e.target.value && !saved[n].d) {
+        saved[n].d = new Date().toISOString().slice(0, 10);
+        tr.querySelector('.date').value = saved[n].d;
+      }
+      if (!saved[n].g && !saved[n].d) delete saved[n];
+      persist(); updateProgress();
+      tr.classList.toggle('done', !!(saved[n] && saved[n].d));
+    });
+    tr.querySelector('.date').addEventListener('change', e => {
+      saved[n] = saved[n] || {};
+      saved[n].d = e.target.value;
+      if (!saved[n].g && !saved[n].d) delete saved[n];
+      persist(); updateProgress();
+      tr.classList.toggle('done', !!(saved[n] && saved[n].d));
+    });
+  });
+}
+
+document.getElementById('q').addEventListener('input', render);
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify({ kind: 'memorization', data: saved }, null, 2)],
+                       { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'memorization-progress.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById('importBtn').addEventListener('click', () =>
+  document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change', async e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    saved = d.data || d;              /* accept raw map too */
+    persist(); render(); updateProgress();
+  } catch (err) { alert('Could not read that file — expected the exported JSON.'); }
+  e.target.value = '';
+});
+
+(async function init() {
+  load();
+  INDEX = await (await fetch('../data/index.json')).json();
+  render();
+  updateProgress();
+})();
+</script>
+</body>
+</html>

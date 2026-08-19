@@ -1,0 +1,87 @@
+{
+  "note": "SOURCE OF TRUTH for the '80% Qur'anic Words' concentration-themed vocabulary. Every electronic page keeps a reference to its raw paper scan (scan/thumb, or null if the page hasn't been photographed yet — that renders as a paper placeholder). Entry shape: {en, tag, ar, status}. status: 'ok' = transcribed and checked; 'placeholder' = spot held for a term not yet transcribed or not yet legible. Edit this file directly, or use Edit mode in the UI (inline edits, add rows, toggle placeholder) and Export data.json back for commit. CSV/exports are generated from this file, never the other way around.",
+  "book": {
+    "title": "80% of Qur'anic Words",
+    "subtitle": "Concentration-themed word lists — paper source & electronic modifiable version",
+    "abbreviations": [
+      ["mg", "masculine gender"],
+      ["fg", "feminine gender"],
+      ["br. pl", "broken plural"],
+      ["sg", "singular"],
+      ["dl", "dual"],
+      ["pl", "plural"],
+      ["sb", "somebody"],
+      ["st", "something"],
+      ["ss", "somebody or something"]
+    ],
+    "abbreviations_scan": "scans/front-abbreviations.jpeg",
+    "abbreviations_thumb": "thumbs/front-abbreviations.jpeg"
+  },
+  "pages": [
+    {
+      "id": "p001",
+      "label": "Page 1",
+      "scan": "scans/page-001.jpeg",
+      "thumb": "thumbs/page-001.jpeg",
+      "meta": "Words (from first 6 pages): 32,263 · Percent (first 6 pages): 41.5",
+      "themes": [
+        {
+          "title": "This, that…!",
+          "entries": [
+            { "en": "this", "tag": "mg", "ar": "هَٰذَا", "status": "ok" },
+            { "en": "that", "tag": "mg", "ar": "ذَٰلِكَ", "status": "ok" },
+            { "en": "this", "tag": "fg", "ar": "هَٰذِه", "status": "ok" },
+            { "en": "that", "tag": "fg", "ar": "تِلْكَ", "status": "ok" },
+            { "en": "these", "tag": "mg/fg", "ar": "هَٰؤُلَاء", "status": "ok" },
+            { "en": "those", "tag": "mg/fg", "ar": "أُولَٰئِكَ", "status": "ok" },
+            { "en": "he who", "tag": "mg", "ar": "الَّذِي", "status": "ok" },
+            { "en": "she who", "tag": "fg", "ar": "الَّتِي", "status": "ok" },
+            { "en": "those who", "tag": "mg", "ar": "الَّذِينَ", "status": "ok" },
+            { "en": "these", "tag": "for br. pl", "ar": "هَٰذِه", "status": "ok" },
+            { "en": "those", "tag": "for br. pl", "ar": "تِلْكَ", "status": "ok" },
+            { "en": "those who", "tag": "for br. pl", "ar": "الَّتِي", "status": "ok" }
+          ]
+        },
+        {
+          "title": "No, No!!!",
+          "entries": [
+            { "en": "(There is) no god", "tag": "", "ar": "لَا إِلَٰهَ", "status": "ok" },
+            { "en": "except Allah", "tag": "", "ar": "إِلَّا الله", "status": "ok" },
+            { "en": "never, certainly not", "tag": "", "ar": "كَلَّا", "status": "ok" },
+            { "en": "not", "tag": "for future", "ar": "لَنْ", "status": "ok" },
+            { "en": "not", "tag": "for past", "ar": "لَمْ", "status": "ok" },
+            { "en": "not", "tag": "", "ar": "مَا", "status": "ok" },
+            { "en": "not", "tag": "fg", "ar": "لَيْسَ (لَيْسَت)", "status": "ok" },
+            { "en": "yes, indeed", "tag": "", "ar": "بَلَى", "status": "ok" },
+            { "en": "not, other than", "tag": "", "ar": "غَيْر", "status": "ok" },
+            { "en": "besides; less than", "tag": "", "ar": "دُونَ", "status": "ok" },
+            { "en": "except; unless; if not", "tag": "", "ar": "إِلَّا", "status": "ok" },
+            { "en": "yes", "tag": "", "ar": "نَعَمْ", "status": "ok" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p002",
+      "label": "Page 2",
+      "scan": null,
+      "thumb": null,
+      "meta": "Scan not yet photographed — themes below are placeholders holding the page's spot.",
+      "themes": [
+        {
+          "title": "Theme title — to be transcribed",
+          "entries": [
+            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" },
+            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" }
+          ]
+        },
+        {
+          "title": "Theme title — to be transcribed",
+          "entries": [
+            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" }
+          ]
+        }
+      ]
+    }
+  ]
+}

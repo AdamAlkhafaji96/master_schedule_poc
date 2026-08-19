@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prayer Times — Salah Timetable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b4d38;
+    --primary-dark: #0f3324;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 860px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(15,51,36,.25);
+  }
+  .controls select, .controls input {
+    font-family: inherit; font-size: .88rem; padding: .45rem .6rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink);
+  }
+  .controls input.geo { width: 108px; }
+  .controls .btn {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); cursor: pointer;
+  }
+  .controls .btn:hover { background: rgba(201,161,59,.15); }
+  #customWrap { display: none; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+  #customWrap.show { display: flex; }
+
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .today-card {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
+    padding: 1.2rem 1.2rem 1rem; margin-bottom: 1.6rem;
+    box-shadow: 0 2px 12px rgba(34,36,58,.07); text-align: center;
+  }
+  .today-card h2 { font-weight: 500; font-size: 1.1rem; color: var(--primary); }
+  .today-card .where { font-size: .82rem; color: #6b6a60; margin-bottom: .8rem; }
+  .times { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: .6rem; }
+  .times .t {
+    border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .6rem .3rem .5rem;
+    background: #fbf8f0;
+  }
+  .times .t .name { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); font-weight: 600; }
+  .times .t .ar { font-family: 'Amiri', serif; font-size: 1rem; color: var(--gold); }
+  .times .t .val { font-size: 1.15rem; font-weight: 600; margin-top: .1rem; }
+
+  .month-head { display: flex; align-items: center; justify-content: center; gap: .8rem; margin: 1.4rem 0 .8rem; flex-wrap: wrap; }
+  .month-head h2 { font-weight: 500; font-size: 1.15rem; color: var(--primary); }
+  .month-head button {
+    font-family: inherit; font-size: 1rem; width: 34px; height: 34px;
+    border-radius: 50%; border: 1px solid var(--gold); background: #fff; cursor: pointer;
+  }
+  .dl-row { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  .dl-row .btn {
+    font-family: inherit; font-size: .82rem; padding: .45rem .85rem;
+    border-radius: 8px; border: 1px solid var(--gold); background: #fff; color: var(--ink); cursor: pointer;
+  }
+  .dl-row .btn:hover { border-color: var(--primary); }
+
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  th, td { padding: .4rem .55rem; border-bottom: 1px solid var(--vellum-dim); text-align: center; font-size: .85rem; }
+  th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+  td:first-child { text-align: left; white-space: nowrap; }
+  tr.today td { background: #f2f7f2; font-weight: 600; }
+  tr.friday td:first-child { color: var(--primary); font-weight: 600; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+
+  @media print {
+    header, .controls, .dl-row, .month-head button, .note, footer, .today-card, .site-nav { display: none !important; }
+    body { background: #fff; }
+    .print-title { display: block !important; text-align: center; margin: 0 0 .6rem; font-size: 1.05rem; }
+    main { margin: 0; max-width: none; }
+    th { background: #eee !important; color: #000; }
+  }
+  .print-title { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies</div>
+  <h1>Prayer Times<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">مواقيت الصلاة</span></h1>
+  <div class="site-nav">
+    <a href="../prayer-tracker/">Daily Tracker</a>
+    <a href="../../general/calendar/">Calendar</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="city" aria-label="Location">
+    <option value="houston" selected>Houston, TX</option>
+    <option value="katy">Katy, TX</option>
+    <option value="custom">Custom…</option>
+  </select>
+  <button class="btn" id="geoBtn" title="Use device location">📍 My location</button>
+  <span id="customWrap">
+    <input class="geo" id="lat" type="number" step="0.0001" placeholder="Latitude" aria-label="Latitude">
+    <input class="geo" id="lon" type="number" step="0.0001" placeholder="Longitude" aria-label="Longitude">
+    <input id="tz" type="text" placeholder="Time zone (e.g. America/Chicago)" size="22" aria-label="Time zone">
+  </span>
+  <select id="method" aria-label="Calculation method">
+    <option value="jafari" selected>Ja'fari (16° / M+4° / 14°)</option>
+    <option value="isna">ISNA (15° / 15°)</option>
+    <option value="mwl">Muslim World League (18° / 17°)</option>
+    <option value="uq">Umm al-Qura (18.5° / M+90m)</option>
+    <option value="karachi">Karachi (18° / 18°)</option>
+  </select>
+  <select id="asr" aria-label="Asr method">
+    <option value="1" selected>Asr: Standard</option>
+    <option value="2">Asr: Hanafi</option>
+  </select>
+</div>
+
+<main>
+  <div class="today-card">
+    <h2 id="todayTitle">Today</h2>
+    <div class="where" id="whereLabel"></div>
+    <div class="times" id="todayTimes"></div>
+  </div>
+
+  <div class="month-head">
+    <button id="prevM" aria-label="Previous month">‹</button>
+    <h2 id="monthTitle"></h2>
+    <button id="nextM" aria-label="Next month">›</button>
+  </div>
+
+  <div class="dl-row">
+    <button class="btn" id="dlMonth">⬇ Month CSV</button>
+    <button class="btn" id="dlYear">⬇ Full year CSV</button>
+    <button class="btn" id="printBtn">🖨 Print month</button>
+  </div>
+
+  <h2 class="print-title" id="printTitle"></h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>Date</th><th>Fajr</th><th>Sunrise</th><th>Dhuhr</th><th>Asr</th>
+        <th>Sunset</th><th>Maghrib</th><th>Isha</th>
+      </tr></thead>
+      <tbody id="monthRows"></tbody>
+    </table>
+  </div>
+
+  <p class="note">
+    Times are calculated astronomically for the chosen location and method and can
+    differ by a minute or two from your masjid's published timetable — the local
+    masjid's announcement always takes precedence, especially for Maghrib.
+  </p>
+</main>
+
+<footer>Calculation: standard solar-position formulas (as used by PrayTimes-style calculators), computed entirely in your browser.</footer>
+
+<script>
+/* ================= solar calculator ================= */
+const d2r = d => d * Math.PI / 180, r2d = r => r * 180 / Math.PI;
+const fix = (a, b) => ((a % b) + b) % b;
+
+function julian(y, m, d) {
+  if (m <= 2) { y -= 1; m += 12; }
+  const A = Math.floor(y / 100), B = 2 - A + Math.floor(A / 4);
+  return Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + B - 1524.5;
+}
+function sunPos(jd) {
+  const D = jd - 2451545.0;
+  const g = fix(357.529 + 0.98560028 * D, 360);
+  const q = fix(280.459 + 0.98564736 * D, 360);
+  const L = fix(q + 1.915 * Math.sin(d2r(g)) + 0.020 * Math.sin(d2r(2 * g)), 360);
+  const e = 23.439 - 0.00000036 * D;
+  const RA = r2d(Math.atan2(Math.cos(d2r(e)) * Math.sin(d2r(L)), Math.cos(d2r(L)))) / 15;
+  return {
+    decl: r2d(Math.asin(Math.sin(d2r(e)) * Math.sin(d2r(L)))),
+    eqt: q / 15 - fix(RA, 24)
+  };
+}
+/* IANA-zone UTC offset (hours) for a given date — DST-correct */
+function tzOffset(zone, y, m, d) {
+  const utc = Date.UTC(y, m - 1, d, 12);
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: zone, hour12: false,
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'
+  }).formatToParts(new Date(utc));
+  const p = Object.fromEntries(parts.map(x => [x.type, x.value]));
+  const local = Date.UTC(+p.year, p.month - 1, +p.day, p.hour === '24' ? 0 : +p.hour, +p.minute);
+  return (local - utc) / 3600000;
+}
+
+const METHODS = {
+  jafari:  { fajr: 16,   isha: 14,   maghribAngle: 4,  ishaAfterMaghribMin: null },
+  isna:    { fajr: 15,   isha: 15,   maghribAngle: 0,  ishaAfterMaghribMin: null },
+  mwl:     { fajr: 18,   isha: 17,   maghribAngle: 0,  ishaAfterMaghribMin: null },
+  uq:      { fajr: 18.5, isha: null, maghribAngle: 0,  ishaAfterMaghribMin: 90 },
+  karachi: { fajr: 18,   isha: 18,   maghribAngle: 0,  ishaAfterMaghribMin: null }
+};
+
+/* time (local hours) at which the sun reaches `angle` below the horizon,
+   before (dir=-1) or after (dir=+1) midday */
+function sunAngleTime(angle, decl, lat, dhuhr, dir) {
+  const cosH = (-Math.sin(d2r(angle)) - Math.sin(d2r(decl)) * Math.sin(d2r(lat))) /
+               (Math.cos(d2r(decl)) * Math.cos(d2r(lat)));
+  if (cosH < -1 || cosH > 1) return null;          /* does not occur (high latitudes) */
+  return dhuhr + dir * r2d(Math.acos(cosH)) / 15;
+}
+function asrTime(factor, decl, lat, dhuhr) {
+  const angle = -r2d(Math.atan(1 / (factor + Math.tan(d2r(Math.abs(lat - decl))))));
+  return sunAngleTime(angle, decl, lat, dhuhr, 1);
+}
+
+function computeDay(y, m, d, lat, lon, zone, methodKey, asrFactor) {
+  const tz = tzOffset(zone, y, m, d);
+  const method = METHODS[methodKey];
+  /* refine once: sun position near local noon, then near each event */
+  const jdBase = julian(y, m, d) - lon / 360;      /* local solar frame */
+  let sun = sunPos(jdBase);
+  const dhuhr = fix(12 + tz - lon / 15 - sun.eqt, 24);
+  sun = sunPos(jdBase + (dhuhr - tz) / 24);
+  const D = fix(12 + tz - lon / 15 - sun.eqt, 24);
+
+  const t = {};
+  t.fajr    = sunAngleTime(method.fajr, sun.decl, lat, D, -1);
+  t.sunrise = sunAngleTime(0.833, sun.decl, lat, D, -1);
+  t.dhuhr   = D;
+  t.asr     = asrTime(asrFactor, sun.decl, lat, D);
+  t.sunset  = sunAngleTime(0.833, sun.decl, lat, D, 1);
+  t.maghrib = method.maghribAngle
+            ? sunAngleTime(method.maghribAngle + 0.833, sun.decl, lat, D, 1)
+            : t.sunset;
+  t.isha    = method.ishaAfterMaghribMin != null
+            ? (t.maghrib != null ? t.maghrib + method.ishaAfterMaghribMin / 60 : null)
+            : sunAngleTime(method.isha, sun.decl, lat, D, 1);
+  return t;
+}
+
+function fmt(h) {
+  if (h == null || isNaN(h)) return '—';
+  h = fix(h, 24);
+  let hh = Math.floor(h), mm = Math.round((h - hh) * 60);
+  if (mm === 60) { mm = 0; hh = (hh + 1) % 24; }
+  const ap = hh >= 12 ? 'PM' : 'AM';
+  const h12 = hh % 12 === 0 ? 12 : hh % 12;
+  return h12 + ':' + String(mm).padStart(2, '0') + ' ' + ap;
+}
+
+/* ================= page state ================= */
+const CITIES = {
+  houston: { label: 'Houston, TX', lat: 29.7604, lon: -95.3698, tz: 'America/Chicago' },
+  katy:    { label: 'Katy, TX',    lat: 29.7858, lon: -95.8245, tz: 'America/Chicago' }
+};
+const SKEY = 'absr-prayer-settings-v1';
+const now = new Date();
+let view = { y: now.getFullYear(), m: now.getMonth() + 1 };
+let S = { city: 'houston', lat: CITIES.houston.lat, lon: CITIES.houston.lon,
+          tz: CITIES.houston.tz, method: 'jafari', asr: 1 };
+try { Object.assign(S, JSON.parse(localStorage.getItem(SKEY)) || {}); } catch (e) {}
+
+function save() { localStorage.setItem(SKEY, JSON.stringify(S)); }
+function place() {
+  return S.city === 'custom'
+    ? { label: 'Custom (' + S.lat.toFixed(3) + ', ' + S.lon.toFixed(3) + ')', lat: S.lat, lon: S.lon, tz: S.tz }
+    : CITIES[S.city];
+}
+
+const NAMES = [
+  ['fajr', 'Fajr', 'الفجر'], ['sunrise', 'Sunrise', 'الشروق'], ['dhuhr', 'Dhuhr', 'الظهر'],
+  ['asr', 'Asr', 'العصر'], ['sunset', 'Sunset', 'الغروب'], ['maghrib', 'Maghrib', 'المغرب'],
+  ['isha', 'Isha', 'العشاء']
+];
+const MONTHS = ['January','February','March','April','May','June','July','August',
+                'September','October','November','December'];
+const daysIn = (y, m) => new Date(y, m, 0).getDate();
+
+function renderToday() {
+  const p = place();
+  const d = new Date();
+  const t = computeDay(d.getFullYear(), d.getMonth() + 1, d.getDate(),
+                       p.lat, p.lon, p.tz, S.method, S.asr);
+  document.getElementById('todayTitle').textContent =
+    'Today — ' + d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  document.getElementById('whereLabel').textContent =
+    p.label + ' · ' + document.getElementById('method').selectedOptions[0].textContent;
+  document.getElementById('todayTimes').innerHTML = NAMES.map(([k, en, ar]) =>
+    '<div class="t"><div class="name">' + en + '</div><div class="ar">' + ar + '</div>' +
+    '<div class="val">' + fmt(t[k]) + '</div></div>').join('');
+}
+
+function monthData(y, m) {
+  const p = place();
+  const rows = [];
+  for (let d = 1; d <= daysIn(y, m); d++) {
+    rows.push({ y, m, d, t: computeDay(y, m, d, p.lat, p.lon, p.tz, S.method, S.asr) });
+  }
+  return rows;
+}
+
+function renderMonth() {
+  const { y, m } = view;
+  const title = MONTHS[m - 1] + ' ' + y;
+  document.getElementById('monthTitle').textContent = title;
+  document.getElementById('printTitle').textContent =
+    'Prayer Times — ' + place().label + ' — ' + title;
+  const today = new Date();
+  document.getElementById('monthRows').innerHTML = monthData(y, m).map(r => {
+    const dt = new Date(y, m - 1, r.d);
+    const isToday = y === today.getFullYear() && m === today.getMonth() + 1 && r.d === today.getDate();
+    const cls = (isToday ? 'today ' : '') + (dt.getDay() === 5 ? 'friday' : '');
+    return '<tr' + (cls.trim() ? ' class="' + cls.trim() + '"' : '') + '>' +
+      '<td>' + r.d + ' ' + dt.toLocaleDateString('en-US', { weekday: 'short' }) + '</td>' +
+      ['fajr','sunrise','dhuhr','asr','sunset','maghrib','isha']
+        .map(k => '<td>' + fmt(r.t[k]) + '</td>').join('') +
+      '</tr>';
+  }).join('');
+}
+
+function csvFor(rowsByMonth, label) {
+  const head = 'Date,Fajr,Sunrise,Dhuhr,Asr,Sunset,Maghrib,Isha\n';
+  const body = rowsByMonth.map(r =>
+    r.y + '-' + String(r.m).padStart(2, '0') + '-' + String(r.d).padStart(2, '0') + ',' +
+    ['fajr','sunrise','dhuhr','asr','sunset','maghrib','isha'].map(k => fmt(r.t[k])).join(',')
+  ).join('\n');
+  const meta = '# ' + label + ' — ' + place().label + ' — method: ' +
+    document.getElementById('method').selectedOptions[0].textContent +
+    ' — Asr: ' + (S.asr === 2 ? 'Hanafi' : 'Standard') + '\n';
+  return meta + head + body + '\n';
+}
+function download(name, text) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type: 'text/csv' }));
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ================= wiring ================= */
+function syncControls() {
+  document.getElementById('city').value = S.city;
+  document.getElementById('customWrap').classList.toggle('show', S.city === 'custom');
+  document.getElementById('lat').value = S.lat;
+  document.getElementById('lon').value = S.lon;
+  document.getElementById('tz').value = S.tz;
+  document.getElementById('method').value = S.method;
+  document.getElementById('asr').value = String(S.asr);
+}
+function rerender() { renderToday(); renderMonth(); }
+
+document.getElementById('city').addEventListener('change', e => {
+  S.city = e.target.value;
+  if (S.city !== 'custom') { S.lat = CITIES[S.city].lat; S.lon = CITIES[S.city].lon; S.tz = CITIES[S.city].tz; }
+  save(); syncControls(); rerender();
+});
+['lat','lon','tz'].forEach(id =>
+  document.getElementById(id).addEventListener('change', e => {
+    if (id === 'tz') S.tz = e.target.value.trim() || 'America/Chicago';
+    else S[id] = parseFloat(e.target.value) || 0;
+    S.city = 'custom'; save(); syncControls(); rerender();
+  }));
+document.getElementById('geoBtn').addEventListener('click', () => {
+  if (!navigator.geolocation) return alert('Location is not available in this browser.');
+  navigator.geolocation.getCurrentPosition(pos => {
+    S.city = 'custom';
+    S.lat = +pos.coords.latitude.toFixed(4);
+    S.lon = +pos.coords.longitude.toFixed(4);
+    S.tz = Intl.DateTimeFormat().resolvedOptions().timeZone || S.tz;
+    save(); syncControls(); rerender();
+  }, () => alert('Could not read device location — enter latitude/longitude instead.'));
+});
+document.getElementById('method').addEventListener('change', e => { S.method = e.target.value; save(); rerender(); });
+document.getElementById('asr').addEventListener('change', e => { S.asr = parseInt(e.target.value); save(); rerender(); });
+
+document.getElementById('prevM').addEventListener('click', () => {
+  view.m--; if (view.m < 1) { view.m = 12; view.y--; } renderMonth();
+});
+document.getElementById('nextM').addEventListener('click', () => {
+  view.m++; if (view.m > 12) { view.m = 1; view.y++; } renderMonth();
+});
+document.getElementById('dlMonth').addEventListener('click', () => {
+  const label = MONTHS[view.m - 1] + ' ' + view.y;
+  download('prayer-times-' + view.y + '-' + String(view.m).padStart(2, '0') + '.csv',
+           csvFor(monthData(view.y, view.m), label));
+});
+document.getElementById('dlYear').addEventListener('click', () => {
+  let all = [];
+  for (let m = 1; m <= 12; m++) all = all.concat(monthData(view.y, m));
+  download('prayer-times-' + view.y + '-full-year.csv', csvFor(all, 'Year ' + view.y));
+});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+syncControls();
+rerender();
+</script>
+</body>
+</html>

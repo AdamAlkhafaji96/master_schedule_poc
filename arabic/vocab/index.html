@@ -41,7 +41,7 @@
     display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
     position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(17,28,66,.25);
   }
-  .controls select {
+  .controls select, .controls input[type=search] {
     font-family: inherit; font-size: .92rem; padding: .5rem .7rem;
     border-radius: 8px; border: 1px solid var(--gold);
     background: var(--vellum); color: var(--ink);
@@ -141,8 +141,11 @@
   <select id="levelSelect" aria-label="Choose level">
     <option value="level1">Level 1</option>
     <option value="level2">Level 2</option>
+    <option value="themes">Themed Lists</option>
   </select>
-  <select id="monthSelect" aria-label="Choose curriculum month"></select>
+  <select id="monthSelect" aria-label="Choose curriculum month or theme"></select>
+  <input type="search" id="themeSearch" placeholder="Search themes…"
+         aria-label="Search themes" style="display:none">
 </div>
 
 <div class="word-bank">
@@ -158,7 +161,7 @@
   <div class="cards" id="cards"></div>
 </main>
 
-<footer>Curriculum months 1–12 per level — follow them in order at your own pace, any time of year.</footer>
+<footer>Curriculum months 1–12 per level — follow them in order at your own pace. Themed Lists group words by topic and are searchable.</footer>
 
 <script>
 let LEVELS = null;
@@ -211,9 +214,11 @@ function wireCards() {
 function render() {
   const d = LEVELS[level][String(month)];
   if (!d) return;
-  const levelLabel = level === 'level1' ? 'Level 1' : 'Level 2';
+  const heading = level === 'themes'
+    ? 'Theme ' + month + ' — ' + d.topic
+    : (level === 'level1' ? 'Level 1' : 'Level 2') + ' · Month ' + month + ' — ' + d.topic;
   document.getElementById('monthTheme').innerHTML =
-    '<h2>' + levelLabel + ' · Month ' + month + ' — ' + d.topic + '</h2>' +
+    '<h2>' + heading + '</h2>' +
     '<p>' + d.words.length + ' words</p>';
   document.getElementById('cards').innerHTML = d.words.map(([ar, tr, en]) =>
     '<div class="card">' +
@@ -224,28 +229,53 @@ function render() {
   selectedIdx = null;
   renderBank();
   wireCards();
-  history.replaceState(null, '', '?level=' + (level === 'level1' ? 1 : 2) + '&month=' + month);
+  history.replaceState(null, '', '?level=' +
+    (level === 'level1' ? 1 : level === 'level2' ? 2 : 't') + '&month=' + month);
 }
 
-function fillMonths() {
+function fillMonths(filter) {
   const sel = document.getElementById('monthSelect');
-  sel.innerHTML = Object.keys(LEVELS[level]).map(k =>
-    '<option value="' + k + '">Month ' + k + ' — ' + LEVELS[level][k].topic + '</option>').join('');
+  const unit = level === 'themes' ? 'Theme' : 'Month';
+  let keys = Object.keys(LEVELS[level]);
+  if (level === 'themes' && filter) {
+    const q = filter.trim().toLowerCase();
+    if (q) {
+      const hit = keys.filter(k => LEVELS[level][k].topic.toLowerCase().includes(q));
+      if (hit.length) keys = hit;      /* never empty the dropdown */
+    }
+  }
+  sel.innerHTML = keys.map(k =>
+    '<option value="' + k + '">' + unit + ' ' + k + ' — ' + LEVELS[level][k].topic + '</option>').join('');
+  if (!keys.includes(String(month))) month = parseInt(keys[0]);
   sel.value = month;
 }
 
 (async function init() {
   LEVELS = await (await fetch('levels.json')).json();
+  try {
+    const t = await (await fetch('themes.json')).json();
+    LEVELS.themes = t.themes || {};
+  } catch (e) { LEVELS.themes = {}; }
+
   const params = new URLSearchParams(location.search);
   const pl = params.get('level'), pm = parseInt(params.get('month'));
   if (pl === '2') level = 'level2';
-  if (pm >= 1 && pm <= 12) month = pm;
+  if (pl === 't' && Object.keys(LEVELS.themes).length) level = 'themes';
+  const maxKey = Object.keys(LEVELS[level]).length;
+  if (pm >= 1 && pm <= maxKey) month = pm;
+
+  const themeSearch = document.getElementById('themeSearch');
+  const syncSearchVisibility = () => {
+    themeSearch.style.display = level === 'themes' ? '' : 'none';
+    if (level !== 'themes') themeSearch.value = '';
+  };
 
   const levelSel = document.getElementById('levelSelect');
   levelSel.value = level;
   levelSel.addEventListener('change', () => {
     level = levelSel.value;
-    month = 1;           /* fresh level starts at its first month */
+    month = parseInt(Object.keys(LEVELS[level])[0]) || 1;  /* first entry of the set */
+    syncSearchVisibility();
     fillMonths();
     render();
   });
@@ -253,7 +283,12 @@ function fillMonths() {
     month = parseInt(e.target.value);
     render();
   });
+  themeSearch.addEventListener('input', () => {
+    fillMonths(themeSearch.value);      /* narrows the dropdown; jumps to first hit */
+    render();
+  });
 
+  syncSearchVisibility();
   fillMonths();
   render();
 })();

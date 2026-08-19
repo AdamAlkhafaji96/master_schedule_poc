@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handwritten Teacher Notes — Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a35;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 720px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(38,42,53,.3);
+  }
+  .controls .btn {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); cursor: pointer;
+  }
+  .controls .btn:hover { background: rgba(201,161,59,.15); }
+  .controls .btn.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
+  .curate-hint {
+    display: none; max-width: 720px; margin: .7rem auto 0; padding: 0 1.2rem;
+    font-size: .8rem; color: #6b6a60; text-align: center; line-height: 1.5;
+  }
+  body.curate .curate-hint { display: block; }
+
+  main { max-width: 980px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+  .section-title { text-align: center; margin: 2.2rem 0 .3rem; }
+  .section-title:first-child { margin-top: 0; }
+  .section-title h2 { font-weight: 500; font-size: 1.25rem; color: var(--primary); letter-spacing: .04em; }
+  .section-title .blurb { font-size: .84rem; color: #6b6a60; margin: .2rem 0 1rem; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .9rem; }
+  .page-card {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06);
+    display: flex; flex-direction: column;
+  }
+  .page-card .thumb {
+    aspect-ratio: 3 / 4; background: var(--vellum-dim);
+    cursor: zoom-in; overflow: hidden;
+  }
+  .page-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .page-card .meta { padding: .6rem .7rem .7rem; }
+  .page-card .seq { font-size: .68rem; color: var(--gold); font-weight: 600; letter-spacing: .1em; }
+  .page-card .title { font-size: .88rem; font-weight: 600; line-height: 1.3; margin: .1rem 0; }
+  .page-card .notes { font-size: .76rem; color: #6b6a60; line-height: 1.35; }
+  .page-card .links { margin-top: .35rem; }
+  .page-card .links a {
+    font-size: .74rem; color: var(--primary); font-weight: 600;
+    text-decoration: none; border-bottom: 1px solid var(--gold-soft); margin-right: .6rem;
+  }
+  .page-card .badge {
+    display: inline-block; font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+    border-radius: 999px; padding: .12rem .5rem; margin-top: .3rem;
+    color: #6b6a60; border: 1px solid var(--vellum-dim);
+  }
+  .page-card.gap { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; justify-content: center; }
+  .page-card.gap .thumb { display: flex; align-items: center; justify-content: center; cursor: default;
+    color: #b3a67f; font-size: 2rem; background: transparent; }
+  .page-card.gap .badge { color: #a08a45; border-color: var(--gold-soft); }
+
+  .curate-bar { display: none; gap: .3rem; padding: .45rem .6rem; border-top: 1px dashed var(--vellum-dim); flex-wrap: wrap; }
+  body.curate .curate-bar { display: flex; }
+  .curate-bar button {
+    font-family: inherit; font-size: .72rem; padding: .25rem .5rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); background: var(--vellum);
+    cursor: pointer;
+  }
+  .curate-bar button:hover { border-color: var(--gold); }
+
+  .section-actions { display: none; text-align: center; margin: .6rem 0 0; }
+  body.curate .section-actions { display: block; }
+  .section-actions button {
+    font-family: inherit; font-size: .78rem; padding: .35rem .8rem; margin: 0 .25rem;
+    border-radius: 8px; border: 1px dashed var(--gold); background: #fbf8f0; cursor: pointer;
+  }
+
+  /* lightbox */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 50;
+    background: rgba(24,25,35,.92);
+    align-items: center; justify-content: center; flex-direction: column;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 94vw; max-height: 84vh; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  .lightbox .cap { color: #eee; font-size: .9rem; margin-top: .7rem; text-align: center; padding: 0 1rem; }
+  .lightbox .nav {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: #fff; font-size: 2.4rem; cursor: pointer; padding: 1rem;
+    opacity: .8;
+  }
+  .lightbox .nav:hover { opacity: 1; }
+  .lightbox .prev { left: .2rem; }
+  .lightbox .next { right: .2rem; }
+  .lightbox .close { position: fixed; top: .6rem; right: 1rem; font-size: 1.8rem; background: none; border: none; color: #fff; cursor: pointer; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.4rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General · Archive</div>
+  <h1>Handwritten Teacher Notes<br>
+    <span style="font-family:'Amiri',serif;font-size:1.15rem;color:var(--gold)">دفاتر الدكتورة فاتن</span></h1>
+  <div class="site-nav">
+    <a href="../references/">References</a>
+    <a href="../materials/">Materials</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <button class="btn" id="curateBtn">✎ Curate mode</button>
+  <button class="btn" id="exportBtn" style="display:none">⬇ Export manifest.json</button>
+</div>
+<p class="curate-hint">
+  Reorder with ↑ ↓, rename with ✎, insert a gap placeholder or register a new scan
+  filename anywhere in the sequence, then <b>Export manifest.json</b> and commit it
+  (with any new files in <code>scans/</code>) to publish the new order.
+</p>
+
+<main id="host">Loading…</main>
+
+<footer>
+  This archive is the source of truth for Dr. Fatin's original handwritten notes —
+  a preservation copy of decades of material. Digital replicas (documents, slides,
+  quizzes), assignments, readings, and vocab mappings are produced from these
+  pages and linked back to them over time.
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Page viewer">
+  <button class="close" id="lbClose" aria-label="Close">×</button>
+  <button class="nav prev" id="lbPrev" aria-label="Previous page">‹</button>
+  <img id="lbImg" alt="">
+  <button class="nav next" id="lbNext" aria-label="Next page">›</button>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<script>
+let M = null;            /* the manifest, live-edited in curate mode */
+let curate = false;
+let flat = [];           /* flattened non-gap items for the lightbox, rebuilt on render */
+let lbIndex = 0;
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function render() {
+  const host = document.getElementById('host');
+  flat = [];
+  host.innerHTML = M.sections.map((sec, si) => {
+    const cards = sec.items.map((it, ii) => {
+      const bar =
+        '<div class="curate-bar">' +
+          '<button data-act="up" data-s="' + si + '" data-i="' + ii + '">↑</button>' +
+          '<button data-act="down" data-s="' + si + '" data-i="' + ii + '">↓</button>' +
+          '<button data-act="rename" data-s="' + si + '" data-i="' + ii + '">✎</button>' +
+          '<button data-act="gapAfter" data-s="' + si + '" data-i="' + ii + '">＋gap</button>' +
+          '<button data-act="fileAfter" data-s="' + si + '" data-i="' + ii + '">＋file</button>' +
+          '<button data-act="remove" data-s="' + si + '" data-i="' + ii + '">✕</button>' +
+        '</div>';
+      if (it.type === 'gap') {
+        return '<div class="page-card gap">' +
+          '<div class="thumb">⬚</div>' +
+          '<div class="meta">' +
+            '<span class="seq">' + (ii + 1) + '</span>' +
+            '<div class="title">' + esc(it.title) + '</div>' +
+            (it.notes ? '<div class="notes">' + esc(it.notes) + '</div>' : '') +
+            '<span class="badge">gap — page missing</span>' +
+          '</div>' + bar + '</div>';
+      }
+      const fi = flat.length;
+      flat.push(it);
+      return '<div class="page-card">' +
+        '<div class="thumb" data-flat="' + fi + '"><img loading="lazy" src="' +
+          esc(it.thumb || it.file) + '" alt="' + esc(it.title) + '"></div>' +
+        '<div class="meta">' +
+          '<span class="seq">' + (ii + 1) + (it.lesson ? ' · ' + esc(it.lesson) : '') + '</span>' +
+          '<div class="title">' + esc(it.title) + '</div>' +
+          (it.notes ? '<div class="notes">' + esc(it.notes) + '</div>' : '') +
+          ((it.links || []).length
+            ? '<div class="links">' + it.links.map(l =>
+                '<a href="' + esc(l.url) + '">' + esc(l.label) + ' &rarr;</a>').join('') + '</div>'
+            : '') +
+          (it.status && it.status !== 'original'
+            ? '<span class="badge">' + esc(it.status) + '</span>' : '') +
+        '</div>' + bar + '</div>';
+    }).join('');
+    return '<div class="section-title"><h2>' + esc(sec.title) + '</h2>' +
+      (sec.blurb ? '<div class="blurb">' + esc(sec.blurb) + '</div>' : '') + '</div>' +
+      '<div class="grid">' + cards + '</div>' +
+      '<div class="section-actions">' +
+        '<button data-act="gapEnd" data-s="' + si + '">＋ gap at end</button>' +
+        '<button data-act="fileEnd" data-s="' + si + '">＋ file at end</button>' +
+      '</div>';
+  }).join('');
+
+  /* lightbox openers */
+  host.querySelectorAll('.thumb[data-flat]').forEach(t =>
+    t.addEventListener('click', () => openLb(parseInt(t.dataset.flat))));
+
+  /* curate actions */
+  host.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+    const act = b.dataset.act, si = parseInt(b.dataset.s);
+    const items = M.sections[si].items;
+    const ii = b.dataset.i !== undefined ? parseInt(b.dataset.i) : items.length - 1;
+    if (act === 'up' && ii > 0) [items[ii-1], items[ii]] = [items[ii], items[ii-1]];
+    if (act === 'down' && ii < items.length - 1) [items[ii+1], items[ii]] = [items[ii], items[ii+1]];
+    if (act === 'remove' && confirm('Remove this entry from the sequence? (The scan file itself is not deleted.)'))
+      items.splice(ii, 1);
+    if (act === 'rename') {
+      const t = prompt('Title:', items[ii].title || '');
+      if (t !== null) items[ii].title = t;
+      const n = prompt('Notes (optional):', items[ii].notes || '');
+      if (n !== null) items[ii].notes = n;
+    }
+    if (act === 'gapAfter' || act === 'gapEnd') {
+      const t = prompt('Gap description (what page is missing here?):', 'Missing page — to be located');
+      if (t !== null) items.splice(act === 'gapEnd' ? items.length : ii + 1, 0, { type: 'gap', title: t, notes: '' });
+    }
+    if (act === 'fileAfter' || act === 'fileEnd') {
+      const f = prompt('Filename inside scans/ (drop the image there via the repo, then register it here):',
+                       'arabic-lesson-XX-pX.jpeg');
+      if (f) {
+        const t = prompt('Title for this page:', '') || f;
+        items.splice(act === 'fileEnd' ? items.length : ii + 1, 0,
+          { id: 'new-' + Date.now(), file: 'scans/' + f.replace(/^scans\//,''), title: t,
+            status: 'original', notes: '', links: [] });
+      }
+    }
+    render();
+  }));
+}
+
+/* ---------- lightbox ---------- */
+function openLb(i) {
+  lbIndex = i;
+  const it = flat[i];
+  if (!it) return;
+  document.getElementById('lbImg').src = it.file;   /* full-resolution original */
+  document.getElementById('lbCap').textContent =
+    (i + 1) + ' / ' + flat.length + ' — ' + it.title;
+  document.getElementById('lightbox').classList.add('open');
+}
+function stepLb(d) { openLb((lbIndex + d + flat.length) % flat.length); }
+document.getElementById('lbClose').addEventListener('click', () =>
+  document.getElementById('lightbox').classList.remove('open'));
+document.getElementById('lbPrev').addEventListener('click', () => stepLb(-1));
+document.getElementById('lbNext').addEventListener('click', () => stepLb(1));
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+  if (e.key === 'ArrowLeft') stepLb(-1);
+  if (e.key === 'ArrowRight') stepLb(1);
+});
+
+/* ---------- curate toggle + export ---------- */
+document.getElementById('curateBtn').addEventListener('click', () => {
+  curate = !curate;
+  document.body.classList.toggle('curate', curate);
+  document.getElementById('curateBtn').classList.toggle('on', curate);
+  document.getElementById('exportBtn').style.display = curate ? '' : 'none';
+});
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(M, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'manifest.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+(async function init() {
+  M = await (await fetch('manifest.json')).json();
+  render();
+})();
+</script>
+</body>
+</html>

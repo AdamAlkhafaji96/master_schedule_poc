@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Tree — Prophets &amp; Imams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b4d38;
+    --primary-dark: #0f3324;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --line:       #b5ac96;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  main { max-width: 960px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+  .group-title { text-align: center; margin: 2.4rem 0 1.4rem; }
+  .group-title:first-child { margin-top: 0; }
+  .group-title h2 { font-weight: 500; font-size: 1.25rem; color: var(--primary); letter-spacing: .04em; }
+  .group-title .ar { font-family: 'Amiri', serif; font-size: 1.35rem; color: var(--gold); }
+  .group-title .note { font-size: .82rem; color: #6b6a60; margin-top: .2rem; }
+
+  .tree-scroll { overflow-x: auto; padding-bottom: .6rem; }
+
+  .chain { display: flex; flex-direction: column; align-items: center; min-width: min-content; }
+  .node {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .5rem .95rem .45rem; text-align: center;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06);
+    min-width: 150px;
+  }
+  .node .arabic { font-family: 'Amiri', serif; font-size: 1.25rem; color: var(--primary); line-height: 1.3; }
+  .node .en { font-size: .88rem; font-weight: 600; }
+  .node .sub { font-size: .72rem; color: #6b6a60; }
+  .node.hero { border-color: var(--gold); background: #fdfaf1; box-shadow: 0 2px 8px rgba(201,161,59,.25); }
+  .node.hero .arabic { font-size: 1.5rem; }
+  .node.imam { border-left: 4px solid var(--primary); }
+  .node .rank {
+    display: inline-block; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: .1rem;
+  }
+
+  .link  { width: 2px; height: 22px; background: var(--line); }
+  .link.dotted {
+    background: none;
+    border-left: 2px dotted var(--line);
+    height: 30px; position: relative;
+  }
+  .gap-label { font-size: .68rem; color: #8a887c; font-style: italic; margin: .1rem 0; }
+
+  .split { display: flex; align-items: flex-start; gap: 2.2rem; }
+  .split > .chain { position: relative; padding-top: 22px; }
+  .split > .chain::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-1px);
+    width: 2px; height: 22px; background: var(--line);
+  }
+  .split-bar {
+    height: 2px; background: var(--line);
+    align-self: stretch; margin: 0 auto;
+  }
+  .couple { display: flex; gap: .7rem; align-items: stretch; }
+  .couple .marry { align-self: center; color: var(--gold); font-size: 1rem; }
+
+  .sidenote {
+    font-size: .78rem; color: #6b6a60; background: #fbf8f0;
+    border: 1px dashed var(--vellum-dim); border-radius: 10px;
+    padding: .45rem .7rem; margin-top: .5rem; max-width: 300px; text-align: center;
+  }
+
+  .legend { display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; font-size: .78rem; color: #6b6a60; }
+  .legend .sw { display: inline-block; vertical-align: middle; margin-right: .35rem; }
+  .legend .solid { width: 22px; height: 2px; background: var(--line); }
+  .legend .dot { width: 0; height: 14px; border-left: 2px dotted var(--line); }
+
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies</div>
+  <h1>Family Tree of the Prophets &amp; Imams</h1>
+  <div class="site-nav">
+    <a href="../prophets-and-imams/">Prophets &amp; Imams</a>
+    <a href="../stories/">Stories</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<main>
+
+  <div class="group-title">
+    <h2>Lineage of the Prophets</h2>
+    <div class="ar">نسب الأنبياء</div>
+    <div class="note">A simplified chain — dotted lines mean many generations passed between the two names.</div>
+  </div>
+
+  <div class="tree-scroll">
+  <div class="chain">
+    <div class="node"><div class="arabic">آدَم</div><div class="en">Adam</div><div class="sub">the first prophet</div></div>
+    <div class="link dotted"></div><div class="gap-label">generations later</div>
+    <div class="node"><div class="arabic">إِدْرِيس</div><div class="en">Idris</div></div>
+    <div class="link dotted"></div><div class="gap-label">generations later</div>
+    <div class="node"><div class="arabic">نُوح</div><div class="en">Nuh</div><div class="sub">the ark &amp; the flood</div></div>
+    <div class="link dotted"></div>
+    <div class="gap-label">among his descendants: Hud &nbsp;·&nbsp; Salih</div>
+    <div class="link dotted"></div><div class="gap-label">generations later</div>
+    <div class="node hero"><div class="arabic">إِبْرَاهِيم</div><div class="en">Ibrahim</div><div class="sub">father of prophets · his nephew was Lut</div></div>
+
+    <div class="link"></div>
+    <div class="split-bar" style="width: 340px"></div>
+    <div class="split">
+      <div class="chain">
+        <div class="node"><div class="arabic">إِسْمَاعِيل</div><div class="en">Isma'il</div><div class="sub">settled in Makkah</div></div>
+        <div class="link dotted"></div><div class="gap-label">generations of Quraysh</div>
+        <div class="node"><div class="arabic">عَبْد ٱلْمُطَّلِب</div><div class="en">Abdul-Muttalib</div><div class="sub">grandfather</div></div>
+        <div class="link"></div>
+        <div class="node"><div class="arabic">عَبْد ٱللّٰه</div><div class="en">Abdullah</div><div class="sub">father</div></div>
+        <div class="link"></div>
+        <div class="node hero"><div class="arabic">مُحَمَّد ﷺ</div><div class="en">Muhammad ﷺ</div><div class="sub">the final Messenger</div></div>
+      </div>
+      <div class="chain">
+        <div class="node"><div class="arabic">إِسْحَاق</div><div class="en">Ishaq</div></div>
+        <div class="link"></div>
+        <div class="node"><div class="arabic">يَعْقُوب</div><div class="en">Ya'qub (Israil)</div><div class="sub">father of the twelve tribes</div></div>
+        <div class="link"></div>
+        <div class="node"><div class="arabic">يُوسُف</div><div class="en">Yusuf</div><div class="sub">and his eleven brothers</div></div>
+        <div class="link dotted"></div>
+        <div class="gap-label">the prophets of Bani Israil</div>
+        <div class="sidenote">
+          Musa &amp; his brother Harun · Dawud &rarr; his son Sulayman ·
+          Ilyas · Al-Yasa · Yunus · Ayyub · Dhul-Kifl ·
+          Zakariyya &rarr; his son Yahya · and Isa, son of Maryam,
+          from the line of Dawud
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="group-title">
+    <h2>Ahl al-Bayt — the Prophet's ﷺ Household &amp; the Twelve Imams</h2>
+    <div class="ar">أهل البيت والأئمة الاثنا عشر</div>
+    <div class="note">The Imams descend from the Prophet ﷺ through his daughter Fatima az-Zahra and Imam Ali.</div>
+  </div>
+
+  <div class="tree-scroll">
+  <div class="chain">
+    <div class="node hero"><div class="arabic">مُحَمَّد ﷺ</div><div class="en">Muhammad ﷺ</div></div>
+    <div class="link"></div>
+    <div class="couple">
+      <div class="node"><div class="arabic">فَاطِمَة ٱلزَّهْرَاء</div><div class="en">Fatima az-Zahra</div><div class="sub">daughter of the Prophet ﷺ</div></div>
+      <span class="marry">⚭</span>
+      <div class="node imam"><span class="rank">1st Imam</span><div class="arabic">عَلِيّ بْن أَبِي طَالِب</div><div class="en">Ali ibn Abi Talib</div><div class="sub">Amir al-Mu'minin</div></div>
+    </div>
+    <div class="link"></div>
+    <div class="split-bar" style="width: 240px"></div>
+    <div class="split">
+      <div class="chain">
+        <div class="node imam"><span class="rank">2nd Imam</span><div class="arabic">ٱلْحَسَن</div><div class="en">Hasan</div><div class="sub">al-Mujtaba</div></div>
+      </div>
+      <div class="chain">
+        <div class="node imam"><span class="rank">3rd Imam</span><div class="arabic">ٱلْحُسَيْن</div><div class="en">Husayn</div><div class="sub">Sayyid ash-Shuhada</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">4th Imam</span><div class="arabic">عَلِيّ زَيْن ٱلْعَابِدِين</div><div class="en">Ali Zayn al-Abidin</div><div class="sub">as-Sajjad</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">5th Imam</span><div class="arabic">مُحَمَّد ٱلْبَاقِر</div><div class="en">Muhammad al-Baqir</div><div class="sub">Baqir al-Ulum</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">6th Imam</span><div class="arabic">جَعْفَر ٱلصَّادِق</div><div class="en">Ja'far as-Sadiq</div><div class="sub">as-Sadiq</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">7th Imam</span><div class="arabic">مُوسَى ٱلْكَاظِم</div><div class="en">Musa al-Kazim</div><div class="sub">al-Kazim</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">8th Imam</span><div class="arabic">عَلِيّ ٱلرِّضَا</div><div class="en">Ali ar-Rida</div><div class="sub">ar-Rida</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">9th Imam</span><div class="arabic">مُحَمَّد ٱلْجَوَاد</div><div class="en">Muhammad al-Jawad</div><div class="sub">at-Taqi</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">10th Imam</span><div class="arabic">عَلِيّ ٱلْهَادِي</div><div class="en">Ali al-Hadi</div><div class="sub">an-Naqi</div></div>
+        <div class="link"></div>
+        <div class="node imam"><span class="rank">11th Imam</span><div class="arabic">ٱلْحَسَن ٱلْعَسْكَرِيّ</div><div class="en">Hasan al-Askari</div><div class="sub">al-Askari</div></div>
+        <div class="link"></div>
+        <div class="node imam hero"><span class="rank">12th Imam</span><div class="arabic">مُحَمَّد ٱلْمَهْدِيّ</div><div class="en">Muhammad al-Mahdi</div><div class="sub">al-Qa'im (aj)</div></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="legend">
+    <span><span class="sw solid"></span>direct parent &rarr; child</span>
+    <span><span class="sw dot"></span>many generations between</span>
+    <span>⚭ marriage</span>
+  </div>
+
+</main>
+
+<footer>
+  A teaching simplification: full genealogies list many more names between the
+  dotted links, and scholars differ on some chains. Ask your teacher for the
+  detailed lineage studied in class.
+</footer>
+
+</body>
+</html>

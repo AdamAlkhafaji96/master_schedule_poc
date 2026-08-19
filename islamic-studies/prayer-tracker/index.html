@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salah Daily Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b4d38;
+    --primary-dark: #0f3324;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 640px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(15,51,36,.25);
+  }
+  .controls .btn {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); cursor: pointer;
+  }
+  .controls .btn:hover { background: rgba(201,161,59,.15); }
+
+  main { max-width: 760px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .7rem; margin-bottom: 1.3rem; }
+  .stat {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .7rem .6rem .6rem; text-align: center; box-shadow: 0 1px 3px rgba(34,36,58,.06);
+  }
+  .stat .big { font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+  .stat .lbl { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: #6b6a60; }
+
+  .month-head { display: flex; align-items: center; justify-content: center; gap: .8rem; margin: .3rem 0 .8rem; }
+  .month-head h2 { font-weight: 500; font-size: 1.15rem; color: var(--primary); }
+  .month-head button {
+    font-family: inherit; font-size: 1rem; width: 34px; height: 34px;
+    border-radius: 50%; border: 1px solid var(--gold); background: #fff; cursor: pointer;
+  }
+
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  th, td { padding: .35rem .45rem; border-bottom: 1px solid var(--vellum-dim); text-align: center; }
+  th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+  th .ar { display: block; font-family: 'Amiri', serif; font-size: .85rem; color: var(--gold-soft); text-transform: none; }
+  td:first-child { text-align: left; white-space: nowrap; font-size: .84rem; }
+  tr.today td { background: #f2f7f2; }
+  tr.future td { opacity: .45; }
+  td input[type=checkbox] { width: 19px; height: 19px; accent-color: var(--primary); cursor: pointer; }
+  td.full { color: var(--gold); font-size: 1rem; }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies</div>
+  <h1>Salah Daily Tracker<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">متابعة الصلاة اليومية</span></h1>
+  <div class="site-nav">
+    <a href="../prayer-times/">Prayer Times</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <button class="btn" id="exportBtn">Export</button>
+  <button class="btn" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept="application/json" style="display:none">
+</div>
+
+<main>
+  <div class="stats">
+    <div class="stat"><div class="big" id="statMonth">—</div><div class="lbl">This month</div></div>
+    <div class="stat"><div class="big" id="statStreak">—</div><div class="lbl">Full-day streak</div></div>
+    <div class="stat"><div class="big" id="statBest">—</div><div class="lbl">Most consistent</div></div>
+  </div>
+
+  <div class="month-head">
+    <button id="prevM" aria-label="Previous month">‹</button>
+    <h2 id="monthTitle"></h2>
+    <button id="nextM" aria-label="Next month">›</button>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>Date</th>
+        <th>Fajr<span class="ar">الفجر</span></th>
+        <th>Dhuhr<span class="ar">الظهر</span></th>
+        <th>Asr<span class="ar">العصر</span></th>
+        <th>Maghrib<span class="ar">المغرب</span></th>
+        <th>Isha<span class="ar">العشاء</span></th>
+        <th>★</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <p class="note">
+    Check off each prayer as you pray it — a ★ marks a full day of all five.
+    History stays on this device; Export / Import moves it between devices or
+    shares a copy with a parent or teacher.
+  </p>
+</main>
+
+<footer>Consistency grows one prayer at a time.</footer>
+
+<script>
+const KEY = 'absr-salah-tracker-v1';
+const PRAYERS = ['fajr','dhuhr','asr','maghrib','isha'];
+const MONTHS = ['January','February','March','April','May','June','July','August',
+                'September','October','November','December'];
+
+let saved = {};                     /* "YYYY-MM-DD" -> "11010" (fajr..isha) */
+try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+const persist = () => localStorage.setItem(KEY, JSON.stringify(saved));
+
+const now = new Date();
+let view = { y: now.getFullYear(), m: now.getMonth() + 1 };
+const daysIn = (y, m) => new Date(y, m, 0).getDate();
+const dkey = (y, m, d) =>
+  y + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+const marks = k => (saved[k] || '00000').padEnd(5, '0');
+const isFull = k => marks(k) === '11111';
+
+function setMark(k, pi, on) {
+  const m = marks(k).split('');
+  m[pi] = on ? '1' : '0';
+  const s = m.join('');
+  if (s === '00000') delete saved[k]; else saved[k] = s;
+  persist();
+}
+
+function updateStats() {
+  const { y, m } = view;
+  const days = daysIn(y, m);
+  const today = new Date();
+  /* count only days up to today when viewing the current month */
+  const upto = (y === today.getFullYear() && m === today.getMonth() + 1)
+             ? today.getDate() : days;
+  let done = 0;
+  const perPrayer = [0, 0, 0, 0, 0];
+  for (let d = 1; d <= upto; d++) {
+    const mk = marks(dkey(y, m, d));
+    for (let i = 0; i < 5; i++) if (mk[i] === '1') { done++; perPrayer[i]++; }
+  }
+  const possible = upto * 5;
+  document.getElementById('statMonth').textContent =
+    possible ? Math.round(100 * done / possible) + '%' : '—';
+
+  /* streak of consecutive full days ending today (or yesterday if today incomplete) */
+  let streak = 0;
+  const c = new Date(today);
+  if (!isFull(dkey(c.getFullYear(), c.getMonth() + 1, c.getDate()))) c.setDate(c.getDate() - 1);
+  while (isFull(dkey(c.getFullYear(), c.getMonth() + 1, c.getDate()))) {
+    streak++; c.setDate(c.getDate() - 1);
+  }
+  document.getElementById('statStreak').textContent =
+    streak + (streak === 1 ? ' day' : ' days');
+
+  const bi = perPrayer.indexOf(Math.max.apply(null, perPrayer));
+  document.getElementById('statBest').textContent =
+    perPrayer[bi] ? PRAYERS[bi][0].toUpperCase() + PRAYERS[bi].slice(1) : '—';
+}
+
+function render() {
+  const { y, m } = view;
+  document.getElementById('monthTitle').textContent = MONTHS[m - 1] + ' ' + y;
+  const today = new Date();
+  const tb = document.getElementById('rows');
+  let html = '';
+  for (let d = 1; d <= daysIn(y, m); d++) {
+    const k = dkey(y, m, d);
+    const mk = marks(k);
+    const dt = new Date(y, m - 1, d);
+    const isToday = y === today.getFullYear() && m === today.getMonth() + 1 && d === today.getDate();
+    const isFuture = dt > today && !isToday;
+    html += '<tr data-k="' + k + '" class="' + (isToday ? 'today' : isFuture ? 'future' : '') + '">' +
+      '<td>' + d + ' ' + dt.toLocaleDateString('en-US', { weekday: 'short' }) + '</td>' +
+      PRAYERS.map((p, i) =>
+        '<td><input type="checkbox" data-p="' + i + '"' + (mk[i] === '1' ? ' checked' : '') +
+        (isFuture ? ' disabled' : '') +
+        ' aria-label="' + p + ' on ' + k + '"></td>').join('') +
+      '<td class="full">' + (isFull(k) ? '★' : '') + '</td>' +
+    '</tr>';
+  }
+  tb.innerHTML = html;
+  tb.querySelectorAll('tr').forEach(tr => {
+    tr.querySelectorAll('input[type=checkbox]').forEach(cb =>
+      cb.addEventListener('change', () => {
+        setMark(tr.dataset.k, parseInt(cb.dataset.p), cb.checked);
+        tr.querySelector('.full').textContent = isFull(tr.dataset.k) ? '★' : '';
+        updateStats();
+      }));
+  });
+  updateStats();
+}
+
+document.getElementById('prevM').addEventListener('click', () => {
+  view.m--; if (view.m < 1) { view.m = 12; view.y--; } render();
+});
+document.getElementById('nextM').addEventListener('click', () => {
+  view.m++; if (view.m > 12) { view.m = 1; view.y++; } render();
+});
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify({ kind: 'salah-tracker', data: saved }, null, 2)],
+                       { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'salah-history.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+document.getElementById('importBtn').addEventListener('click', () =>
+  document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change', async e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    saved = d.data || d;
+    persist(); render();
+  } catch (err) { alert('Could not read that file — expected the exported JSON.'); }
+  e.target.value = '';
+});
+
+render();
+</script>
+</body>
+</html>

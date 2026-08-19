@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surah Recording Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4d1b30;
+    --primary-dark: #33101f;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --done:       #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 1.8rem 1.5rem 2.2rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.25rem, 4vw, 1.8rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 760px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(51,16,31,.25);
+  }
+  .controls input[type=search] {
+    font-family: inherit; font-size: .92rem; padding: .5rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink); min-width: 220px;
+  }
+  .controls label.toggle { color: var(--gold-soft); font-size: .85rem; display: flex; gap: .4rem; align-items: center; cursor: pointer; }
+
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .progress-wrap { margin-bottom: 1.2rem; text-align: center; }
+  .progress-label { font-size: .9rem; color: #6b6a60; margin-bottom: .4rem; }
+  .progress-bar {
+    height: 12px; border-radius: 6px; background: var(--vellum-dim);
+    overflow: hidden; border: 1px solid #ddd3bd;
+  }
+  .progress-bar .fill { height: 100%; background: var(--done); width: 0; transition: width .3s; }
+
+  .row {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .7rem .9rem; margin-bottom: .55rem;
+    display: flex; flex-wrap: wrap; gap: .6rem .9rem; align-items: center;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06);
+  }
+  .row.done { background: #f2f7f2; border-color: #cfe3d3; }
+  .row .num { color: var(--gold); font-weight: 600; min-width: 2.2rem; }
+  .row .who { flex: 1 1 180px; }
+  .row .ar { font-family: 'Amiri', serif; font-size: 1.15rem; }
+  .row .en { font-size: .85rem; color: #6b6a60; }
+  .row.done .en::after { content: " ✓ submitted"; color: var(--done); }
+  .row .meta { font-size: .8rem; color: #6b6a60; flex-basis: 100%; }
+  .row .meta b { color: var(--ink); font-weight: 600; }
+  .row audio { height: 32px; max-width: 240px; }
+  .row .btn {
+    font-family: inherit; font-size: .8rem; padding: .4rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink); cursor: pointer;
+  }
+  .row .btn:hover { border-color: var(--primary); }
+  .row .btn.danger { border-color: #c77; color: #8a2f2f; }
+  input.date {
+    font-family: inherit; font-size: .82rem; padding: .3rem .4rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); background: var(--vellum);
+  }
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.5; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Quran</div>
+  <h1>Surah Recording Checklist</h1>
+  <div class="site-nav">
+    <a href="../text/">Full Text</a>
+    <a href="../memorization/">Memorization</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Find surah — number or name" aria-label="Search surahs">
+  <label class="toggle"><input type="checkbox" id="onlyPending"> Show pending only</label>
+</div>
+
+<main>
+  <div class="progress-wrap">
+    <div class="progress-label" id="progressLabel">Loading…</div>
+    <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  </div>
+  <div id="rows"></div>
+  <p class="note">
+    Submit one recording per surah — pick an audio file recorded on your phone or
+    computer. The submitted date is stamped automatically (and can be adjusted).<br>
+    Recordings are stored on this device only; bring the device to class or play
+    the recording for your teacher to have it graded.
+  </p>
+</main>
+
+<footer>Surah list: Tanzil project index stored locally in <code>data/</code>.</footer>
+
+<script>
+/* ------- IndexedDB: one store, keyed by surah number -------
+   record: { n, name, type, date, blob }                       */
+const DB_NAME = 'absr-quran-recordings', STORE = 'recs';
+function openDB() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(DB_NAME, 1);
+    r.onupgradeneeded = () => r.result.createObjectStore(STORE, { keyPath: 'n' });
+    r.onsuccess = () => res(r.result);
+    r.onerror   = () => rej(r.error);
+  });
+}
+async function dbAll() {
+  const db = await openDB();
+  return new Promise((res, rej) => {
+    const rq = db.transaction(STORE).objectStore(STORE).getAll();
+    rq.onsuccess = () => res(rq.result);
+    rq.onerror   = () => rej(rq.error);
+  });
+}
+async function dbPut(rec) {
+  const db = await openDB();
+  return new Promise((res, rej) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).put(rec);
+    tx.oncomplete = () => res();
+    tx.onerror    = () => rej(tx.error);
+  });
+}
+async function dbDelete(n) {
+  const db = await openDB();
+  return new Promise((res, rej) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).delete(n);
+    tx.oncomplete = () => res();
+    tx.onerror    = () => rej(tx.error);
+  });
+}
+
+let INDEX = [];
+let RECS = {};                 /* surah number -> record */
+const urls = {};               /* object URLs for playback, revoked on rerender */
+
+function updateProgress() {
+  const done = Object.keys(RECS).length;
+  document.getElementById('progressLabel').textContent =
+    done + ' of ' + INDEX.length + ' recordings submitted';
+  document.getElementById('progressFill').style.width =
+    (INDEX.length ? (100 * done / INDEX.length) : 0) + '%';
+}
+
+function rowMatches(s, q) {
+  if (!q) return true;
+  q = q.trim().toLowerCase();
+  if (!q) return true;
+  if (String(s.number) === q) return true;
+  return s.englishName.toLowerCase().replace(/[^a-z]/g, '')
+          .includes(q.replace(/[^a-z0-9]/g, ''));
+}
+
+function render() {
+  Object.values(urls).forEach(u => URL.revokeObjectURL(u));
+  for (const k in urls) delete urls[k];
+
+  const q = document.getElementById('q').value;
+  const pendingOnly = document.getElementById('onlyPending').checked;
+  const host = document.getElementById('rows');
+
+  host.innerHTML = INDEX
+    .filter(s => rowMatches(s, q))
+    .filter(s => !pendingOnly || !RECS[s.number])
+    .map(s => {
+      const r = RECS[s.number];
+      let right;
+      if (r) {
+        urls[s.number] = URL.createObjectURL(r.blob);
+        right =
+          '<audio controls preload="none" src="' + urls[s.number] + '"></audio>' +
+          '<button class="btn danger" data-act="remove">Remove</button>' +
+          '<div class="meta">File: <b>' + r.name + '</b> · Submitted ' +
+          '<input class="date" type="date" value="' + r.date + '"></div>';
+      } else {
+        right = '<button class="btn" data-act="pick">Submit recording…</button>' +
+                '<input type="file" accept="audio/*" style="display:none">';
+      }
+      return '<div class="row' + (r ? ' done' : '') + '" data-n="' + s.number + '">' +
+        '<span class="num">' + s.number + '</span>' +
+        '<span class="who"><span class="ar">' + s.name + '</span><br>' +
+          '<span class="en">' + s.englishName + '</span></span>' +
+        right + '</div>';
+    }).join('');
+
+  host.querySelectorAll('.row').forEach(row => {
+    const n = parseInt(row.dataset.n);
+    const pick = row.querySelector('[data-act=pick]');
+    if (pick) {
+      const file = row.querySelector('input[type=file]');
+      pick.addEventListener('click', () => file.click());
+      file.addEventListener('change', async e => {
+        const f = e.target.files[0];
+        if (!f) return;
+        const rec = { n, name: f.name, type: f.type,
+                      date: new Date().toISOString().slice(0, 10), blob: f };
+        await dbPut(rec);
+        RECS[n] = rec;
+        render(); updateProgress();
+      });
+    }
+    const rm = row.querySelector('[data-act=remove]');
+    if (rm) rm.addEventListener('click', async () => {
+      if (!confirm('Remove the recording for surah ' + n + '?')) return;
+      await dbDelete(n);
+      delete RECS[n];
+      render(); updateProgress();
+    });
+    const date = row.querySelector('input.date');
+    if (date) date.addEventListener('change', async e => {
+      RECS[n].date = e.target.value;
+      await dbPut(RECS[n]);
+    });
+  });
+}
+
+document.getElementById('q').addEventListener('input', render);
+document.getElementById('onlyPending').addEventListener('change', render);
+
+(async function init() {
+  INDEX = await (await fetch('../data/index.json')).json();
+  try {
+    (await dbAll()).forEach(r => { RECS[r.n] = r; });
+  } catch (e) { /* private-mode browsers may block IndexedDB; page still lists surahs */ }
+  render();
+  updateProgress();
+})();
+</script>
+</body>
+</html>

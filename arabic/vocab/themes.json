@@ -1,0 +1,29 @@
+{
+  "note": "PLACEHOLDER themed vocab lists — same word shape as levels.json ([arabic, transliteration, english]). Add themes by adding numbered keys in order; add words freely. The vocab page lists these in the Theme dropdown and makes them searchable.",
+  "themes": {
+    "1": { "topic": "Animals", "words": [
+      ["كَلْب", "kalb", "Dog"],
+      ["قِطّ", "qitt", "Cat"]
+    ]},
+    "2": { "topic": "Food & Drink", "words": [
+      ["قَهْوَة", "qahwa", "Coffee"],
+      ["خُبْز", "khubz", "Bread"]
+    ]},
+    "3": { "topic": "People & Family", "words": [
+      ["أَب", "ab", "Father"],
+      ["أُمّ", "umm", "Mother"]
+    ]},
+    "4": { "topic": "Feelings", "words": [
+      ["سَعِيد", "sa'id", "Happy"],
+      ["حَزِين", "hazin", "Sad"]
+    ]},
+    "5": { "topic": "Clothing", "words": [
+      ["قَمِيص", "qamis", "Shirt"],
+      ["حِذَاء", "hidha'", "Shoes"]
+    ]},
+    "6": { "topic": "Weather & Seasons", "words": [
+      ["مُمْطِر", "mumtir", "Rainy"],
+      ["رَبِيع", "rabi'", "Spring"]
+    ]}
+  }
+}

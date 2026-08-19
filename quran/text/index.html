@@ -78,7 +78,7 @@
     z-index: 2;
     box-shadow: 0 10px 30px rgba(51,16,31,.25);
   }
-  .controls select, .controls input[type=number] {
+  .controls select, .controls input[type=number], .controls input[type=search] {
     font-family: inherit;
     font-size: .9rem;
     padding: .45rem .6rem;
@@ -285,6 +285,9 @@
 </header>
 
 <div class="controls">
+  <input type="search" id="surahSearch" list="surahList" placeholder="Find surah — number or name"
+         aria-label="Search surah by number or English name" autocomplete="off">
+  <datalist id="surahList"></datalist>
   <select id="surahSelect" aria-label="Choose surah"></select>
   <label class="toggle">
     <input type="checkbox" id="tajweedToggle">
@@ -544,6 +547,38 @@ async function init() {
     s.number + '. ' + s.englishName + ' — ' + s.name +
     '</option>').join('');
   sel.value = state.surah;
+
+  /* ---- surah search: jump by number or English name ---- */
+  const search = document.getElementById('surahSearch');
+  document.getElementById('surahList').innerHTML = idx.map(s =>
+    '<option value="' + s.number + '. ' + s.englishName + '">').join('');
+  function resolveSurah(q) {
+    q = q.trim().toLowerCase();
+    if (!q) return null;
+    const num = parseInt(q);                       /* "36" or "36. Yaseen" */
+    if (num >= 1 && num <= 114) return num;
+    const norm = t => t.toLowerCase().replace(/[^a-z]/g, '');
+    const nq = norm(q);
+    if (!nq) return null;
+    const hit = idx.find(s => norm(s.englishName) === nq) ||
+                idx.find(s => norm(s.englishName).startsWith(nq)) ||
+                idx.find(s => norm(s.englishName).includes(nq));
+    return hit ? hit.number : null;
+  }
+  function goToSearch() {
+    const n = resolveSurah(search.value);
+    if (n === null) return;
+    state.surah = n;
+    state.page = 0;
+    state.from = state.to = state.title = null;    /* leave any assignment view */
+    selected.clear();
+    sel.value = n;
+    search.value = '';
+    history.replaceState(null, '', 'quran.html?s=' + state.surah);
+    render();
+  }
+  search.addEventListener('change', goToSearch);   /* datalist pick */
+  search.addEventListener('keydown', e => { if (e.key === 'Enter') goToSearch(); });
 
   sel.addEventListener('change', () => {
     state.surah = parseInt(sel.value);
