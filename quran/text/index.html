@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quran Text — Full Book Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4d1b30;   /* deep burgundy — third page in the family */
+    --primary-dark: #33101f;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+
+    /* Tajweed rule colors */
+    --tj-ghunnah:   #169777;  /* ghunnah — green */
+    --tj-qalqalah:  #26bffd;  /* qalqalah — light blue */
+    --tj-madd2:     #7b1fa2;  /* madd 2 harakat — purple */
+    --tj-madd246:   #ff7e1e;  /* madd 2/4/6 — orange */
+    --tj-madd45:    #e0115f;  /* madd 4-5 — ruby */
+    --tj-madd6:     #b71c1c;  /* madd 6 — dark red */
+    --tj-idgham:    #2e7d32;  /* idgham w/ ghunnah — dark green */
+    --tj-ikhfa:     #9c27b0;  /* ikhfa — violet */
+    --tj-iqlab:     #01579b;  /* iqlab — navy */
+    --tj-silent:    #9e9e9e;  /* silent / hamzat al-wasl — grey */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--vellum);
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    min-height: 100vh;
+  }
+  header {
+    background: var(--primary);
+    color: var(--vellum);
+    padding: 1.8rem 1.5rem 2.2rem;
+    text-align: center;
+    border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow {
+    font-size: .78rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold-soft); margin-bottom: .4rem;
+  }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a {
+    color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em;
+    text-transform: uppercase; text-decoration: none;
+    border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px;
+  }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  /* ---------- controls bar ---------- */
+  .controls {
+    max-width: 860px;
+    margin: -1.2rem auto 0;
+    background: var(--primary-dark);
+    border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(51,16,31,.25);
+  }
+  .controls select, .controls input[type=number] {
+    font-family: inherit;
+    font-size: .9rem;
+    padding: .45rem .6rem;
+    border-radius: 8px;
+    border: 1px solid var(--gold);
+    background: var(--vellum);
+    color: var(--ink);
+    max-width: 240px;
+  }
+  .controls input[type=number] { width: 74px; }
+  .toggle {
+    display: inline-flex; align-items: center; gap: .45rem;
+    color: var(--vellum); font-size: .88rem; letter-spacing: .04em;
+    cursor: pointer; user-select: none;
+  }
+  .toggle input { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
+  .btn {
+    font-family: inherit; font-size: .82rem; letter-spacing: .06em;
+    padding: .45rem .95rem; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--gold); background: transparent; color: var(--gold-soft);
+    transition: background .12s, color .12s;
+  }
+  .btn:hover { background: var(--gold); color: var(--primary-dark); }
+  .btn:focus-visible { outline: 2px solid var(--vellum); outline-offset: 2px; }
+
+  /* ---------- assignment banner ---------- */
+  .assignment-banner {
+    max-width: 860px;
+    margin: 1.2rem auto 0;
+    padding: .8rem 1.2rem;
+    background: #fff;
+    border: 1px solid var(--gold);
+    border-left: 6px solid var(--gold);
+    border-radius: 10px;
+    font-size: .92rem;
+    display: none;
+  }
+  .assignment-banner.active { display: block; }
+  .assignment-banner strong { color: var(--primary); }
+
+  /* ---------- legend ---------- */
+  .legend {
+    max-width: 860px;
+    margin: 1.2rem auto 0;
+    padding: 0 1.2rem;
+    display: none;
+    flex-wrap: wrap;
+    gap: .5rem .9rem;
+    justify-content: center;
+    font-size: .78rem;
+  }
+  .legend.active { display: flex; }
+  .legend span { display: inline-flex; align-items: center; gap: .3rem; }
+  .legend i {
+    width: 12px; height: 12px; border-radius: 3px; display: inline-block;
+  }
+
+  /* ---------- reading surface ---------- */
+  main { max-width: 860px; margin: 1.4rem auto 2.5rem; padding: 0 1.2rem; }
+  .surah-title {
+    text-align: center; margin-bottom: 1.1rem;
+  }
+  .surah-title .arabic {
+    font-family: 'Amiri', serif; font-size: 2rem; color: var(--primary);
+  }
+  .surah-title .english { font-size: .9rem; color: #6b6a60; letter-spacing: .04em; }
+  :root { --mushaf-scale: 1; }
+  .mushaf {
+    background: #fff;
+    border: 1px solid var(--vellum-dim);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(34,36,58,.06);
+    padding: 1.6rem 1.5rem;
+    direction: rtl;
+    text-align: justify;
+    font-family: 'Amiri Quran', 'Amiri', serif;
+    font-size: calc(1.75rem * var(--mushaf-scale));
+    line-height: 2.35;
+    color: var(--ink);
+  }
+  .ayah-num { font-size: calc(1.05rem * var(--mushaf-scale)) !important; }
+  .ayah-en  { font-size: calc(.98rem * clamp(1, var(--mushaf-scale), 1.4)) !important; }
+  .zoom-group {
+    display: inline-flex; align-items: center; gap: .35rem;
+  }
+  .zoom-btn {
+    width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid var(--gold); background: transparent;
+    color: var(--gold-soft); font-family: inherit; font-size: .95rem;
+    cursor: pointer; transition: background .12s, color .12s;
+  }
+  .zoom-btn:hover { background: var(--gold); color: var(--primary-dark); }
+  .zoom-btn:focus-visible { outline: 2px solid var(--vellum); outline-offset: 2px; }
+  .zoom-label {
+    color: var(--vellum); font-size: .8rem; min-width: 44px; text-align: center;
+    letter-spacing: .04em;
+  }
+  .ayah { cursor: pointer; border-radius: 6px; transition: background .12s; }
+  .ayah:hover { background: rgba(201,161,59,.14); }
+  .ayah.selected { background: rgba(201,161,59,.3); }
+  .ayah-num {
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin: 0 .3rem;
+    white-space: nowrap;
+  }
+
+  /* ---------- interleaved translation mode ---------- */
+  .mushaf.interleaved { text-align: right; }
+  .ayah-row {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: .55rem .6rem;
+    transition: background .12s;
+  }
+  .ayah-row:hover { background: rgba(201,161,59,.12); }
+  .ayah-row.selected { background: rgba(201,161,59,.28); }
+  .ayah-row + .ayah-row { border-top: 1px solid var(--vellum-dim); }
+  .ayah-ar { /* inherits mushaf's Arabic font settings */ }
+  .ayah-en {
+    direction: ltr;
+    text-align: left;
+    font-family: 'Spectral', Georgia, serif;
+    font-size: .98rem;
+    line-height: 1.55;
+    color: #4c4b42;
+    margin-top: .25rem;
+  }
+  .ayah-en .en-num {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: .82rem;
+  }
+
+  /* Tajweed span colors — applied only when body has .tajweed-on */
+  .tj { color: inherit; }
+  .tajweed-on .tj-g { color: var(--tj-ghunnah); }
+  .tajweed-on .tj-q { color: var(--tj-qalqalah); }
+  .tajweed-on .tj-n { color: var(--tj-madd2); }
+  .tajweed-on .tj-p { color: var(--tj-madd246); }
+  .tajweed-on .tj-o { color: var(--tj-madd45); }
+  .tajweed-on .tj-m { color: var(--tj-madd6); }
+  .tajweed-on .tj-a, .tajweed-on .tj-d, .tajweed-on .tj-b { color: var(--tj-idgham); }
+  .tajweed-on .tj-f, .tajweed-on .tj-c { color: var(--tj-ikhfa); }
+  .tajweed-on .tj-i, .tajweed-on .tj-w { color: var(--tj-iqlab); }
+  .tajweed-on .tj-h, .tajweed-on .tj-s, .tajweed-on .tj-u, .tajweed-on .tj-l { color: var(--tj-silent); }
+
+  /* ---------- pager ---------- */
+  .pager {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-top: 1.3rem;
+  }
+  .pager-btn {
+    background: transparent; border: 1px solid var(--primary); color: var(--primary);
+    border-radius: 999px; width: 42px; height: 42px; font-size: .98rem;
+    font-family: inherit; cursor: pointer; transition: background .12s, color .12s, opacity .12s;
+  }
+  .pager-btn:hover:not(:disabled) { background: var(--primary); color: #fff; }
+  .pager-btn:disabled { opacity: .3; cursor: default; }
+  .pager-label {
+    min-width: 120px; text-align: center; font-size: .92rem;
+    letter-spacing: .06em; color: var(--primary); font-weight: 600;
+  }
+
+  /* ---------- assignment builder ---------- */
+  .builder {
+    max-width: 860px; margin: 2rem auto 0; padding: 1.1rem 1.2rem;
+    background: #fff; border: 1px dashed var(--primary);
+    border-radius: 12px; font-size: .9rem;
+  }
+  .builder h2 { font-size: 1rem; color: var(--primary); margin-bottom: .5rem; letter-spacing: .04em; }
+  .builder .row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+  .builder input[type=text] {
+    flex: 1; min-width: 200px; font-family: monospace; font-size: .8rem;
+    padding: .45rem .6rem; border: 1px solid var(--vellum-dim); border-radius: 8px;
+    background: var(--vellum);
+  }
+  .builder .btn { border-color: var(--primary); color: var(--primary); }
+  .builder .btn:hover { background: var(--primary); color: #fff; }
+  .builder .hint { color: #6b6a60; font-size: .8rem; margin-top: .45rem; }
+
+  footer {
+    text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem;
+  }
+  .status { text-align: center; color: #a34a3c; min-height: 1.3rem; font-size: .85rem; margin-top: .8rem; }
+
+  @media (max-width: 600px) {
+    .mushaf { font-size: calc(1.45rem * var(--mushaf-scale)); line-height: 2.2; padding: 1.2rem 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn, .pager-btn, .ayah { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Main reference</div>
+  <h1>Quran Text — Full Book</h1>
+  <div class="site-nav">
+    
+    
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="surahSelect" aria-label="Choose surah"></select>
+  <label class="toggle">
+    <input type="checkbox" id="tajweedToggle">
+    Tajweed colors
+  </label>
+  <label class="toggle">
+    <input type="checkbox" id="transToggle">
+    English translation
+  </label>
+  <span class="zoom-group" role="group" aria-label="Text size">
+    <button class="zoom-btn" id="zoomOut" aria-label="Smaller text">A&minus;</button>
+    <span class="zoom-label" id="zoomLabel">100%</span>
+    <button class="zoom-btn" id="zoomIn" aria-label="Larger text">A+</button>
+  </span>
+  <select id="pageSizeSelect" aria-label="Ayahs per page">
+    <option value="5">Short pages (5)</option>
+    <option value="10" selected>Medium pages (10)</option>
+    <option value="20">Long pages (20)</option>
+    <option value="custom">Custom&hellip;</option>
+  </select>
+  <input type="number" id="pageSizeCustom" min="1" max="286" value="10"
+         style="display:none" aria-label="Custom ayahs per page">
+  <button class="btn" id="jumpTop">Top of surah</button>
+</div>
+
+<div class="legend" id="legend">
+  <span><i style="background:var(--tj-ghunnah)"></i>Ghunnah</span>
+  <span><i style="background:var(--tj-qalqalah)"></i>Qalqalah</span>
+  <span><i style="background:var(--tj-madd2)"></i>Madd (2)</span>
+  <span><i style="background:var(--tj-madd246)"></i>Madd (2/4/6)</span>
+  <span><i style="background:var(--tj-madd45)"></i>Madd (4–5)</span>
+  <span><i style="background:var(--tj-madd6)"></i>Madd (6)</span>
+  <span><i style="background:var(--tj-idgham)"></i>Idgham</span>
+  <span><i style="background:var(--tj-ikhfa)"></i>Ikhfa</span>
+  <span><i style="background:var(--tj-iqlab)"></i>Iqlab / Idgham shafawi</span>
+  <span><i style="background:var(--tj-silent)"></i>Silent / Hamzat al-wasl</span>
+</div>
+
+<div class="assignment-banner" id="assignmentBanner"></div>
+
+<main>
+  <div class="surah-title" id="surahTitle"></div>
+  <div class="mushaf" id="mushaf">Loading…</div>
+  <div class="pager">
+    <button class="pager-btn" id="prevPage" aria-label="Previous page">&larr;</button>
+    <span class="pager-label" id="pageLabel"></span>
+    <button class="pager-btn" id="nextPage" aria-label="Next page">&rarr;</button>
+  </div>
+  <p class="status" id="status"></p>
+
+  <div class="builder" id="builder">
+    <h2>Create an assignment / reading link</h2>
+    <div class="row">
+      From ayah <input type="number" id="fromAyah" min="1" value="1">
+      to <input type="number" id="toAyah" min="1" value="7">
+      <button class="btn" id="makeLink">Generate link</button>
+      <button class="btn" id="selectMode">Or: tap ayahs to select</button>
+    </div>
+    <div class="row" style="margin-top:.6rem">
+      <input type="text" id="linkOut" readonly placeholder="Assignment link appears here">
+      <button class="btn" id="copyLink">Copy</button>
+    </div>
+    <p class="hint">Share the link — it opens this page showing only that passage, with a banner naming the assignment. Add <code>&amp;title=Week+3+Reading</code> to label it.</p>
+  </div>
+</main>
+
+<footer>
+  Text: Tanzil project (Uthmani) &amp; tajweed annotations via the open AlQuran.cloud dataset; English translation: M. Pickthall (1930, public domain). Stored locally in <code>data/</code>.
+</footer>
+
+<script>
+/* ==============================================================
+   DATA ACCESS — one JSON file per surah, lazy-loaded and cached
+   ============================================================== */
+const surahCache = {};
+async function loadSurah(n) {
+  if (!surahCache[n]) {
+    const pad = String(n).padStart(3, '0');
+    const res = await fetch('../data/surah_' + pad + '.json');
+    if (!res.ok) throw new Error('Could not load surah ' + n);
+    surahCache[n] = await res.json();
+  }
+  return surahCache[n];
+}
+
+const transCache = {};
+async function loadTranslation(n) {
+  if (!transCache[n]) {
+    const pad = String(n).padStart(3, '0');
+    const res = await fetch('../data/trans_' + pad + '.json');
+    if (!res.ok) throw new Error('Could not load translation for surah ' + n);
+    const d = await res.json();
+    /* map ayah number -> translation text for O(1) lookup */
+    transCache[n] = Object.fromEntries(d.ayahs.map(a => [a.n, a.t]));
+  }
+  return transCache[n];
+}
+
+/* ==============================================================
+   TAJWEED PARSER
+   The tajweed edition marks rules as [x[...]  or [x:ref[...]
+   where x is a one-letter rule code. We convert markers to
+   <span class="tj tj-x"> and escape everything else.
+   ============================================================== */
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function renderTajweed(tajText) {
+  /* Stack-based: markers can nest ([rule[ ... [rule[...] ... ]),
+     so we tokenize and track open spans on a stack. */
+  const openRe = /^\[([a-z])(?::[^\[\]]*)?\[/;
+  let out = '', depth = 0, i = 0;
+  while (i < tajText.length) {
+    const ch = tajText[i];
+    if (ch === '[') {
+      const m = openRe.exec(tajText.slice(i));
+      if (m) {
+        out += '<span class="tj tj-' + m[1] + '">';
+        depth++;
+        i += m[0].length;
+        continue;
+      }
+      out += '[';                    // literal bracket, not a marker
+      i++;
+    } else if (ch === ']' && depth > 0) {
+      out += '</span>';
+      depth--;
+      i++;
+    } else {
+      out += esc(ch);
+      i++;
+    }
+  }
+  while (depth-- > 0) out += '</span>';  // close any unterminated spans
+  return out;
+}
+
+/* Arabic-Indic ayah number */
+const AD = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+const toArabic = v => String(v).split('').map(d => AD[+d]).join('');
+
+/* ==============================================================
+   STATE — surah, page, optional assignment subset from the URL
+   URL params:  ?s=2&from=255&to=257&title=Ayat+al-Kursi
+   ============================================================== */
+let PAGE_SIZE = 10;
+let zoom = 1;
+const ZOOM_MIN = 0.7, ZOOM_MAX = 2.5, ZOOM_STEP = 0.15;
+const params = new URLSearchParams(location.search);
+let state = {
+  surah: parseInt(params.get('s')) || 1,
+  page: 0,
+  from: params.get('from') ? parseInt(params.get('from')) : null,
+  to:   params.get('to')   ? parseInt(params.get('to'))   : null,
+  title: params.get('title') || null,
+  trans: params.get('trans') === '1',
+};
+let selecting = false;
+let selected = new Set();
+
+function visibleAyahs(surah) {
+  let a = surah.ayahs;
+  if (state.from !== null) {
+    const to = state.to !== null ? state.to : state.from;
+    a = a.filter(x => x.n >= state.from && x.n <= to);
+  }
+  return a;
+}
+
+/* ==============================================================
+   RENDER
+   ============================================================== */
+async function render() {
+  const statusEl = document.getElementById('status');
+  statusEl.textContent = '';
+  let surah;
+  try { surah = await loadSurah(state.surah); }
+  catch (e) { statusEl.textContent = e.message; return; }
+
+  document.getElementById('surahTitle').innerHTML =
+    '<div class="arabic">' + surah.name + '</div>' +
+    '<div class="english">' + surah.number + '. ' + surah.englishName +
+    ' — ' + surah.englishNameTranslation + ' (' + surah.revelationType + ', ' +
+    surah.ayahs.length + ' ayahs)</div>';
+
+  const ayahs = visibleAyahs(surah);
+  const pages = Math.max(1, Math.ceil(ayahs.length / PAGE_SIZE));
+  state.page = Math.max(0, Math.min(pages - 1, state.page));
+  const slice = ayahs.slice(state.page * PAGE_SIZE, (state.page + 1) * PAGE_SIZE);
+
+  const mushaf = document.getElementById('mushaf');
+  let trans = null;
+  if (state.trans) {
+    try { trans = await loadTranslation(state.surah); }
+    catch (e) { statusEl.textContent = e.message; }
+  }
+
+  if (trans) {
+    /* Interleaved mode: each ayah is a row — Arabic line, then English */
+    mushaf.classList.add('interleaved');
+    mushaf.innerHTML = slice.map(a =>
+      '<div class="ayah-row' + (selected.has(a.n) ? ' selected' : '') + '" data-n="' + a.n + '">' +
+        '<div class="ayah-ar">' + renderTajweed(a.taj) +
+          '<span class="ayah-num">﴿' + toArabic(a.n) + '﴾</span></div>' +
+        '<div class="ayah-en"><span class="en-num">' + a.n + '</span> ' +
+          esc(trans[a.n] || '') + '</div>' +
+      '</div>'
+    ).join('');
+  } else {
+    /* Classic mushaf mode: continuous flowing text */
+    mushaf.classList.remove('interleaved');
+    mushaf.innerHTML = slice.map(a =>
+      '<span class="ayah' + (selected.has(a.n) ? ' selected' : '') + '" data-n="' + a.n + '">' +
+        renderTajweed(a.taj) +
+        '<span class="ayah-num">﴿' + toArabic(a.n) + '﴾</span>' +
+      '</span> '
+    ).join('');
+  }
+
+  /* ayah tap: selection mode collects ranges for assignment links */
+  mushaf.querySelectorAll('.ayah, .ayah-row').forEach(el => {
+    el.addEventListener('click', () => {
+      if (!selecting) return;
+      const n = parseInt(el.dataset.n);
+      selected.has(n) ? selected.delete(n) : selected.add(n);
+      el.classList.toggle('selected');
+      syncBuilderFromSelection();
+    });
+  });
+
+  document.getElementById('pageLabel').textContent =
+    'Page ' + (state.page + 1) + ' of ' + pages;
+  document.getElementById('prevPage').disabled = state.page === 0;
+  document.getElementById('nextPage').disabled = state.page === pages - 1;
+
+  /* assignment banner */
+  const banner = document.getElementById('assignmentBanner');
+  if (state.from !== null) {
+    banner.classList.add('active');
+    banner.innerHTML =
+      '<strong>' + (state.title ? esc(state.title) : 'Assigned reading') + ':</strong> ' +
+      'Surah ' + surah.englishName + ', ayahs ' + state.from + '–' + (state.to || state.from) +
+      ' &nbsp; <a href="?s=' + state.surah + '">View full surah &rarr;</a>';
+  } else {
+    banner.classList.remove('active');
+  }
+}
+
+/* ==============================================================
+   CONTROLS
+   ============================================================== */
+async function init() {
+  const idx = await (await fetch('../data/index.json')).json();
+  const sel = document.getElementById('surahSelect');
+  sel.innerHTML = idx.map(s =>
+    '<option value="' + s.number + '">' +
+    s.number + '. ' + s.englishName + ' — ' + s.name +
+    '</option>').join('');
+  sel.value = state.surah;
+
+  sel.addEventListener('change', () => {
+    state.surah = parseInt(sel.value);
+    state.page = 0;
+    state.from = state.to = state.title = null;   // leaving an assignment view
+    selected.clear();
+    history.replaceState(null, '', 'quran.html?s=' + state.surah);
+    render();
+  });
+
+  document.getElementById('tajweedToggle').addEventListener('change', (e) => {
+    document.body.classList.toggle('tajweed-on', e.target.checked);
+    document.getElementById('legend').classList.toggle('active', e.target.checked);
+  });
+
+  const transToggle = document.getElementById('transToggle');
+  transToggle.checked = state.trans;
+  transToggle.addEventListener('change', () => {
+    state.trans = transToggle.checked;
+    render();
+  });
+
+  /* --- zoom toolbar --- */
+  function applyZoom() {
+    zoom = Math.round(Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, zoom)) * 100) / 100;
+    document.documentElement.style.setProperty('--mushaf-scale', zoom);
+    document.getElementById('zoomLabel').textContent = Math.round(zoom * 100) + '%';
+  }
+  document.getElementById('zoomIn').addEventListener('click', () => { zoom += ZOOM_STEP; applyZoom(); });
+  document.getElementById('zoomOut').addEventListener('click', () => { zoom -= ZOOM_STEP; applyZoom(); });
+  applyZoom();
+
+  /* --- page size --- */
+  const psSelect = document.getElementById('pageSizeSelect');
+  const psCustom = document.getElementById('pageSizeCustom');
+  function setPageSize(n) {
+    n = Math.max(1, Math.min(286, n || 10));   /* 286 = longest surah */
+    /* keep the reader anchored on the first visible ayah across the change */
+    const firstAyahIdx = state.page * PAGE_SIZE;
+    PAGE_SIZE = n;
+    state.page = Math.floor(firstAyahIdx / PAGE_SIZE);
+    render();
+  }
+  psSelect.addEventListener('change', () => {
+    if (psSelect.value === 'custom') {
+      psCustom.style.display = '';
+      psCustom.focus();
+      setPageSize(parseInt(psCustom.value));
+    } else {
+      psCustom.style.display = 'none';
+      setPageSize(parseInt(psSelect.value));
+    }
+  });
+  psCustom.addEventListener('change', () => setPageSize(parseInt(psCustom.value)));
+
+  document.getElementById('prevPage').addEventListener('click', () => { state.page--; render(); });
+  document.getElementById('nextPage').addEventListener('click', () => { state.page++; render(); });
+  document.getElementById('jumpTop').addEventListener('click', () => { state.page = 0; render(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+    if (e.key === 'ArrowLeft')  { state.page--; render(); }
+    if (e.key === 'ArrowRight') { state.page++; render(); }
+  });
+
+  /* assignment builder */
+  const linkOut = document.getElementById('linkOut');
+  function makeLink(from, to) {
+    const base = location.origin + location.pathname.replace(/[^/]*$/, '');
+    let url = base + '?s=' + state.surah + '&from=' + from + '&to=' + to;
+    if (state.trans) url += '&trans=1';
+    return url;
+  }
+  document.getElementById('makeLink').addEventListener('click', () => {
+    const f = parseInt(document.getElementById('fromAyah').value) || 1;
+    const t = parseInt(document.getElementById('toAyah').value) || f;
+    linkOut.value = makeLink(Math.min(f,t), Math.max(f,t));
+  });
+  document.getElementById('selectMode').addEventListener('click', (e) => {
+    selecting = !selecting;
+    e.target.textContent = selecting ? 'Selecting — tap ayahs (click to stop)' : 'Or: tap ayahs to select';
+    if (!selecting) { selected.clear(); render(); }
+  });
+  window.syncBuilderFromSelection = function() {
+    if (!selected.size) { linkOut.value = ''; return; }
+    const ns = [...selected].sort((a,b)=>a-b);
+    document.getElementById('fromAyah').value = ns[0];
+    document.getElementById('toAyah').value = ns[ns.length-1];
+    linkOut.value = makeLink(ns[0], ns[ns.length-1]);
+  };
+  document.getElementById('copyLink').addEventListener('click', async () => {
+    if (!linkOut.value) return;
+    try { await navigator.clipboard.writeText(linkOut.value); }
+    catch { linkOut.select(); document.execCommand('copy'); }
+  });
+
+  render();
+}
+init();
+</script>
+</body>
+</html>
