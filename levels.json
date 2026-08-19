@@ -1,0 +1,1086 @@
+{
+ "level1": {
+  "1": {
+   "topic": "Greetings & introductions",
+   "words": [
+    [
+     "مَرْحَبًا",
+     "Marhaban",
+     "Hello"
+    ],
+    [
+     "أَهْلًا وَسَهْلًا",
+     "Ahlan wa sahlan",
+     "Welcome"
+    ],
+    [
+     "اِسْم",
+     "Ism",
+     "Name"
+    ],
+    [
+     "أَنَا",
+     "Ana",
+     "I / me"
+    ],
+    [
+     "أَنْتَ",
+     "Anta",
+     "You (m.)"
+    ],
+    [
+     "أَنْتِ",
+     "Anti",
+     "You (f.)"
+    ],
+    [
+     "شُكْرًا",
+     "Shukran",
+     "Thank you"
+    ],
+    [
+     "مَعَ السَّلَامَة",
+     "Ma'a as-salamah",
+     "Goodbye"
+    ]
+   ]
+  },
+  "2": {
+   "topic": "Family",
+   "words": [
+    [
+     "أَب",
+     "Ab",
+     "Father"
+    ],
+    [
+     "أُمّ",
+     "Umm",
+     "Mother"
+    ],
+    [
+     "أَخ",
+     "Akh",
+     "Brother"
+    ],
+    [
+     "أُخْت",
+     "Ukht",
+     "Sister"
+    ],
+    [
+     "جَدّ",
+     "Jadd",
+     "Grandfather"
+    ],
+    [
+     "جَدَّة",
+     "Jaddah",
+     "Grandmother"
+    ],
+    [
+     "عَائِلَة",
+     "A'ilah",
+     "Family"
+    ],
+    [
+     "بَيْت",
+     "Bayt",
+     "House, home"
+    ]
+   ]
+  },
+  "3": {
+   "topic": "Colors",
+   "words": [
+    [
+     "أَحْمَر",
+     "Ahmar",
+     "Red"
+    ],
+    [
+     "أَزْرَق",
+     "Azraq",
+     "Blue"
+    ],
+    [
+     "أَخْضَر",
+     "Akhdar",
+     "Green"
+    ],
+    [
+     "أَصْفَر",
+     "Asfar",
+     "Yellow"
+    ],
+    [
+     "أَبْيَض",
+     "Abyad",
+     "White"
+    ],
+    [
+     "أَسْوَد",
+     "Aswad",
+     "Black"
+    ],
+    [
+     "بُرْتُقَالِيّ",
+     "Burtuqali",
+     "Orange"
+    ],
+    [
+     "لَوْن",
+     "Lawn",
+     "Color"
+    ]
+   ]
+  },
+  "4": {
+   "topic": "School objects",
+   "words": [
+    [
+     "كِتَاب",
+     "Kitab",
+     "Book"
+    ],
+    [
+     "قَلَم",
+     "Qalam",
+     "Pen"
+    ],
+    [
+     "دَفْتَر",
+     "Daftar",
+     "Notebook"
+    ],
+    [
+     "مَدْرَسَة",
+     "Madrasah",
+     "School"
+    ],
+    [
+     "مُعَلِّم",
+     "Mu'allim",
+     "Teacher (m.)"
+    ],
+    [
+     "طَالِب",
+     "Talib",
+     "Student (m.)"
+    ],
+    [
+     "حَقِيبَة",
+     "Haqibah",
+     "Bag"
+    ],
+    [
+     "فَصْل",
+     "Fasl",
+     "Classroom"
+    ]
+   ]
+  },
+  "5": {
+   "topic": "The body",
+   "words": [
+    [
+     "رَأْس",
+     "Ra's",
+     "Head"
+    ],
+    [
+     "عَيْن",
+     "Ayn",
+     "Eye"
+    ],
+    [
+     "أُذُن",
+     "Udhun",
+     "Ear"
+    ],
+    [
+     "أَنْف",
+     "Anf",
+     "Nose"
+    ],
+    [
+     "فَم",
+     "Fam",
+     "Mouth"
+    ],
+    [
+     "يَد",
+     "Yad",
+     "Hand"
+    ],
+    [
+     "قَدَم",
+     "Qadam",
+     "Foot"
+    ],
+    [
+     "قَلْب",
+     "Qalb",
+     "Heart"
+    ]
+   ]
+  },
+  "6": {
+   "topic": "Food & drink",
+   "words": [
+    [
+     "خُبْز",
+     "Khubz",
+     "Bread"
+    ],
+    [
+     "مَاء",
+     "Ma'",
+     "Water"
+    ],
+    [
+     "حَلِيب",
+     "Halib",
+     "Milk"
+    ],
+    [
+     "تُفَّاح",
+     "Tuffah",
+     "Apples"
+    ],
+    [
+     "مَوْز",
+     "Mawz",
+     "Bananas"
+    ],
+    [
+     "أَرُزّ",
+     "Aruzz",
+     "Rice"
+    ],
+    [
+     "طَعَام",
+     "Ta'am",
+     "Food"
+    ],
+    [
+     "لَذِيذ",
+     "Ladhidh",
+     "Delicious"
+    ]
+   ]
+  },
+  "7": {
+   "topic": "Animals",
+   "words": [
+    [
+     "قِطّ",
+     "Qitt",
+     "Cat"
+    ],
+    [
+     "كَلْب",
+     "Kalb",
+     "Dog"
+    ],
+    [
+     "حِصَان",
+     "Hisan",
+     "Horse"
+    ],
+    [
+     "جَمَل",
+     "Jamal",
+     "Camel"
+    ],
+    [
+     "أَسَد",
+     "Asad",
+     "Lion"
+    ],
+    [
+     "طَائِر",
+     "Ta'ir",
+     "Bird"
+    ],
+    [
+     "سَمَك",
+     "Samak",
+     "Fish"
+    ],
+    [
+     "حَيَوَان",
+     "Hayawan",
+     "Animal"
+    ]
+   ]
+  },
+  "8": {
+   "topic": "Numbers in use",
+   "words": [
+    [
+     "كَمْ",
+     "Kam",
+     "How many?"
+    ],
+    [
+     "وَاحِد",
+     "Wahid",
+     "One"
+    ],
+    [
+     "اِثْنَان",
+     "Ithnan",
+     "Two"
+    ],
+    [
+     "ثَلَاثَة",
+     "Thalathah",
+     "Three"
+    ],
+    [
+     "كَثِير",
+     "Kathir",
+     "Many"
+    ],
+    [
+     "قَلِيل",
+     "Qalil",
+     "Few"
+    ],
+    [
+     "أَوَّل",
+     "Awwal",
+     "First"
+    ],
+    [
+     "أَخِير",
+     "Akhir",
+     "Last"
+    ]
+   ]
+  },
+  "9": {
+   "topic": "The home",
+   "words": [
+    [
+     "غُرْفَة",
+     "Ghurfah",
+     "Room"
+    ],
+    [
+     "بَاب",
+     "Bab",
+     "Door"
+    ],
+    [
+     "نَافِذَة",
+     "Nafidhah",
+     "Window"
+    ],
+    [
+     "مَطْبَخ",
+     "Matbakh",
+     "Kitchen"
+    ],
+    [
+     "سَرِير",
+     "Sarir",
+     "Bed"
+    ],
+    [
+     "كُرْسِيّ",
+     "Kursi",
+     "Chair"
+    ],
+    [
+     "طَاوِلَة",
+     "Tawilah",
+     "Table"
+    ],
+    [
+     "مِفْتَاح",
+     "Miftah",
+     "Key"
+    ]
+   ]
+  },
+  "10": {
+   "topic": "Clothing",
+   "words": [
+    [
+     "ثَوْب",
+     "Thawb",
+     "Garment"
+    ],
+    [
+     "قَمِيص",
+     "Qamis",
+     "Shirt"
+    ],
+    [
+     "حِذَاء",
+     "Hidha'",
+     "Shoes"
+    ],
+    [
+     "قُبَّعَة",
+     "Qubba'ah",
+     "Hat"
+    ],
+    [
+     "جَدِيد",
+     "Jadid",
+     "New"
+    ],
+    [
+     "قَدِيم",
+     "Qadim",
+     "Old"
+    ],
+    [
+     "كَبِير",
+     "Kabir",
+     "Big"
+    ],
+    [
+     "صَغِير",
+     "Saghir",
+     "Small"
+    ]
+   ]
+  },
+  "11": {
+   "topic": "Weather & nature",
+   "words": [
+    [
+     "شَمْس",
+     "Shams",
+     "Sun"
+    ],
+    [
+     "قَمَر",
+     "Qamar",
+     "Moon"
+    ],
+    [
+     "نَجْم",
+     "Najm",
+     "Star"
+    ],
+    [
+     "مَطَر",
+     "Matar",
+     "Rain"
+    ],
+    [
+     "رِيح",
+     "Rih",
+     "Wind"
+    ],
+    [
+     "شَجَرَة",
+     "Shajarah",
+     "Tree"
+    ],
+    [
+     "بَحْر",
+     "Bahr",
+     "Sea"
+    ],
+    [
+     "جَبَل",
+     "Jabal",
+     "Mountain"
+    ]
+   ]
+  },
+  "12": {
+   "topic": "Everyday verbs",
+   "words": [
+    [
+     "ذَهَبَ",
+     "Dhahaba",
+     "He went"
+    ],
+    [
+     "جَاءَ",
+     "Ja'a",
+     "He came"
+    ],
+    [
+     "أَكَلَ",
+     "Akala",
+     "He ate"
+    ],
+    [
+     "شَرِبَ",
+     "Shariba",
+     "He drank"
+    ],
+    [
+     "قَرَأَ",
+     "Qara'a",
+     "He read"
+    ],
+    [
+     "كَتَبَ",
+     "Kataba",
+     "He wrote"
+    ],
+    [
+     "نَامَ",
+     "Nama",
+     "He slept"
+    ],
+    [
+     "لَعِبَ",
+     "La'iba",
+     "He played"
+    ]
+   ]
+  }
+ },
+ "level2": {
+  "1": {
+   "topic": "Days & time",
+   "words": [
+    [
+     "يَوْم",
+     "Yawm",
+     "Day"
+    ],
+    [
+     "أُسْبُوع",
+     "Usbu'",
+     "Week"
+    ],
+    [
+     "اَلْيَوْم",
+     "Al-yawm",
+     "Today"
+    ],
+    [
+     "غَدًا",
+     "Ghadan",
+     "Tomorrow"
+    ],
+    [
+     "أَمْس",
+     "Ams",
+     "Yesterday"
+    ],
+    [
+     "سَاعَة",
+     "Sa'ah",
+     "Hour, clock"
+    ],
+    [
+     "صَبَاح",
+     "Sabah",
+     "Morning"
+    ],
+    [
+     "مَسَاء",
+     "Masa'",
+     "Evening"
+    ]
+   ]
+  },
+  "2": {
+   "topic": "Places in town",
+   "words": [
+    [
+     "مَدِينَة",
+     "Madinah",
+     "City"
+    ],
+    [
+     "قَرْيَة",
+     "Qaryah",
+     "Village"
+    ],
+    [
+     "سُوق",
+     "Suq",
+     "Market"
+    ],
+    [
+     "مُسْتَشْفَى",
+     "Mustashfa",
+     "Hospital"
+    ],
+    [
+     "مَكْتَبَة",
+     "Maktabah",
+     "Library, bookshop"
+    ],
+    [
+     "حَدِيقَة",
+     "Hadiqah",
+     "Garden, park"
+    ],
+    [
+     "شَارِع",
+     "Shari'",
+     "Street"
+    ],
+    [
+     "مَطْعَم",
+     "Mat'am",
+     "Restaurant"
+    ]
+   ]
+  },
+  "3": {
+   "topic": "Professions",
+   "words": [
+    [
+     "طَبِيب",
+     "Tabib",
+     "Doctor"
+    ],
+    [
+     "مُهَنْدِس",
+     "Muhandis",
+     "Engineer"
+    ],
+    [
+     "مُعَلِّمَة",
+     "Mu'allimah",
+     "Teacher (f.)"
+    ],
+    [
+     "تَاجِر",
+     "Tajir",
+     "Merchant"
+    ],
+    [
+     "فَلَّاح",
+     "Fallah",
+     "Farmer"
+    ],
+    [
+     "خَبَّاز",
+     "Khabbaz",
+     "Baker"
+    ],
+    [
+     "سَائِق",
+     "Sa'iq",
+     "Driver"
+    ],
+    [
+     "عَمَل",
+     "Amal",
+     "Work"
+    ]
+   ]
+  },
+  "4": {
+   "topic": "Opposites",
+   "words": [
+    [
+     "طَوِيل",
+     "Tawil",
+     "Tall, long"
+    ],
+    [
+     "قَصِير",
+     "Qasir",
+     "Short"
+    ],
+    [
+     "سَرِيع",
+     "Sari'",
+     "Fast"
+    ],
+    [
+     "بَطِيء",
+     "Bati'",
+     "Slow"
+    ],
+    [
+     "سَهْل",
+     "Sahl",
+     "Easy"
+    ],
+    [
+     "صَعْب",
+     "Sa'b",
+     "Difficult"
+    ],
+    [
+     "قَرِيب",
+     "Qarib",
+     "Near"
+    ],
+    [
+     "بَعِيد",
+     "Ba'id",
+     "Far"
+    ]
+   ]
+  },
+  "5": {
+   "topic": "Present-tense verbs",
+   "words": [
+    [
+     "يَذْهَبُ",
+     "Yadhhabu",
+     "He goes"
+    ],
+    [
+     "يَقْرَأُ",
+     "Yaqra'u",
+     "He reads"
+    ],
+    [
+     "يَكْتُبُ",
+     "Yaktubu",
+     "He writes"
+    ],
+    [
+     "يَدْرُسُ",
+     "Yadrusu",
+     "He studies"
+    ],
+    [
+     "يَفْهَمُ",
+     "Yafhamu",
+     "He understands"
+    ],
+    [
+     "يَسْمَعُ",
+     "Yasma'u",
+     "He hears"
+    ],
+    [
+     "يَنْظُرُ",
+     "Yanzuru",
+     "He looks"
+    ],
+    [
+     "يُحِبُّ",
+     "Yuhibbu",
+     "He loves"
+    ]
+   ]
+  },
+  "6": {
+   "topic": "Feelings",
+   "words": [
+    [
+     "سَعِيد",
+     "Sa'id",
+     "Happy"
+    ],
+    [
+     "حَزِين",
+     "Hazin",
+     "Sad"
+    ],
+    [
+     "غَضْبَان",
+     "Ghadban",
+     "Angry"
+    ],
+    [
+     "خَائِف",
+     "Kha'if",
+     "Afraid"
+    ],
+    [
+     "مُتْعَب",
+     "Mut'ab",
+     "Tired"
+    ],
+    [
+     "جَوْعَان",
+     "Jaw'an",
+     "Hungry"
+    ],
+    [
+     "عَطْشَان",
+     "Atshan",
+     "Thirsty"
+    ],
+    [
+     "مَسْرُور",
+     "Masrur",
+     "Delighted"
+    ]
+   ]
+  },
+  "7": {
+   "topic": "Travel",
+   "words": [
+    [
+     "مَطَار",
+     "Matar",
+     "Airport"
+    ],
+    [
+     "طَائِرَة",
+     "Ta'irah",
+     "Airplane"
+    ],
+    [
+     "قِطَار",
+     "Qitar",
+     "Train"
+    ],
+    [
+     "سَيَّارَة",
+     "Sayyarah",
+     "Car"
+    ],
+    [
+     "حَافِلَة",
+     "Hafilah",
+     "Bus"
+    ],
+    [
+     "تَذْكِرَة",
+     "Tadhkirah",
+     "Ticket"
+    ],
+    [
+     "جَوَاز سَفَر",
+     "Jawaz safar",
+     "Passport"
+    ],
+    [
+     "فُنْدُق",
+     "Funduq",
+     "Hotel"
+    ]
+   ]
+  },
+  "8": {
+   "topic": "Meals & the table",
+   "words": [
+    [
+     "فُطُور",
+     "Futur",
+     "Breakfast"
+    ],
+    [
+     "غَدَاء",
+     "Ghada'",
+     "Lunch"
+    ],
+    [
+     "عَشَاء",
+     "Asha'",
+     "Dinner"
+    ],
+    [
+     "صَحْن",
+     "Sahn",
+     "Plate"
+    ],
+    [
+     "مِلْعَقَة",
+     "Mil'aqah",
+     "Spoon"
+    ],
+    [
+     "سِكِّين",
+     "Sikkin",
+     "Knife"
+    ],
+    [
+     "كَأْس",
+     "Ka's",
+     "Glass, cup"
+    ],
+    [
+     "مَائِدَة",
+     "Ma'idah",
+     "Dining table"
+    ]
+   ]
+  },
+  "9": {
+   "topic": "Rooms & directions",
+   "words": [
+    [
+     "يَمِين",
+     "Yamin",
+     "Right"
+    ],
+    [
+     "يَسَار",
+     "Yasar",
+     "Left"
+    ],
+    [
+     "أَمَام",
+     "Amam",
+     "In front of"
+    ],
+    [
+     "خَلْف",
+     "Khalf",
+     "Behind"
+    ],
+    [
+     "فَوْق",
+     "Fawq",
+     "Above"
+    ],
+    [
+     "تَحْت",
+     "Taht",
+     "Below"
+    ],
+    [
+     "دَاخِل",
+     "Dakhil",
+     "Inside"
+    ],
+    [
+     "خَارِج",
+     "Kharij",
+     "Outside"
+    ]
+   ]
+  },
+  "10": {
+   "topic": "School subjects",
+   "words": [
+    [
+     "رِيَاضِيَّات",
+     "Riyadiyyat",
+     "Mathematics"
+    ],
+    [
+     "عُلُوم",
+     "Ulum",
+     "Science"
+    ],
+    [
+     "تَارِيخ",
+     "Tarikh",
+     "History"
+    ],
+    [
+     "جُغْرَافِيَا",
+     "Jughrafiya",
+     "Geography"
+    ],
+    [
+     "لُغَة",
+     "Lughah",
+     "Language"
+    ],
+    [
+     "دَرْس",
+     "Dars",
+     "Lesson"
+    ],
+    [
+     "اِمْتِحَان",
+     "Imtihan",
+     "Exam"
+    ],
+    [
+     "وَاجِب",
+     "Wajib",
+     "Homework, duty"
+    ]
+   ]
+  },
+  "11": {
+   "topic": "Nature & seasons",
+   "words": [
+    [
+     "فَصْل",
+     "Fasl",
+     "Season"
+    ],
+    [
+     "صَيْف",
+     "Sayf",
+     "Summer"
+    ],
+    [
+     "شِتَاء",
+     "Shita'",
+     "Winter"
+    ],
+    [
+     "رَبِيع",
+     "Rabi'",
+     "Spring"
+    ],
+    [
+     "خَرِيف",
+     "Kharif",
+     "Autumn"
+    ],
+    [
+     "ثَلْج",
+     "Thalj",
+     "Snow"
+    ],
+    [
+     "غَيْم",
+     "Ghaym",
+     "Clouds"
+    ],
+    [
+     "زَهْرَة",
+     "Zahrah",
+     "Flower"
+    ]
+   ]
+  },
+  "12": {
+   "topic": "Conversation phrases",
+   "words": [
+    [
+     "مِنْ فَضْلِك",
+     "Min fadlik",
+     "Please"
+    ],
+    [
+     "عَفْوًا",
+     "Afwan",
+     "You're welcome; excuse me"
+    ],
+    [
+     "آسِف",
+     "Asif",
+     "Sorry"
+    ],
+    [
+     "لَا أَفْهَم",
+     "La afham",
+     "I don't understand"
+    ],
+    [
+     "مَاذَا",
+     "Madha",
+     "What?"
+    ],
+    [
+     "أَيْنَ",
+     "Ayna",
+     "Where?"
+    ],
+    [
+     "مَتَى",
+     "Mata",
+     "When?"
+    ],
+    [
+     "لِمَاذَا",
+     "Limadha",
+     "Why?"
+    ]
+   ]
+  }
+ }
+}

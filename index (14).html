@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Baseera — Learning Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Each section keeps the color identity it already has inside:
+     slate = admin, lapis = Arabic, burgundy = Quran (green lives
+     within Arabic as the numbers page). */
+  :root {
+    --slate:    #3a3f4d;
+    --lapis:    #1b2a5e;
+    --green:    #1b4d38;
+    --burgundy: #4d1b30;
+    --gold:     #c9a13b;
+    --gold-soft:#e3cf8f;
+    --vellum:   #f7f2e7;
+    --vellum-dim:#ece4d2;
+    --ink:      #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--vellum);
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    min-height: 100vh;
+  }
+  header {
+    text-align: center;
+    padding: 2.4rem 1.5rem 2.2rem;
+  }
+  header .logo {
+    width: clamp(120px, 22vw, 168px);
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    box-shadow: 0 6px 22px rgba(34,36,58,.18);
+    margin-bottom: 1rem;
+  }
+  header .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: .8rem;
+  }
+  header h1 {
+    font-weight: 500;
+    font-size: clamp(1.6rem, 5vw, 2.3rem);
+    letter-spacing: .02em;
+  }
+  header p {
+    color: #6b6a60;
+    margin-top: .4rem;
+    font-size: .95rem;
+    letter-spacing: .04em;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto 3.5rem;
+    padding: 0 1.2rem;
+    display: grid;
+    gap: 1.4rem;
+  }
+  .section {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--vellum-dim);
+    box-shadow: 0 2px 12px rgba(34,36,58,.07);
+    background: #fff;
+  }
+  .section-head {
+    color: var(--vellum);
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: baseline;
+    gap: .8rem;
+    border-bottom: 4px solid var(--gold);
+  }
+  .section-head h2 { font-weight: 500; font-size: 1.15rem; letter-spacing: .05em; }
+  .section-head .tag {
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+  .section.general  .section-head { background: var(--slate); }
+  .section.arabic   .section-head { background: var(--lapis); }
+  .section.quran    .section-head { background: var(--burgundy); }
+  .section.islamic  .section-head { background: var(--green); }
+
+  .links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .links a {
+    display: block;
+    padding: 1.15rem 1.4rem;
+    text-decoration: none;
+    color: var(--ink);
+    border-top: 1px solid var(--vellum-dim);
+    transition: background .12s;
+  }
+  .links a:first-child { border-top: none; }
+  @media (min-width: 640px) {
+    .links a { border-top: none; border-left: 1px solid var(--vellum-dim); }
+    .links a:first-child { border-left: none; }
+  }
+  .links a:hover { background: var(--vellum); }
+  .links a:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+  .links .name { font-weight: 600; letter-spacing: .02em; }
+  .links .name .ar { font-family: 'Amiri', serif; color: var(--gold); margin-left: .4rem; }
+  .links .desc { display: block; font-size: .85rem; color: #6b6a60; margin-top: .2rem; }
+
+  .season-banner {
+    max-width: 900px; margin: 0 auto 1.6rem; padding: 0 1.2rem;
+  }
+  .season-inner {
+    background: linear-gradient(135deg, var(--green), #14563c 60%, var(--green));
+    border: 1px solid rgba(201,161,59,.5);
+    border-radius: 16px;
+    color: var(--vellum);
+    padding: 1.15rem 1.4rem;
+    box-shadow: 0 6px 20px rgba(15,51,36,.2);
+  }
+  .season-month {
+    font-size: .74rem; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--gold-soft);
+  }
+  .season-theme { font-size: 1.05rem; margin-top: .2rem; }
+  .season-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; }
+  .season-links a {
+    font-size: .82rem; letter-spacing: .04em; text-decoration: none;
+    color: var(--gold-soft); border: 1px solid var(--gold);
+    border-radius: 999px; padding: .38rem 1rem;
+    transition: background .12s, color .12s;
+  }
+  .season-links a:hover { background: var(--gold); color: var(--primary-dark, #0f3324); }
+  .season-links a:focus-visible { outline: 2px solid var(--vellum); outline-offset: 2px; }
+
+  footer {
+    text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>Al Baseera Learning Portal</h1>
+  <p>Choose a section to begin</p>
+</header>
+
+<div class="season-banner" id="seasonBanner" style="display:none">
+  <div class="season-inner">
+    <div class="season-month" id="seasonMonth"></div>
+    <div class="season-theme" id="seasonTheme"></div>
+    <div class="season-links" id="seasonLinks"></div>
+  </div>
+</div>
+
+<main>
+  <div class="section general">
+    <div class="section-head">
+      <h2>General</h2><span class="tag">Admin &amp; School</span>
+    </div>
+    <div class="links">
+      <a href="general/schedule/">
+        <span class="name">Master Schedule</span>
+        <span class="desc">Class periods, rooms, and teacher assignments</span>
+      </a>
+      <a href="general/calendar/">
+        <span class="name">School Calendar</span>
+        <span class="desc">Term dates, holidays, and events</span>
+      </a>
+      <a href="general/materials/">
+        <span class="name">Materials Library</span>
+        <span class="desc">Readings, study guides, and slides by subject</span>
+      </a>
+      <a href="general/assignments/">
+        <span class="name">Assignments</span>
+        <span class="desc">Homework, practice quizzes, recitations, and worksheets</span>
+      </a>
+      <a href="general/references/">
+        <span class="name">External References</span>
+        <span class="desc">Vetted textbooks, videos, and websites</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section arabic">
+    <div class="section-head">
+      <h2>Arabic</h2><span class="tag">Language Basics</span>
+    </div>
+    <div class="links">
+      <a href="arabic/letters/">
+        <span class="name">The Alphabet<span class="ar">الحروف</span></span>
+        <span class="desc">All 28 letters with names, sounds, and forms</span>
+      </a>
+      <a href="arabic/numbers/">
+        <span class="name">Numbers<span class="ar">الأرقام</span></span>
+        <span class="desc">Counting 0–100 with names and sounds</span>
+      </a>
+      <a href="arabic/vocab/">
+        <span class="name">Vocabulary<span class="ar">المفردات</span></span>
+        <span class="desc">Levels 1 &amp; 2, twelve topic months each — any time of year</span>
+      </a>
+      <a href="arabic/dictionary/">
+        <span class="name">Dictionary<span class="ar">القاموس</span></span>
+        <span class="desc">English ⇄ Arabic — every word on the portal, searchable</span>
+      </a>
+      <a href="arabic/flashcards/">
+        <span class="name">Flashcards<span class="ar">البطاقات</span></span>
+        <span class="desc">Flip, shuffle, and sort into Know / Again piles</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section quran">
+    <div class="section-head">
+      <h2>Quran</h2><span class="tag">Main Reference</span>
+    </div>
+    <div class="links">
+      <a href="quran/text/">
+        <span class="name">Full Text &amp; Translation<span class="ar">القرآن الكريم</span></span>
+        <span class="desc">Complete mushaf with tajweed colors, English translation, and assignment links</span>
+      </a>
+    </div>
+  </div>
+  <div class="section islamic">
+    <div class="section-head">
+      <h2>Islamic Studies</h2><span class="tag">Reference</span>
+    </div>
+    <div class="links">
+      <a href="islamic-studies/names-of-allah/">
+        <span class="name">99 Names of Allah<span class="ar">أسماء الله الحسنى</span></span>
+        <span class="desc">Asma ul-Husna with transliteration, meanings, and search</span>
+      </a>
+      <a href="islamic-studies/prophets-and-imams/">
+        <span class="name">Prophets &amp; Imams<span class="ar">الأنبياء والأئمة</span></span>
+        <span class="desc">The 25 prophets with Quran reading links, and the Twelve Imams</span>
+      </a>
+      <a href="islamic-studies/vocab/">
+        <span class="name">Seasonal Vocabulary<span class="ar">مفردات الشهر</span></span>
+        <span class="desc">Quran &amp; Islamic Studies words for each hijri month</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Quran text: Tanzil project · Translation: Pickthall (public domain)
+</footer>
+
+<script>
+/* Hijri seasonal banner — reads seasons.json, keyed by islamic-umalqura
+   month number. Month-level granularity by design: computed hijri dates
+   can differ a day or two from local moonsighting, so we never claim a
+   specific day. Override for testing or announced dates: ?hijri=9 */
+(async function () {
+  let monthNum;
+  const forced = new URLSearchParams(location.search).get('hijri');
+  if (forced && +forced >= 1 && +forced <= 12) {
+    monthNum = +forced;
+  } else {
+    try {
+      monthNum = parseInt(new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',
+        { month: 'numeric' }).format(new Date()));
+    } catch (e) { return; }   /* very old browser: just skip the banner */
+  }
+  try {
+    const seasons = await (await fetch('seasons.json')).json();
+    const m = seasons.months[String(monthNum)];
+    if (!m) return;
+    document.getElementById('seasonMonth').textContent = 'This month · ' + m.name;
+    document.getElementById('seasonTheme').textContent = m.theme;
+    document.getElementById('seasonLinks').innerHTML = m.features.map(f =>
+      '<a href="' + f.url + '">' + f.label + '</a>').join('');
+    document.getElementById('seasonBanner').style.display = '';
+  } catch (e) { /* seasons.json missing: banner stays hidden */ }
+})();
+</script>
+</body>
+</html>
