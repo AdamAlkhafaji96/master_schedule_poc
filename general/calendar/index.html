@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Layered Calendar — Gregorian + Hijri + HLA + HISD</title>
+<title>Layered Calendar — Gregorian + Hijri + Harmony + HISD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -15,7 +15,7 @@
     --cell:#FFFFFF;
     --hijri:#0E6B4F;        /* Hijri overlay — emerald */
     --hijri-soft:#E2EFE9;
-    --hla:#6B3FA0;          /* HLA overlay — violet    */
+    --hla:#6B3FA0;          /* Harmony overlay — violet    */
     --hla-soft:#EDE4F6;
     --hisd:#1D6FB8;         /* HISD overlay — blue     */
     --hisd-soft:#E1EDF8;
@@ -226,10 +226,10 @@
   <div class="layers" role="group" aria-label="Calendar layers">
     <span class="base">Gregorian</span>
     <button data-layer="hijri" class="on" aria-pressed="true"><span class="sw"></span>Hijri</button>
-    <button data-layer="hla" aria-pressed="false"><span class="sw"></span>HLA</button>
+    <button data-layer="hla" aria-pressed="false"><span class="sw"></span>Harmony</button>
     <button data-layer="hisd" aria-pressed="false"><span class="sw"></span>HISD</button>
     <button data-layer="delta" id="deltaBtn" aria-pressed="false"
-      title="Emphasize HLA-only, HISD-only, and overlapping days (turns both school layers on)">
+      title="Emphasize Harmony-only, HISD-only, and overlapping days (turns both school layers on)">
       <span class="sw"></span>&Delta; Delta</button>
   </div>
 
@@ -268,7 +268,7 @@
         <div class="rlbl">Months</div><div class="rmonths" id="rMonths"></div>
       </div></div>
       <div class="catgrp" id="hlaCatRow">
-        <div class="cathdr"><span class="cattitle" style="color:var(--hla)">HLA event key</span>
+        <div class="cathdr"><span class="cattitle" style="color:var(--hla)">Harmony event key</span>
           <button class="lnk" data-catbulk="hla:1">&#10003; ALL</button>
           <button class="lnk" data-catbulk="hla:0">&#10005; NONE</button></div>
         <div class="frow" data-catchips="hla"></div>
@@ -407,7 +407,7 @@
     }
 
   /* ---------- School events (from schedule.albaseeraacademy.com POC) ---------- */
-  const HLA_EVENTS = [
+  const Harmony_EVENTS = [
     { s:"2026-07-03", n:"July 4th observed \u2014 closed", cat:"closed" },
     { s:"2026-07-29", e:"2026-07-31", n:"New Teacher Orientation", cat:"psopen" },
     { s:"2026-08-03", e:"2026-08-11", n:"Staff In-Service", cat:"psopen" },
@@ -517,7 +517,7 @@
   };
   let hlaDays, hisdDays;
   function rebuildDayMaps(){
-    hlaDays  = expandToDays(HLA_EVENTS.filter(ev => catSets.hla.has(ev.cat)));
+    hlaDays  = expandToDays(Harmony_EVENTS.filter(ev => catSets.hla.has(ev.cat)));
     hisdDays = expandToDays(HISD_EVENTS.filter(ev => catSets.hisd.has(ev.cat)));
   }
   rebuildDayMaps();
@@ -680,7 +680,7 @@
 
     document.getElementById("winNote").textContent =
       "Window limits: JAN/2026 \u2192 DEC/2027 \u00b7 default shows the full range. " +
-      "Data \u2014 HLA: 2026-07-03 \u2192 2027-05-31 \u00b7 HISD: 2026-06-05 \u2192 2027-07-16.";
+      "Data \u2014 Harmony: 2026-07-03 \u2192 2027-05-31 \u00b7 HISD: 2026-06-05 \u2192 2027-07-16.";
   }
 
   function filterDeviations(){
@@ -775,9 +775,9 @@
       "<span><span class='k greg'></span>Gregorian day</span>",
       "<span><span class='k dot'></span>holiday (US / Islamic)</span>",
       "<span class='" + (layers.hijri ? "" : "off") + "'><span class='k hj'></span>Hijri day (corner; \u00b7n marks a new Hijri month)</span>",
-      "<span class='" + (layers.hla ? "" : "off") + "'><span class='k hla'></span>HLA event (top band)</span>",
+      "<span class='" + (layers.hla ? "" : "off") + "'><span class='k hla'></span>Harmony event (top band)</span>",
       "<span class='" + (layers.hisd ? "" : "off") + "'><span class='k hisd'></span>HISD event (bottom band)</span>",
-      "<span class='" + (deltaOn ? "" : "off") + "'>&Delta; ring: <span style='color:var(--hla);font-weight:700'>HLA-only</span> / <span style='color:var(--hisd);font-weight:700'>HISD-only</span> / <span style='font-weight:700'>ink = both</span></span>"
+      "<span class='" + (deltaOn ? "" : "off") + "'>&Delta; ring: <span style='color:var(--hla);font-weight:700'>Harmony-only</span> / <span style='color:var(--hisd);font-weight:700'>HISD-only</span> / <span style='font-weight:700'>ink = both</span></span>"
     ].join("");
   }
 
@@ -785,7 +785,7 @@
     const bits = [fmtGreg(rec.g)];
     if (layers.hijri) bits.push(fmtHijri(rec.h));
     if (holidayByKey.has(k)) bits.push(holidayByKey.get(k).join(", "));
-    if (layers.hla  && hlaDays.has(k))  bits.push("HLA: "  + hlaDays.get(k));
+    if (layers.hla  && hlaDays.has(k))  bits.push("Harmony: "  + hlaDays.get(k));
     if (layers.hisd && hisdDays.has(k)) bits.push("HISD: " + hisdDays.get(k));
     return bits.join(" \u00b7 ");
   }
@@ -799,7 +799,7 @@
         const bits = ["<b>" + fmtGreg(rec.g) + "</b>"];
         if (layers.hijri) bits.push("<span class='tag hj'>" + fmtHijri(rec.h) + "</span>");
         if (holidayByKey.has(k)) bits.push(holidayByKey.get(k).join(", "));
-        if (layers.hla  && hlaDays.has(k))  bits.push("<span class='tag hla'>HLA:</span> "  + hlaDays.get(k));
+        if (layers.hla  && hlaDays.has(k))  bits.push("<span class='tag hla'>Harmony:</span> "  + hlaDays.get(k));
         if (layers.hisd && hisdDays.has(k)) bits.push("<span class='tag hisd'>HISD:</span> " + hisdDays.get(k));
         info.innerHTML = bits.join(" \u00b7 ");
       };
@@ -887,7 +887,7 @@
     const cols = ["<th>Date</th>"];
     if (layers.hijri) cols.push("<th>Hijri</th>");
     cols.push("<th>Holiday</th>");
-    if (layers.hla)  cols.push("<th>HLA</th>");
+    if (layers.hla)  cols.push("<th>Harmony</th>");
     if (layers.hisd) cols.push("<th>HISD</th>");
 
     let html = "<tr>" + cols.join("") + "</tr>";
@@ -907,13 +907,13 @@
         (tblView === "all"
           ? "No dates for the current layer + filter selection."
           : "No " + (tblView === "shared" ? "shared" : "single-source") +
-            " HLA/HISD dates \u2014 make sure both school layers are on.") +
+            " Harmony/HISD dates \u2014 make sure both school layers are on.") +
         "</td></tr>";
     document.getElementById("masterTbl").innerHTML = html;
     document.getElementById("tblViewNote").textContent =
       tblView === "all" ? shown.length + " rows"
-      : tblView === "shared" ? shown.length + " rows on both HLA and HISD"
-      : shown.length + " rows on exactly one of HLA / HISD";
+      : tblView === "shared" ? shown.length + " rows on both Harmony and HISD"
+      : shown.length + " rows on exactly one of Harmony / HISD";
   }
 
   /* ---------- Wiring ---------- */
