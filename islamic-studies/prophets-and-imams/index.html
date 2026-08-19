@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prophets &amp; Imams — Names Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b4d38;
+    --primary-dark: #0f3324;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  main { max-width: 860px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+  .group-title {
+    text-align: center; margin: 2.2rem 0 1.1rem;
+  }
+  .group-title:first-child { margin-top: 0; }
+  .group-title h2 { font-weight: 500; font-size: 1.25rem; color: var(--primary); letter-spacing: .04em; }
+  .group-title .ar { font-family: 'Amiri', serif; font-size: 1.35rem; color: var(--gold); }
+  .group-title .note { font-size: .82rem; color: #6b6a60; margin-top: .2rem; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: .7rem;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .9rem .9rem .8rem; text-align: center;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06);
+    transition: border-color .12s, box-shadow .12s;
+    position: relative;
+  }
+  .card:hover { border-color: var(--gold); box-shadow: 0 4px 12px rgba(34,36,58,.1); }
+  .card .num { position: absolute; top: .5rem; left: .65rem; font-size: .7rem; color: var(--gold); font-weight: 600; }
+  .card .arabic { font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--primary); line-height: 1.35; }
+  .card .en { font-size: .95rem; font-weight: 600; margin-top: .1rem; }
+  .card .detail { font-size: .8rem; color: #55544a; margin-top: .1rem; }
+  .card a.read {
+    display: inline-block; margin-top: .5rem;
+    font-size: .74rem; letter-spacing: .06em; text-decoration: none;
+    color: var(--primary); border: 1px solid var(--primary);
+    border-radius: 999px; padding: .28rem .8rem;
+    transition: background .12s, color .12s;
+  }
+  .card a.read:hover { background: var(--primary); color: #fff; }
+  .card a.read:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  footer { text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem; }
+  @media (prefers-reduced-motion: reduce) { .card, .card a.read { transition: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies</div>
+  <h1>The Prophets &amp; The Imams</h1>
+  <div class="site-nav">
+    <a href="../names-of-allah/">99 Names</a>
+    <a href="../../quran/text/">Quran</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="group-title">
+    <h2>The Prophets named in the Quran <span class="ar">الأنبياء</span></h2>
+    <p class="note">Twenty-five prophets, each linked to a surah where their story is told.</p>
+  </div>
+  <div class="cards" id="prophetCards"></div>
+
+  <div class="group-title">
+    <h2>The Twelve Imams <span class="ar">الأئمة الاثنا عشر</span></h2>
+    <p class="note">The Imams of the Ahl al-Bayt, peace be upon them.</p>
+  </div>
+  <div class="cards" id="imamCards"></div>
+</main>
+
+<footer>Reading links open the passage in the Quran reference with translation on.</footer>
+
+<script>
+/* [arabic, english, quran surah ref for a story passage, ref label] */
+const PROPHETS = [
+["آدَم","Adam", 2, "Al-Baqarah"],
+["إِدْرِيس","Idris", 19, "Maryam"],
+["نُوح","Nuh (Noah)", 71, "Nuh"],
+["هُود","Hud", 11, "Hud"],
+["صَالِح","Salih", 11, "Hud"],
+["إِبْرَاهِيم","Ibrahim (Abraham)", 14, "Ibrahim"],
+["لُوط","Lut (Lot)", 11, "Hud"],
+["إِسْمَاعِيل","Isma'il (Ishmael)", 37, "As-Saffat"],
+["إِسْحَاق","Ishaq (Isaac)", 37, "As-Saffat"],
+["يَعْقُوب","Ya'qub (Jacob)", 12, "Yusuf"],
+["يُوسُف","Yusuf (Joseph)", 12, "Yusuf"],
+["أَيُّوب","Ayyub (Job)", 21, "Al-Anbya"],
+["شُعَيْب","Shu'ayb", 11, "Hud"],
+["مُوسَى","Musa (Moses)", 28, "Al-Qasas"],
+["هَارُون","Harun (Aaron)", 20, "Taha"],
+["ذُو ٱلْكِفْل","Dhul-Kifl", 21, "Al-Anbya"],
+["دَاوُد","Dawud (David)", 38, "Sad"],
+["سُلَيْمَان","Sulayman (Solomon)", 27, "An-Naml"],
+["إِلْيَاس","Ilyas (Elijah)", 37, "As-Saffat"],
+["ٱلْيَسَع","Al-Yasa (Elisha)", 38, "Sad"],
+["يُونُس","Yunus (Jonah)", 10, "Yunus"],
+["زَكَرِيَّا","Zakariyya (Zechariah)", 19, "Maryam"],
+["يَحْيَى","Yahya (John)", 19, "Maryam"],
+["عِيسَى","Isa (Jesus)", 19, "Maryam"],
+["مُحَمَّد","Muhammad ﷺ", 47, "Muhammad"]
+];
+
+/* [arabic, english, title/kunya] */
+const IMAMS = [
+["عَلِيّ بْن أَبِي طَالِب","Ali ibn Abi Talib","Amir al-Mu'minin"],
+["ٱلْحَسَن بْن عَلِيّ","Hasan ibn Ali","Al-Mujtaba"],
+["ٱلْحُسَيْن بْن عَلِيّ","Husayn ibn Ali","Sayyid ash-Shuhada"],
+["عَلِيّ زَيْن ٱلْعَابِدِين","Ali Zayn al-Abidin","As-Sajjad"],
+["مُحَمَّد ٱلْبَاقِر","Muhammad al-Baqir","Baqir al-Ulum"],
+["جَعْفَر ٱلصَّادِق","Ja'far as-Sadiq","As-Sadiq"],
+["مُوسَى ٱلْكَاظِم","Musa al-Kazim","Al-Kazim"],
+["عَلِيّ ٱلرِّضَا","Ali ar-Rida","Ar-Rida"],
+["مُحَمَّد ٱلْجَوَاد","Muhammad al-Jawad","At-Taqi"],
+["عَلِيّ ٱلْهَادِي","Ali al-Hadi","An-Naqi"],
+["ٱلْحَسَن ٱلْعَسْكَرِيّ","Hasan al-Askari","Al-Askari"],
+["مُحَمَّد ٱلْمَهْدِيّ","Muhammad al-Mahdi","Al-Qa'im"]
+];
+
+document.getElementById('prophetCards').innerHTML = PROPHETS.map(([ar, en, s, label], i) =>
+  '<div class="card">' +
+    '<span class="num">' + (i + 1) + '</span>' +
+    '<div class="arabic">' + ar + '</div>' +
+    '<div class="en">' + en + '</div>' +
+    '<a class="read" href="../../quran/text/?s=' + s + '&trans=1">Read in Surah ' + label + ' &rarr;</a>' +
+  '</div>').join('');
+
+document.getElementById('imamCards').innerHTML = IMAMS.map(([ar, en, title], i) =>
+  '<div class="card">' +
+    '<span class="num">' + (i + 1) + '</span>' +
+    '<div class="arabic">' + ar + '</div>' +
+    '<div class="en">' + en + '</div>' +
+    '<div class="detail">' + title + '</div>' +
+  '</div>').join('');
+</script>
+</body>
+</html>
