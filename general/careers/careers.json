@@ -1,0 +1,42 @@
+{
+  "note": "PLACEHOLDER openings — replace with real roles. status: open | filled | placeholder. url routes to the application (form or mailto). The page presents and routes; nothing is collected here.",
+  "intro": "Teach, volunteer, or help build the school — Al Baseera grows through its people.",
+  "openings": [
+    {
+      "id": "arabic-teacher",
+      "title": "Arabic Teacher",
+      "type": "Part-time",
+      "desc": "Teach Arabic letters through conversation using the academy's curriculum. Placeholder description.",
+      "url": "mailto:office@albaseeraacademy.com?subject=Arabic%20Teacher",
+      "action": "Apply by email",
+      "status": "open"
+    },
+    {
+      "id": "quran-teacher",
+      "title": "Quran / Hifz Teacher",
+      "type": "Part-time",
+      "desc": "Lead recitation, tajweed, and memorization circles. Placeholder description.",
+      "url": "mailto:office@albaseeraacademy.com?subject=Quran%20Teacher",
+      "action": "Apply by email",
+      "status": "open"
+    },
+    {
+      "id": "volunteer",
+      "title": "Volunteers & Aides",
+      "type": "Volunteer",
+      "desc": "Classroom aides, event help, and the notes-digitization project — many hands welcome.",
+      "url": "mailto:office@albaseeraacademy.com?subject=Volunteering",
+      "action": "Reach out",
+      "status": "open"
+    },
+    {
+      "id": "ph",
+      "title": "— role pending —",
+      "type": "",
+      "desc": "Placeholder — copy any entry as a template.",
+      "url": "",
+      "action": "",
+      "status": "placeholder"
+    }
+  ]
+}

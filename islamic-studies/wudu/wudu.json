@@ -1,0 +1,96 @@
+{
+  "note": "SOURCE OF TRUTH for the wudu slideshow. Each step: title, ar, desc, times (optional), emoji (placeholder art shown until a real photo exists), image (set to e.g. 'photos/step-01.jpeg' once photographed — drop files in a photos/ folder here). videos[]: title, source, url, status (ok | placeholder). Sequence follows the school's taught order — adjust freely.",
+  "intro": "Wudu is the washing before salah. Follow the steps in order; each washing is done thoroughly. Ask your teacher about what breaks wudu and when it must be renewed.",
+  "steps": [
+    {
+      "title": "Make Niyyah & say Bismillah",
+      "ar": "النِّيَّة والبَسْمَلَة",
+      "emoji": "🤲",
+      "desc": "Intend in your heart that this washing is for the sake of Allah, and begin with Bismillah.",
+      "times": ""
+    },
+    {
+      "title": "Wash the hands",
+      "ar": "غَسْل اليَدَيْن",
+      "emoji": "🫧",
+      "desc": "Wash both hands up to the wrists, letting the water reach between the fingers.",
+      "times": "3 times"
+    },
+    {
+      "title": "Rinse the mouth",
+      "ar": "المَضْمَضَة",
+      "emoji": "💦",
+      "desc": "Take water into the mouth and rinse it thoroughly.",
+      "times": "3 times"
+    },
+    {
+      "title": "Rinse the nose",
+      "ar": "الاِسْتِنْشَاق",
+      "emoji": "👃",
+      "desc": "Sniff water gently into the nostrils and blow it out.",
+      "times": "3 times"
+    },
+    {
+      "title": "Wash the face",
+      "ar": "غَسْل الوَجْه",
+      "emoji": "🙂",
+      "desc": "Wash the whole face, from the hairline to the chin and ear to ear.",
+      "times": "3 times"
+    },
+    {
+      "title": "Wash the arms",
+      "ar": "غَسْل الذِّرَاعَيْن",
+      "emoji": "💪",
+      "desc": "Wash the right arm from fingertips to above the elbow, then the left.",
+      "times": "3 times each"
+    },
+    {
+      "title": "Wipe the head",
+      "ar": "مَسْح الرَّأْس",
+      "emoji": "🖐️",
+      "desc": "With wet hands, wipe over the head from front to back.",
+      "times": "once"
+    },
+    {
+      "title": "Wipe the ears",
+      "ar": "مَسْح الأُذُنَيْن",
+      "emoji": "👂",
+      "desc": "Wipe the inside and outside of both ears with wet fingers.",
+      "times": "once"
+    },
+    {
+      "title": "Wash the feet",
+      "ar": "غَسْل القَدَمَيْن",
+      "emoji": "🦶",
+      "desc": "Wash the right foot to above the ankle, then the left, between the toes too.",
+      "times": "3 times each"
+    },
+    {
+      "title": "Finish with the du'a",
+      "ar": "الدُّعَاء بَعْد الوُضُوء",
+      "emoji": "🌙",
+      "desc": "Complete wudu with the shahadah and the du'a taught in class — ready for salah.",
+      "times": ""
+    }
+  ],
+  "videos": [
+    {
+      "title": "Wudu step-by-step for kids",
+      "source": "placeholder — link the class-approved video",
+      "url": "https://www.youtube.com/",
+      "status": "placeholder"
+    },
+    {
+      "title": "Common wudu mistakes",
+      "source": "placeholder",
+      "url": "https://www.youtube.com/",
+      "status": "placeholder"
+    },
+    {
+      "title": "Teacher demonstration (to be recorded)",
+      "source": "Al Baseera Academy",
+      "url": "",
+      "status": "placeholder"
+    }
+  ]
+}

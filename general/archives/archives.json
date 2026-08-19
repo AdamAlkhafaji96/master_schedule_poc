@@ -2,6 +2,26 @@
   "note": "PLACEHOLDER legacy archive — old slideshow presentations and other legacy digital artifacts. Item fields: id, kind (slideshow | newsletter | photos | flyer | other), title, year, event, file (files/... once recovered into the repo) OR url (if it lives in Drive/YouTube/etc.), status (recovered | link-only | missing), notes. 'missing' items are known to exist but not yet located — they hold their spot and turn the page into a recovery checklist. Grouped by year, newest first. TOC CSV export is generated from this file.",
   "items": [
     {
+      "id": "summary-2526",
+      "kind": "slideshow",
+      "title": "Year in Review Slideshow — 2025–2026",
+      "year": 2026,
+      "event": "School Year 2025–26",
+      "url": "",
+      "status": "missing",
+      "notes": "Annual summary slideshow — to be assembled from this year's photos and events."
+    },
+    {
+      "id": "summary-2425",
+      "kind": "slideshow",
+      "title": "Year in Review Slideshow — 2024–2025",
+      "year": 2025,
+      "event": "School Year 2024–25",
+      "url": "",
+      "status": "missing",
+      "notes": "Annual summary slideshow — check last year's Drive folder and the office laptop."
+    },
+    {
       "id": "grad-2025",
       "kind": "slideshow",
       "title": "Graduation Ceremony Slideshow",

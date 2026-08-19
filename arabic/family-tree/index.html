@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment — My Family Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a3a6b; --primary-dark: #10264a;
+    --gold: #c9a13b; --gold-soft: #e3cf8f;
+    --vellum: #f7f2e7; --vellum-dim: #ece4d2; --ink: #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  .header-logo { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--gold); display: block; margin: 0 auto .6rem; }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+  main { max-width: 720px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+  .instructions { background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    padding: .9rem 1.1rem; margin-bottom: 1.2rem; font-size: .9rem; color: #55544a; line-height: 1.55;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  .instructions b { color: var(--primary); }
+
+  .tree { display: flex; flex-direction: column; align-items: center; }
+  .row { display: flex; gap: .9rem; flex-wrap: wrap; justify-content: center; }
+  .link { width: 2px; height: 24px; background: #b5ac96; }
+  .slot {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .55rem .7rem .6rem; text-align: center; min-width: 138px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06);
+  }
+  .slot .ar { font-family: 'Amiri', serif; font-size: 1.35rem; color: var(--primary); line-height: 1.2; }
+  .slot .en { font-size: .74rem; color: #6b6a60; }
+  .slot input {
+    margin-top: .35rem; width: 100%; font-family: inherit; font-size: .9rem;
+    padding: .35rem .45rem; border-radius: 8px; border: 1px dashed var(--gold-soft);
+    background: #fdfaf1; text-align: center;
+  }
+  .slot input:focus { outline: 2px solid var(--gold); border-style: solid; }
+  .slot.me { border-color: var(--gold); background: #fdfaf1; }
+
+  .actions { text-align: center; margin-top: 1.2rem; display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  .btn { font-family: inherit; font-size: .85rem; padding: .5rem 1rem; border-radius: 8px;
+    border: 1px solid var(--gold); background: #fff; cursor: pointer; }
+  .btn:hover { background: var(--gold-soft); }
+
+  .vocab { margin-top: 1.6rem; }
+  .vocab h3 { text-align: center; font-weight: 500; color: var(--primary); margin-bottom: .6rem; }
+  .vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
+  .v { background: #fff; border: 1px solid var(--vellum-dim); border-radius: 10px;
+    padding: .45rem .6rem; display: flex; justify-content: space-between; align-items: baseline; font-size: .86rem; }
+  .v .a { font-family: 'Amiri', serif; font-size: 1.15rem; color: var(--primary); }
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+
+  @media print {
+    header, .actions, .note, footer, .site-nav { display: none !important; }
+    body { background: #fff; }
+    .slot input { border-style: solid; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Arabic · Assignment</div>
+  <h1>My Family Tree<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">شَجَرَة عَائِلَتِي</span></h1>
+  <div class="site-nav">
+    <a href="../vocab/?level=t&month=3">Family Vocab</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="instructions">
+    <b>Assignment:</b> Fill in your family's names under each Arabic word — write the
+    names in Arabic if you can, or in English. Practice saying each one aloud:
+    <span style="font-family:'Amiri',serif">هَذَا أَبِي</span> (this is my father),
+    <span style="font-family:'Amiri',serif">هَذِهِ أُمِّي</span> (this is my mother).
+    Then press <b>Print</b> and bring the tree to class. Names stay on your device only.
+  </div>
+
+  <div class="tree">
+    <div class="row">
+      <div class="slot"><div class="ar">جَدِّي</div><div class="en">my grandfather</div><input data-k="jadd" placeholder="name"></div>
+      <div class="slot"><div class="ar">جَدَّتِي</div><div class="en">my grandmother</div><input data-k="jadda" placeholder="name"></div>
+      <div class="slot"><div class="ar">جَدِّي</div><div class="en">my grandfather</div><input data-k="jadd2" placeholder="name"></div>
+      <div class="slot"><div class="ar">جَدَّتِي</div><div class="en">my grandmother</div><input data-k="jadda2" placeholder="name"></div>
+    </div>
+    <div class="link"></div>
+    <div class="row">
+      <div class="slot"><div class="ar">أَبِي</div><div class="en">my father</div><input data-k="ab" placeholder="name"></div>
+      <div class="slot"><div class="ar">أُمِّي</div><div class="en">my mother</div><input data-k="umm" placeholder="name"></div>
+    </div>
+    <div class="link"></div>
+    <div class="row">
+      <div class="slot"><div class="ar">أَخِي</div><div class="en">my brother</div><input data-k="akh" placeholder="name (or —)"></div>
+      <div class="slot me"><div class="ar">أَنَا</div><div class="en">me!</div><input data-k="ana" placeholder="your name"></div>
+      <div class="slot"><div class="ar">أُخْتِي</div><div class="en">my sister</div><input data-k="ukht" placeholder="name (or —)"></div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="printBtn">🖨 Print my tree</button>
+    <button class="btn" id="clearBtn">Clear</button>
+  </div>
+
+  <div class="vocab">
+    <h3>Family words to know</h3>
+    <div class="vgrid">
+      <div class="v"><span>father</span><span class="a">أَب</span></div>
+      <div class="v"><span>mother</span><span class="a">أُمّ</span></div>
+      <div class="v"><span>brother</span><span class="a">أَخ</span></div>
+      <div class="v"><span>sister</span><span class="a">أُخْت</span></div>
+      <div class="v"><span>grandfather</span><span class="a">جَدّ</span></div>
+      <div class="v"><span>grandmother</span><span class="a">جَدَّة</span></div>
+      <div class="v"><span>uncle (paternal)</span><span class="a">عَمّ</span></div>
+      <div class="v"><span>aunt (paternal)</span><span class="a">عَمَّة</span></div>
+      <div class="v"><span>uncle (maternal)</span><span class="a">خَال</span></div>
+      <div class="v"><span>aunt (maternal)</span><span class="a">خَالَة</span></div>
+      <div class="v"><span>family</span><span class="a">عَائِلَة</span></div>
+      <div class="v"><span>son / daughter</span><span class="a">اِبْن / بِنْت</span></div>
+    </div>
+  </div>
+
+  <p class="note">The المِّي/possessive ending ـي means "my" — أَب (father) becomes أَبِي (my father).</p>
+</main>
+
+<footer>Names are saved on this device so the tree survives a refresh — nothing is uploaded.</footer>
+
+<script>
+const KEY = 'absr-family-tree-v1';
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+document.querySelectorAll('.slot input').forEach(inp => {
+  inp.value = saved[inp.dataset.k] || '';
+  inp.addEventListener('input', () => {
+    saved[inp.dataset.k] = inp.value;
+    localStorage.setItem(KEY, JSON.stringify(saved));
+  });
+});
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (!confirm('Clear all names?')) return;
+  saved = {};
+  localStorage.removeItem(KEY);
+  document.querySelectorAll('.slot input').forEach(i => i.value = '');
+});
+</script>
+</body>
+</html>

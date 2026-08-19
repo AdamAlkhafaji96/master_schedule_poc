@@ -47,6 +47,17 @@
     background: var(--vellum); color: var(--ink);
   }
   .controls input[type=search] { min-width: 200px; }
+  .seg { display: flex; border: 1px solid var(--gold); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    background: transparent; color: var(--gold-soft); border: none; cursor: pointer;
+  }
+  .seg button + button { border-left: 1px solid rgba(201,161,59,.45); }
+  .seg button.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
+  body.lang-ar .facts .row .k { font-family: 'Amiri', serif; font-size: 1.05rem; }
+  body.lang-ar .facts, body.lang-ar .country-head { direction: rtl; }
+  body.lang-ar .facts .row .v { text-align: left; }
+  body.lang-ar .country-head .region { margin-left: 0; margin-right: auto; }
 
   main { max-width: 900px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
 
@@ -119,6 +130,10 @@
 <div class="controls">
   <select id="countrySelect" aria-label="Choose country"></select>
   <input type="search" id="q" placeholder="Search countries…" aria-label="Search countries">
+  <span class="seg" role="group" aria-label="Language">
+    <button data-lang="en" class="on">English</button>
+    <button data-lang="ar">العربية</button>
+  </span>
 </div>
 
 <main>
@@ -133,7 +148,15 @@
 <footer>Maps © OpenStreetMap contributors.</footer>
 
 <script>
-let D = null, current = 0;
+let D = null, current = 0, lang = 'en';
+const L = {
+  en: { capital: 'Capital', population: 'Population', languages: 'Languages',
+        nationality: 'Nationality', muslim: 'Muslim population', say: 'Say it in Arabic:',
+        practice: 'Practice the Nationalities vocab list &rarr;', map: 'Open the full map &rarr;' },
+  ar: { capital: 'العاصمة', population: 'عدد السكان', languages: 'اللغات',
+        nationality: 'الجنسية', muslim: 'نسبة المسلمين', say: 'قُل بالعربية:',
+        practice: 'تدرّب على قائمة الجنسيات &larr;', map: 'افتح الخريطة الكاملة &larr;' }
+};
 
 function esc(s) {
   return String(s == null ? '' : s)
@@ -161,7 +184,7 @@ function mapEmbed(c) {
   return '<iframe loading="lazy" title="Map of ' + esc(c.en) + '" ' +
     'src="https://www.openstreetmap.org/export/embed.html?bbox=' + b + '&amp;layer=mapnik"></iframe>' +
     '<div class="map-note"><a href="https://www.openstreetmap.org/?box=yes&bbox=' + b +
-    '" target="_blank" rel="noopener">Open the full map &rarr;</a></div>';
+    '" target="_blank" rel="noopener">' + L[lang].map + '</a></div>';
 }
 
 function render() {
@@ -171,11 +194,13 @@ function render() {
   const vocabUrl = '../../arabic/vocab/?level=t&month=' + theme;
 
   const placeholder = c.status === 'placeholder';
+  const T = L[lang];
+  const nameTop = lang === 'ar' ? c.ar : c.en, nameSub = lang === 'ar' ? c.en : c.ar;
   host.innerHTML = '<div class="country-card">' +
     '<div class="country-head">' +
       '<span class="flag">' + c.flag + '</span>' +
-      '<span class="names"><span class="en">' + esc(c.en) + '</span><br>' +
-        '<span class="ar">' + esc(c.ar) + '</span></span>' +
+      '<span class="names"><span class="' + (lang === 'ar' ? 'ar' : 'en') + '">' + esc(nameTop) + '</span><br>' +
+        '<span class="' + (lang === 'ar' ? 'en' : 'ar') + '">' + esc(nameSub) + '</span></span>' +
       (c.region ? '<span class="region">' + esc(c.region) + '</span>' : '') +
     '</div>' +
     (placeholder
@@ -183,23 +208,23 @@ function render() {
           esc(c.breakdown || 'Placeholder country — fill it in via countries.json.') + '</div></div>'
       : '<div class="country-body">' +
         '<div class="facts">' +
-          '<div class="row"><span class="k">Capital</span><span class="v">' + esc(c.capital_en) +
+          '<div class="row"><span class="k">' + T.capital + '</span><span class="v">' + esc(c.capital_en) +
             (c.capital_ar ? '<span class="ar">' + esc(c.capital_ar) + '</span>' : '') + '</span></div>' +
-          '<div class="row"><span class="k">Population</span><span class="v">≈ ' + fmtPop(c.population) + '</span></div>' +
-          '<div class="row"><span class="k">Languages</span><span class="v">' + esc((c.languages || []).join(', ') || '—') + '</span></div>' +
-          '<div class="row"><span class="k">Nationality</span><span class="v">' + esc(c.demonym_en) +
+          '<div class="row"><span class="k">' + T.population + '</span><span class="v">≈ ' + fmtPop(c.population) + '</span></div>' +
+          '<div class="row"><span class="k">' + T.languages + '</span><span class="v">' + esc((c.languages || []).join(', ') || '—') + '</span></div>' +
+          '<div class="row"><span class="k">' + T.nationality + '</span><span class="v">' + esc(c.demonym_en) +
             (c.demonym_ar_m ? '<span class="ar">' + esc(c.demonym_ar_m) + ' / ' + esc(c.demonym_ar_f) + '</span>' : '') + '</span></div>' +
           (c.muslim_pct != null
             ? '<div class="pop-bar-wrap">' +
-                '<div class="pop-bar-label"><span>Muslim population</span><span>≈ ' + c.muslim_pct + '%</span></div>' +
+                '<div class="pop-bar-label"><span>' + T.muslim + '</span><span>≈ ' + c.muslim_pct + '%</span></div>' +
                 '<div class="pop-bar"><div class="fill" style="width:' + c.muslim_pct + '%"></div></div>' +
               '</div>' : '') +
           (c.breakdown ? '<p class="blurb">' + esc(c.breakdown) + '</p>' : '') +
           (c.facts ? '<p class="blurb">' + esc(c.facts) + '</p>' : '') +
           (c.demonym_ar_m
-            ? '<div class="say-it">Say it in Arabic:' +
+            ? '<div class="say-it">' + T.say +
                 '<span class="ar">أَنَا ' + esc(c.demonym_ar_m) + ' · أَنَا مِنْ ' + esc(c.ar) + '</span>' +
-                '<a href="' + vocabUrl + '">Practice the Nationalities vocab list &rarr;</a>' +
+                '<a href="' + vocabUrl + '">' + T.practice + '</a>' +
               '</div>' : '') +
         '</div>' +
         '<div class="map-pane">' + mapEmbed(c) + '</div>' +
@@ -223,6 +248,13 @@ document.getElementById('countrySelect').addEventListener('change', e => {
   current = parseInt(e.target.value); render();
 });
 document.getElementById('q').addEventListener('input', applySearch);
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  lang = b.dataset.lang;
+  document.body.classList.toggle('lang-ar', lang === 'ar');
+  render();
+}));
 
 (async function init() {
   D = await (await fetch('countries.json')).json();

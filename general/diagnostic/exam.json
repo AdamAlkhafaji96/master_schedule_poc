@@ -1,0 +1,149 @@
+{
+  "note": "CONCEPTUAL PLACEHOLDER for the Universal Diagnostic Exam — one exam, taken at a level, testing four skills (Reading, Writing, Speaking, Comprehension) with mixed English/Arabic usage. Item types: mc (options + answer index, self-checkable), prompt (written response, teacher-scored), oral (spoken task, teacher-scored). Replace samples freely; scoring/administration stays with the teacher until a login tier exists.",
+  "intro": "One exam, three levels. Each level samples the same four skills — reading, writing, speaking, and comprehension — with more Arabic and less English as the level rises. These are illustrative placeholder items.",
+  "levels": {
+    "1": {
+      "label": "Level 1 — Beginner",
+      "language": "Mostly English, Arabic letters & words",
+      "skills": {
+        "Reading": [
+          {
+            "type": "mc",
+            "q": "Which letter is 'ba' (ب)?",
+            "options": [
+              "ت",
+              "ب",
+              "ث",
+              "ن"
+            ],
+            "answer": 1
+          },
+          {
+            "type": "mc",
+            "q": "Read the word: كَلْب — what does it mean?",
+            "options": [
+              "Cat",
+              "Book",
+              "Dog",
+              "Door"
+            ],
+            "answer": 2
+          }
+        ],
+        "Writing": [
+          {
+            "type": "prompt",
+            "q": "Write the three letters of the Boat family (ب ت ث) in their separate forms."
+          }
+        ],
+        "Speaking": [
+          {
+            "type": "oral",
+            "q": "Say the alphabet from أ to خ aloud for your teacher."
+          }
+        ],
+        "Comprehension": [
+          {
+            "type": "mc",
+            "q": "Your teacher says: «اِفْتَح الكِتَاب». What should you do?",
+            "options": [
+              "Close the book",
+              "Open the book",
+              "Stand up",
+              "Sit down"
+            ],
+            "answer": 1
+          }
+        ]
+      }
+    },
+    "2": {
+      "label": "Level 2 — Intermediate",
+      "language": "Half English, half Arabic sentences",
+      "skills": {
+        "Reading": [
+          {
+            "type": "mc",
+            "q": "Read: أَنَا مِنْ العِرَاق — the speaker is saying…",
+            "options": [
+              "I am hungry",
+              "I am from Iraq",
+              "I am a teacher",
+              "I am tired"
+            ],
+            "answer": 1
+          }
+        ],
+        "Writing": [
+          {
+            "type": "prompt",
+            "q": "Write one sentence in Arabic introducing yourself: your name and where you are from."
+          }
+        ],
+        "Speaking": [
+          {
+            "type": "oral",
+            "q": "Answer aloud in Arabic: مِنْ أَيْنَ أَنْتَ؟"
+          }
+        ],
+        "Comprehension": [
+          {
+            "type": "mc",
+            "q": "«ذَهَبَ الوَلَدُ إِلَى المَدْرَسَة» — Where did the boy go?",
+            "options": [
+              "Home",
+              "The masjid",
+              "School",
+              "The market"
+            ],
+            "answer": 2
+          }
+        ]
+      }
+    },
+    "3": {
+      "label": "Level 3 — Advanced",
+      "language": "Mostly Arabic, including Qur'anic vocabulary",
+      "skills": {
+        "Reading": [
+          {
+            "type": "mc",
+            "q": "In «لَا إِلَٰهَ إِلَّا الله», the word إِلَّا means…",
+            "options": [
+              "never",
+              "except",
+              "not",
+              "indeed"
+            ],
+            "answer": 1
+          }
+        ],
+        "Writing": [
+          {
+            "type": "prompt",
+            "q": "اُكْتُب ثلاث جمل عن عائلتك (Write three sentences about your family, in Arabic)."
+          }
+        ],
+        "Speaking": [
+          {
+            "type": "oral",
+            "q": "Recite Surah Al-Fatihah with tajweed, then explain one ayah in your own words."
+          }
+        ],
+        "Comprehension": [
+          {
+            "type": "mc",
+            "q": "Listen (teacher reads a short passage about الفُصُول الأربعة). Which season is described as «يَتَسَاقَطُ فِيهِ الثَّلْج»؟",
+            "options": [
+              "الصيف",
+              "الربيع",
+              "الشتاء",
+              "الخريف"
+            ],
+            "answer": 2
+          }
+        ]
+      }
+    }
+  }
+}

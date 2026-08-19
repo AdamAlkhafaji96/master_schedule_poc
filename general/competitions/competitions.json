@@ -1,0 +1,72 @@
+{
+  "note": "PLACEHOLDER local competitions calendar — Houston-area Quran, Arabic, and Islamic knowledge events at masajid, full-time and Sunday schools, and clubs. Dates and hosts are illustrative: VERIFY each with the host before announcing. Fields: id, date (YYYY-MM-DD), name, host, type (Quran | Arabic | Islamic Knowledge | Academic), location, url, status (confirmed | tentative | placeholder), notes. The page sorts upcoming events soonest-first; past events sink to the bottom.",
+  "intro": "Quran, Arabic, and Islamic-knowledge competitions around greater Houston — dates are placeholders until confirmed with each host.",
+  "events": [
+    {
+      "id": "isgh-quran",
+      "date": "2026-11-14",
+      "name": "Annual Quran Competition",
+      "host": "ISGH — Islamic Society of Greater Houston",
+      "type": "Quran",
+      "location": "Houston, TX",
+      "url": "https://www.isgh.org/",
+      "status": "tentative",
+      "notes": "Memorization divisions by juz; registration usually opens in fall."
+    },
+    {
+      "id": "mas-quran",
+      "date": "2026-12-05",
+      "name": "MAS Houston Quran Competition",
+      "host": "MAS Houston",
+      "type": "Quran",
+      "location": "Houston, TX",
+      "url": "https://www.mashouston.org/",
+      "status": "tentative",
+      "notes": "Hifz and tajweed categories across age groups."
+    },
+    {
+      "id": "hqa-open",
+      "date": "2026-10-03",
+      "name": "Quran Recitation Open",
+      "host": "Houston Quran Academy",
+      "type": "Quran",
+      "location": "Katy, TX",
+      "url": "https://www.hqa.us/",
+      "status": "placeholder",
+      "notes": "Placeholder date — HQA hosts recitation events through the year."
+    },
+    {
+      "id": "arabic-bee",
+      "date": "2027-02-20",
+      "name": "Arabic Spelling & Vocabulary Bee",
+      "host": "Area Islamic schools (rotating host)",
+      "type": "Arabic",
+      "location": "TBD",
+      "url": "",
+      "status": "placeholder",
+      "notes": "Concept event pairing with our themed vocab lists."
+    },
+    {
+      "id": "mist",
+      "date": "2027-03-27",
+      "name": "MIST Houston — Muslim Interscholastic Tournament",
+      "host": "MIST Houston",
+      "type": "Islamic Knowledge",
+      "location": "University of Houston",
+      "url": "https://www.getmistified.com/",
+      "status": "tentative",
+      "notes": "Quran, knowledge, arts, and academic brackets for grades 6–12."
+    },
+    {
+      "id": "past-example",
+      "date": "2026-05-16",
+      "name": "Spring Quran Recital (example past event)",
+      "host": "Al Baseera Academy",
+      "type": "Quran",
+      "location": "Katy, TX",
+      "url": "",
+      "status": "placeholder",
+      "notes": "Example of a completed event — past events sort to the bottom."
+    }
+  ]
+}

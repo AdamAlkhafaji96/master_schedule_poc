@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Competitions Schedule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #3a3f4d; --primary-dark: #262a35;
+    --gold: #c9a13b; --gold-soft: #e3cf8f;
+    --vellum: #f7f2e7; --vellum-dim: #ece4d2; --ink: #22243a; --green: #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  .header-logo { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--gold); display: block; margin: 0 auto .6rem; }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+  .controls {
+    max-width: 620px; margin: -1.2rem auto 0; background: var(--primary-dark);
+    border: 1px solid rgba(201,161,59,.45); border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(38,42,53,.3);
+  }
+  .controls select { font-family: inherit; font-size: .9rem; padding: .5rem .7rem; border-radius: 8px; border: 1px solid var(--gold); background: var(--vellum); color: var(--ink); }
+  main { max-width: 720px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .intro { text-align: center; font-size: .88rem; color: #6b6a60; margin-bottom: 1.2rem; line-height: 1.55; }
+  .sec-title { margin: 1.3rem 0 .6rem; color: var(--primary); font-weight: 600; font-size: 1.02rem;
+    border-bottom: 1px dashed var(--vellum-dim); padding-bottom: .25rem; }
+  .evt {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .7rem;
+    padding: .8rem 1rem; display: flex; gap: .9rem; align-items: flex-start;
+  }
+  .evt.next { border-color: var(--gold); box-shadow: 0 2px 10px rgba(201,161,59,.3); }
+  .evt.past { opacity: .6; }
+  .evt.placeholder { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; }
+  .evt.next.placeholder { border-style: dashed; }
+  .cal {
+    min-width: 62px; text-align: center; border: 1px solid var(--vellum-dim); border-radius: 10px;
+    overflow: hidden; background: var(--vellum);
+  }
+  .cal .mo { background: var(--primary); color: var(--vellum); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; padding: .15rem 0; }
+  .cal .dy { font-size: 1.4rem; font-weight: 600; color: var(--primary); }
+  .cal .yr { font-size: .66rem; color: #8a887c; padding-bottom: .2rem; }
+  .body { flex: 1; }
+  .body .t { font-weight: 600; font-size: .98rem; }
+  .chip {
+    font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
+    border: 1px solid var(--gold-soft); color: #a08a45; background: #fbf8f0;
+    border-radius: 999px; padding: .1rem .5rem; margin-left: .45rem; vertical-align: middle;
+  }
+  .chip.nextchip { color: var(--green); border-color: #a9c9b4; background: #f2f7f2; }
+  .body .host { font-size: .8rem; color: #6b6a60; margin-top: .1rem; }
+  .body .notes { font-size: .78rem; color: #6b6a60; margin-top: .3rem; line-height: 1.4; }
+  .body a.ext { font-size: .8rem; color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General · Events</div>
+  <h1>Local Competitions<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">المسابقات المحلية</span></h1>
+  <div class="site-nav">
+    <a href="../../quran/memorization/">Memorization</a>
+    <a href="../calendar/">Calendar</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="typeSel" aria-label="Filter by type">
+    <option value="all">All types</option>
+    <option value="Quran">Quran</option>
+    <option value="Arabic">Arabic</option>
+    <option value="Islamic Knowledge">Islamic Knowledge</option>
+    <option value="Academic">Academic</option>
+  </select>
+</div>
+
+<main>
+  <p class="intro" id="intro"></p>
+  <div id="host">Loading…</div>
+  <p class="note">Dates and hosts are placeholders until confirmed — always verify
+  with the hosting organization before planning around an event.</p>
+</main>
+
+<footer>Quran, Arabic, and Islamic-knowledge competitions across greater Houston's schools, masajid, and programs.</footer>
+
+<script>
+let D = null;
+const MO = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function card(e, isNext, isPast) {
+  const [y, m, d] = e.date.split('-').map(Number);
+  return '<div class="evt' + (isNext ? ' next' : '') + (isPast ? ' past' : '') +
+    (e.status === 'placeholder' ? ' placeholder' : '') + '">' +
+    '<div class="cal"><div class="mo">' + MO[m - 1] + '</div><div class="dy">' + d +
+      '</div><div class="yr">' + y + '</div></div>' +
+    '<div class="body">' +
+      '<div class="t">' + esc(e.name) +
+        (isNext ? '<span class="chip nextchip">next up</span>' : '') +
+        '<span class="chip">' + esc(e.type) + '</span>' +
+        (e.status !== 'confirmed' ? '<span class="chip">' + esc(e.status) + '</span>' : '') +
+      '</div>' +
+      '<div class="host">' + esc(e.host) + (e.location ? ' · ' + esc(e.location) : '') + '</div>' +
+      (e.notes ? '<div class="notes">' + esc(e.notes) + '</div>' : '') +
+      (e.url ? '<div style="margin-top:.35rem"><a class="ext" href="' + esc(e.url) +
+        '" target="_blank" rel="noopener">Host site ↗</a></div>' : '') +
+    '</div></div>';
+}
+
+function render() {
+  const type = document.getElementById('typeSel').value;
+  const today = new Date().toISOString().slice(0, 10);
+  const list = D.events.filter(e => type === 'all' || e.type === type);
+  /* next event to occur first … last event to occur last; past events sink below */
+  const upcoming = list.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  const past = list.filter(e => e.date < today).sort((a, b) => a.date.localeCompare(b.date));
+  let html = '';
+  if (upcoming.length) {
+    html += '<div class="sec-title">Upcoming</div>' +
+      upcoming.map((e, i) => card(e, i === 0, false)).join('');
+  }
+  if (past.length) {
+    html += '<div class="sec-title">Past events</div>' +
+      past.map(e => card(e, false, true)).join('');
+  }
+  document.getElementById('host').innerHTML =
+    html || '<p class="intro">No events match this filter.</p>';
+}
+
+document.getElementById('typeSel').addEventListener('change', render);
+
+(async function init() {
+  D = await (await fetch('competitions.json')).json();
+  document.getElementById('intro').textContent = D.intro || '';
+  render();
+})();
+</script>
+</body>
+</html>

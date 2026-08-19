@@ -1,0 +1,176 @@
+{
+  "note": "SOURCE OF TRUTH for the harakat page. vowels[]: mark (the combining character), name/ar/suffix/desc, and audio{} — a PLACEHOLDER map from syllable text to a recording file (e.g. \"بَ\": \"recordings/ba_fatha.mp3\"). Until recordings exist the page speaks each syllable with the browser's Arabic voice; any syllable present in audio{} plays the real recording instead, so recordings can be added letter by letter with no code change. letters[]: base form + transliteration.",
+  "audio_note": "Audio placeholder: syllables currently use the device's built-in Arabic voice. As teacher recordings are made, they drop into a recordings/ folder and are registered per-syllable in vowels.json — each one instantly replaces the synthetic voice.",
+  "vowels": [
+    {
+      "mark": "َ",
+      "name": "Fatha",
+      "ar": "فَتْحَة",
+      "suffix": "a",
+      "desc": "A short 'a' — the small slash above the letter. بَ says 'ba'.",
+      "audio": {}
+    },
+    {
+      "mark": "ِ",
+      "name": "Kasra",
+      "ar": "كَسْرَة",
+      "suffix": "i",
+      "desc": "A short 'i' — the small slash below the letter. بِ says 'bi'.",
+      "audio": {}
+    },
+    {
+      "mark": "ُ",
+      "name": "Damma",
+      "ar": "ضَمَّة",
+      "suffix": "u",
+      "desc": "A short 'u' — the little waw above the letter. بُ says 'bu'.",
+      "audio": {}
+    },
+    {
+      "mark": "ْ",
+      "name": "Sukun",
+      "ar": "سُكُون",
+      "suffix": "",
+      "desc": "No vowel — the letter rests. بْ is just 'b', joined to the sound before it.",
+      "audio": {}
+    },
+    {
+      "mark": "ً",
+      "name": "Fathatain",
+      "ar": "تَنْوِين فَتْح",
+      "suffix": "an",
+      "desc": "Double fatha — the '-an' ending heard at the ends of words. بًا says 'ban'.",
+      "audio": {}
+    },
+    {
+      "mark": "ٌ",
+      "name": "Dammatain",
+      "ar": "تَنْوِين ضَمّ",
+      "suffix": "un",
+      "desc": "Double damma — the '-un' ending. بٌ says 'bun'.",
+      "audio": {}
+    },
+    {
+      "mark": "ٍ",
+      "name": "Kasratain",
+      "ar": "تَنْوِين كَسْر",
+      "suffix": "in",
+      "desc": "Double kasra — the '-in' ending. بٍ says 'bin'.",
+      "audio": {}
+    }
+  ],
+  "letters": [
+    {
+      "base": "ب",
+      "translit": "b"
+    },
+    {
+      "base": "ت",
+      "translit": "t"
+    },
+    {
+      "base": "ث",
+      "translit": "th"
+    },
+    {
+      "base": "ج",
+      "translit": "j"
+    },
+    {
+      "base": "ح",
+      "translit": "ḥ"
+    },
+    {
+      "base": "خ",
+      "translit": "kh"
+    },
+    {
+      "base": "د",
+      "translit": "d"
+    },
+    {
+      "base": "ذ",
+      "translit": "dh"
+    },
+    {
+      "base": "ر",
+      "translit": "r"
+    },
+    {
+      "base": "ز",
+      "translit": "z"
+    },
+    {
+      "base": "س",
+      "translit": "s"
+    },
+    {
+      "base": "ش",
+      "translit": "sh"
+    },
+    {
+      "base": "ص",
+      "translit": "ṣ"
+    },
+    {
+      "base": "ض",
+      "translit": "ḍ"
+    },
+    {
+      "base": "ط",
+      "translit": "ṭ"
+    },
+    {
+      "base": "ظ",
+      "translit": "ẓ"
+    },
+    {
+      "base": "ع",
+      "translit": "ʿ"
+    },
+    {
+      "base": "غ",
+      "translit": "gh"
+    },
+    {
+      "base": "ف",
+      "translit": "f"
+    },
+    {
+      "base": "ق",
+      "translit": "q"
+    },
+    {
+      "base": "ك",
+      "translit": "k"
+    },
+    {
+      "base": "ل",
+      "translit": "l"
+    },
+    {
+      "base": "م",
+      "translit": "m"
+    },
+    {
+      "base": "ن",
+      "translit": "n"
+    },
+    {
+      "base": "هـ",
+      "translit": "h"
+    },
+    {
+      "base": "و",
+      "translit": "w"
+    },
+    {
+      "base": "ي",
+      "translit": "y"
+    },
+    {
+      "base": "ء",
+      "translit": "ʾ"
+    }
+  ]
+}

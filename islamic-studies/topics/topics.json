@@ -1,0 +1,192 @@
+{
+  "note": "SOURCE OF TRUTH for the Islamic Studies topic pages — one shared template renders every topic. Each topic: id, en/ar names, blurb, level (proficiency tag), sections[] of {title, body, status}. Placeholder sections render dashed until real lesson content lands. Add topics by appending; the selector lists them in order.",
+  "topics": [
+    {
+      "id": "halal-haram",
+      "en": "Halal, Haram & Makruh",
+      "ar": "الحلال والحرام والمكروه",
+      "blurb": "The rulings scale — what is permitted, forbidden, and discouraged.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "The five rulings",
+          "body": "Actions fall on a scale: wajib (required), mustahabb (loved), mubah (neutral), makruh (discouraged), and haram (forbidden). Placeholder summary — examples per category to be added by the teacher.",
+          "status": "ok"
+        },
+        {
+          "title": "Everyday examples",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Why the rulings exist",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "unseen",
+      "en": "Heaven, Hell, Angels & Jinn",
+      "ar": "الجنة والنار والملائكة والجن",
+      "blurb": "The unseen world we believe in — al-ghayb.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "Jannah & Jahannam",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "The angels and their duties",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "The jinn",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "quran-science",
+      "en": "Scientific Connections in the Quran",
+      "ar": "الإعجاز العلمي",
+      "blurb": "Ayat that speak about the natural world — oceans, embryology, the sky — explored with humility.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "The two seas",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "The expanding sky",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "How to read these ayat",
+          "body": "The Quran is guidance, not a science textbook — we marvel at connections without forcing claims. Placeholder framing note for the teacher to refine.",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "famous-muslims",
+      "en": "Famous Muslims — Converts & Born",
+      "ar": "مسلمون مشهورون",
+      "blurb": "Well-known Muslims in history and pop culture — converts and those born into Islam.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "Muhammad Ali",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Malcolm X",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Khabib Nurmagomedov",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "More figures — to be added",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "ten-commandments",
+      "en": "The Ten Commandments in Islam",
+      "ar": "الوصايا العشر",
+      "blurb": "The commandments given to Musa and where the Quran carries the same guidance.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "The list, side by side",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Surah Al-An'am 151–153",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "seven-sins",
+      "en": "The Seven Destructive Sins",
+      "ar": "الموبقات السبع",
+      "blurb": "The sins the Prophet ﷺ warned destroy a person — al-mubiqat.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "The hadith of the seven",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Understanding each one",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "world-religions",
+      "en": "World Religions & the Sects of Islam",
+      "ar": "أديان العالم ومذاهب المسلمين",
+      "blurb": "The faiths of the world, and the branches of Islam — with our focus on what unites Muslims.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "The major world religions",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Sunni and Shia — shared foundations",
+          "body": "One ummah: the shahadah, the Quran, the Prophet ﷺ, salah, and the qiblah unite all Muslims. Placeholder — commonality-first framing to be expanded.",
+          "status": "ok"
+        },
+        {
+          "title": "Respect and adab in difference",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    },
+    {
+      "id": "etiquette",
+      "en": "Muslim Etiquette — Adab",
+      "ar": "الآداب الإسلامية",
+      "blurb": "Physical, emotional, and spiritual manners of a Muslim.",
+      "level": 1,
+      "sections": [
+        {
+          "title": "Physical — hygiene & attire",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Emotional — speech, patience, kindness",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        },
+        {
+          "title": "Spiritual — sincerity & remembrance",
+          "body": "Placeholder overview — the teacher's full lesson content replaces this text.",
+          "status": "placeholder"
+        }
+      ]
+    }
+  ]
+}

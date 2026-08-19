@@ -18,6 +18,31 @@
           "id": "reddit",
           "label": "Reddit",
           "url": "https://www.reddit.com/"
+        },
+        {
+          "id": "linkedin",
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/"
+        },
+        {
+          "id": "tiktok",
+          "label": "TikTok",
+          "url": "https://www.tiktok.com/"
+        },
+        {
+          "id": "bluesky",
+          "label": "Bluesky",
+          "url": "https://bsky.app/"
+        },
+        {
+          "id": "twitter",
+          "label": "X / Twitter",
+          "url": "https://x.com/"
+        },
+        {
+          "id": "threads",
+          "label": "Threads",
+          "url": "https://www.threads.net/"
         }
       ]
     },

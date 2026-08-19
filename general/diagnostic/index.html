@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Diagnostic Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #3a3f4d; --primary-dark: #262a35;
+    --gold: #c9a13b; --gold-soft: #e3cf8f;
+    --vellum: #f7f2e7; --vellum-dim: #ece4d2; --ink: #22243a; --green: #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  .header-logo { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--gold); display: block; margin: 0 auto .6rem; }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+  .controls {
+    max-width: 720px; margin: -1.2rem auto 0; background: var(--primary-dark);
+    border: 1px solid rgba(201,161,59,.45); border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(38,42,53,.3);
+  }
+  .controls select { font-family: inherit; font-size: .9rem; padding: .5rem .7rem; border-radius: 8px; border: 1px solid var(--gold); background: var(--vellum); color: var(--ink); }
+  .seg { display: flex; border: 1px solid var(--gold); border-radius: 8px; overflow: hidden; flex-wrap: wrap; }
+  .seg button { font-family: inherit; font-size: .82rem; padding: .5rem .8rem; background: transparent; color: var(--gold-soft); border: none; cursor: pointer; }
+  .seg button + button { border-left: 1px solid rgba(201,161,59,.45); }
+  .seg button.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
+  main { max-width: 720px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .lvl-line { text-align: center; font-size: .86rem; color: #6b6a60; margin-bottom: 1.1rem; }
+  .item { background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .9rem; padding: .95rem 1.1rem 1rem; }
+  .item .kind { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .item .q { font-size: .98rem; font-weight: 600; margin-top: .2rem; line-height: 1.5; }
+  .opts { margin-top: .6rem; display: grid; gap: .4rem; }
+  .opts label { display: flex; gap: .5rem; align-items: baseline; font-size: .95rem;
+    border: 1px solid var(--vellum-dim); border-radius: 8px; padding: .45rem .6rem; cursor: pointer; }
+  .opts label:hover { border-color: var(--gold); }
+  .opts label.right { border-color: #a9c9b4; background: #f2f7f2; }
+  .opts label.wrong { border-color: #dcb2b2; background: #faf0f0; }
+  .check { margin-top: .55rem; font-family: inherit; font-size: .8rem; padding: .35rem .8rem;
+    border-radius: 8px; border: 1px solid var(--gold); background: var(--vellum); cursor: pointer; }
+  .teacher { margin-top: .55rem; font-size: .78rem; color: #6b5a9e; font-style: italic; }
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">General · Assessment</div>
+  <h1>Universal Diagnostic Exam<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">الاختبار التشخيصي</span></h1>
+  <div class="site-nav">
+    <a href="../accreditation/">Accreditation</a>
+    <a href="../../arabic/vocab/">Vocab</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="levelSel" aria-label="Choose level"></select>
+  <span class="seg" id="skillSeg" role="group" aria-label="Skill"></span>
+</div>
+
+<main>
+  <p class="lvl-line" id="lvlLine"></p>
+  <div id="host">Loading…</div>
+  <p class="note" id="introNote"></p>
+</main>
+
+<footer>Multiple-choice items self-check for practice; written and spoken sections are scored by the teacher. One exam — the level and the language mix change, the four skills do not.</footer>
+
+<script>
+let D = null, level = '1', skill = 'Reading';
+const SKILLS = ['Reading', 'Writing', 'Speaking', 'Comprehension'];
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function render() {
+  const lv = D.levels[level];
+  document.getElementById('lvlLine').textContent = lv.label + ' · Language mix: ' + lv.language;
+  document.querySelectorAll('#skillSeg button').forEach(b =>
+    b.classList.toggle('on', b.dataset.skill === skill));
+  const items = lv.skills[skill] || [];
+  document.getElementById('host').innerHTML = items.map((it, i) => {
+    let inner = '';
+    if (it.type === 'mc') {
+      inner = '<div class="opts">' + it.options.map((o, oi) =>
+        '<label><input type="radio" name="q' + i + '" value="' + oi + '"> ' + esc(o) + '</label>').join('') +
+        '</div><button class="check" data-i="' + i + '">Check answer</button>';
+    } else {
+      inner = '<div class="teacher">' +
+        (it.type === 'prompt' ? '✍ Written response — scored by the teacher.'
+                              : '🎤 Spoken task — performed for and scored by the teacher.') + '</div>';
+    }
+    return '<div class="item"><span class="kind">' + skill + ' · ' +
+      (it.type === 'mc' ? 'multiple choice' : it.type === 'prompt' ? 'writing' : 'oral') +
+      '</span><div class="q">' + esc(it.q) + '</div>' + inner + '</div>';
+  }).join('') || '<p class="lvl-line">No sample items yet for this skill.</p>';
+
+  document.querySelectorAll('.check').forEach(b => b.addEventListener('click', () => {
+    const i = parseInt(b.dataset.i);
+    const it = (D.levels[level].skills[skill])[i];
+    const labels = b.closest('.item').querySelectorAll('.opts label');
+    labels.forEach((lb, oi) => {
+      lb.classList.remove('right', 'wrong');
+      const input = lb.querySelector('input');
+      if (oi === it.answer) lb.classList.add('right');
+      else if (input.checked) lb.classList.add('wrong');
+    });
+  }));
+}
+
+(async function init() {
+  D = await (await fetch('exam.json')).json();
+  document.getElementById('introNote').textContent = D.intro || '';
+  const sel = document.getElementById('levelSel');
+  sel.innerHTML = Object.keys(D.levels).map(k =>
+    '<option value="' + k + '">' + D.levels[k].label + '</option>').join('');
+  sel.addEventListener('change', e => { level = e.target.value; render(); });
+  document.getElementById('skillSeg').innerHTML = SKILLS.map(s =>
+    '<button data-skill="' + s + '">' + s + '</button>').join('');
+  document.querySelectorAll('#skillSeg button').forEach(b =>
+    b.addEventListener('click', () => { skill = b.dataset.skill; render(); }));
+  render();
+})();
+</script>
+</body>
+</html>

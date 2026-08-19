@@ -1,0 +1,33 @@
+{
+  "note": "Materials registry for the Makharij lesson. kind: powerpoint | diagram | worksheet. file: materials/<name> once produced (drop the real deck/diagrams there); url: external link alternative; status: ok | placeholder. The interactive diagram on the page is drawn in-code and needs no file.",
+  "materials": [
+    {
+      "title": "Makharij al-Huruf — Lecture Deck",
+      "kind": "powerpoint",
+      "file": "",
+      "url": "",
+      "status": "placeholder"
+    },
+    {
+      "title": "Printable diagram — five areas (labeled)",
+      "kind": "diagram",
+      "file": "",
+      "url": "",
+      "status": "placeholder"
+    },
+    {
+      "title": "Printable diagram — fill-in-the-blank (unlabeled)",
+      "kind": "diagram",
+      "file": "",
+      "url": "",
+      "status": "placeholder"
+    },
+    {
+      "title": "Tabular worksheet — letters → makhraj",
+      "kind": "worksheet",
+      "file": "",
+      "url": "",
+      "status": "placeholder"
+    }
+  ]
+}

@@ -157,6 +157,8 @@
   <select id="levelSelect" aria-label="Choose level">
     <option value="level1">Level 1</option>
     <option value="level2">Level 2</option>
+    <option value="level3">Level 3 (planned)</option>
+    <option value="level4">Level 4 (planned)</option>
     <option value="themes">Themed Lists</option>
   </select>
   <select id="monthSelect" aria-label="Choose curriculum month or theme"></select>
@@ -247,9 +249,10 @@ function wireCards() {
 function render() {
   const d = LEVELS[level][String(month)];
   if (!d) return;
+  const LVL = { level1: 'Level 1', level2: 'Level 2', level3: 'Level 3', level4: 'Level 4' };
   const heading = level === 'themes'
     ? 'Theme ' + month + ' — ' + d.topic
-    : (level === 'level1' ? 'Level 1' : 'Level 2') + ' · Month ' + month + ' — ' + d.topic;
+    : LVL[level] + ' · Month ' + month + ' — ' + d.topic;
   document.getElementById('monthTheme').innerHTML =
     '<h2>' + heading + '</h2>' +
     '<p>' + d.words.length + ' words</p>';
@@ -266,7 +269,7 @@ function render() {
   renderBank();
   wireCards();
   history.replaceState(null, '', '?level=' +
-    (level === 'level1' ? 1 : level === 'level2' ? 2 : 't') + '&month=' + month);
+    (level === 'themes' ? 't' : level.replace('level', '')) + '&month=' + month);
 }
 
 function fillMonths(filter) {
@@ -295,7 +298,7 @@ function fillMonths(filter) {
 
   const params = new URLSearchParams(location.search);
   const pl = params.get('level'), pm = parseInt(params.get('month'));
-  if (pl === '2') level = 'level2';
+  if (['2','3','4'].includes(pl) && LEVELS['level' + pl]) level = 'level' + pl;
   if (pl === 't' && Object.keys(LEVELS.themes).length) level = 'themes';
   const maxKey = Object.keys(LEVELS[level]).length;
   if (pm >= 1 && pm <= maxKey) month = pm;

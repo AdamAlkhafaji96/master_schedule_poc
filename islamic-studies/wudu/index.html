@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Make Wudu — Step by Step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1b4d38; --primary-dark: #0f3324;
+    --gold: #c9a13b; --gold-soft: #e3cf8f;
+    --vellum: #f7f2e7; --vellum-dim: #ece4d2; --ink: #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  .header-logo { width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--gold); display: block; margin: 0 auto .6rem; }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+  main { max-width: 680px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .slide {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(34,36,58,.07); overflow: hidden;
+  }
+  .stage {
+    aspect-ratio: 16 / 10; background: #fbf8f0; display: flex; align-items: center;
+    justify-content: center; flex-direction: column; position: relative;
+  }
+  .stage img { width: 100%; height: 100%; object-fit: cover; }
+  .stage .ph-art { font-size: 4rem; }
+  .stage .ph-note {
+    position: absolute; bottom: .6rem; left: 50%; transform: translateX(-50%);
+    font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+    color: #a08a45; border: 1px dashed var(--gold-soft); border-radius: 999px;
+    padding: .15rem .6rem; background: #fbf8f0; white-space: nowrap;
+  }
+  .slide-body { padding: 1rem 1.2rem 1.1rem; text-align: center; }
+  .step-no { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .slide-body h2 { font-weight: 600; font-size: 1.2rem; color: var(--primary); margin-top: .1rem; }
+  .slide-body .ar { font-family: 'Amiri', serif; font-size: 1.35rem; color: var(--gold); }
+  .slide-body p { font-size: .92rem; color: #55544a; line-height: 1.55; margin-top: .5rem; }
+  .slide-body .times { font-size: .78rem; color: #6b6a60; font-style: italic; margin-top: .35rem; }
+
+  .nav-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1rem 0 .6rem; }
+  .nav-row button {
+    font-family: inherit; font-size: 1.1rem; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--gold); background: #fff; cursor: pointer; color: var(--primary);
+  }
+  .nav-row button:hover { background: var(--gold-soft); }
+  .counter { font-size: .85rem; color: #6b6a60; min-width: 5.5rem; text-align: center; }
+  .dots { display: flex; gap: .4rem; justify-content: center; flex-wrap: wrap; }
+  .dots button { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--gold); background: #fff; cursor: pointer; padding: 0; }
+  .dots button.on { background: var(--gold); }
+  .dots button.seen { background: var(--gold-soft); }
+
+  .videos { margin-top: 1.6rem; }
+  .videos h3 { text-align: center; font-weight: 500; color: var(--primary); font-size: 1.05rem; margin-bottom: .6rem; }
+  .vid {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    padding: .7rem .9rem; margin-bottom: .5rem; display: flex; gap: .7rem; align-items: baseline; flex-wrap: wrap;
+  }
+  .vid.ph { border-style: dashed; border-color: #cbbf9d; background: #fbf8f0; }
+  .vid .t { font-weight: 600; font-size: .92rem; }
+  .vid .src { font-size: .78rem; color: #8a887c; font-style: italic; }
+  .vid a { margin-left: auto; font-size: .84rem; font-weight: 600; color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--gold-soft); white-space: nowrap; }
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies · Worship</div>
+  <h1>How to Make Wudu<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">الوُضُوء</span></h1>
+  <div class="site-nav">
+    <a href="../prayer-times/">Prayer Times</a>
+    <a href="../prayer-tracker/">Salah Tracker</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="slide">
+    <div class="stage" id="stage"></div>
+    <div class="slide-body" id="slideBody"></div>
+  </div>
+  <div class="nav-row">
+    <button id="prevBtn" aria-label="Previous step">‹</button>
+    <span class="counter" id="counter"></span>
+    <button id="nextBtn" aria-label="Next step">›</button>
+  </div>
+  <div class="dots" id="dots"></div>
+
+  <div class="videos">
+    <h3>Watch a demonstration</h3>
+    <div id="videoList"></div>
+  </div>
+
+  <p class="note" id="introNote"></p>
+</main>
+
+<footer>Step photos are placeholders — replace each step's <code>image</code> in wudu.json as photos are taken; the slideshow keeps working either way.</footer>
+
+<script>
+let D = null, cur = 0;
+const seen = new Set();
+
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function render() {
+  const st = D.steps[cur];
+  seen.add(cur);
+  document.getElementById('stage').innerHTML = st.image
+    ? '<img src="' + esc(st.image) + '" alt="' + esc(st.title) + '">'
+    : '<span class="ph-art">' + esc(st.emoji || '💧') + '</span>' +
+      '<span class="ph-note">photo placeholder — image pending</span>';
+  document.getElementById('slideBody').innerHTML =
+    '<div class="step-no">Step ' + (cur + 1) + ' of ' + D.steps.length + '</div>' +
+    '<h2>' + esc(st.title) + '</h2>' +
+    '<div class="ar">' + esc(st.ar || '') + '</div>' +
+    '<p>' + esc(st.desc) + '</p>' +
+    (st.times ? '<div class="times">' + esc(st.times) + '</div>' : '');
+  document.getElementById('counter').textContent = (cur + 1) + ' / ' + D.steps.length;
+  document.getElementById('dots').innerHTML = D.steps.map((_, i) =>
+    '<button data-i="' + i + '" class="' + (i === cur ? 'on' : seen.has(i) ? 'seen' : '') +
+    '" aria-label="Step ' + (i + 1) + '"></button>').join('');
+  document.querySelectorAll('.dots button').forEach(b =>
+    b.addEventListener('click', () => { cur = parseInt(b.dataset.i); render(); }));
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  cur = (cur - 1 + D.steps.length) % D.steps.length; render();
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  cur = (cur + 1) % D.steps.length; render();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') { cur = (cur - 1 + D.steps.length) % D.steps.length; render(); }
+  if (e.key === 'ArrowRight') { cur = (cur + 1) % D.steps.length; render(); }
+});
+
+(async function init() {
+  D = await (await fetch('wudu.json')).json();
+  document.getElementById('introNote').textContent = D.intro || '';
+  document.getElementById('videoList').innerHTML = D.videos.map(v =>
+    '<div class="vid' + (v.status === 'placeholder' ? ' ph' : '') + '">' +
+      '<span class="t">' + esc(v.title) + '</span>' +
+      '<span class="src">' + esc(v.source || '') + '</span>' +
+      (v.url ? '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">Watch ↗</a>' : '') +
+    '</div>').join('');
+  render();
+})();
+</script>
+</body>
+</html>

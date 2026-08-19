@@ -94,6 +94,27 @@
   @media (max-width: 820px) { body.view-both .duo { grid-template-columns: 1fr; } }
   body.view-paper .pane-electronic { display: none; }
   body.view-electronic .pane-paper { display: none; }
+  body.view-pagemap .duo, body.view-pagemap .page-meta { display: none; }
+  body:not(.view-pagemap) #pagemapHost { display: none; }
+  #pagemapHost table { width: 100%; border-collapse: collapse; background: #fff;
+    border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  #pagemapHost th, #pagemapHost td { padding: .45rem .6rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: middle; font-size: .88rem; }
+  #pagemapHost th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+  #pagemapHost td.pg { color: var(--gold); font-weight: 600; width: 2.6rem; }
+  #pagemapHost td.mini { width: 44px; }
+  #pagemapHost td.mini img { width: 38px; height: 50px; object-fit: cover; border-radius: 4px; cursor: zoom-in; display: block; }
+  #pagemapHost td.mini .gapbox { width: 38px; height: 50px; border: 2px dashed #cbbf9d; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; color: #b3a67f; }
+  #pagemapHost .ok-chip { color: #1b4d38; }
+  #pagemapHost .ph-chip { color: #a08a45; }
+  #pagemapHost .pm-tools { display: none; white-space: nowrap; }
+  body.editing #pagemapHost .pm-tools { display: table-cell; }
+  #pagemapHost .pm-tools button {
+    font-family: inherit; font-size: .7rem; padding: .2rem .45rem; margin-left: .15rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); background: var(--vellum); cursor: pointer;
+  }
+  #pagemapHost .pm-tools input { width: 3rem; font-size: .72rem; padding: .18rem .3rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); }
 
   .pane { background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
     box-shadow: 0 1px 3px rgba(34,36,58,.06); overflow: hidden; }
@@ -171,6 +192,7 @@
     <button data-view="paper">Paper</button>
     <button data-view="electronic">Electronic</button>
     <button data-view="both" class="on">Both</button>
+    <button data-view="pagemap">Page Map</button>
   </span>
   <button class="btn" id="editBtn">✎ Edit</button>
   <button class="btn" id="exportJson" style="display:none">⬇ data.json</button>
@@ -195,6 +217,8 @@
     <h2 id="pageTitle"></h2>
     <div class="m" id="pageMeta"></div>
   </div>
+
+  <div id="pagemapHost"></div>
 
   <div class="duo">
     <div class="pane pane-paper">
@@ -322,6 +346,7 @@ function renderElectronic(p) {
       { title: 'Theme title — to be transcribed', entries: [Object.assign({}, blank)] });
     if (act === 'delTheme' && confirm('Remove this whole theme?')) p.themes.splice(ti, 1);
     renderElectronic(p);
+    renderPageMap();
   }));
 }
 
@@ -334,11 +359,60 @@ function render() {
   renderElectronic(p);
 }
 
+/* ---------------- page map (book table of contents) ---------------- */
+function renderPageMap() {
+  const host = document.getElementById('pagemapHost');
+  let html = '<table><thead><tr><th>Pg</th><th></th><th>Label</th><th>Themes</th>' +
+    '<th>Terms</th><th>Scan</th><th class="pm-tools">Adjust</th></tr></thead><tbody>';
+  D.pages.forEach((p, i) => {
+    let ok = 0, ph = 0;
+    p.themes.forEach(t => t.entries.forEach(e =>
+      e.status === 'placeholder' ? ph++ : ok++));
+    const mini = p.scan
+      ? '<img loading="lazy" data-pmi="' + i + '" src="' + esc(p.thumb || p.scan) + '" alt="">'
+      : '<div class="gapbox">⬚</div>';
+    html += '<tr data-i="' + i + '">' +
+      '<td class="pg">' + (i + 1) + '</td>' +
+      '<td class="mini">' + mini + '</td>' +
+      '<td>' + esc(p.label) +
+        (p.meta ? '<div style="font-size:.72rem;color:#6b6a60">' + esc(p.meta) + '</div>' : '') + '</td>' +
+      '<td>' + p.themes.length + '</td>' +
+      '<td><span class="ok-chip">' + ok + ' ok</span>' +
+        (ph ? ' · <span class="ph-chip">' + ph + ' placeholder</span>' : '') + '</td>' +
+      '<td style="font-size:.76rem;color:' + (p.scan ? '#1b4d38">scanned' : '#a08a45">pending') + '</td>' +
+      '<td class="pm-tools">' +
+        '<button data-act="up">↑</button><button data-act="down">↓</button>' +
+        '<input type="number" min="1" placeholder="pg" aria-label="Move to page">' +
+        '<button data-act="moveTo">→</button>' +
+      '</td></tr>';
+  });
+  host.innerHTML = html + '</tbody></table>';
+
+  host.querySelectorAll('img[data-pmi]').forEach(im => im.addEventListener('click', () => {
+    document.getElementById('lbImg').src = D.pages[parseInt(im.dataset.pmi)].scan;
+    document.getElementById('lightbox').classList.add('open');
+  }));
+  host.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+    const tr = b.closest('tr'), i = parseInt(tr.dataset.i), act = b.dataset.act;
+    if (act === 'up' && i > 0) [D.pages[i-1], D.pages[i]] = [D.pages[i], D.pages[i-1]];
+    if (act === 'down' && i < D.pages.length - 1) [D.pages[i+1], D.pages[i]] = [D.pages[i], D.pages[i+1]];
+    if (act === 'moveTo') {
+      const n = parseInt(tr.querySelector('input').value);
+      if (n >= 1) {
+        const item = D.pages.splice(i, 1)[0];
+        D.pages.splice(Math.min(Math.max(n - 1, 0), D.pages.length), 0, item);
+      }
+    }
+    pi = Math.min(pi, D.pages.length - 1);
+    render(); renderPageMap();
+  }));
+}
+
 /* ---------------- view toggle ---------------- */
 document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
-  document.body.classList.remove('view-paper', 'view-electronic', 'view-both');
+  document.body.classList.remove('view-paper', 'view-electronic', 'view-both', 'view-pagemap');
   document.body.classList.add('view-' + b.dataset.view);
 }));
 
@@ -391,6 +465,7 @@ document.getElementById('lightbox').addEventListener('click', e => {
   D = await (await fetch('data.json')).json();
   renderLegend();
   render();
+  renderPageMap();
 })();
 </script>
 </body>

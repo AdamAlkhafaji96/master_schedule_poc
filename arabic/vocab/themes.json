@@ -1,5 +1,5 @@
 {
-  "note": "PLACEHOLDER themed vocab lists — word shape [arabic, transliteration, english, optional #hex]. A 4th element starting with '#' renders a color swatch on the card and in the palette strip. Add themes by adding numbered keys in order; add words freely. The vocab page lists these in the Theme dropdown and makes them searchable.",
+  "note": "PLACEHOLDER themed vocab lists — word shape [arabic, transliteration, english, optional #hex]. A 4th element starting with '#' renders a color swatch on the card and in the palette strip. Add themes by adding numbered keys in order; add words freely. The vocab page lists these in the Theme dropdown and makes them searchable. Each theme carries a 'level' proficiency tag (1=beginner, 2=intermediate...) — the cross-cutting tagging field used by future quizzes and games.",
   "themes": {
     "1": {
       "topic": "Animals",
@@ -14,7 +14,8 @@
           "qitt",
           "Cat"
         ]
-      ]
+      ],
+      "level": 1
     },
     "2": {
       "topic": "Food & Drink",
@@ -29,7 +30,8 @@
           "khubz",
           "Bread"
         ]
-      ]
+      ],
+      "level": 1
     },
     "3": {
       "topic": "People & Family",
@@ -44,7 +46,8 @@
           "umm",
           "Mother"
         ]
-      ]
+      ],
+      "level": 1
     },
     "4": {
       "topic": "Feelings",
@@ -59,7 +62,8 @@
           "hazin",
           "Sad"
         ]
-      ]
+      ],
+      "level": 1
     },
     "5": {
       "topic": "Clothing",
@@ -74,7 +78,8 @@
           "hidha'",
           "Shoes"
         ]
-      ]
+      ],
+      "level": 1
     },
     "6": {
       "topic": "Weather & Seasons",
@@ -89,7 +94,8 @@
           "rabi'",
           "Spring"
         ]
-      ]
+      ],
+      "level": 2
     },
     "7": {
       "topic": "Colors",
@@ -160,7 +166,8 @@
           "White",
           "#f5f2ea"
         ]
-      ]
+      ],
+      "level": 1
     },
     "8": {
       "topic": "Nationalities & Origins (I am …)",
@@ -225,7 +232,8 @@
           "amriki",
           "American"
         ]
-      ]
+      ],
+      "level": 2
     }
   }
 }

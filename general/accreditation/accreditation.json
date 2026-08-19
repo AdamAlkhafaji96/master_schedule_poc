@@ -1,0 +1,62 @@
+{
+  "note": "Industry-recognized accreditation and certification paths relevant to a private Islamic/Arabic school — statuses are the school's own tracking: accredited | pursuing | researching | placeholder. Verify each body's current requirements on their site; descriptions are classroom-level summaries.",
+  "intro": "Recognized accreditations and certifications the academy holds, is pursuing, or is evaluating.",
+  "tracks": [
+    {
+      "id": "cognia",
+      "org": "Cognia (formerly AdvancED / SACS CASI)",
+      "scope": "Whole-school accreditation",
+      "desc": "The most widely recognized K–12 accreditor in the US South — used by many Texas private and Islamic schools; reviews governance, curriculum, and continuous improvement.",
+      "url": "https://www.cognia.org/",
+      "status": "researching"
+    },
+    {
+      "id": "tepsac",
+      "org": "TEPSAC — Texas Private School Accreditation Commission",
+      "scope": "Texas private-school recognition",
+      "desc": "The umbrella recognized by the state of Texas: accreditation through a TEPSAC-approved body gives credits and transcripts standing with Texas public schools.",
+      "url": "https://www.tepsac.org/",
+      "status": "researching"
+    },
+    {
+      "id": "cisna",
+      "org": "CISNA — Council of Islamic Schools in North America",
+      "scope": "Islamic school accreditation",
+      "desc": "Accredits full-time Islamic schools on both academic standards and Islamic environment; commonly paired with Cognia.",
+      "url": "https://www.theisla.org/",
+      "status": "researching"
+    },
+    {
+      "id": "actfl",
+      "org": "ACTFL Proficiency Guidelines / OPI",
+      "scope": "Arabic language proficiency",
+      "desc": "The standard scale (Novice → Superior) for rating speaking and comprehension — teacher OPI certification and student ratings align our Arabic levels with a recognized scale.",
+      "url": "https://www.actfl.org/",
+      "status": "researching"
+    },
+    {
+      "id": "alpt",
+      "org": "ALPT — Arabic Language Proficiency Test",
+      "scope": "Student Arabic certification",
+      "desc": "A standardized Arabic proficiency test offered internationally; a recognized certificate target for advanced students.",
+      "url": "https://www.arabacademy.com/",
+      "status": "researching"
+    },
+    {
+      "id": "ijazah",
+      "org": "Ijazah in Quran Recitation",
+      "scope": "Quran certification",
+      "desc": "The traditional chain-certified license in recitation/memorization granted by a qualified sheikh — the gold standard credential for hifz students and Quran teachers.",
+      "url": "",
+      "status": "placeholder"
+    },
+    {
+      "id": "naeyc",
+      "org": "NAEYC",
+      "scope": "Early childhood (if pre-K expands)",
+      "desc": "National Association for the Education of Young Children — the recognized early-childhood program accreditation.",
+      "url": "https://www.naeyc.org/",
+      "status": "placeholder"
+    }
+  ]
+}
