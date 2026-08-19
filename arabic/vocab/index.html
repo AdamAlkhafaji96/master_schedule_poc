@@ -234,7 +234,7 @@ function selectWord(i) {
   syncSelection();
   if (selectedIdx !== null) {
     const card = document.querySelectorAll('#cards .card')[selectedIdx];
-    card && card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    card && card.scrollIntoView && card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 

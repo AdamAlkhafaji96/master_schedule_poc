@@ -1,0 +1,27 @@
+{
+  "note": "PLACEHOLDER announcements for the home-page forum. Posts render newest first, with pinned posts on top. Fields: id (unique), date (YYYY-MM-DD), title, author, body (plain text, blank line = paragraph break), pinned (optional true). Add new posts at the top of the array for readability — order in the file doesn't matter, sorting is by pinned then date.",
+  "posts": [
+    {
+      "id": "welcome-2026",
+      "date": "2026-08-17",
+      "title": "Welcome to the 2026–27 school year!",
+      "author": "Al Baseera Academy",
+      "pinned": true,
+      "body": "Bismillah — the learning portal is live for the new year. Explore the Arabic, Quran, and Islamic Studies sections from the home page, and check this space for school news.\n\nThis is a placeholder post — real announcements will replace it."
+    },
+    {
+      "id": "portal-updates-aug",
+      "date": "2026-08-18",
+      "title": "New on the portal: prayer times, trackers, and the teacher-notes archive",
+      "author": "Portal Team",
+      "body": "This week's additions: daily prayer times with downloadable timetables, a salah tracker, surah memorization and recording checklists, the countries atlas, and the Dr. Fatin handwritten notes archive.\n\nPlaceholder post — edit or remove in announcements.json."
+    },
+    {
+      "id": "placeholder-3",
+      "date": "2026-08-01",
+      "title": "— announcement pending —",
+      "author": "",
+      "body": "Placeholder holding the forum layout. Copy this entry as a template for new posts."
+    }
+  ]
+}

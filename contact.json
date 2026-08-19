@@ -1,0 +1,34 @@
+{
+  "note": "PLACEHOLDER links for the Connect panel on the home page. Replace each url with the real account/room/number when available — the icons and layout stay the same. Phone uses tel: and email uses mailto:. Set \"hidden\": true on any entry to remove its icon without deleting it.",
+  "groups": [
+    {
+      "title": "Social Media",
+      "links": [
+        { "id": "instagram", "label": "Instagram", "url": "https://www.instagram.com/" },
+        { "id": "facebook", "label": "Facebook", "url": "https://www.facebook.com/" },
+        { "id": "reddit", "label": "Reddit", "url": "https://www.reddit.com/" }
+      ]
+    },
+    {
+      "title": "Live Classroom",
+      "links": [
+        { "id": "zoom", "label": "Zoom", "url": "https://zoom.us/" },
+        { "id": "classroom", "label": "G Classroom", "url": "https://classroom.google.com/" }
+      ]
+    },
+    {
+      "title": "Phone",
+      "links": [
+        { "id": "whatsapp", "label": "WhatsApp", "url": "https://www.whatsapp.com/" },
+        { "id": "telegram", "label": "Telegram", "url": "https://telegram.org/" },
+        { "id": "phone", "label": "Call", "url": "tel:+10000000000" }
+      ]
+    },
+    {
+      "title": "Email",
+      "links": [
+        { "id": "email", "label": "Email", "url": "mailto:office@albaseeraacademy.com" }
+      ]
+    }
+  ]
+}

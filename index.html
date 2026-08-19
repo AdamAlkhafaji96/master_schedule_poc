@@ -114,6 +114,59 @@
   .links .name .ar { font-family: 'Amiri', serif; color: var(--gold); margin-left: .4rem; }
   .links .desc { display: block; font-size: .85rem; color: #6b6a60; margin-top: .2rem; }
 
+  /* ---- Connect panel ---- */
+  .connect { max-width: 900px; margin: 0 auto 1.4rem; padding: 0 1.2rem; }
+  .connect-inner {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(34,36,58,.07);
+    padding: 1rem 1.2rem 1.1rem;
+    display: flex; flex-wrap: wrap; gap: 1.1rem 2rem; justify-content: center;
+  }
+  .connect-group { text-align: center; }
+  .connect-group .cg-title {
+    font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+    color: #6b6a60; margin-bottom: .55rem;
+  }
+  .connect-icons { display: flex; gap: .6rem; justify-content: center; }
+  .app-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(34,36,58,.22), inset 0 -2px 4px rgba(0,0,0,.12);
+    transition: transform .1s, box-shadow .1s;
+  }
+  .app-icon:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 5px 12px rgba(34,36,58,.3); }
+  .app-icon svg { width: 30px; height: 30px; display: block; }
+  .app-label { display: block; font-size: .62rem; color: #6b6a60; margin-top: .25rem; letter-spacing: .03em; }
+
+  /* ---- Announcements ---- */
+  .announce { max-width: 900px; margin: 0 auto 1.8rem; padding: 0 1.2rem; }
+  .announce-title {
+    text-align: center; font-weight: 500; font-size: 1.15rem; color: var(--green);
+    letter-spacing: .05em; margin-bottom: .8rem;
+  }
+  .post {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .7rem; overflow: hidden;
+  }
+  .post summary {
+    list-style: none; cursor: pointer; padding: .8rem 1rem;
+    display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
+  }
+  .post summary::-webkit-details-marker { display: none; }
+  .post summary:hover { background: #fbf8f0; }
+  .post .p-title { font-weight: 600; font-size: .98rem; }
+  .post .p-pin {
+    font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
+  }
+  .post .p-date { margin-left: auto; font-size: .76rem; color: #8a887c; white-space: nowrap; }
+  .post .p-body {
+    padding: 0 1rem .9rem; border-top: 1px dashed var(--vellum-dim);
+    font-size: .9rem; line-height: 1.55; color: #44435a;
+  }
+  .post .p-body p { margin-top: .7rem; }
+  .post .p-author { font-size: .76rem; color: #8a887c; font-style: italic; margin-top: .6rem; }
+
   .season-banner {
     max-width: 900px; margin: 0 auto 1.6rem; padding: 0 1.2rem;
   }
@@ -154,12 +207,20 @@
   <p>Choose a section to begin</p>
 </header>
 
-<div class="season-banner" id="seasonBanner" style="display:none">
-  <div class="season-inner">
-    <div class="season-month" id="seasonMonth"></div>
-    <div class="season-theme" id="seasonTheme"></div>
-    <div class="season-links" id="seasonLinks"></div>
+<div class="connect" id="connect" style="display:none">
+  <div class="connect-inner" id="connectInner"></div>
+</div>
+
+<div class="announce">
+  <div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
+    <div class="season-inner">
+      <div class="season-month" id="seasonMonth"></div>
+      <div class="season-theme" id="seasonTheme"></div>
+      <div class="season-links" id="seasonLinks"></div>
+    </div>
   </div>
+  <div class="announce-title" id="announceTitle" style="display:none">📢 Announcements</div>
+  <div id="announcePosts"></div>
 </div>
 
 <main>
@@ -318,6 +379,79 @@
       '<a href="' + f.url + '">' + f.label + '</a>').join('');
     document.getElementById('seasonBanner').style.display = '';
   } catch (e) { /* seasons.json missing: banner stays hidden */ }
+})();
+
+/* ============== Connect panel — icons + links from contact.json ============== */
+(async function () {
+  /* simple inline brand-style app icons: [bg, glyph path(s) in a 24x24 viewBox] */
+  const ICONS = {
+    instagram: { bg: 'radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%)',
+      svg: '<rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="#fff"/>' },
+    facebook: { bg: '#1877F2',
+      svg: '<path fill="#fff" d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/>' },
+    reddit: { bg: '#FF4500',
+      svg: '<circle cx="12" cy="13.6" r="6.6" fill="#fff"/><circle cx="5.2" cy="12.4" r="1.6" fill="#fff"/><circle cx="18.8" cy="12.4" r="1.6" fill="#fff"/><circle cx="9.4" cy="13.4" r="1.15" fill="#FF4500"/><circle cx="14.6" cy="13.4" r="1.15" fill="#FF4500"/><path d="M9.2 16.4c1.7 1.2 3.9 1.2 5.6 0" stroke="#FF4500" stroke-width="1.1" fill="none" stroke-linecap="round"/><path d="M12.2 7.4l.9-3.3 3 .8" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="16.8" cy="4.8" r="1.2" fill="#fff"/>' },
+    zoom: { bg: '#2D8CFF',
+      svg: '<rect x="3.5" y="7" width="11.5" height="10" rx="2.5" fill="#fff"/><path fill="#fff" d="M16 10.6l4.5-2.8v8.4L16 13.4z"/>' },
+    classroom: { bg: '#188038',
+      svg: '<rect x="3" y="4" width="18" height="16" rx="1.5" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="10.4" r="1.7" fill="#fff"/><path fill="#fff" d="M8.4 15.4c.5-1.6 2-2.4 3.6-2.4s3.1.8 3.6 2.4z"/><circle cx="7.2" cy="11.4" r="1.2" fill="#fff" opacity=".85"/><circle cx="16.8" cy="11.4" r="1.2" fill="#fff" opacity=".85"/><rect x="13.5" y="17.5" width="4.5" height="1.6" fill="#fff"/>' },
+    whatsapp: { bg: '#25D366',
+      svg: '<path fill="#fff" d="M12 3.6a8.3 8.3 0 0 0-7.2 12.5L3.6 20.4l4.4-1.1A8.3 8.3 0 1 0 12 3.6zm4.7 11.7c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-2.5-.8-4.5-2.8-5.3-5.2-.3-.9 0-1.7.5-2.2.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.5l-.5.6c-.1.2-.2.3 0 .6.6 1 1.6 1.9 2.8 2.4.3.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l1.6.8c.2.1.4.2.4.3.1.1.1.4-.2 1.3z"/>' },
+    telegram: { bg: '#229ED9',
+      svg: '<path fill="#fff" d="M19.8 5.4 4.9 11.2c-.8.3-.8.9-.1 1.1l3.7 1.2 1.4 4.3c.2.5.4.6.8.3l2-1.6 3.9 2.9c.5.3.9.1 1-.5l2.6-12.3c.2-.8-.3-1.4-1.4-1.2zM9.4 13.9l7.7-4.9c.4-.2.7-.1.4.2l-6.5 5.9-.3 2.7-1.3-3.9z"/>' },
+    phone: { bg: '#3a3f4d',
+      svg: '<path fill="#fff" d="M7.2 3.8c.5-.1 1 .1 1.3.6l1.6 2.8c.3.5.2 1.1-.2 1.5l-1.1 1.1a12.4 12.4 0 0 0 5.4 5.4l1.1-1.1c.4-.4 1-.5 1.5-.2l2.8 1.6c.5.3.7.8.6 1.3-.3 1.6-1.7 2.8-3.4 2.6C10.7 18.6 5.4 13.3 4.6 7.2c-.2-1.7 1-3.1 2.6-3.4z"/>' },
+    email: { bg: '#c9a13b',
+      svg: '<rect x="3" y="5.5" width="18" height="13" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M4 7l8 6 8-6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>' }
+  };
+  try {
+    const c = await (await fetch('contact.json')).json();
+    const host = document.getElementById('connectInner');
+    host.innerHTML = c.groups.map(g => {
+      const links = g.links.filter(l => !l.hidden);
+      if (!links.length) return '';
+      return '<div class="connect-group">' +
+        '<div class="cg-title">' + g.title + '</div>' +
+        '<div class="connect-icons">' +
+          links.map(l => {
+            const ic = ICONS[l.id] || { bg: '#6b6a60', svg: '<circle cx="12" cy="12" r="7" fill="#fff"/>' };
+            const ext = l.url.startsWith('http');
+            return '<span><a class="app-icon" style="background:' + ic.bg + '" href="' + l.url + '"' +
+              (ext ? ' target="_blank" rel="noopener"' : '') +
+              ' aria-label="' + l.label + '" title="' + l.label + '">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true">' + ic.svg + '</svg></a>' +
+              '<span class="app-label">' + l.label + '</span></span>';
+          }).join('') +
+        '</div></div>';
+    }).join('');
+    document.getElementById('connect').style.display = '';
+  } catch (e) { /* contact.json missing: panel stays hidden */ }
+})();
+
+/* ============== Announcements forum — this month's summary sits above it ============== */
+(async function () {
+  const escA = t => String(t == null ? '' : t)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  try {
+    const a = await (await fetch('announcements.json')).json();
+    const posts = (a.posts || []).slice().sort((x, y) =>
+      (!!y.pinned - !!x.pinned) || String(y.date).localeCompare(String(x.date)));
+    if (!posts.length) return;
+    document.getElementById('announcePosts').innerHTML = posts.map((p, i) =>
+      '<details class="post"' + (i === 0 ? ' open' : '') + '>' +
+        '<summary>' +
+          '<span class="p-title">' + escA(p.title) + '</span>' +
+          (p.pinned ? '<span class="p-pin">pinned</span>' : '') +
+          '<span class="p-date">' + escA(p.date) + '</span>' +
+        '</summary>' +
+        '<div class="p-body">' +
+          escA(p.body).split(/\n\s*\n/).map(par =>
+            '<p>' + par.replace(/\n/g, '<br>') + '</p>').join('') +
+          (p.author ? '<div class="p-author">— ' + escA(p.author) + '</div>' : '') +
+        '</div>' +
+      '</details>').join('');
+    document.getElementById('announceTitle').style.display = '';
+  } catch (e) { /* announcements.json missing: section stays hidden */ }
 })();
 </script>
 </body>

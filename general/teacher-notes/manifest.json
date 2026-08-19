@@ -1,5 +1,5 @@
 {
-  "note": "SOURCE OF TRUTH for the Dr. Fatin handwritten notes archive. Order = array order (insert anywhere). Item fields: id (stable, never reused), file (scans/...), thumb (optional thumbs/...), title, lesson, status (original | needs-rescan), notes, and links[] for future mappings ({label, url}) to assignments, readings, vocab, or produced replicas (docx/pptx/quizzes). A gap placeholder is {type:'gap', title, notes} — it holds a spot in the sequence for a page known or suspected to be missing. Workflow: drop the image into scans/ (and optionally a small copy into thumbs/), then add/insert its entry here — or use Curate mode in the UI to reorder, rename, insert gaps, register files, and Export this manifest back for commit.",
+  "note": "SOURCE OF TRUTH for the Dr. Fatin handwritten notes archive. Order = array order (insert anywhere); the Page Map view numbers every entry sequentially across all sections — that number is the ASSUMED page. Set an optional 'pg' on an item to record the page number written on the paper itself when it differs (shown as 'paper: X'). Item fields: id (stable, never reused), file (scans/...), thumb (optional thumbs/...), title, lesson, pg (optional paper page label), status (original | needs-rescan), notes, links[] ({label,url}) for related portal pages, and digitized[] ({label,file}) for produced digital replicas (docx/xlsx/pptx/html) stored under digitized/. A gap placeholder is {type:'gap', title, notes} and still occupies a page slot. Workflow: drop images into scans/ (small copies into thumbs/, replicas into digitized/), then add/insert entries here — or use Curate mode in the UI (Gallery or Page Map view) to reorder, renumber, rename, insert gaps, register files, and Export this manifest back for commit. CSV and zip exports are generated FROM this file.",
   "sections": [
     {
       "id": "arabic-lessons",
@@ -15,8 +15,12 @@
           "status": "original",
           "notes": "الدرس الأول — الحروف وأسماؤها. All 28 letters with their written names.",
           "links": [
-            { "label": "Interactive: The Alphabet", "url": "../../arabic/letters/" }
-          ]
+            {
+              "label": "Interactive: The Alphabet",
+              "url": "../../arabic/letters/"
+            }
+          ],
+          "digitized": []
         },
         {
           "id": "ar-L01-p2",
@@ -26,7 +30,8 @@
           "lesson": "Lesson 1",
           "status": "original",
           "notes": "Boat, Tummy, Fish-mouth, Slide, Teeth, Lost-their-Teeth, Stick, Backward-3, Circle-Head, Hook families, and the Orphans.",
-          "links": []
+          "links": [],
+          "digitized": []
         },
         {
           "type": "gap",

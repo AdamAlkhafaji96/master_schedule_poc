@@ -48,6 +48,44 @@
   }
   .controls .btn:hover { background: rgba(201,161,59,.15); }
   .controls .btn.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
+  .seg { display: flex; border: 1px solid var(--gold); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    font-family: inherit; font-size: .82rem; padding: .5rem .8rem;
+    background: transparent; color: var(--gold-soft); border: none; cursor: pointer;
+  }
+  .seg button + button { border-left: 1px solid rgba(201,161,59,.45); }
+  .seg button.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
+
+  /* ---- page map (table of contents) ---- */
+  body.view-pagemap #galleryHost { display: none; }
+  body.view-gallery #pagemapHost { display: none; }
+  #pagemapHost table { width: 100%; border-collapse: collapse; background: #fff;
+    border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  #pagemapHost th, #pagemapHost td { padding: .45rem .6rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: middle; }
+  #pagemapHost th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; }
+  #pagemapHost td.pg { color: var(--gold); font-weight: 600; width: 3rem; }
+  #pagemapHost td.pg .paper { display: block; font-size: .64rem; color: #a08a45; font-weight: 400; }
+  #pagemapHost td.mini { width: 44px; }
+  #pagemapHost td.mini img { width: 38px; height: 50px; object-fit: cover; border-radius: 4px; display: block; cursor: zoom-in; }
+  #pagemapHost td.mini .gapbox { width: 38px; height: 50px; border: 2px dashed #cbbf9d; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; color: #b3a67f; }
+  #pagemapHost .sec-row td { background: #fbf8f0; font-weight: 600; color: var(--primary); font-size: .85rem; }
+  #pagemapHost tr.gap td { color: #a08a45; }
+  #pagemapHost .files a, .page-card .files a {
+    font-size: .74rem; color: var(--primary); font-weight: 600;
+    text-decoration: none; border-bottom: 1px solid var(--gold-soft); margin-right: .55rem; white-space: nowrap;
+  }
+  #pagemapHost .pm-tools { display: none; white-space: nowrap; }
+  body.curate #pagemapHost .pm-tools { display: table-cell; }
+  #pagemapHost .pm-tools button {
+    font-family: inherit; font-size: .7rem; padding: .2rem .45rem; margin-left: .15rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim); background: var(--vellum); cursor: pointer;
+  }
+  #pagemapHost .pm-tools button:hover { border-color: var(--gold); }
+  #pagemapHost .pm-tools input {
+    width: 3.2rem; font-family: inherit; font-size: .72rem; padding: .18rem .3rem;
+    border-radius: 6px; border: 1px solid var(--vellum-dim);
+  }
   .curate-hint {
     display: none; max-width: 720px; margin: .7rem auto 0; padding: 0 1.2rem;
     font-size: .8rem; color: #6b6a60; text-align: center; line-height: 1.5;
@@ -144,16 +182,27 @@
 </header>
 
 <div class="controls">
+  <span class="seg" role="group" aria-label="View">
+    <button data-view="gallery" class="on">Gallery</button>
+    <button data-view="pagemap">Page Map</button>
+  </span>
   <button class="btn" id="curateBtn">✎ Curate mode</button>
-  <button class="btn" id="exportBtn" style="display:none">⬇ Export manifest.json</button>
+  <button class="btn" id="exportBtn" style="display:none">⬇ manifest.json</button>
+  <button class="btn" id="exportCsv">⬇ TOC CSV</button>
+  <button class="btn" id="exportZip">⬇ All scans (.zip)</button>
 </div>
 <p class="curate-hint">
-  Reorder with ↑ ↓, rename with ✎, insert a gap placeholder or register a new scan
-  filename anywhere in the sequence, then <b>Export manifest.json</b> and commit it
-  (with any new files in <code>scans/</code>) to publish the new order.
+  Reorder with ↑ ↓, rename with ✎ (which also sets the paper page label), insert a gap
+  placeholder or register a new scan filename anywhere in the sequence — in the Page Map
+  view, type a page number and press → to move an entry straight to that spot. Then
+  <b>⬇ manifest.json</b> and commit it (with any new files in <code>scans/</code> or
+  <code>digitized/</code>) to publish the new order.
 </p>
 
-<main id="host">Loading…</main>
+<main>
+  <div id="galleryHost">Loading…</div>
+  <div id="pagemapHost"></div>
+</main>
 
 <footer>
   This archive is the source of truth for Dr. Fatin's original handwritten notes —
@@ -174,6 +223,7 @@
 let M = null;            /* the manifest, live-edited in curate mode */
 let curate = false;
 let flat = [];           /* flattened non-gap items for the lightbox, rebuilt on render */
+let flatPM = [];         /* same but for the page-map view */
 let lbIndex = 0;
 
 function esc(s) {
@@ -182,7 +232,7 @@ function esc(s) {
 }
 
 function render() {
-  const host = document.getElementById('host');
+  const host = document.getElementById('galleryHost');
   flat = [];
   host.innerHTML = M.sections.map((sec, si) => {
     const cards = sec.items.map((it, ii) => {
@@ -218,6 +268,7 @@ function render() {
             ? '<div class="links">' + it.links.map(l =>
                 '<a href="' + esc(l.url) + '">' + esc(l.label) + ' &rarr;</a>').join('') + '</div>'
             : '') +
+          '<div class="files">' + fileLinks(it) + '</div>' +
           (it.status && it.status !== 'original'
             ? '<span class="badge">' + esc(it.status) + '</span>' : '') +
         '</div>' + bar + '</div>';
@@ -264,9 +315,119 @@ function render() {
             status: 'original', notes: '', links: [] });
       }
     }
-    render();
+    rerenderAll();
   }));
 }
+
+/* ---------- page map (table of contents) ---------- */
+function fileLinks(it) {
+  let out = '';
+  if (it.file) {
+    const name = it.file.split('/').pop();
+    out += '<a href="' + esc(it.file) + '" download="' + esc(name) + '">⬇ raw scan</a>';
+  }
+  (it.digitized || []).forEach(dz => {
+    out += '<a href="' + esc(dz.file) + '" download>⬇ ' + esc(dz.label) + '</a>';
+  });
+  return out;
+}
+
+/* flat position list across all sections: [{si, ii}] in manifest order */
+function slots() {
+  const out = [];
+  M.sections.forEach((sec, si) => sec.items.forEach((_, ii) => out.push({ si, ii })));
+  return out;
+}
+
+function renderPageMap() {
+  const host = document.getElementById('pagemapHost');
+  flatPM = [];
+  let pg = 0;
+  let html = '<table><thead><tr><th>Pg</th><th></th><th>Title</th><th>Status</th>' +
+    '<th>Files</th><th class="pm-tools">Adjust</th></tr></thead><tbody>';
+  M.sections.forEach((sec, si) => {
+    html += '<tr class="sec-row"><td colspan="6">' + esc(sec.title) + '</td></tr>';
+    sec.items.forEach((it, ii) => {
+      pg++;
+      const isGap = it.type === 'gap';
+      let mini;
+      if (isGap) mini = '<div class="gapbox">⬚</div>';
+      else {
+        const fi = flatPM.length;
+        flatPM.push(it);
+        mini = '<img loading="lazy" data-pm="' + fi + '" src="' + esc(it.thumb || it.file) +
+               '" alt="" title="' + esc(it.title) + '">';
+      }
+      html += '<tr' + (isGap ? ' class="gap"' : '') + ' data-s="' + si + '" data-i="' + ii + '">' +
+        '<td class="pg">' + pg +
+          (it.pg ? '<span class="paper">paper: ' + esc(it.pg) + '</span>' : '') + '</td>' +
+        '<td class="mini">' + mini + '</td>' +
+        '<td>' + esc(it.title) +
+          (it.notes ? '<div style="font-size:.74rem;color:#6b6a60">' + esc(it.notes) + '</div>' : '') + '</td>' +
+        '<td style="font-size:.76rem;color:' + (isGap ? '#a08a45' : '#6b6a60') + '">' +
+          (isGap ? 'gap — missing' : esc(it.status || 'original')) + '</td>' +
+        '<td class="files">' + (isGap ? '' : fileLinks(it)) + '</td>' +
+        '<td class="pm-tools">' +
+          '<button data-act="up">↑</button><button data-act="down">↓</button>' +
+          '<button data-act="rename">✎</button>' +
+          '<input type="number" min="1" placeholder="pg" aria-label="Move to page">' +
+          '<button data-act="moveTo">→</button>' +
+        '</td>' +
+      '</tr>';
+    });
+  });
+  html += '</tbody></table>';
+  host.innerHTML = html;
+
+  host.querySelectorAll('img[data-pm]').forEach(im =>
+    im.addEventListener('click', () => {
+      const it = flatPM[parseInt(im.dataset.pm)];
+      document.getElementById('lbImg').src = it.file;
+      document.getElementById('lbCap').textContent = it.title;
+      document.getElementById('lightbox').classList.add('open');
+    }));
+
+  host.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+    const tr = b.closest('tr');
+    const si = parseInt(tr.dataset.s), ii = parseInt(tr.dataset.i);
+    const items = M.sections[si].items;
+    const act = b.dataset.act;
+    if (act === 'up' && ii > 0) [items[ii-1], items[ii]] = [items[ii], items[ii-1]];
+    if (act === 'down' && ii < items.length - 1) [items[ii+1], items[ii]] = [items[ii], items[ii+1]];
+    if (act === 'rename') {
+      const t = prompt('Title:', items[ii].title || '');
+      if (t !== null) items[ii].title = t;
+      const pgv = prompt('Paper page label (as written on the paper, blank for none):', items[ii].pg || '');
+      if (pgv !== null) { if (pgv.trim()) items[ii].pg = pgv.trim(); else delete items[ii].pg; }
+    }
+    if (act === 'moveTo') {
+      const n = parseInt(tr.querySelector('input').value);
+      if (n >= 1) moveToGlobal(si, ii, n);
+    }
+    rerenderAll();
+  }));
+}
+
+/* remove item at (si,ii), reinsert so it lands at global page n */
+function moveToGlobal(si, ii, n) {
+  const item = M.sections[si].items.splice(ii, 1)[0];
+  const flatList = slots();
+  const pos = Math.min(Math.max(n - 1, 0), flatList.length);
+  if (pos >= flatList.length) {
+    /* append after the current last entry (stay in its section, not an empty trailing one) */
+    if (flatList.length) {
+      const last = flatList[flatList.length - 1];
+      M.sections[last.si].items.splice(last.ii + 1, 0, item);
+    } else {
+      M.sections[0].items.push(item);
+    }
+  } else {
+    const t = flatList[pos];
+    M.sections[t.si].items.splice(t.ii, 0, item);
+  }
+}
+
+function rerenderAll() { render(); renderPageMap(); }
 
 /* ---------- lightbox ---------- */
 function openLb(i) {
@@ -309,9 +470,93 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   URL.revokeObjectURL(a.href);
 });
 
+/* ---------- view toggle ---------- */
+document.body.classList.add('view-gallery');
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  document.body.classList.remove('view-gallery', 'view-pagemap');
+  document.body.classList.add('view-' + b.dataset.view);
+}));
+
+/* ---------- CSV + zip exports ---------- */
+function csvEscape(v) {
+  v = String(v == null ? '' : v);
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+}
+function tocCsv() {
+  const rows = [['pg', 'section', 'title', 'paper_pg', 'status', 'file', 'digitized', 'notes']];
+  let pg = 0;
+  M.sections.forEach(sec => sec.items.forEach(it => {
+    pg++;
+    rows.push([pg, sec.title, it.title, it.pg || '',
+      it.type === 'gap' ? 'gap' : (it.status || 'original'),
+      it.file || '', (it.digitized || []).map(d => d.file).join('; '),
+      it.notes || '']);
+  }));
+  return rows.map(r => r.map(csvEscape).join(',')).join('\n') + '\n';
+}
+function downloadText(name, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type: type || 'text/plain' }));
+  a.download = name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+document.getElementById('exportCsv').addEventListener('click', () =>
+  downloadText('teacher-notes-toc.csv', tocCsv(), 'text/csv'));
+
+document.getElementById('exportZip').addEventListener('click', async () => {
+  const btn = document.getElementById('exportZip');
+  btn.disabled = true;
+  const label = btn.textContent;
+  try {
+    if (!window.JSZip) {
+      await new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+        sc.onload = res; sc.onerror = () => rej(new Error('JSZip load failed'));
+        document.head.appendChild(sc);
+      });
+    }
+    const zip = new JSZip();
+    zip.file('manifest.json', JSON.stringify(M, null, 2));
+    zip.file('teacher-notes-toc.csv', tocCsv());
+    let pg = 0;
+    const jobs = [];
+    M.sections.forEach(sec => sec.items.forEach(it => {
+      pg++;
+      const n = String(pg).padStart(3, '0');
+      (it.file ? [[it.file, 'scans']] : []).concat(
+        (it.digitized || []).map(dz => [dz.file, 'digitized'])
+      ).forEach(([f, dir]) => {
+        jobs.push((async () => {
+          btn.textContent = '⬇ packing ' + f.split('/').pop() + '…';
+          const r = await fetch(f);
+          if (!r.ok) return;
+          zip.file(dir + '/pg' + n + '-' + f.split('/').pop(), await r.blob());
+        })());
+      });
+    }));
+    await Promise.all(jobs);
+    btn.textContent = '⬇ building zip…';
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'teacher-notes-archive.zip';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  } catch (e) {
+    alert('Zip export failed: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = label;
+  }
+});
+
 (async function init() {
   M = await (await fetch('manifest.json')).json();
-  render();
+  rerenderAll();
 })();
 </script>
 </body>
