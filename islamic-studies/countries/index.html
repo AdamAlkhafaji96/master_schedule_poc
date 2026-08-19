@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countries &amp; Cultures — Muslim World Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b4d38;
+    --primary-dark: #0f3324;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  .header-logo {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: block; margin: 0 auto .6rem;
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  .site-nav { margin-top: .8rem; display: flex; gap: 1.4rem; justify-content: center; flex-wrap: wrap; }
+  .site-nav a { color: var(--gold-soft); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(201,161,59,.5); padding-bottom: 2px; }
+  .site-nav a:hover { color: #fff; border-color: #fff; }
+
+  .controls {
+    max-width: 640px; margin: -1.2rem auto 0;
+    background: var(--primary-dark); border: 1px solid rgba(201,161,59,.45);
+    border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(15,51,36,.25);
+  }
+  .controls select, .controls input[type=search] {
+    font-family: inherit; font-size: .92rem; padding: .5rem .7rem;
+    border-radius: 8px; border: 1px solid var(--gold);
+    background: var(--vellum); color: var(--ink);
+  }
+  .controls input[type=search] { min-width: 200px; }
+
+  main { max-width: 900px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .country-card {
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(34,36,58,.07); overflow: hidden; margin-bottom: 1.2rem;
+  }
+  .country-head {
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    padding: 1rem 1.2rem; border-bottom: 4px solid var(--gold); background: #fbf8f0;
+  }
+  .country-head .flag { font-size: 3rem; line-height: 1; }
+  .country-head .names .en { font-size: 1.35rem; font-weight: 600; color: var(--primary); }
+  .country-head .names .ar { font-family: 'Amiri', serif; font-size: 1.5rem; color: var(--gold); }
+  .country-head .region { margin-left: auto; font-size: .8rem; color: #6b6a60; font-style: italic; }
+
+  .country-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1rem 1.2rem 1.2rem; }
+  @media (max-width: 720px) { .country-body { grid-template-columns: 1fr; } }
+
+  .facts .row { display: flex; justify-content: space-between; gap: .8rem; padding: .4rem 0; border-bottom: 1px dotted #d8cfb8; font-size: .92rem; }
+  .facts .row .k { color: #6b6a60; }
+  .facts .row .v { text-align: right; font-weight: 600; }
+  .facts .row .v .ar { font-family: 'Amiri', serif; font-weight: 400; color: var(--primary); margin-left: .4rem; }
+
+  .pop-bar-wrap { margin-top: .8rem; }
+  .pop-bar-label { font-size: .78rem; color: #6b6a60; display: flex; justify-content: space-between; margin-bottom: .25rem; }
+  .pop-bar { height: 14px; border-radius: 7px; background: var(--vellum-dim); overflow: hidden; border: 1px solid #ddd3bd; }
+  .pop-bar .fill { height: 100%; background: var(--primary); }
+
+  .blurb { font-size: .88rem; color: #55544a; line-height: 1.5; margin-top: .8rem; }
+  .say-it {
+    margin-top: .9rem; padding: .6rem .8rem; border-left: 3px solid var(--gold);
+    background: #fbf8f0; border-radius: 0 8px 8px 0; font-size: .9rem;
+  }
+  .say-it .ar { font-family: 'Amiri', serif; font-size: 1.25rem; display: block; color: var(--primary); }
+  .say-it a { color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
+
+  .map-pane iframe {
+    width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--vellum-dim); border-radius: 12px;
+  }
+  .map-pane .map-note { font-size: .74rem; color: #8a887c; margin-top: .3rem; text-align: center; }
+  .map-missing {
+    border: 2px dashed #cbbf9d; border-radius: 12px; background: #fbf8f0;
+    aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
+    color: #a08a45; font-size: .9rem; text-align: center; padding: 1rem;
+  }
+
+  .placeholder-note {
+    border: 2px dashed #cbbf9d; border-radius: 12px; background: #fbf8f0;
+    padding: 1rem; color: #a08a45; font-size: .9rem; margin: 0 1.2rem 1.2rem;
+  }
+
+  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
+  <div class="eyebrow">Islamic Studies · World Cultures</div>
+  <h1>Countries &amp; Cultures<br><span style="font-family:'Amiri',serif;font-size:1.2rem;color:var(--gold)">بُلْدَان العَالَم الإِسْلَامِيّ</span></h1>
+  <div class="site-nav">
+    <a href="../../arabic/vocab/?level=t&month=8">Nationalities Vocab</a>
+    <a href="../stories/">Stories</a>
+    <a href="../../">Home</a>
+  </div>
+</header>
+
+<div class="controls">
+  <select id="countrySelect" aria-label="Choose country"></select>
+  <input type="search" id="q" placeholder="Search countries…" aria-label="Search countries">
+</div>
+
+<main>
+  <div id="host">Loading…</div>
+  <p class="note">
+    Population and community figures are rounded classroom approximations — they are
+    kept editable in <code>countries.json</code> and can be refined any time. The map
+    view is the live OpenStreetMap for each country.
+  </p>
+</main>
+
+<footer>Maps © OpenStreetMap contributors.</footer>
+
+<script>
+let D = null, current = 0;
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function fmtPop(n) {
+  if (n == null) return '—';
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + ' billion';
+  if (n >= 1e6) return Math.round(n / 1e6) + ' million';
+  return n.toLocaleString();
+}
+
+function fillSelect(list) {
+  const sel = document.getElementById('countrySelect');
+  sel.innerHTML = list.map(c =>
+    '<option value="' + c._i + '">' + c.flag + ' ' + esc(c.en) + '</option>').join('');
+  sel.value = current;
+}
+
+function mapEmbed(c) {
+  if (!c.bbox) {
+    return '<div class="map-missing">Map view pending — set this country\'s <code>bbox</code> in countries.json</div>';
+  }
+  const b = c.bbox.join('%2C');
+  return '<iframe loading="lazy" title="Map of ' + esc(c.en) + '" ' +
+    'src="https://www.openstreetmap.org/export/embed.html?bbox=' + b + '&amp;layer=mapnik"></iframe>' +
+    '<div class="map-note"><a href="https://www.openstreetmap.org/?box=yes&bbox=' + b +
+    '" target="_blank" rel="noopener">Open the full map &rarr;</a></div>';
+}
+
+function render() {
+  const c = D.countries[current];
+  const host = document.getElementById('host');
+  const theme = c.vocab_theme || D.vocab_theme_default || 8;
+  const vocabUrl = '../../arabic/vocab/?level=t&month=' + theme;
+
+  const placeholder = c.status === 'placeholder';
+  host.innerHTML = '<div class="country-card">' +
+    '<div class="country-head">' +
+      '<span class="flag">' + c.flag + '</span>' +
+      '<span class="names"><span class="en">' + esc(c.en) + '</span><br>' +
+        '<span class="ar">' + esc(c.ar) + '</span></span>' +
+      (c.region ? '<span class="region">' + esc(c.region) + '</span>' : '') +
+    '</div>' +
+    (placeholder
+      ? '<div class="country-body"><div class="placeholder-note" style="grid-column:1/-1;margin:0">' +
+          esc(c.breakdown || 'Placeholder country — fill it in via countries.json.') + '</div></div>'
+      : '<div class="country-body">' +
+        '<div class="facts">' +
+          '<div class="row"><span class="k">Capital</span><span class="v">' + esc(c.capital_en) +
+            (c.capital_ar ? '<span class="ar">' + esc(c.capital_ar) + '</span>' : '') + '</span></div>' +
+          '<div class="row"><span class="k">Population</span><span class="v">≈ ' + fmtPop(c.population) + '</span></div>' +
+          '<div class="row"><span class="k">Languages</span><span class="v">' + esc((c.languages || []).join(', ') || '—') + '</span></div>' +
+          '<div class="row"><span class="k">Nationality</span><span class="v">' + esc(c.demonym_en) +
+            (c.demonym_ar_m ? '<span class="ar">' + esc(c.demonym_ar_m) + ' / ' + esc(c.demonym_ar_f) + '</span>' : '') + '</span></div>' +
+          (c.muslim_pct != null
+            ? '<div class="pop-bar-wrap">' +
+                '<div class="pop-bar-label"><span>Muslim population</span><span>≈ ' + c.muslim_pct + '%</span></div>' +
+                '<div class="pop-bar"><div class="fill" style="width:' + c.muslim_pct + '%"></div></div>' +
+              '</div>' : '') +
+          (c.breakdown ? '<p class="blurb">' + esc(c.breakdown) + '</p>' : '') +
+          (c.facts ? '<p class="blurb">' + esc(c.facts) + '</p>' : '') +
+          (c.demonym_ar_m
+            ? '<div class="say-it">Say it in Arabic:' +
+                '<span class="ar">أَنَا ' + esc(c.demonym_ar_m) + ' · أَنَا مِنْ ' + esc(c.ar) + '</span>' +
+                '<a href="' + vocabUrl + '">Practice the Nationalities vocab list &rarr;</a>' +
+              '</div>' : '') +
+        '</div>' +
+        '<div class="map-pane">' + mapEmbed(c) + '</div>' +
+      '</div>') +
+  '</div>';
+}
+
+function applySearch() {
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const all = D.countries.map((c, i) => (c._i = i, c));
+  const list = q
+    ? all.filter(c => c.en.toLowerCase().includes(q) || (c.ar || '').includes(q) ||
+                      (c.demonym_en || '').toLowerCase().includes(q))
+    : all;
+  if (list.length && !list.some(c => c._i === current)) current = list[0]._i;
+  fillSelect(list.length ? list : all);
+  render();
+}
+
+document.getElementById('countrySelect').addEventListener('change', e => {
+  current = parseInt(e.target.value); render();
+});
+document.getElementById('q').addEventListener('input', applySearch);
+
+(async function init() {
+  D = await (await fetch('countries.json')).json();
+  applySearch();
+})();
+</script>
+</body>
+</html>

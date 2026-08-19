@@ -52,6 +52,22 @@
   .month-theme h2 { font-weight: 500; font-size: 1.2rem; color: var(--primary); letter-spacing: .03em; }
   .month-theme p { font-size: .88rem; color: #6b6a60; margin-top: .15rem; }
 
+  .palette {
+    display: none; flex-wrap: wrap; gap: .45rem; justify-content: center;
+    margin: -0.4rem 0 1.1rem;
+  }
+  .palette.show { display: flex; }
+  .palette .sw {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 2px solid #fff; box-shadow: 0 0 0 1px var(--vellum-dim), 0 1px 3px rgba(34,36,58,.18);
+    cursor: pointer; transition: transform .1s;
+  }
+  .palette .sw:hover { transform: scale(1.12); }
+  .palette .sw.glow { box-shadow: 0 0 0 3px var(--gold); }
+  .card .swatch {
+    width: 26px; height: 26px; border-radius: 50%; margin: 0 auto .35rem;
+    border: 2px solid #fff; box-shadow: 0 0 0 1px var(--vellum-dim);
+  }
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -158,6 +174,7 @@
 
 <main>
   <div class="month-theme" id="monthTheme"></div>
+  <div class="palette" id="palette"></div>
   <div class="cards" id="cards"></div>
 </main>
 
@@ -170,6 +187,19 @@ let level = 'level1', month = 1;
 
 /* ---------- word bank <-> cards selection sync ---------- */
 let selectedIdx = null;
+
+function renderPalette(words) {
+  const host = document.getElementById('palette');
+  const swatches = words
+    .map((w, i) => ({ hx: w[3], i }))
+    .filter(x => typeof x.hx === 'string' && x.hx.charAt(0) === '#');
+  host.classList.toggle('show', swatches.length > 0);
+  host.innerHTML = swatches.map(x =>
+    '<button class="sw" data-i="' + x.i + '" style="background:' + x.hx +
+    '" title="' + words[x.i][2] + '" aria-label="' + words[x.i][2] + '"></button>').join('');
+  host.querySelectorAll('.sw').forEach(b =>
+    b.addEventListener('click', () => selectWord(parseInt(b.dataset.i))));
+}
 
 function renderBank() {
   const words = LEVELS[level][String(month)].words;
@@ -193,6 +223,9 @@ function syncSelection() {
   });
   document.querySelectorAll('#cards .card').forEach((card, i) => {
     card.classList.toggle('selected', i === selectedIdx);
+  });
+  document.querySelectorAll('#palette .sw').forEach(sw => {
+    sw.classList.toggle('glow', parseInt(sw.dataset.i) === selectedIdx);
   });
 }
 
@@ -220,12 +253,15 @@ function render() {
   document.getElementById('monthTheme').innerHTML =
     '<h2>' + heading + '</h2>' +
     '<p>' + d.words.length + ' words</p>';
-  document.getElementById('cards').innerHTML = d.words.map(([ar, tr, en]) =>
+  document.getElementById('cards').innerHTML = d.words.map(([ar, tr, en, hx]) =>
     '<div class="card">' +
+      (typeof hx === 'string' && hx.charAt(0) === '#'
+        ? '<div class="swatch" style="background:' + hx + '"></div>' : '') +
       '<div class="arabic">' + ar + '</div>' +
       '<div class="translit">' + tr + '</div>' +
       '<div class="meaning">' + en + '</div>' +
     '</div>').join('');
+  renderPalette(d.words);
   selectedIdx = null;
   renderBank();
   wireCards();

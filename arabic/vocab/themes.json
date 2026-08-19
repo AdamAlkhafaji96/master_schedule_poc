@@ -1,29 +1,231 @@
 {
-  "note": "PLACEHOLDER themed vocab lists — same word shape as levels.json ([arabic, transliteration, english]). Add themes by adding numbered keys in order; add words freely. The vocab page lists these in the Theme dropdown and makes them searchable.",
+  "note": "PLACEHOLDER themed vocab lists — word shape [arabic, transliteration, english, optional #hex]. A 4th element starting with '#' renders a color swatch on the card and in the palette strip. Add themes by adding numbered keys in order; add words freely. The vocab page lists these in the Theme dropdown and makes them searchable.",
   "themes": {
-    "1": { "topic": "Animals", "words": [
-      ["كَلْب", "kalb", "Dog"],
-      ["قِطّ", "qitt", "Cat"]
-    ]},
-    "2": { "topic": "Food & Drink", "words": [
-      ["قَهْوَة", "qahwa", "Coffee"],
-      ["خُبْز", "khubz", "Bread"]
-    ]},
-    "3": { "topic": "People & Family", "words": [
-      ["أَب", "ab", "Father"],
-      ["أُمّ", "umm", "Mother"]
-    ]},
-    "4": { "topic": "Feelings", "words": [
-      ["سَعِيد", "sa'id", "Happy"],
-      ["حَزِين", "hazin", "Sad"]
-    ]},
-    "5": { "topic": "Clothing", "words": [
-      ["قَمِيص", "qamis", "Shirt"],
-      ["حِذَاء", "hidha'", "Shoes"]
-    ]},
-    "6": { "topic": "Weather & Seasons", "words": [
-      ["مُمْطِر", "mumtir", "Rainy"],
-      ["رَبِيع", "rabi'", "Spring"]
-    ]}
+    "1": {
+      "topic": "Animals",
+      "words": [
+        [
+          "كَلْب",
+          "kalb",
+          "Dog"
+        ],
+        [
+          "قِطّ",
+          "qitt",
+          "Cat"
+        ]
+      ]
+    },
+    "2": {
+      "topic": "Food & Drink",
+      "words": [
+        [
+          "قَهْوَة",
+          "qahwa",
+          "Coffee"
+        ],
+        [
+          "خُبْز",
+          "khubz",
+          "Bread"
+        ]
+      ]
+    },
+    "3": {
+      "topic": "People & Family",
+      "words": [
+        [
+          "أَب",
+          "ab",
+          "Father"
+        ],
+        [
+          "أُمّ",
+          "umm",
+          "Mother"
+        ]
+      ]
+    },
+    "4": {
+      "topic": "Feelings",
+      "words": [
+        [
+          "سَعِيد",
+          "sa'id",
+          "Happy"
+        ],
+        [
+          "حَزِين",
+          "hazin",
+          "Sad"
+        ]
+      ]
+    },
+    "5": {
+      "topic": "Clothing",
+      "words": [
+        [
+          "قَمِيص",
+          "qamis",
+          "Shirt"
+        ],
+        [
+          "حِذَاء",
+          "hidha'",
+          "Shoes"
+        ]
+      ]
+    },
+    "6": {
+      "topic": "Weather & Seasons",
+      "words": [
+        [
+          "مُمْطِر",
+          "mumtir",
+          "Rainy"
+        ],
+        [
+          "رَبِيع",
+          "rabi'",
+          "Spring"
+        ]
+      ]
+    },
+    "7": {
+      "topic": "Colors",
+      "words": [
+        [
+          "أَحْمَر",
+          "ahmar",
+          "Red",
+          "#c62828"
+        ],
+        [
+          "أَزْرَق",
+          "azraq",
+          "Blue",
+          "#1565c0"
+        ],
+        [
+          "أَخْضَر",
+          "akhdar",
+          "Green",
+          "#2e7d32"
+        ],
+        [
+          "أَصْفَر",
+          "asfar",
+          "Yellow",
+          "#f2c200"
+        ],
+        [
+          "بُرْتُقَالِيّ",
+          "burtuqali",
+          "Orange",
+          "#ef6c00"
+        ],
+        [
+          "بَنَفْسَجِيّ",
+          "banafsaji",
+          "Purple",
+          "#6a1b9a"
+        ],
+        [
+          "وَرْدِيّ",
+          "wardi",
+          "Pink",
+          "#ec7fa9"
+        ],
+        [
+          "بُنِّيّ",
+          "bunni",
+          "Brown",
+          "#6d4c41"
+        ],
+        [
+          "رَمَادِيّ",
+          "ramadi",
+          "Gray",
+          "#8d8d8d"
+        ],
+        [
+          "أَسْوَد",
+          "aswad",
+          "Black",
+          "#141414"
+        ],
+        [
+          "أَبْيَض",
+          "abyad",
+          "White",
+          "#f5f2ea"
+        ]
+      ]
+    },
+    "8": {
+      "topic": "Nationalities & Origins (I am …)",
+      "words": [
+        [
+          "مِنْ أَيْنَ أَنْتَ؟",
+          "min ayna anta?",
+          "Where are you from?"
+        ],
+        [
+          "أَنَا عِرَاقِيّ",
+          "ana 'iraqi",
+          "I am Iraqi (m)"
+        ],
+        [
+          "أَنَا عِرَاقِيَّة",
+          "ana 'iraqiyya",
+          "I am Iraqi (f)"
+        ],
+        [
+          "أَنَا مِنْ لُبْنَان",
+          "ana min Lubnan",
+          "I am from Lebanon"
+        ],
+        [
+          "لُبْنَانِيّ",
+          "lubnani",
+          "Lebanese"
+        ],
+        [
+          "سُورِيّ",
+          "suri",
+          "Syrian"
+        ],
+        [
+          "مِصْرِيّ",
+          "misri",
+          "Egyptian"
+        ],
+        [
+          "سُعُودِيّ",
+          "su'udi",
+          "Saudi"
+        ],
+        [
+          "تُرْكِيّ",
+          "turki",
+          "Turkish"
+        ],
+        [
+          "بَاكِسْتَانِيّ",
+          "bakistani",
+          "Pakistani"
+        ],
+        [
+          "إِنْدُونِيسِيّ",
+          "indunisi",
+          "Indonesian"
+        ],
+        [
+          "أَمْرِيكِيّ",
+          "amriki",
+          "American"
+        ]
+      ]
+    }
   }
 }

@@ -1,0 +1,91 @@
+{
+  "note": "SOURCE OF TRUTH for the Countries & Cultures page. Per country: id, en/ar names, flag (emoji), demonym_en, demonym_ar_m/f, capital_en/ar, region, population (approximate, editable), muslim_pct (approximate %, drives the breakdown bar), breakdown (free-text notes on peoples/communities), languages[], bbox [west,south,east,north] for the map view, facts (free text), vocab_theme (theme number on the Arabic vocab page for the matching 'I am …' phrases), and status ('ok' | 'placeholder'). Figures are rounded classroom approximations — refine freely. Add countries by appending; the page sorts by array order.",
+  "vocab_theme_default": 8,
+  "countries": [
+    {
+      "id": "iraq", "en": "Iraq", "ar": "العِرَاق", "flag": "🇮🇶",
+      "demonym_en": "Iraqi", "demonym_ar_m": "عِرَاقِيّ", "demonym_ar_f": "عِرَاقِيَّة",
+      "capital_en": "Baghdad", "capital_ar": "بَغْدَاد", "region": "Middle East (Mesopotamia)",
+      "population": 46000000, "muslim_pct": 96,
+      "breakdown": "Arabs and Kurds are the largest peoples, with Turkmen, Assyrian/Chaldean Christians, Yazidis, and Mandaeans among its historic communities. Home to the shrine cities of Najaf, Karbala, Kadhimiya, and Samarra.",
+      "languages": ["Arabic", "Kurdish"],
+      "bbox": [38.79, 29.06, 48.57, 37.38],
+      "facts": "The land of Mesopotamia — the rivers Tigris and Euphrates, ancient Babylon, and centuries of Islamic scholarship in Baghdad, Najaf, and Karbala.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "lebanon", "en": "Lebanon", "ar": "لُبْنَان", "flag": "🇱🇧",
+      "demonym_en": "Lebanese", "demonym_ar_m": "لُبْنَانِيّ", "demonym_ar_f": "لُبْنَانِيَّة",
+      "capital_en": "Beirut", "capital_ar": "بَيْرُوت", "region": "Middle East (Levant)",
+      "population": 5800000, "muslim_pct": 58,
+      "breakdown": "A famously diverse country: Shia and Sunni Muslims, Maronite and Orthodox Christians, Druze, and more, living among mountains and the Mediterranean coast.",
+      "languages": ["Arabic", "French (widely used)"],
+      "bbox": [35.10, 33.05, 36.62, 34.69],
+      "facts": "Known for its cedar trees (on the flag), the ancient Phoenician ports, and a rich food and literary culture.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "saudi", "en": "Saudi Arabia", "ar": "السُّعُودِيَّة", "flag": "🇸🇦",
+      "demonym_en": "Saudi", "demonym_ar_m": "سُعُودِيّ", "demonym_ar_f": "سُعُودِيَّة",
+      "capital_en": "Riyadh", "capital_ar": "الرِّيَاض", "region": "Arabian Peninsula",
+      "population": 36000000, "muslim_pct": 94,
+      "breakdown": "Arab majority with large expatriate communities from across Asia and Africa. Home of Makkah and Madinah — the destination of Hajj for the whole Muslim world.",
+      "languages": ["Arabic"],
+      "bbox": [34.5, 16.3, 55.7, 32.2],
+      "facts": "The birthplace of the Prophet ﷺ and of revelation — the Ka'bah in Makkah is the qiblah of every prayer.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "egypt", "en": "Egypt", "ar": "مِصْر", "flag": "🇪🇬",
+      "demonym_en": "Egyptian", "demonym_ar_m": "مِصْرِيّ", "demonym_ar_f": "مِصْرِيَّة",
+      "capital_en": "Cairo", "capital_ar": "القَاهِرَة", "region": "North Africa",
+      "population": 114000000, "muslim_pct": 90,
+      "breakdown": "The Arab world's most populous country — Muslim majority with the large Coptic Christian community among its oldest peoples.",
+      "languages": ["Arabic"],
+      "bbox": [24.7, 22.0, 36.9, 31.7],
+      "facts": "The Nile, the pyramids, and al-Azhar in Cairo — a center of Arabic and Islamic learning for over a thousand years. Mentioned by name in the Quran.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "turkey", "en": "Türkiye (Turkey)", "ar": "تُرْكِيَا", "flag": "🇹🇷",
+      "demonym_en": "Turkish", "demonym_ar_m": "تُرْكِيّ", "demonym_ar_f": "تُرْكِيَّة",
+      "capital_en": "Ankara", "capital_ar": "أَنْقَرَة", "region": "Anatolia — between Europe & Asia",
+      "population": 85000000, "muslim_pct": 98,
+      "breakdown": "Turks form the majority alongside a large Kurdish population; Istanbul spans two continents across the Bosphorus.",
+      "languages": ["Turkish", "Kurdish"],
+      "bbox": [26.0, 35.8, 45.0, 42.1],
+      "facts": "Heir to the Ottoman capital Istanbul, with masterpiece mosques like the Süleymaniye and the Blue Mosque.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "pakistan", "en": "Pakistan", "ar": "بَاكِسْتَان", "flag": "🇵🇰",
+      "demonym_en": "Pakistani", "demonym_ar_m": "بَاكِسْتَانِيّ", "demonym_ar_f": "بَاكِسْتَانِيَّة",
+      "capital_en": "Islamabad", "capital_ar": "إِسْلَام آبَاد", "region": "South Asia",
+      "population": 245000000, "muslim_pct": 96,
+      "breakdown": "Punjabi, Sindhi, Pashtun, Baloch, and Muhajir peoples among others — one of the largest Muslim populations in the world.",
+      "languages": ["Urdu", "Punjabi", "Sindhi", "Pashto", "English"],
+      "bbox": [60.9, 23.7, 77.8, 37.1],
+      "facts": "From the peaks of the Karakoram to the Indus valley — founded in 1947 as a homeland for the Muslims of South Asia.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "indonesia", "en": "Indonesia", "ar": "إِنْدُونِيسِيَا", "flag": "🇮🇩",
+      "demonym_en": "Indonesian", "demonym_ar_m": "إِنْدُونِيسِيّ", "demonym_ar_f": "إِنْدُونِيسِيَّة",
+      "capital_en": "Jakarta", "capital_ar": "جَاكَرْتَا", "region": "Southeast Asia — archipelago",
+      "population": 280000000, "muslim_pct": 87,
+      "breakdown": "The world's largest Muslim population, spread across 17,000+ islands — Javanese and Sundanese are the biggest of its hundreds of peoples.",
+      "languages": ["Indonesian (Bahasa)", "Javanese", "hundreds more"],
+      "bbox": [95.0, -11.0, 141.0, 6.1],
+      "facts": "Islam arrived by trade and spread by character and da'wah — today more Muslims live here than in any other country.",
+      "vocab_theme": 8, "status": "ok"
+    },
+    {
+      "id": "placeholder-1", "en": "— country pending —", "ar": "—", "flag": "🏳️",
+      "demonym_en": "", "demonym_ar_m": "", "demonym_ar_f": "",
+      "capital_en": "", "capital_ar": "", "region": "",
+      "population": null, "muslim_pct": null,
+      "breakdown": "Placeholder — copy any entry above as a template and fill it in.",
+      "languages": [], "bbox": null, "facts": "", "vocab_theme": 8, "status": "placeholder"
+    }
+  ]
+}
