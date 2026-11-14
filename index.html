@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ? '<span class="ab-status live"><i>●</i>live</span>'
         : '<span class="ab-status soon"><i>◌</i>soon</span>';
       return '<a class="pcard" href="' + p.href + '" style="--sc:' + COLOR[sec.color] + '">' + st +
-        '<span class="l1">' + AB.icon(p.icon, p.emoji) + '<span class="nm">' + p.en + '</span>' +
+        '<span class="l1">' + AB.icon(p.icon, p.emoji, sec.id) + '<span class="nm">' + p.en + '</span>' +
         (p.ar ? '<span class="arb">' + p.ar + '</span>' : '') + '</span>' +
         '<span class="ds">' + p.desc + '</span>' +
         '<span class="ab-hovercard"><b>' + p.en + '</b> — ' + p.desc + '.<br>' +
@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return '<details class="pane-wrap pane" id="pane-' + sec.id +
         '" style="--sc:' + COLOR[sec.color] + '"' +
         (S.nav === 'scroll' || state.tab === sec.id ? '' : ' hidden') + '>' +
-        '<summary class="pane-head"><h2>' + AB.icon(sec.icon, sec.emoji) + sec.title + '</h2>' +
+        '<summary class="pane-head"><h2>' + AB.icon(sec.icon, sec.emoji, sec.id) + sec.title + '</h2>' +
         '<span class="tagline">' + sec.tag + '</span>' +
         '<span class="bigchev" title="Collapse or expand this whole section">▶</span></summary>' +
         '<div class="pane-body">' + body + '</div></details>';
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tr.innerHTML = SECS.map(function (s) {
         return '<button class="mtab" role="tab" data-t="' + s.id +
           '" aria-selected="' + (state.tab === s.id) + '" style="--tabc:' + COLOR[s.color] + '">' +
-          AB.icon(s.icon, s.emoji) + s.title + '</button>';
+          AB.icon(s.icon, s.emoji, s.id) + s.title + '</button>';
       }).join('');
       tr.querySelectorAll('.mtab').forEach(function (b) {
         b.onclick = function () {
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return '<div class="rsec" data-rs="' + s.id + '" style="--tabc:' + COLOR[s.color] + '">' +
           '<div class="rhead" data-r="' + s.id + '"><span class="rchev">▼</span>' +
-          '<a href="#pane-' + s.id + '">' + AB.icon(s.icon, s.emoji) + ' ' + s.title + '</a></div>' +
+          '<a href="#pane-' + s.id + '">' + AB.icon(s.icon, s.emoji, s.id) + ' ' + s.title + '</a></div>' +
           '<div class="rbody">' + inner + '</div></div>';
       }).join('');
       document.querySelectorAll('.rail .rchev').forEach(function (ch) {
@@ -616,7 +616,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function announceIcon() {
       var el = document.getElementById('announceIc');
-      if (el && window.AB) el.innerHTML = AB.icon('megaphone', '📢');
+      if (el && window.AB) el.innerHTML = AB.icon('megaphone', '📢', 'general');
     }
     try {
       var rawS = JSON.parse(localStorage.getItem('ab-settings') || '{}');

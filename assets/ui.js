@@ -12,7 +12,7 @@
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
-  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'split' };
+  var DEFAULTS = { theme: 'auto', icons: 'mixed', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'split' };
   var S;
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
@@ -58,9 +58,29 @@
   };
   AB.applyForceView();
 
-  /* ---------------- icon resolver ---------------- */
-  AB.icon = function (name, emoji) {
-    if (S.icons === 'svg' && name) {
+  /* ---------------- icon resolver ----------------
+     Styles: emoji | svg (hand-drawn) | mixed.
+     Mixed picks per SECTION, never alternating inside one section's panel:
+       hand-drawn ink for the reference/reverent/institutional sections
+         - general : archival, office content; sits beside the handwritten-notes legacy
+         - arabic  : pen strokes ARE the subject (handwriting, letterforms, tracing)
+         - quran   : restraint next to mushaf text - color emoji reads casual there
+         - admin   : quiet monochrome tool chrome; staff UI shouldn't compete with content
+       color emoji for the playful / fast-scanning sections
+         - islamic : the most kid-facing reference catalog (masjid, gem, moon) - color
+                     helps young students scan many reference pages quickly
+         - practice: flashcard energy - quick, light, game-adjacent
+         - games   : play is the point
+     Every icon inside a section's group (tab, drawer group, home pane, cards)
+     uses that section's one style; variety only appears BETWEEN sections. */
+  var MIXED_STYLE = { general: 'svg', arabic: 'svg', quran: 'svg', admin: 'svg',
+                      islamic: 'emoji', practice: 'emoji', games: 'emoji' };
+  AB.iconStyleFor = function (sec) {
+    if (S.icons === 'mixed') return MIXED_STYLE[sec] || 'svg';
+    return S.icons;
+  };
+  AB.icon = function (name, emoji, sec) {
+    if (AB.iconStyleFor(sec) === 'svg' && name) {
       return '<svg class="ab-ic" aria-hidden="true"><use href="' + ROOT +
         'assets/icons.svg#' + name + '"></use></svg>';
     }
@@ -105,7 +125,7 @@
       pop.appendChild(h); pop.appendChild(el);
     }
     row('Icons', seg('icons',
-      [['emoji', 'Emoji'], ['svg', 'Hand-drawn']],
+      [['mixed', 'Mixed'], ['emoji', 'Emoji'], ['svg', 'Hand-drawn']],
       function () { document.dispatchEvent(new CustomEvent('ab:icons')); }));
     (extraRows || []).forEach(function (r) { row(r[0], seg(r[1], r[2], r[3])); });
     /* Staff mode — a UI curtain only, not security: it tidies teacher tooling
@@ -218,7 +238,7 @@
       tabs.innerHTML = AB.visibleSections(nav).map(function (s) {
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
           '" data-sec="' + s.id + '" style="' + tabVars(s.color) + '" href="' + ROOT + '?tab=' + s.id + '">' +
-          AB.icon(s.icon, s.emoji) + s.title +
+          AB.icon(s.icon, s.emoji, s.id) + s.title +
           (split ? '<span class="ab-chev" aria-label="Pages in ' + s.title + '">\u25be</span>' : '') +
         '</a>';
       }).join('');
@@ -352,7 +372,7 @@
           }
           return '<details class="ab-dr-sec"' + (open ? ' open' : '') +
             ' style="' + tabVars(s.color) + '">' +
-            '<summary>' + AB.icon(s.icon, s.emoji) + ' ' + s.title + '</summary>' +
+            '<summary>' + AB.icon(s.icon, s.emoji, s.id) + ' ' + s.title + '</summary>' +
             '<div class="ab-dr-body">' + inner + '</div></details>';
         }).join('');
     }
