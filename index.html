@@ -66,36 +66,36 @@
 
 
   /* ---- Connect panel ---- */
-  .connect { max-width: 900px; margin: 0 auto 1.4rem; padding: 0 1.2rem; }
+  .connect { max-width: 900px; margin: 0 auto .9rem; padding: 0 1.2rem; }
 
   .connect-inner {
-    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(34,36,58,.07);
-    padding: 1rem 1.2rem 1.1rem;
-    display: flex; flex-wrap: wrap; gap: 1.1rem 2rem; justify-content: center;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(34,36,58,.06);
+    padding: .5rem .9rem .55rem;
+    display: flex; flex-wrap: wrap; gap: .45rem 1.3rem; justify-content: center; align-items: center;
   }
 
-  .connect-group { text-align: center; }
+  .connect-group { display: flex; align-items: center; gap: .55rem; }
 
   .connect-group .cg-title {
-    font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--abd-6b6a60, #6b6a60); margin-bottom: .55rem;
+    font-size: .58rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--abd-6b6a60, #6b6a60); white-space: nowrap;
   }
 
-  .connect-icons { display: flex; gap: .6rem; justify-content: center; }
+  .connect-icons { display: flex; gap: .4rem; justify-content: center; }
 
   .app-icon {
     display: flex; align-items: center; justify-content: center;
-    width: 52px; height: 52px; border-radius: 14px;
-    box-shadow: 0 2px 6px rgba(34,36,58,.22), inset 0 -2px 4px rgba(0,0,0,.12);
+    width: 28px; height: 28px; border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.2), inset 0 -1px 2px rgba(0,0,0,.1);
     transition: transform .1s, box-shadow .1s;
   }
 
-  .app-icon:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 5px 12px rgba(34,36,58,.3); }
+  .app-icon:hover { transform: translateY(-1px) scale(1.08); box-shadow: 0 3px 8px rgba(34,36,58,.28); }
 
-  .app-icon svg { width: 30px; height: 30px; display: block; }
+  .app-icon svg { width: 16px; height: 16px; display: block; }
 
-  .app-label { display: block; font-size: .62rem; color: var(--abd-6b6a60, #6b6a60); margin-top: .25rem; letter-spacing: .03em; }
+  .app-label { display: none; }
 
 
   /* ---- Announcements ---- */
@@ -200,7 +200,6 @@
   .mtab[aria-selected="true"] { color: #f7f2e7; font-weight: 600; background: var(--tabc, var(--gold)); border-color: var(--tabc, var(--gold)); border-top-width: 3px; border-top-color: var(--gold); }
   .mtab[aria-selected="true"] .ab-ic { color: var(--gold-soft, #e3cf8f); }
   .mtab[aria-selected="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--tabc, var(--gold)); }
-  body[data-nav="scroll"] .tabsrow { display: none; }
 
   main { max-width: 1020px; margin: 1.1rem auto 2.4rem; padding: 0 1rem; }
   details.pane-wrap > summary { list-style: none; cursor: pointer; }
@@ -243,8 +242,11 @@
     font-size: .8rem; max-height: calc(100vh - 160px); overflow-y: auto;
     background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .5rem .4rem .6rem;
     box-shadow: 0 8px 22px rgba(34,36,58,.08); scrollbar-width: thin; }
-  body[data-nav="scroll"] .rail { display: block; }
-  @media (max-width: 1460px) { body[data-nav="scroll"] .rail { display: none; } }
+  body[data-rail="on"] .rail { display: block; }
+  @media (max-width: 1460px) {
+    body[data-rail="on"] .rail { position: static; width: auto; max-width: 1020px;
+      margin: 0 auto 1rem; padding: 0 1rem; max-height: none; }
+  }
   .rail .rsec { margin-bottom: .15rem; }
   .rail .rhead { display: flex; align-items: center; gap: .35rem; padding: .32rem .45rem;
     border-left: 4px solid var(--tabc, var(--gold)); border-radius: 0 7px 7px 0; cursor: pointer; }
@@ -281,6 +283,7 @@
 
 <div class="masthead">
   <div class="mast-row">
+    <button class="ab-iconbtn" id="railBtn" title="Show or hide the navigation panel">☰</button>
     <a class="mini" href="./" title="Al Baseera Academy"><img src="assets/logo.jpeg" alt="Al Baseera Academy"></a>
     <div class="wm">
       <div class="en">Al Baseera Learning Portal</div>
@@ -503,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         body = '<div class="cardgrid">' + sec.pages.map(function (p) { return card(sec, p); }).join('') + '</div>';
       }
-      return '<details class="pane-wrap pane" open id="pane-' + sec.id +
+      return '<details class="pane-wrap pane" id="pane-' + sec.id +
         '" style="--sc:' + COLOR[sec.color] + '"' +
         (S.nav === 'scroll' || state.tab === sec.id ? '' : ' hidden') + '>' +
         '<summary class="pane-head"><h2>' + AB.icon(sec.icon, sec.emoji) + sec.title + '</h2>' +
@@ -514,7 +517,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function render() {
       document.body.dataset.nav = S.nav;
+      document.body.dataset.rail = S.rail === 'show' ? 'on' : 'off';
       document.getElementById('panes').innerHTML = nav.sections.map(paneHTML).join('');
+      if (S.nav === 'tabs') {
+        var selPane = document.getElementById('pane-' + state.tab);
+        if (selPane) selPane.open = true;
+      }
       var tr = document.getElementById('tabsrow');
       tr.innerHTML = nav.sections.map(function (s) {
         return '<button class="mtab" role="tab" data-t="' + s.id +
@@ -525,6 +533,14 @@ document.addEventListener('DOMContentLoaded', function () {
         b.onclick = function () {
           state.tab = b.dataset.t;
           history.replaceState(null, '', '?tab=' + state.tab);
+          if (S.nav === 'scroll') {
+            var tp = document.getElementById('pane-' + state.tab);
+            if (tp) { tp.open = true; tp.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            tr.querySelectorAll('.mtab').forEach(function (x) {
+              x.setAttribute('aria-selected', x.dataset.t === state.tab);
+            });
+            return;
+          }
           render();
         };
       });
@@ -576,8 +592,14 @@ document.addEventListener('DOMContentLoaded', function () {
       S.theme = S.theme === 'auto' ? 'dark' : (S.theme === 'dark' ? 'light' : 'auto');
       AB.save(); AB.applyTheme(); glyph(); syncPop();
     };
+    var railBtn = document.getElementById('railBtn');
+    railBtn.onclick = function () {
+      S.rail = S.rail === 'show' ? 'hide' : 'show';
+      AB.save();
+      document.body.dataset.rail = S.rail === 'show' ? 'on' : 'off';
+    };
     var pop = AB.buildPopover([
-      ['Navigation', 'nav', [['tabs', 'Tabs'], ['scroll', 'Scroll + rail']], render],
+      ['Sections', 'nav', [['tabs', 'One at a time'], ['scroll', 'Scroll all']], render],
       ['Long lists', 'list', [['default', 'Per page'], ['pages', 'Paginate'], ['infinite', 'Infinite']], null]
     ]);
     var gear = document.getElementById('gearBtn');
