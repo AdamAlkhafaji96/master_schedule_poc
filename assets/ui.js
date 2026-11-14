@@ -12,12 +12,20 @@
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
-  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show' };
+  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff' };
   var S;
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
   AB.settings = S;
-  if (S.admin === 'on') document.documentElement.dataset.abAdmin = 'on';
+  AB.applyAdmin = function () {
+    /* signed-in staff can peek at the student view without signing out */
+    if (S.admin === 'on' && S.adminView !== 'student') {
+      document.documentElement.dataset.abAdmin = 'on';
+    } else {
+      delete document.documentElement.dataset.abAdmin;
+    }
+  };
+  AB.applyAdmin();
   AB.save = function () { try { localStorage.setItem('ab-settings', JSON.stringify(S)); } catch (e) {} };
 
   /* ---------------- theme engine ---------------- */
@@ -85,16 +93,21 @@
     /* Staff mode — a UI curtain only, not security: it tidies teacher tooling
        out of student view. Real auth arrives with the Phase F backend. */
     var sh = document.createElement('h4'); sh.textContent = 'Staff';
+    var viewSeg = null;
     var sb = document.createElement('button');
     sb.type = 'button'; sb.className = 'ab-staffbtn';
     function staffLabel() {
-      sb.textContent = S.admin === 'on' ? 'Leave staff mode' : 'Staff sign-in\u2026';
+      sb.textContent = S.admin === 'on' ? 'Sign out of staff mode' : 'Staff sign-in\u2026';
+      if (viewSeg) viewSeg.style.display = S.admin === 'on' ? '' : 'none';
     }
-    staffLabel();
+    /* View-as switcher: only visible once signed in; no re-verify to flip */
+    viewSeg = seg('adminView', [['staff', 'Staff view'], ['student', 'Student view']],
+      function () { AB.applyAdmin(); });
+    viewSeg.style.marginBottom = '.35rem';
     sb.onclick = function () {
       if (S.admin === 'on') {
         S.admin = 'off'; AB.save();
-        delete document.documentElement.dataset.abAdmin;
+        AB.applyAdmin();
         staffLabel(); return;
       }
       var p = window.prompt('Staff passphrase:');
@@ -104,15 +117,19 @@
         var hex = Array.from(new Uint8Array(buf)).map(function (b) {
           return b.toString(16).padStart(2, '0'); }).join('');
         if (hex === AB.STAFF_HASH) {
-          S.admin = 'on'; AB.save();
-          document.documentElement.dataset.abAdmin = 'on';
+          S.admin = 'on'; S.adminView = 'staff'; AB.save();
+          viewSeg.querySelectorAll('button').forEach(function (x) {
+            x.classList.toggle('on', x.dataset.v === 'staff');
+          });
+          AB.applyAdmin();
           staffLabel();
         } else {
           window.alert('That passphrase was not recognized.');
         }
       });
     };
-    pop.appendChild(sh); pop.appendChild(sb);
+    staffLabel();
+    pop.appendChild(sh); pop.appendChild(viewSeg); pop.appendChild(sb);
     if (AB.lightLocked) {
       var n = document.createElement('div');
       n.className = 'hint';
@@ -156,6 +173,11 @@
     strip.className = 'ab-strip';
     var row = document.createElement('div');
     row.className = 'ab-strip-row';
+
+    var menuBtn = document.createElement('button');
+    menuBtn.className = 'ab-iconbtn'; menuBtn.title = 'All pages'; menuBtn.textContent = '\u2630';
+    menuBtn.setAttribute('aria-label', 'Open the page directory');
+    row.appendChild(menuBtn);
 
     var logo = document.createElement('a');
     logo.className = 'ab-mini-logo'; logo.href = ROOT; logo.title = 'Al Baseera Academy — Home';
@@ -217,6 +239,56 @@
 
     document.body.insertBefore(strip, document.body.firstChild);
     document.body.classList.add('ab-has-strip');
+
+    /* ---- the page directory drawer: the whole site, current section open ---- */
+    var drawer = document.createElement('nav');
+    drawer.className = 'ab-drawer';
+    drawer.setAttribute('aria-label', 'All pages');
+    function renderDrawer() {
+      drawer.innerHTML = '<div class="ab-drawer-head">Al Baseera Academy' +
+        '<button class="ab-drawer-x" aria-label="Close">\u2715</button></div>' +
+        '<a class="ab-dr-home" href="' + ROOT + '">\u2302 Home</a>' +
+        nav.sections.map(function (s) {
+          var open = section && s.id === section.id;
+          var gmap = (nav.groups && nav.groups[s.id]) || null;
+          var inner = '';
+          function link(p) {
+            var here = p.href === path;
+            return '<a class="ab-dr-page' + (here ? ' here' : '') + '" href="' + ROOT + p.href + '">' +
+              p.en + (p.status === 'soon' ? ' \u25cc' : '') + '</a>';
+          }
+          if (gmap) {
+            Object.keys(gmap).forEach(function (g) {
+              var items = s.pages.filter(function (p) { return gmap[g].indexOf(p.href) > -1; });
+              if (!items.length) return;
+              inner += '<div class="ab-dr-group">' + g + '</div>' + items.map(link).join('');
+            });
+          } else {
+            inner = s.pages.map(link).join('');
+          }
+          return '<details class="ab-dr-sec"' + (open ? ' open' : '') +
+            ' style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') + '">' +
+            '<summary>' + AB.icon(s.icon, s.emoji) + ' ' + s.title + '</summary>' +
+            '<div class="ab-dr-body">' + inner + '</div></details>';
+        }).join('');
+    }
+    renderDrawer();
+    document.addEventListener('ab:icons', renderDrawer);
+    var backdrop = document.createElement('div');
+    backdrop.className = 'ab-drawer-backdrop';
+    document.body.appendChild(backdrop);
+    document.body.appendChild(drawer);
+    function setDrawer(open) {
+      document.body.classList.toggle('ab-drawer-open', open);
+    }
+    menuBtn.addEventListener('click', function (e) { e.stopPropagation(); setDrawer(true); });
+    backdrop.addEventListener('click', function () { setDrawer(false); });
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('.ab-drawer-x')) setDrawer(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setDrawer(false);
+    });
   }
 
   if (!document.documentElement.hasAttribute('data-ab-home')) {
