@@ -62,7 +62,7 @@
   <nav class="site-nav">
     <a href="../../">Home</a>
     <a href="../vocab/">Vocabulary</a>
-    <a href="../flashcards/">Flashcards</a>
+    <a href="../../practice/deck/">Practice</a>
     <a href="../dictionary/">Dictionary</a>
   </nav>
 </header>
@@ -84,7 +84,11 @@ function buildFilters() {
   const btn = (name, n) => '<button data-t="' + name + '"' + (name === themeFilter ? ' class="on"' : '') + '>' + name +
     (n != null ? '<span class="n">' + n + '</span>' : '') + '</button>';
   el.innerHTML = btn('All', DATA.themes.reduce((a, t) => a + t.cards.length, 0)) +
-    DATA.themes.map(t => btn(t.name, t.cards.length)).join('');
+    DATA.themes.map(t => btn(t.name, t.cards.length)).join('') +
+    (themeFilter !== 'All'
+      ? '<a class="deck-link" style="margin-left:.5rem;font-size:.85rem" href="../../practice/deck/?src=th%3A' +
+        DATA.themes.findIndex(t => t.name === themeFilter) + '">🃏 Practice this theme &rarr;</a>'
+      : '<a class="deck-link" style="margin-left:.5rem;font-size:.85rem" href="../../practice/deck/">🃏 Practice &rarr;</a>');
   el.querySelectorAll('button').forEach(b => b.onclick = () => {
     themeFilter = b.dataset.t;
     el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));

@@ -186,14 +186,45 @@
     white-space: nowrap;
   }
 
-  /* ---------- interleaved translation mode ---------- */
+  /* ---------- ayah rows: EN index gutter left, Arabic marker right ---------- */
   .mushaf.interleaved { text-align: right; }
   .ayah-row {
     cursor: pointer;
     border-radius: 8px;
-    padding: .55rem .6rem;
+    padding: .45rem .35rem;
     transition: background .12s;
+    direction: ltr;
+    display: grid;
+    grid-template-columns: 2.2rem 1fr 3.2rem;
+    gap: .55rem;
+    align-items: baseline;
   }
+  .g-en {
+    text-align: right; font-family: 'Spectral', Georgia, serif;
+    font-size: .8rem; font-weight: 600; color: #a08a45;
+    padding-top: .35em; user-select: none;
+  }
+  .g-body { direction: rtl; text-align: right; min-width: 0; }
+  .g-ar {
+    text-align: left; direction: rtl; white-space: nowrap;
+    font-size: calc(1.05rem * var(--mushaf-scale, 1)); color: var(--gold);
+    user-select: none;
+  }
+  @media (max-width: 560px) { .ayah-row { grid-template-columns: 1.6rem 1fr 2.5rem; gap: .35rem; } }
+  /* highlights */
+  .ayah-row[data-hl="gold"] { background: #f8ecc3; }
+  .ayah-row[data-hl="mint"] { background: #d9eedd; }
+  .ayah-row[data-hl="rose"] { background: #f6dde1; }
+  body.hl-mode .ayah-row { cursor: crosshair; }
+  .hlbar { display: none; align-items: center; gap: .45rem; flex-wrap: wrap;
+    max-width: 900px; margin: .5rem auto 0; padding: .5rem .9rem;
+    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px; }
+  body.hl-mode .hlbar { display: flex; }
+  .hlbar .dot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; }
+  .hlbar .dot.gold { background: #f1dd9a; } .hlbar .dot.mint { background: #bfe3c8; } .hlbar .dot.rose { background: #efc6cd; }
+  .hlbar .dot.on { border-color: var(--primary, #4d1b30); transform: scale(1.12); }
+  .hlbar .hbtn { font: inherit; font-size: .8rem; padding: .3rem .75rem; border-radius: 999px;
+    border: 1px solid var(--vellum-dim); background: var(--vellum); cursor: pointer; }
   .ayah-row:hover { background: rgba(201,161,59,.12); }
   .ayah-row.selected { background: rgba(201,161,59,.28); }
   .ayah-row + .ayah-row { border-top: 1px solid var(--vellum-dim); }
@@ -313,6 +344,7 @@
   <input type="number" id="pageSizeCustom" min="1" max="286" value="10"
          style="display:none" aria-label="Custom ayahs per page">
   <button class="btn" id="jumpTop">Top of surah</button>
+  <button class="btn" id="hlToggle">🖍 Highlight</button>
 </div>
 
 <div class="legend" id="legend">
@@ -328,6 +360,17 @@
   <span><i style="background:var(--tj-silent)"></i>Silent / Hamzat al-wasl</span>
 </div>
 
+<div class="hlbar" id="hlbar" aria-label="Highlighter">
+  <span style="font-size:.8rem">Highlighter:</span>
+  <button class="dot gold on" data-c="gold" aria-label="Gold highlighter" type="button"></button>
+  <button class="dot mint" data-c="mint" aria-label="Mint highlighter" type="button"></button>
+  <button class="dot rose" data-c="rose" aria-label="Rose highlighter" type="button"></button>
+  <button class="hbtn" id="hlErase" type="button">Eraser</button>
+  <button class="hbtn" id="hlClear" type="button">Clear all</button>
+  <button class="hbtn" id="hlDone" type="button">✓ Done — back to reading</button>
+  <span style="font-size:.74rem;color:#8a887c">Tap an ayah to mark it. Highlights stay on this device.</span>
+</div>
+
 <div class="assignment-banner" id="assignmentBanner"></div>
 
 <main>
@@ -340,7 +383,7 @@
   </div>
   <p class="status" id="status"></p>
 
-  <div class="builder" id="builder">
+  <div class="builder ab-adminonly" id="builder">
     <h2>Create an assignment / reading link</h2>
     <div class="row">
       From ayah <input type="number" id="fromAyah" min="1" value="1">
@@ -439,6 +482,21 @@ let PAGE_SIZE = 10;
 let zoom = 1;
 const ZOOM_MIN = 0.7, ZOOM_MAX = 2.5, ZOOM_STEP = 0.15;
 const params = new URLSearchParams(location.search);
+/* highlights: {surah: {ayah: color}} on this device; ?hl=5:gold,8-10:mint arrives from links */
+let HL = {};
+try { HL = JSON.parse(localStorage.getItem('ab-hl') || '{}'); } catch (e) {}
+function saveHL() { try { localStorage.setItem('ab-hl', JSON.stringify(HL)); } catch (e) {} }
+const urlHL = {};
+(params.get('hl') || '').split(',').forEach(part => {
+  const m = part.match(/^(\d+)(?:-(\d+))?:(gold|mint|rose)$/);
+  if (!m) return;
+  for (let n = +m[1]; n <= +(m[2] || m[1]); n++) urlHL[n] = m[3];
+});
+let hlMode = false, hlColor = 'gold';
+function hlFor(n) {
+  const mine = (HL[state.surah] || {})[n];
+  return mine || urlHL[n] || '';
+}
 let state = {
   surah: parseInt(params.get('s')) || 1,
   page: 0,
@@ -487,33 +545,38 @@ async function render() {
     catch (e) { statusEl.textContent = e.message; }
   }
 
-  if (trans) {
-    /* Interleaved mode: each ayah is a row — Arabic line, then English */
-    mushaf.classList.add('interleaved');
-    mushaf.innerHTML = slice.map(a =>
-      '<div class="ayah-row' + (selected.has(a.n) ? ' selected' : '') + '" data-n="' + a.n + '">' +
-        '<div class="ayah-ar">' + renderTajweed(a.taj) +
-          '<span class="ayah-num">﴿' + toArabic(a.n) + '﴾</span></div>' +
-        '<div class="ayah-en"><span class="en-num">' + a.n + '</span> ' +
-          esc(trans[a.n] || '') + '</div>' +
-      '</div>'
-    ).join('');
-  } else {
-    /* Classic mushaf mode: continuous flowing text */
-    mushaf.classList.remove('interleaved');
-    mushaf.innerHTML = slice.map(a =>
-      '<span class="ayah' + (selected.has(a.n) ? ' selected' : '') + '" data-n="' + a.n + '">' +
-        renderTajweed(a.taj) +
-        '<span class="ayah-num">﴿' + toArabic(a.n) + '﴾</span>' +
-      '</span> '
-    ).join('');
-  }
+  /* every ayah is an indexed row: EN number in the left gutter,
+     the Arabic ayah marker in the right gutter, highlights as row tint */
+  mushaf.classList.add('interleaved');
+  mushaf.innerHTML = slice.map(a => {
+    const hl = hlFor(a.n);
+    return '<div class="ayah-row' + (selected.has(a.n) ? ' selected' : '') +
+      '" data-n="' + a.n + '"' + (hl ? ' data-hl="' + hl + '"' : '') + '>' +
+      '<div class="g-en">' + a.n + '</div>' +
+      '<div class="g-body"><div class="ayah-ar">' + renderTajweed(a.taj) + '</div>' +
+        (trans ? '<div class="ayah-en">' + esc(trans[a.n] || '') + '</div>' : '') +
+      '</div>' +
+      '<div class="g-ar">﴿' + toArabic(a.n) + '﴾</div>' +
+    '</div>';
+  }).join('');
 
   /* ayah tap: selection mode collects ranges for assignment links */
   mushaf.querySelectorAll('.ayah, .ayah-row').forEach(el => {
     el.addEventListener('click', () => {
-      if (!selecting) return;
       const n = parseInt(el.dataset.n);
+      if (hlMode) {
+        HL[state.surah] = HL[state.surah] || {};
+        if (hlColor === 'erase' || HL[state.surah][n] === hlColor) {
+          delete HL[state.surah][n];
+          el.removeAttribute('data-hl');
+        } else {
+          HL[state.surah][n] = hlColor;
+          el.setAttribute('data-hl', hlColor);
+        }
+        saveHL();
+        return;
+      }
+      if (!selecting) return;
       selected.has(n) ? selected.delete(n) : selected.add(n);
       el.classList.toggle('selected');
       syncBuilderFromSelection();
@@ -645,12 +708,36 @@ async function init() {
     if (e.key === 'ArrowRight') { state.page++; render(); }
   });
 
+  /* highlighter */
+  const hlBtn = document.getElementById('hlToggle');
+  hlBtn.addEventListener('click', () => {
+    hlMode = !hlMode;
+    document.body.classList.toggle('hl-mode', hlMode);
+    hlBtn.textContent = hlMode ? '🖍 Highlighting…' : '🖍 Highlight';
+  });
+  document.getElementById('hlDone').addEventListener('click', () => hlBtn.click());
+  document.querySelectorAll('#hlbar .dot').forEach(d => d.addEventListener('click', () => {
+    hlColor = d.dataset.c;
+    document.querySelectorAll('#hlbar .dot').forEach(x => x.classList.toggle('on', x === d));
+  }));
+  document.getElementById('hlErase').addEventListener('click', () => {
+    hlColor = 'erase';
+    document.querySelectorAll('#hlbar .dot').forEach(x => x.classList.remove('on'));
+  });
+  document.getElementById('hlClear').addEventListener('click', () => {
+    delete HL[state.surah]; saveHL(); render();
+  });
+
   /* assignment builder */
   const linkOut = document.getElementById('linkOut');
   function makeLink(from, to) {
     const base = location.origin + location.pathname.replace(/[^/]*$/, '');
     let url = base + '?s=' + state.surah + '&from=' + from + '&to=' + to;
     if (state.trans) url += '&trans=1';
+    const marks = HL[state.surah] || {};
+    const hlParts = Object.keys(marks).filter(n => n >= from && n <= to)
+      .sort((a, b) => a - b).map(n => n + ':' + marks[n]);
+    if (hlParts.length) url += '&hl=' + hlParts.join(',');
     return url;
   }
   document.getElementById('makeLink').addEventListener('click', () => {

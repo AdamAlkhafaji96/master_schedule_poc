@@ -15,6 +15,7 @@
   --ab-quran:   #4d1b30;
   --ab-islamic: #1b4d38;
   --ab-games:   #14555c;
+  --ab-practice: #a85318;
   --ab-shadow:  0 10px 28px rgba(34,36,58,.12);
 }
 html[data-theme="dark"] {
@@ -30,6 +31,7 @@ html[data-theme="dark"] {
   --ab-quran:   #d98aa6;
   --ab-islamic: #7fc9a4;
   --ab-games:   #7bc8cf;
+  --ab-practice: #e0a35c;
   --ab-shadow:  0 10px 28px rgba(0,0,0,.45);
 }
 
@@ -71,6 +73,7 @@ html[data-theme="dark"][data-ab-sec="islamic"] body { --primary: #7fc9a4; --prim
 html[data-theme="dark"][data-ab-sec="general"] body { --primary: #aeb6c9; --primary-dark: #262b38; }
 html[data-theme="dark"][data-ab-sec="gold"]    body { --primary: #d2ac4b; --primary-dark: #2e2718; }
 html[data-theme="dark"][data-ab-sec="games"]   body { --primary: #7bc8cf; --primary-dark: #11343a; }
+html[data-theme="dark"][data-ab-sec="practice"] body { --primary: #e0a35c; --primary-dark: #3a2410; }
 /* page headers paint with var(--primary); in dark, drop to the section's deep tint
    and keep anything var(--vellum)-colored inside them light */
 html[data-theme="dark"] body > header {
@@ -201,6 +204,17 @@ html[data-theme="dark"] .ab-hovercard { background: #0e0c14; color: #ece4d2; bor
 .ab-status i { font-style: normal; font-size: .78rem; line-height: 1; }
 .ab-status.live i { color: var(--ab-islamic); }
 .ab-status.soon i { color: var(--ab-muted); }
+
+
+/* ——— staff/admin gating: UI curtain, not security ——— */
+html:not([data-ab-admin="on"]) .ab-adminonly { display: none !important; }
+.ab-staffbtn {
+  font: inherit; font-size: .76rem; width: 100%; cursor: pointer;
+  background: transparent; color: var(--ab-muted);
+  border: 1px dashed var(--ab-rule); border-radius: 999px; padding: .32rem .6rem;
+}
+.ab-staffbtn:hover { border-color: var(--ab-gold); color: var(--ab-ink); }
+html[data-ab-admin="on"] .ab-staffbtn { border-style: solid; border-color: var(--ab-gold); color: var(--ab-gold); }
 
 :focus-visible { outline: 2px solid var(--ab-gold); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {

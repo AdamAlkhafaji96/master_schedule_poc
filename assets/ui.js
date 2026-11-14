@@ -8,6 +8,7 @@
   var script = document.currentScript;
   var ROOT = script && script.src ? script.src.replace(/assets\/ui\.js.*$/, '') : '';
   var AB = window.AB = window.AB || {};
+  AB.STAFF_HASH = '66b04ccd8435deb7fd21bb6b8e67491689bf13c324fa976de7759b9f25e660e7';
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
@@ -16,6 +17,7 @@
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
   AB.settings = S;
+  if (S.admin === 'on') document.documentElement.dataset.abAdmin = 'on';
   AB.save = function () { try { localStorage.setItem('ab-settings', JSON.stringify(S)); } catch (e) {} };
 
   /* ---------------- theme engine ---------------- */
@@ -76,13 +78,41 @@
       var h = document.createElement('h4'); h.textContent = title;
       pop.appendChild(h); pop.appendChild(el);
     }
-    row('Theme', seg('theme',
-      [['auto', 'Auto'], ['light', 'Light'], ['dark', 'Dark']],
-      function () { AB.applyTheme(); }));
     row('Icons', seg('icons',
       [['emoji', 'Emoji'], ['svg', 'Hand-drawn']],
       function () { document.dispatchEvent(new CustomEvent('ab:icons')); }));
     (extraRows || []).forEach(function (r) { row(r[0], seg(r[1], r[2], r[3])); });
+    /* Staff mode — a UI curtain only, not security: it tidies teacher tooling
+       out of student view. Real auth arrives with the Phase F backend. */
+    var sh = document.createElement('h4'); sh.textContent = 'Staff';
+    var sb = document.createElement('button');
+    sb.type = 'button'; sb.className = 'ab-staffbtn';
+    function staffLabel() {
+      sb.textContent = S.admin === 'on' ? 'Leave staff mode' : 'Staff sign-in\u2026';
+    }
+    staffLabel();
+    sb.onclick = function () {
+      if (S.admin === 'on') {
+        S.admin = 'off'; AB.save();
+        delete document.documentElement.dataset.abAdmin;
+        staffLabel(); return;
+      }
+      var p = window.prompt('Staff passphrase:');
+      if (p == null) return;
+      var enc = new TextEncoder().encode(p.trim());
+      crypto.subtle.digest('SHA-256', enc).then(function (buf) {
+        var hex = Array.from(new Uint8Array(buf)).map(function (b) {
+          return b.toString(16).padStart(2, '0'); }).join('');
+        if (hex === AB.STAFF_HASH) {
+          S.admin = 'on'; AB.save();
+          document.documentElement.dataset.abAdmin = 'on';
+          staffLabel();
+        } else {
+          window.alert('That passphrase was not recognized.');
+        }
+      });
+    };
+    pop.appendChild(sh); pop.appendChild(sb);
     if (AB.lightLocked) {
       var n = document.createElement('div');
       n.className = 'hint';
@@ -109,7 +139,7 @@
     return here.indexOf(rootPath) === 0 ? here.slice(rootPath.length) : here;
   }
 
-  var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c' };
+  var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318' };
   function injectStrip(nav) {
     var path = pagePath();
     if (nav.chromeless.some(function (c) { return path === c; })) return;
@@ -128,7 +158,7 @@
     row.className = 'ab-strip-row';
 
     var logo = document.createElement('a');
-    logo.className = 'ab-mini-logo'; logo.href = ROOT; logo.title = 'Al Baseera — Home';
+    logo.className = 'ab-mini-logo'; logo.href = ROOT; logo.title = 'Al Baseera Academy — Home';
     var img = document.createElement('img');
     img.src = ROOT + 'assets/logo.jpeg'; img.alt = 'Al Baseera Academy';
     img.onerror = function () { img.replaceWith(AB.fallbackLogo()); };

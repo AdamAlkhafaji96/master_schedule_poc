@@ -1,0 +1,507 @@
+[
+ {
+  "ar": "٠",
+  "tr": "0",
+  "en": "Ṣifr"
+ },
+ {
+  "ar": "١",
+  "tr": "1",
+  "en": "Wāḥid"
+ },
+ {
+  "ar": "٢",
+  "tr": "2",
+  "en": "Ithnān"
+ },
+ {
+  "ar": "٣",
+  "tr": "3",
+  "en": "Thalātha"
+ },
+ {
+  "ar": "٤",
+  "tr": "4",
+  "en": "Arba‘a"
+ },
+ {
+  "ar": "٥",
+  "tr": "5",
+  "en": "Khamsa"
+ },
+ {
+  "ar": "٦",
+  "tr": "6",
+  "en": "Sitta"
+ },
+ {
+  "ar": "٧",
+  "tr": "7",
+  "en": "Sab‘a"
+ },
+ {
+  "ar": "٨",
+  "tr": "8",
+  "en": "Thamāniya"
+ },
+ {
+  "ar": "٩",
+  "tr": "9",
+  "en": "Tis‘a"
+ },
+ {
+  "ar": "١٠",
+  "tr": "10",
+  "en": "‘Ashara"
+ },
+ {
+  "ar": "١١",
+  "tr": "11",
+  "en": "Aḥada ‘ashar"
+ },
+ {
+  "ar": "١٢",
+  "tr": "12",
+  "en": "Ithnā ‘ashar"
+ },
+ {
+  "ar": "١٣",
+  "tr": "13",
+  "en": "Thalāthata ‘ashar"
+ },
+ {
+  "ar": "١٤",
+  "tr": "14",
+  "en": "Arba‘ata ‘ashar"
+ },
+ {
+  "ar": "١٥",
+  "tr": "15",
+  "en": "Khamsata ‘ashar"
+ },
+ {
+  "ar": "١٦",
+  "tr": "16",
+  "en": "Sittata ‘ashar"
+ },
+ {
+  "ar": "١٧",
+  "tr": "17",
+  "en": "Sab‘ata ‘ashar"
+ },
+ {
+  "ar": "١٨",
+  "tr": "18",
+  "en": "Thamāniyata ‘ashar"
+ },
+ {
+  "ar": "١٩",
+  "tr": "19",
+  "en": "Tis‘ata ‘ashar"
+ },
+ {
+  "ar": "٢٠",
+  "tr": "20",
+  "en": "‘Ishrūn"
+ },
+ {
+  "ar": "٢١",
+  "tr": "21",
+  "en": "Wāḥid wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٢",
+  "tr": "22",
+  "en": "Ithnān wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٣",
+  "tr": "23",
+  "en": "Thalātha wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٤",
+  "tr": "24",
+  "en": "Arba‘a wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٥",
+  "tr": "25",
+  "en": "Khamsa wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٦",
+  "tr": "26",
+  "en": "Sitta wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٧",
+  "tr": "27",
+  "en": "Sab‘a wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٨",
+  "tr": "28",
+  "en": "Thamāniya wa-‘ishrūn"
+ },
+ {
+  "ar": "٢٩",
+  "tr": "29",
+  "en": "Tis‘a wa-‘ishrūn"
+ },
+ {
+  "ar": "٣٠",
+  "tr": "30",
+  "en": "Thalāthūn"
+ },
+ {
+  "ar": "٣١",
+  "tr": "31",
+  "en": "Wāḥid wa-thalāthūn"
+ },
+ {
+  "ar": "٣٢",
+  "tr": "32",
+  "en": "Ithnān wa-thalāthūn"
+ },
+ {
+  "ar": "٣٣",
+  "tr": "33",
+  "en": "Thalātha wa-thalāthūn"
+ },
+ {
+  "ar": "٣٤",
+  "tr": "34",
+  "en": "Arba‘a wa-thalāthūn"
+ },
+ {
+  "ar": "٣٥",
+  "tr": "35",
+  "en": "Khamsa wa-thalāthūn"
+ },
+ {
+  "ar": "٣٦",
+  "tr": "36",
+  "en": "Sitta wa-thalāthūn"
+ },
+ {
+  "ar": "٣٧",
+  "tr": "37",
+  "en": "Sab‘a wa-thalāthūn"
+ },
+ {
+  "ar": "٣٨",
+  "tr": "38",
+  "en": "Thamāniya wa-thalāthūn"
+ },
+ {
+  "ar": "٣٩",
+  "tr": "39",
+  "en": "Tis‘a wa-thalāthūn"
+ },
+ {
+  "ar": "٤٠",
+  "tr": "40",
+  "en": "Arba‘ūn"
+ },
+ {
+  "ar": "٤١",
+  "tr": "41",
+  "en": "Wāḥid wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٢",
+  "tr": "42",
+  "en": "Ithnān wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٣",
+  "tr": "43",
+  "en": "Thalātha wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٤",
+  "tr": "44",
+  "en": "Arba‘a wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٥",
+  "tr": "45",
+  "en": "Khamsa wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٦",
+  "tr": "46",
+  "en": "Sitta wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٧",
+  "tr": "47",
+  "en": "Sab‘a wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٨",
+  "tr": "48",
+  "en": "Thamāniya wa-arba‘ūn"
+ },
+ {
+  "ar": "٤٩",
+  "tr": "49",
+  "en": "Tis‘a wa-arba‘ūn"
+ },
+ {
+  "ar": "٥٠",
+  "tr": "50",
+  "en": "Khamsūn"
+ },
+ {
+  "ar": "٥١",
+  "tr": "51",
+  "en": "Wāḥid wa-khamsūn"
+ },
+ {
+  "ar": "٥٢",
+  "tr": "52",
+  "en": "Ithnān wa-khamsūn"
+ },
+ {
+  "ar": "٥٣",
+  "tr": "53",
+  "en": "Thalātha wa-khamsūn"
+ },
+ {
+  "ar": "٥٤",
+  "tr": "54",
+  "en": "Arba‘a wa-khamsūn"
+ },
+ {
+  "ar": "٥٥",
+  "tr": "55",
+  "en": "Khamsa wa-khamsūn"
+ },
+ {
+  "ar": "٥٦",
+  "tr": "56",
+  "en": "Sitta wa-khamsūn"
+ },
+ {
+  "ar": "٥٧",
+  "tr": "57",
+  "en": "Sab‘a wa-khamsūn"
+ },
+ {
+  "ar": "٥٨",
+  "tr": "58",
+  "en": "Thamāniya wa-khamsūn"
+ },
+ {
+  "ar": "٥٩",
+  "tr": "59",
+  "en": "Tis‘a wa-khamsūn"
+ },
+ {
+  "ar": "٦٠",
+  "tr": "60",
+  "en": "Sittūn"
+ },
+ {
+  "ar": "٦١",
+  "tr": "61",
+  "en": "Wāḥid wa-sittūn"
+ },
+ {
+  "ar": "٦٢",
+  "tr": "62",
+  "en": "Ithnān wa-sittūn"
+ },
+ {
+  "ar": "٦٣",
+  "tr": "63",
+  "en": "Thalātha wa-sittūn"
+ },
+ {
+  "ar": "٦٤",
+  "tr": "64",
+  "en": "Arba‘a wa-sittūn"
+ },
+ {
+  "ar": "٦٥",
+  "tr": "65",
+  "en": "Khamsa wa-sittūn"
+ },
+ {
+  "ar": "٦٦",
+  "tr": "66",
+  "en": "Sitta wa-sittūn"
+ },
+ {
+  "ar": "٦٧",
+  "tr": "67",
+  "en": "Sab‘a wa-sittūn"
+ },
+ {
+  "ar": "٦٨",
+  "tr": "68",
+  "en": "Thamāniya wa-sittūn"
+ },
+ {
+  "ar": "٦٩",
+  "tr": "69",
+  "en": "Tis‘a wa-sittūn"
+ },
+ {
+  "ar": "٧٠",
+  "tr": "70",
+  "en": "Sab‘ūn"
+ },
+ {
+  "ar": "٧١",
+  "tr": "71",
+  "en": "Wāḥid wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٢",
+  "tr": "72",
+  "en": "Ithnān wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٣",
+  "tr": "73",
+  "en": "Thalātha wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٤",
+  "tr": "74",
+  "en": "Arba‘a wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٥",
+  "tr": "75",
+  "en": "Khamsa wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٦",
+  "tr": "76",
+  "en": "Sitta wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٧",
+  "tr": "77",
+  "en": "Sab‘a wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٨",
+  "tr": "78",
+  "en": "Thamāniya wa-sab‘ūn"
+ },
+ {
+  "ar": "٧٩",
+  "tr": "79",
+  "en": "Tis‘a wa-sab‘ūn"
+ },
+ {
+  "ar": "٨٠",
+  "tr": "80",
+  "en": "Thamānūn"
+ },
+ {
+  "ar": "٨١",
+  "tr": "81",
+  "en": "Wāḥid wa-thamānūn"
+ },
+ {
+  "ar": "٨٢",
+  "tr": "82",
+  "en": "Ithnān wa-thamānūn"
+ },
+ {
+  "ar": "٨٣",
+  "tr": "83",
+  "en": "Thalātha wa-thamānūn"
+ },
+ {
+  "ar": "٨٤",
+  "tr": "84",
+  "en": "Arba‘a wa-thamānūn"
+ },
+ {
+  "ar": "٨٥",
+  "tr": "85",
+  "en": "Khamsa wa-thamānūn"
+ },
+ {
+  "ar": "٨٦",
+  "tr": "86",
+  "en": "Sitta wa-thamānūn"
+ },
+ {
+  "ar": "٨٧",
+  "tr": "87",
+  "en": "Sab‘a wa-thamānūn"
+ },
+ {
+  "ar": "٨٨",
+  "tr": "88",
+  "en": "Thamāniya wa-thamānūn"
+ },
+ {
+  "ar": "٨٩",
+  "tr": "89",
+  "en": "Tis‘a wa-thamānūn"
+ },
+ {
+  "ar": "٩٠",
+  "tr": "90",
+  "en": "Tis‘ūn"
+ },
+ {
+  "ar": "٩١",
+  "tr": "91",
+  "en": "Wāḥid wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٢",
+  "tr": "92",
+  "en": "Ithnān wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٣",
+  "tr": "93",
+  "en": "Thalātha wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٤",
+  "tr": "94",
+  "en": "Arba‘a wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٥",
+  "tr": "95",
+  "en": "Khamsa wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٦",
+  "tr": "96",
+  "en": "Sitta wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٧",
+  "tr": "97",
+  "en": "Sab‘a wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٨",
+  "tr": "98",
+  "en": "Thamāniya wa-tis‘ūn"
+ },
+ {
+  "ar": "٩٩",
+  "tr": "99",
+  "en": "Tis‘a wa-tis‘ūn"
+ },
+ {
+  "ar": "١٠٠",
+  "tr": "100",
+  "en": "Mi’a"
+ }
+]

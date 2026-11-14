@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Baseera — Learning Portal</title>
+<title>Al Baseera Academy — Learning Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -188,15 +188,18 @@
 
   /* ——— masthead, gilded tabs, cards (UI refresh) ——— */
   .masthead { position: sticky; top: 0; z-index: 80; background: var(--vellum); border-bottom: 1px solid var(--vellum-dim); }
-  .mast-row { max-width: 1020px; margin: 0 auto; padding: .7rem 1rem .5rem; display: flex; align-items: center; gap: .9rem; }
+  .mast-row { max-width: 1020px; margin: 0 auto; padding: 1rem 1rem .75rem; display: flex; align-items: center; gap: .9rem; }
   .mast-row .mini { width: clamp(52px, 7vw, 68px); height: clamp(52px, 7vw, 68px); border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex: none; background: var(--surface, #fff); display: grid; place-items: center; }
   .mast-row .mini img, .mast-row .mini svg { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .mast-row .wm { line-height: 1.12; }
+  .mast-row .wm { line-height: 1.25; padding: .1rem 0; }
   .mast-row .wm .en { font-weight: 600; font-size: clamp(1.25rem, 3vw, 1.7rem); }
-  .mast-row .wm .ar { font-family: 'Amiri', serif; font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--gold); }
+  .mast-row .wm .ar { font-family: 'Amiri', serif; font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--gold); margin-top: .25rem; }
   .mast-actions { margin-left: auto; display: flex; gap: .4rem; align-items: center; }
   .tabsrow { max-width: 1020px; margin: 0 auto; padding: 0 1rem; display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: none; }
   .tabsrow::-webkit-scrollbar { display: none; }
+  @media (max-width: 899px) {
+    .tabsrow { -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); padding-right: 2rem; }
+  }
   .mtab { font: inherit; font-size: .88rem; cursor: pointer; white-space: nowrap; background: var(--surface, #fff); color: var(--ab-muted, #6b6d85); border: 1px solid var(--vellum-dim); border-bottom: none; border-radius: 10px 10px 0 0; padding: .48rem .9rem .5rem; display: inline-flex; align-items: center; gap: .45rem; position: relative; top: 1px; }
   html[data-theme="dark"] .mtab { background: var(--ab-surface); }
   .mtab[aria-selected="true"] { color: #f7f2e7; font-weight: 600; background: var(--tabc, var(--gold)); border-color: var(--tabc, var(--gold)); border-top-width: 3px; border-top-color: var(--gold); }
@@ -245,10 +248,37 @@
     background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .5rem .4rem .6rem;
     box-shadow: 0 8px 22px rgba(34,36,58,.08); scrollbar-width: thin; }
   body[data-rail="on"] .rail { display: block; }
-  @media (max-width: 1460px) {
-    body[data-rail="on"] .rail { position: static; width: auto; max-width: 1020px;
-      margin: 0 auto 1rem; padding: 0 1rem; max-height: none; }
+  /* desktop: docked left sidebar, content shifts right */
+  @media (min-width: 900px) {
+    body[data-rail="on"] { padding-left: 236px; }
+    body[data-rail="on"] .rail {
+      position: fixed; left: 0; top: 0; bottom: 0; width: 236px;
+      padding: 1rem .9rem 1.5rem; margin: 0; max-height: none; overflow-y: auto;
+      background: var(--surface, #fff); border-right: 1px solid var(--vellum-dim);
+      z-index: 85;
+    }
+    html[data-theme="dark"] body[data-rail="on"] .rail { background: var(--ab-surface); border-color: var(--ab-rule); }
   }
+  /* phone: slide-in drawer over the page */
+  @media (max-width: 899px) {
+    body[data-rail="on"] .rail::before {
+      content: '✕ close'; display: block; font-size: .78rem; letter-spacing: .08em;
+      color: var(--abd-8a887c, #8a887c); text-align: right; padding-bottom: .4rem;
+      border-bottom: 1px solid var(--vellum-dim); margin-bottom: .5rem; cursor: pointer;
+    }
+    body[data-rail="on"] .rail {
+      position: fixed; left: 0; top: 0; bottom: 0; width: min(78vw, 320px);
+      padding: 1rem .9rem 2rem; margin: 0; max-height: none; overflow-y: auto;
+      background: var(--surface, #fff); box-shadow: 8px 0 28px rgba(34,36,58,.25);
+      z-index: 120; animation: ab-drawer .18s ease-out;
+    }
+    html[data-theme="dark"] body[data-rail="on"] .rail { background: var(--ab-surface); }
+    body[data-rail="on"]::after {
+      content: ''; position: fixed; inset: 0; background: rgba(23,20,32,.4); z-index: 110;
+    }
+    @keyframes ab-drawer { from { transform: translateX(-100%); } }
+  }
+  @media (prefers-reduced-motion: reduce) { body[data-rail="on"] .rail { animation: none !important; } }
   .rail .rsec { margin-bottom: .15rem; }
   .rail .rhead { display: flex; align-items: center; gap: .35rem; padding: .32rem .45rem;
     border-left: 4px solid var(--tabc, var(--gold)); border-radius: 0 7px 7px 0; cursor: pointer; }
@@ -264,6 +294,7 @@
   .rail .rpage:hover { color: var(--ink); background: var(--vellum); }
   .rail .rpage .soonmark { color: var(--ab-muted2, #9a9cb3); font-size: .62rem; margin-left: .25rem; }
   body[data-nav="scroll"] details.pane-wrap { display: block !important; }
+  body[data-nav="tabs"] details.pane-wrap > summary.pane-head { display: none; }
 
 
   /* impact & learning strip */
@@ -291,7 +322,7 @@
     <button class="ab-iconbtn" id="railBtn" title="Show or hide the navigation panel">☰</button>
     <a class="mini" href="./" title="Al Baseera Academy"><img src="assets/logo.jpeg" alt="Al Baseera Academy"></a>
     <div class="wm">
-      <div class="en">Al Baseera Learning Portal</div>
+      <div class="en">Al Baseera Academy — Learning Portal</div>
       <div class="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     </div>
     <div class="mast-actions">
@@ -469,7 +500,7 @@
 /* ============== Home UI layer — nav.json-driven tabs, cards, settings ============== */
 document.addEventListener('DOMContentLoaded', function () {
   var S = AB.settings;
-  var COLOR = { gold: 'var(--gold)', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c' };
+  var COLOR = { gold: 'var(--gold)', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318' };
   var state = { tab: new URLSearchParams(location.search).get('tab') || 'general' };
 
   document.querySelectorAll('.mini img').forEach(function (img) {
@@ -524,6 +555,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function render() {
       document.body.dataset.nav = S.nav;
       document.body.dataset.rail = S.rail === 'show' ? 'on' : 'off';
+      document.body.classList.toggle('mobile-nav', window.matchMedia('(max-width: 899px)').matches);
       document.getElementById('panes').innerHTML = nav.sections.map(paneHTML).join('');
       if (S.nav === 'tabs') {
         var selPane = document.getElementById('pane-' + state.tab);
@@ -579,6 +611,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var el = document.getElementById('announceIc');
       if (el && window.AB) el.innerHTML = AB.icon('megaphone', '📢');
     }
+    try {
+      var rawS = JSON.parse(localStorage.getItem('ab-settings') || '{}');
+      if (!('rail' in rawS) && window.matchMedia('(max-width: 899px)').matches) S.rail = 'hide';
+    } catch (e) {}
     render(); announceIcon();
     document.addEventListener('ab:icons', function () { render(); announceIcon(); });
     document.addEventListener('ab:theme', function () {});
@@ -624,6 +660,20 @@ document.addEventListener('DOMContentLoaded', function () {
       AB.save();
       document.body.dataset.rail = S.rail === 'show' ? 'on' : 'off';
     };
+    function closeDrawer() {
+      if (!window.matchMedia('(max-width: 899px)').matches) return;
+      if (document.body.dataset.rail !== 'on') return;
+      S.rail = 'hide'; AB.save();
+      document.body.dataset.rail = 'off';
+    }
+    document.addEventListener('click', function (e) {
+      if (document.body.dataset.rail !== 'on') return;
+      if (!window.matchMedia('(max-width: 899px)').matches) return;
+      var inRail = e.target.closest && (e.target.closest('#rail') || e.target.closest('#railBtn'));
+      if (!inRail) closeDrawer();                   /* backdrop / anywhere else */
+      else if (e.target.closest('#rail a')) closeDrawer();  /* link chosen */
+      else if (e.target.id === 'rail' && e.offsetY < 30) closeDrawer();  /* ✕ strip */
+    });
     var pop = AB.buildPopover([
       ['Sections', 'nav', [['tabs', 'One at a time'], ['scroll', 'Scroll all']], render],
       ['Long lists', 'list', [['default', 'Per page'], ['pages', 'Paginate'], ['infinite', 'Infinite']], null]

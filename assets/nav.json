@@ -245,15 +245,6 @@
      "status": "live"
     },
     {
-     "href": "arabic/flashcards/",
-     "en": "Flashcards",
-     "ar": "البطاقات",
-     "desc": "Flip, shuffle, and sort into Know / Again piles",
-     "emoji": "🃏",
-     "icon": "cards",
-     "status": "live"
-    },
-    {
      "href": "arabic/themes/",
      "en": "Theme Word Bank",
      "ar": "بنك الكلمات",
@@ -447,6 +438,34 @@
    ]
   },
   {
+   "id": "practice",
+   "title": "Practice",
+   "tag": "Study &amp; review",
+   "emoji": "🃏",
+   "icon": "cards",
+   "color": "practice",
+   "pages": [
+    {
+     "href": "practice/deck/",
+     "en": "Practice Deck",
+     "ar": "بطاقات الدراسة",
+     "desc": "Flip and quiz every word bank on the portal — scores tracked on your device",
+     "emoji": "🃏",
+     "icon": "cards",
+     "status": "live"
+    },
+    {
+     "href": "practice/glossary/",
+     "en": "Glossary",
+     "ar": "معجم",
+     "desc": "Every term tagged by tab and list — searchable, with the Excel download",
+     "emoji": "📖",
+     "icon": "book",
+     "status": "live"
+    }
+   ]
+  },
+  {
    "id": "games",
    "title": "Games",
    "tag": "Play &amp; practice",
@@ -546,7 +565,6 @@
    "Words & Study": [
     "arabic/vocab/",
     "arabic/dictionary/",
-    "arabic/flashcards/",
     "arabic/themes/"
    ],
    "Activities": [
@@ -588,6 +606,12 @@
     "games/hangman/",
     "games/trivia/",
     "games/leaderboard/"
+   ]
+  },
+  "practice": {
+   "Study": [
+    "practice/deck/",
+    "practice/glossary/"
    ]
   }
  }

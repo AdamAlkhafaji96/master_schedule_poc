@@ -40,6 +40,25 @@
   .item a.open { font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; background: var(--primary); color: var(--vellum); padding: .4rem .95rem; border-radius: 999px; white-space: nowrap; }
   .item .soon { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--abd-9a9cb3, #9a9cb3); border: 1px dashed #c8c5ba; padding: .35rem .9rem; border-radius: 999px; white-space: nowrap; }
 </style>
+<style>
+  /* ---- embedded document viewer ---- */
+  .dv-overlay { position: fixed; inset: 0; z-index: 140; background: rgba(23,20,32,.55);
+    display: none; align-items: center; justify-content: center; padding: 1rem; }
+  .dv-overlay.open { display: flex; }
+  .dv-box { background: var(--surface, #fff); border-radius: 14px; width: min(960px, 100%);
+    height: min(86vh, 1100px); display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+  .dv-head { display: flex; align-items: center; gap: .6rem; padding: .55rem .9rem;
+    border-bottom: 1px solid var(--vellum-dim); }
+  .dv-head .t { font-size: .9rem; font-weight: 600; color: var(--primary); flex: 1;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .dv-head a, .dv-head button { font: inherit; font-size: .8rem; padding: .3rem .7rem;
+    border-radius: 999px; border: 1px solid var(--vellum-dim); background: var(--vellum);
+    color: var(--ink); cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .dv-frame { flex: 1; border: 0; width: 100%; background: #525659; }
+  .dv-note { font-size: .72rem; color: var(--abd-8a887c, #8a887c); padding: .35rem .9rem;
+    border-top: 1px solid var(--vellum-dim); }
+</style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>
 </head>
@@ -59,7 +78,42 @@
   <div id="lib"></div>
 </main>
 
+<div class="dv-overlay" id="dvOverlay" role="dialog" aria-label="Document viewer">
+  <div class="dv-box">
+    <div class="dv-head">
+      <span class="t" id="dvTitle"></span>
+      <a id="dvFull" href="#" target="_blank" rel="noopener">⤢ Full screen</a>
+      <a id="dvDl" href="#" download>⬇ Download</a>
+      <button type="button" id="dvClose">✕ Close</button>
+    </div>
+    <iframe class="dv-frame" id="dvFrame" title="Document"></iframe>
+    <div class="dv-note">If the page stays blank on your phone, use Full screen — some mobile browsers only show PDFs in their own tab.</div>
+  </div>
+</div>
+
 <script>
+/* ---- embedded document viewer ---- */
+function dvOpen(url, title) {
+  document.getElementById('dvTitle').textContent = title || url.split('/').pop();
+  document.getElementById('dvFull').href = url;
+  document.getElementById('dvDl').href = url;
+  document.getElementById('dvFrame').src = url;
+  document.getElementById('dvOverlay').classList.add('open');
+}
+function dvClose() {
+  document.getElementById('dvOverlay').classList.remove('open');
+  document.getElementById('dvFrame').src = 'about:blank';
+}
+document.getElementById('dvClose').addEventListener('click', dvClose);
+document.getElementById('dvOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) dvClose();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') dvClose(); });
+
+document.addEventListener('click', e => {
+  const v = e.target.closest && e.target.closest('.dv-view');
+  if (v) { e.preventDefault(); dvOpen(v.dataset.f, v.dataset.t); }
+});
 const ICONS = { 'reading': '📖', 'study-guide': '📝', 'powerpoint': '📊' };
 const KINDS = { 'reading': 'Reading', 'study-guide': 'Study Guide', 'powerpoint': 'PowerPoint' };
 
@@ -74,7 +128,7 @@ fetch('materials.json').then(r => r.json()).then(d => {
           <div class="title">${it.title}</div>
           <div class="desc">${it.desc || ''}</div>
         </div>
-        ${it.url ? `<a class="open" href="${it.url}" target="_blank" rel="noopener">Open</a>` : `<span class="soon">${it.status === "awaiting-upload" ? "Awaiting upload" : "Coming soon"}</span>`}
+        ${it.url ? (/\.pdf$/i.test(it.url) ? `<a class="open dv-view" href="#" data-f="${it.url}" data-t="${it.title}">👁 View</a> ` : ``) + `<a class="open" href="${it.url}" target="_blank" rel="noopener">Open</a>` : `<span class="soon">${it.status === "awaiting-upload" ? "Awaiting upload" : "Coming soon"}</span>`}
       </div>`).join('')}
   `).join('');
 });

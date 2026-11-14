@@ -190,16 +190,17 @@
   <button class="pager-btn" id="prevP" aria-label="Previous page">‹</button>
   <select id="pageSelect" aria-label="Choose page"></select>
   <button class="pager-btn" id="nextP" aria-label="Next page">›</button>
-  <span class="seg" role="group" aria-label="View">
+  <span class="seg ab-adminonly" role="group" aria-label="View (staff)">
     <button data-view="paper">Paper</button>
     <button data-view="electronic">Electronic</button>
     <button data-view="both" class="on">Both</button>
     <button data-view="pagemap">Page Map</button>
   </span>
-  <button class="btn" id="editBtn">✎ Edit</button>
-  <button class="btn" id="exportJson" style="display:none">⬇ data.json</button>
-  <button class="btn" id="exportCsvPage">⬇ Page CSV</button>
-  <button class="btn" id="exportCsvAll">⬇ Book CSV</button>
+  <a class="btn" id="deckLink" href="../../practice/deck/">🃏 Practice</a>
+  <button class="btn ab-adminonly" id="editBtn">✎ Edit</button>
+  <button class="btn ab-adminonly" id="exportJson" style="display:none">⬇ data.json</button>
+  <button class="btn ab-adminonly" id="exportCsvPage">⬇ Page CSV</button>
+  <button class="btn ab-adminonly" id="exportCsvAll">⬇ Book CSV</button>
 </div>
 <p class="edit-hint">
   Click any cell to edit in place (Arabic cells type right-to-left). Use ⌫ to remove a row,
@@ -269,9 +270,11 @@ function renderLegend() {
 
 function fillPages() {
   const sel = document.getElementById('pageSelect');
+  const isStaff = document.documentElement.dataset.abAdmin === 'on';
   sel.innerHTML = D.pages.map((p, i) =>
-    '<option value="' + i + '">' + esc(p.label) +
-    (p.scan ? '' : ' — scan pending') + '</option>').join('');
+    '<option value="' + i + '">' + p.label.replace('Page ', '') + ' · ' +
+    esc(p.themes.map(t => t.title).join(' / ')) +
+    (isStaff && !p.scan ? ' — scan pending' : '') + '</option>').join('');
   sel.value = pi;
 }
 
@@ -410,7 +413,18 @@ function renderPageMap() {
   }));
 }
 
+syncDeckLink();
 /* ---------------- view toggle ---------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  /* runs after the deferred ui.js has applied the staff flag */
+  if (document.documentElement.dataset.abAdmin !== 'on') {
+    document.body.classList.remove('view-both');
+    document.body.classList.add('view-electronic');
+    document.querySelectorAll('.seg button').forEach(x =>
+      x.classList.toggle('on', x.dataset.view === 'electronic'));
+  }
+});
+
 document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
@@ -419,9 +433,13 @@ document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click'
 }));
 
 /* ---------------- paging ---------------- */
-document.getElementById('pageSelect').addEventListener('change', e => { pi = parseInt(e.target.value); render(); });
-document.getElementById('prevP').addEventListener('click', () => { pi = (pi - 1 + D.pages.length) % D.pages.length; render(); });
-document.getElementById('nextP').addEventListener('click', () => { pi = (pi + 1) % D.pages.length; render(); });
+function syncDeckLink() {
+  var dl = document.getElementById('deckLink');
+  if (dl) dl.href = '../../practice/deck/?src=cq%3A' + pi;
+}
+document.getElementById('pageSelect').addEventListener('change', e => { pi = parseInt(e.target.value); render(); syncDeckLink(); });
+document.getElementById('prevP').addEventListener('click', () => { pi = (pi - 1 + D.pages.length) % D.pages.length; render(); syncDeckLink(); });
+document.getElementById('nextP').addEventListener('click', () => { pi = (pi + 1) % D.pages.length; render(); syncDeckLink(); });
 
 /* ---------------- edit + exports ---------------- */
 document.getElementById('editBtn').addEventListener('click', () => {

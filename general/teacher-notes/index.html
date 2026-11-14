@@ -57,8 +57,16 @@
   .seg button.on { background: var(--gold); color: var(--primary-dark); font-weight: 600; }
 
   /* ---- page map (table of contents) ---- */
-  body.view-pagemap #galleryHost { display: none; }
-  body.view-gallery #pagemapHost { display: none; }
+  body.view-pagemap #galleryHost, body.view-pagemap #readingHost { display: none; }
+  body.view-gallery #pagemapHost, body.view-gallery #readingHost { display: none; }
+  body.view-reading #galleryHost, body.view-reading #pagemapHost { display: none; }
+  .doc-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .8rem; }
+  .doc-card { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .9rem 1rem; }
+  .doc-card .k { font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .2rem; }
+  .doc-card h3 { font-weight: 600; font-size: .98rem; color: var(--primary); line-height: 1.35; }
+  .doc-card .links { margin-top: .5rem; display: flex; flex-direction: column; gap: .3rem; }
+  .doc-card .links a { font-size: .85rem; color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--gold); width: fit-content; }
+  .doc-card .links a:hover { border-bottom-style: solid; }
   #pagemapHost table { width: 100%; border-collapse: collapse; background: var(--surface, #fff);
     border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
   #pagemapHost th, #pagemapHost td { padding: .45rem .6rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: middle; }
@@ -166,6 +174,25 @@
   .note { font-size: .8rem; color: var(--abd-6b6a60, #6b6a60); text-align: center; margin-top: 1.4rem; line-height: 1.55; }
   footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: var(--abd-8a887c, #8a887c); line-height: 1.5; }
 </style>
+<style>
+  /* ---- inline document reader (Documents view) ---- */
+  .doc-reader { background: var(--surface, #fff); border: 1px solid var(--vellum-dim);
+    border-radius: 14px; overflow: hidden; }
+  .doc-controls { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    padding: .6rem .8rem; border-bottom: 1px solid var(--vellum-dim); background: #fbf8f0; }
+  html[data-theme="dark"] .doc-controls { background: var(--ab-surface); }
+  .doc-controls select { font: inherit; font-size: .88rem; padding: .4rem .6rem;
+    border-radius: 9px; border: 1px solid var(--vellum-dim); background: var(--surface, #fff);
+    color: var(--ink); flex: 1; min-width: 180px; max-width: 100%; }
+  .doc-controls .pager-btn, .doc-controls a.dbtn {
+    font: inherit; font-size: .85rem; padding: .35rem .75rem; border-radius: 999px;
+    border: 1px solid var(--vellum-dim); background: var(--surface, #fff); color: var(--ink);
+    cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .doc-controls .pager-btn:hover, .doc-controls a.dbtn:hover { border-color: var(--gold); }
+  #docFrame { display: block; width: 100%; height: min(78vh, 1050px); border: 0; background: #525659; }
+  .doc-footnote { font-size: .72rem; color: var(--abd-8a887c, #8a887c); padding: .4rem .8rem;
+    border-top: 1px solid var(--vellum-dim); }
+</style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>
 </head>
@@ -185,13 +212,14 @@
 
 <div class="controls">
   <span class="seg" role="group" aria-label="View">
-    <button data-view="gallery" class="on">Gallery</button>
-    <button data-view="pagemap">Page Map</button>
+    <button data-view="reading" class="on">Documents</button>
+    <button data-view="gallery" class="ab-adminonly">Gallery (scans)</button>
+    <button data-view="pagemap" class="ab-adminonly">Page Map</button>
   </span>
-  <button class="btn" id="curateBtn">✎ Curate mode</button>
-  <button class="btn" id="exportBtn" style="display:none">⬇ manifest.json</button>
-  <button class="btn" id="exportCsv">⬇ TOC CSV</button>
-  <button class="btn" id="exportZip">⬇ All scans (.zip)</button>
+  <button class="btn ab-adminonly" id="curateBtn">✎ Curate mode</button>
+  <button class="btn ab-adminonly" id="exportBtn" style="display:none">⬇ manifest.json</button>
+  <button class="btn ab-adminonly" id="exportCsv">⬇ TOC CSV</button>
+  <button class="btn ab-adminonly" id="exportZip">⬇ All scans (.zip)</button>
 </div>
 <p class="curate-hint">
   Reorder with ↑ ↓, rename with ✎ (which also sets the paper page label), insert a gap
@@ -202,6 +230,7 @@
 </p>
 
 <main>
+  <div id="readingHost">Loading…</div>
   <div id="galleryHost">Loading…</div>
   <div id="pagemapHost"></div>
 </main>
@@ -221,7 +250,9 @@
   <div class="cap" id="lbCap"></div>
 </div>
 
+
 <script>
+
 let M = null;            /* the manifest, live-edited in curate mode */
 let curate = false;
 let flat = [];           /* flattened non-gap items for the lightbox, rebuilt on render */
@@ -341,6 +372,56 @@ function slots() {
   return out;
 }
 
+function renderReading() {
+  const host = document.getElementById('readingHost');
+  /* collect documents from the manifest, deduped: complete set first, then lessons */
+  const docs = [];
+  const seen = new Set();
+  let docx = null;
+  M.sections.forEach(sec => sec.items.forEach(it => (it.digitized || []).forEach(dz => {
+    if (seen.has(dz.file)) return;
+    seen.add(dz.file);
+    if (/\.docx$/i.test(dz.file)) { docx = dz; return; }
+    if (/full book/i.test(dz.label)) docs.push({ g: 'Complete set', t: 'The complete book — all 10 lessons', f: dz.file });
+    else if (/cleanup/i.test(dz.label)) docs.push({ g: 'Complete set', t: 'Transcription & cleanup record', f: dz.file });
+    else docs.push({ g: 'Lessons', t: it.title, f: dz.file });
+  })));
+  if (!docs.length) { host.innerHTML = ''; return; }
+  const groups = ['Complete set', 'Lessons'];
+  host.innerHTML =
+    '<div class="doc-reader">' +
+      '<div class="doc-controls">' +
+        '<button class="pager-btn" id="docPrev" aria-label="Previous document">\u2039</button>' +
+        '<select id="docSel" aria-label="Choose a document">' +
+          groups.map(g => '<optgroup label="' + g + '">' +
+            docs.map((d, i) => d.g === g ? '<option value="' + i + '">' + esc(d.t) + '</option>' : '').join('') +
+          '</optgroup>').join('') +
+        '</select>' +
+        '<button class="pager-btn" id="docNext" aria-label="Next document">\u203a</button>' +
+        '<a class="dbtn" id="docDl" href="#" download>\u2b07 PDF</a>' +
+        (docx ? '<a class="dbtn" href="' + esc(docx.file) + '" download>\u2b07 Word copy</a>' : '') +
+        '<a class="dbtn" id="docFs" href="#" target="_blank" rel="noopener">\u2922 Full screen</a>' +
+      '</div>' +
+      '<iframe id="docFrame" title="Document"></iframe>' +
+      '<div class="doc-footnote">If the viewer stays blank on your phone, use Full screen \u2014 some mobile browsers only open PDFs in their own tab.</div>' +
+    '</div>';
+  const sel = document.getElementById('docSel');
+  function showDoc() {
+    const d = docs[+sel.value];
+    document.getElementById('docFrame').src = d.f;
+    document.getElementById('docDl').href = d.f;
+    document.getElementById('docFs').href = d.f;
+  }
+  sel.addEventListener('change', showDoc);
+  document.getElementById('docPrev').addEventListener('click', () => {
+    sel.value = (+sel.value - 1 + docs.length) % docs.length; showDoc();
+  });
+  document.getElementById('docNext').addEventListener('click', () => {
+    sel.value = (+sel.value + 1) % docs.length; showDoc();
+  });
+  showDoc();
+}
+
 function renderPageMap() {
   const host = document.getElementById('pagemapHost');
   flatPM = [];
@@ -429,7 +510,7 @@ function moveToGlobal(si, ii, n) {
   }
 }
 
-function rerenderAll() { render(); renderPageMap(); }
+function rerenderAll() { render(); renderPageMap(); renderReading(); }
 
 /* ---------- lightbox ---------- */
 function openLb(i) {
@@ -473,11 +554,11 @@ document.getElementById('exportBtn').addEventListener('click', () => {
 });
 
 /* ---------- view toggle ---------- */
-document.body.classList.add('view-gallery');
+document.body.classList.add('view-reading');
 document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => {
   document.querySelectorAll('.seg button').forEach(x => x.classList.remove('on'));
   b.classList.add('on');
-  document.body.classList.remove('view-gallery', 'view-pagemap');
+  document.body.classList.remove('view-gallery', 'view-pagemap', 'view-reading');
   document.body.classList.add('view-' + b.dataset.view);
 }));
 

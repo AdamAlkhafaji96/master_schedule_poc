@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice — Al Baseera Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #a85318;
+    --primary-dark: #6e3407;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.15rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 760px; margin: 1.6rem auto 2.5rem; padding: 0 1.2rem; }
+  .bar { display: flex; gap: .55rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  select, .mbtn { font: inherit; font-size: .88rem; padding: .5rem .8rem; border-radius: 10px; border: 1px solid var(--vellum-dim); background: var(--surface, #fff); color: var(--ink); cursor: pointer; }
+  select { max-width: 100%; flex: 1; min-width: 200px; }
+  .modes { display: flex; border: 1.5px solid var(--primary); border-radius: 999px; overflow: hidden; }
+  .modes button { font: inherit; font-size: .85rem; padding: .45rem 1rem; border: 0; background: transparent; color: var(--primary); cursor: pointer; }
+  .modes button.on { background: var(--primary); color: var(--vellum); font-weight: 600; }
+
+  /* flip mode */
+  .stage { perspective: 1200px; margin: 0 auto; max-width: 560px; }
+  .flipcard { position: relative; width: 100%; min-height: 260px; cursor: pointer;
+    transform-style: preserve-3d; transition: transform .45s; }
+  .flipcard.flipped { transform: rotateY(180deg); }
+  .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 18px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+    padding: 1.4rem; text-align: center; border: 1px solid var(--vellum-dim);
+    background: var(--surface, #fff); box-shadow: 0 10px 28px rgba(19,29,64,.12); }
+  .face.back { transform: rotateY(180deg); }
+  .face .big-ar { font-family: 'Amiri', serif; font-size: clamp(2.2rem, 9vw, 3.4rem); line-height: 1.5; }
+  .face .tr { color: var(--abd-8a887c, #8a887c); font-style: italic; }
+  .face .en { font-size: 1.35rem; font-weight: 600; color: var(--primary); }
+  .face .tag { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .fnav { display: flex; gap: .6rem; justify-content: center; align-items: center; margin-top: 1rem; flex-wrap: wrap; }
+  .fnav button { font: inherit; font-size: .9rem; padding: .5rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--primary); background: transparent; color: var(--primary); cursor: pointer; }
+  .fnav .count { font-size: .85rem; color: var(--abd-8a887c, #8a887c); }
+  @media (prefers-reduced-motion: reduce) { .flipcard { transition: none; } }
+
+  /* learn mode */
+  .quiz { max-width: 560px; margin: 0 auto; text-align: center; }
+  .quiz .prompt { font-family: 'Amiri', serif; font-size: clamp(2rem, 8vw, 3rem); line-height: 1.6;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 16px; padding: 1.1rem; margin-bottom: .9rem; }
+  .opts { display: grid; gap: .55rem; }
+  .opts button { font: inherit; font-size: 1rem; padding: .7rem .9rem; border-radius: 12px;
+    border: 2px solid var(--vellum-dim); background: var(--surface, #fff); color: var(--ink); cursor: pointer; text-align: left; }
+  .opts button:hover { border-color: var(--gold); }
+  .opts button.right { border-color: var(--green); background: #eaf4ee; color: var(--green); }
+  .opts button.wrong { border-color: var(--abd-b04a4a, #b04a4a); }
+  html[data-theme="dark"] .opts button.right { background: #1d322a; color: #7fc9a4; }
+  .qmeta { display: flex; justify-content: space-between; font-size: .86rem; color: var(--abd-55544a, #55544a); margin: .6rem 0 1rem; }
+  .done-card { background: var(--green); color: var(--vellum); border-radius: 16px; padding: 1.3rem; }
+  .done-card b { color: var(--gold-soft); font-size: 1.3rem; }
+  .done-card button { font: inherit; margin-top: .8rem; padding: .5rem 1.1rem; border-radius: 999px; border: 0; background: var(--gold); color: #2b2310; font-weight: 600; cursor: pointer; }
+
+  /* stats mode */
+  .tblwrap { overflow-x: auto; background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: .86rem; }
+  th, td { text-align: left; padding: .5rem .65rem; border-bottom: 1px solid var(--vellum-dim); }
+  th { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); background: #fbf8f0; }
+  #wordRows td:first-child { font-family: 'Amiri', serif; font-size: 1.35rem; direction: rtl; text-align: right; color: var(--primary); white-space: nowrap; }
+  h2.sect { font-weight: 600; font-size: 1.02rem; color: var(--primary); margin: 1.3rem 0 .6rem; border-bottom: 2px solid var(--gold-soft); padding-bottom: .25rem; }
+  .missed span { display: inline-block; background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 999px; padding: .25rem .7rem; margin: 0 .25rem .4rem 0; font-family: 'Amiri', serif; font-size: 1.15rem; }
+  .missed small { font-family: 'Spectral', serif; color: var(--abd-b04a4a, #b04a4a); margin-left: .3rem; }
+  .empty { text-align: center; color: var(--abd-8a887c, #8a887c); font-style: italic; padding: 1.6rem 0; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Practice</div>
+  <h1>Practice Deck</h1>
+  <div class="ar">بِطَاقَات الدِّرَاسَة</div>
+  <p class="sub">Every word bank on the portal in one deck — levels, themes, alphabet, numbers, harakat, the 80% Qur'anic words, hijri months, and the 99 Names. Flip to review, Learn to quiz yourself, and your scores stay on this device.</p>
+</header>
+
+<main>
+<div class="bar">
+  <select id="tabSel" aria-label="Choose a portal tab" style="flex:0 1 auto;min-width:110px"></select>
+  <select id="groupSel" aria-label="Choose a vocabulary group" style="flex:0 1 auto;min-width:130px"></select>
+  <select id="scope" aria-label="Choose a word list"></select>
+</div>
+<div class="bar">
+  <span class="modes" role="group" aria-label="Mode">
+    <button data-m="words" class="on">Words</button>
+    <button data-m="flip">Flip</button>
+    <button data-m="learn">Learn</button>
+    <button data-m="stats">My Stats</button>
+  </span>
+  <span id="scopeCount" style="font-size:.84rem;color:var(--abd-8a887c,#8a887c)"></span>
+</div>
+
+<section id="wordsView">
+  <div class="tblwrap"><table>
+    <thead><tr><th>Arabic</th><th>Transliteration</th><th>English</th></tr></thead>
+    <tbody id="wordRows"></tbody>
+  </table></div>
+</section>
+
+<section id="flipView" style="display:none">
+  <div class="stage"><div class="flipcard" id="flipcard">
+    <div class="face front"><div class="tag" id="fTag"></div><div class="big-ar" id="fAr" lang="ar"></div><div class="tr" id="fTr"></div></div>
+    <div class="face back"><div class="en" id="fEn"></div><div class="tr" id="fTrB"></div></div>
+  </div></div>
+  <div class="fnav">
+    <button type="button" id="fPrev">‹ Prev</button>
+    <span class="count" id="fCount"></span>
+    <button type="button" id="fNext">Next ›</button>
+    <button type="button" id="fShuf">🔀 Shuffle</button>
+  </div>
+</section>
+
+<section id="learnView" style="display:none"><div class="quiz">
+  <div class="qmeta"><span id="qPos"></span><span>Score: <b id="qScore">0</b></span></div>
+  <div class="prompt" id="qPrompt" lang="ar"></div>
+  <div class="opts" id="qOpts"></div>
+  <div class="done-card" id="qDone" style="display:none"></div>
+</div></section>
+
+<section id="statsView" style="display:none">
+  <h2 class="sect">Benchmarks by word set</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Set</th><th>Rounds</th><th>Best</th><th>Average</th><th>Last studied</th></tr></thead>
+    <tbody id="statRows"></tbody>
+  </table></div>
+  <div class="empty" id="statEmpty" style="display:none">No rounds recorded yet — run a Learn round and your benchmarks appear here.</div>
+  <h2 class="sect">Words you miss most (this set)</h2>
+  <div class="missed" id="missedWrap"><div class="empty" id="missEmpty">No misses recorded for this set yet.</div></div>
+</section>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(async function () {
+  /* ONE source: the master glossary. Every list it carries becomes a scope,
+     so new word sources added to tools/build_glossary.py appear here automatically. */
+  var G = await (await fetch('../glossary/glossary.json')).json();
+  var byScope = {};
+  G.terms.forEach(function (t) {
+    (byScope[t.scope] = byScope[t.scope] || []).push({ ar: t.ar, tr: t.tr, en: t.en, tag: t.list });
+  });
+  var scopes = G.lists.map(function (L) {
+    return { id: L.scope, group: L.section, label: L.list, words: byScope[L.scope] || [] };
+  }).filter(function (sc) { return sc.words.length >= 2; });
+
+  /* three-level picker: portal tab -> vocabulary group -> word list.
+     Sections arrive as "Tab \u00b7 Group" from the glossary. */
+  var tabSel = document.getElementById('tabSel');
+  var groupSel = document.getElementById('groupSel');
+  var sel = document.getElementById('scope');
+  scopes.forEach(function (sc) {
+    var parts = sc.group.split(' \u00b7 ');
+    sc.tab = parts[0]; sc.sub = parts[1] || 'General';
+  });
+  var tabs = [];
+  scopes.forEach(function (sc) { if (tabs.indexOf(sc.tab) < 0) tabs.push(sc.tab); });
+  function fillTabs() {
+    tabSel.innerHTML = tabs.map(function (t, i) {
+      var n = scopes.filter(function (sc) { return sc.tab === t; }).length;
+      return '<option value="' + i + '">' + esc(t) + ' (' + n + ')</option>';
+    }).join('');
+  }
+  function groupsOf(tab) {
+    var out = [];
+    scopes.forEach(function (sc) { if (sc.tab === tab && out.indexOf(sc.sub) < 0) out.push(sc.sub); });
+    return out;
+  }
+  function fillGroups(tab, keepSub) {
+    var gs = groupsOf(tab);
+    groupSel.innerHTML = gs.map(function (g) {
+      var n = scopes.filter(function (sc) { return sc.tab === tab && sc.sub === g; }).length;
+      return '<option value="' + esc(g) + '">' + esc(g) + ' (' + n + ')</option>';
+    }).join('');
+    if (keepSub && gs.indexOf(keepSub) >= 0) groupSel.value = keepSub;
+  }
+  function fillScopes(tab, sub, keepId) {
+    sel.innerHTML = scopes.map(function (sc, i) {
+      return (sc.tab === tab && sc.sub === sub)
+        ? '<option value="' + i + '">' + esc(sc.label) + '</option>' : '';
+    }).join('');
+    if (keepId != null) {
+      var idx = scopes.findIndex(function (sc) { return sc.id === keepId; });
+      if (idx >= 0 && scopes[idx].tab === tab && scopes[idx].sub === sub) sel.value = idx;
+    }
+    if (sel.selectedIndex < 0 && sel.options.length) sel.selectedIndex = 0;
+  }
+  var want = new URLSearchParams(location.search).get('src');
+  var at = Math.max(0, scopes.findIndex(function (sc) { return sc.id === want; }));
+  fillTabs();
+  tabSel.value = tabs.indexOf(scopes[at].tab);
+  fillGroups(scopes[at].tab, scopes[at].sub);
+  fillScopes(scopes[at].tab, scopes[at].sub, scopes[at].id);
+  tabSel.onchange = function () {
+    var t = tabs[+tabSel.value];
+    fillGroups(t, null);
+    fillScopes(t, groupSel.value, null);
+    sel.onchange();
+  };
+  groupSel.onchange = function () {
+    fillScopes(tabs[+tabSel.value], groupSel.value, null);
+    sel.onchange();
+  };
+
+  /* ---------- stats store ---------- */
+  var KEY = 'ab-deck-stats', ST = {};
+  try { ST = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+  function saveST() { try { localStorage.setItem(KEY, JSON.stringify(ST)); } catch (e) {} }
+  function rec(scope) { return ST[scope.id] || (ST[scope.id] = { label: scope.label, rounds: [], missed: {} }); }
+
+  /* ---------- flip ---------- */
+  var order = [], fi = 0, flipped = false;
+  function deck() { return scopes[+sel.value]; }
+  function reshuffle(shuf) {
+    order = deck().words.map(function (_, i) { return i; });
+    if (shuf) order.sort(function () { return Math.random() - .5; });
+    fi = 0; showCard();
+  }
+  function showCard() {
+    var w = deck().words[order[fi]];
+    flipped = false;
+    var c = document.getElementById('flipcard');
+    c.classList.remove('flipped');
+    document.getElementById('fTag').textContent = w.tag || '';
+    document.getElementById('fAr').textContent = w.ar;
+    document.getElementById('fTr').textContent = w.tr || '';
+    document.getElementById('fEn').textContent = w.en;
+    document.getElementById('fTrB').textContent = w.tr || '';
+    document.getElementById('fCount').textContent = (fi + 1) + ' / ' + order.length;
+  }
+  document.getElementById('flipcard').onclick = function () {
+    flipped = !flipped; this.classList.toggle('flipped', flipped);
+  };
+  document.getElementById('fPrev').onclick = function () { fi = (fi - 1 + order.length) % order.length; showCard(); };
+  document.getElementById('fNext').onclick = function () { fi = (fi + 1) % order.length; showCard(); };
+  document.getElementById('fShuf').onclick = function () { reshuffle(true); };
+
+  /* ---------- learn ---------- */
+  var qOrder = [], qi = 0, qScore = 0, qLock = false;
+  function startLearn() {
+    var n = Math.min(10, deck().words.length);
+    qOrder = deck().words.map(function (_, i) { return i; })
+      .sort(function () { return Math.random() - .5; }).slice(0, n);
+    qi = 0; qScore = 0; qLock = false;
+    document.getElementById('qDone').style.display = 'none';
+    document.getElementById('qPrompt').style.display = '';
+    document.getElementById('qOpts').style.display = '';
+    ask();
+  }
+  function ask() {
+    var w = deck().words[qOrder[qi]];
+    document.getElementById('qPos').textContent = 'Question ' + (qi + 1) + ' of ' + qOrder.length;
+    document.getElementById('qScore').textContent = qScore;
+    document.getElementById('qPrompt').textContent = w.ar;
+    var pool = deck().words.filter(function (x) { return x.en !== w.en; })
+      .sort(function () { return Math.random() - .5; }).slice(0, 3).concat([w])
+      .sort(function () { return Math.random() - .5; });
+    var box = document.getElementById('qOpts');
+    box.innerHTML = pool.map(function (x) {
+      return '<button type="button" data-ok="' + (x.en === w.en ? 1 : 0) + '">' + esc(x.en) + '</button>';
+    }).join('');
+    qLock = false;
+    box.querySelectorAll('button').forEach(function (b) {
+      b.onclick = function () {
+        if (qLock) return; qLock = true;
+        var ok = b.dataset.ok === '1';
+        if (ok) { qScore++; b.classList.add('right'); }
+        else {
+          b.classList.add('wrong');
+          box.querySelector('[data-ok="1"]').classList.add('right');
+          var R = rec(deck());
+          R.missed[w.ar] = (R.missed[w.ar] || 0) + 1; saveST();
+        }
+        document.getElementById('qScore').textContent = qScore;
+        setTimeout(function () { qi++; qi < qOrder.length ? ask() : finishLearn(); }, ok ? 550 : 1100);
+      };
+    });
+  }
+  function finishLearn() {
+    var pct = Math.round(100 * qScore / qOrder.length);
+    var R = rec(deck());
+    R.rounds.push({ score: qScore, of: qOrder.length, pct: pct, date: new Date().toISOString().slice(0, 10) });
+    if (R.rounds.length > 60) R.rounds = R.rounds.slice(-60);
+    saveST();
+    document.getElementById('qPrompt').style.display = 'none';
+    document.getElementById('qOpts').style.display = 'none';
+    var d = document.getElementById('qDone');
+    d.innerHTML = 'Round complete — <b>' + qScore + ' / ' + qOrder.length + '</b> (' + pct + '%)' +
+      '<br><button type="button" id="againBtn">Another round</button>';
+    d.style.display = '';
+    document.getElementById('againBtn').onclick = startLearn;
+  }
+
+  /* ---------- stats ---------- */
+  function renderStats() {
+    var rows = Object.keys(ST).map(function (k) {
+      var r = ST[k], n = r.rounds.length;
+      if (!n) return '';
+      var best = Math.max.apply(null, r.rounds.map(function (x) { return x.pct; }));
+      var avg = Math.round(r.rounds.reduce(function (a, x) { return a + x.pct; }, 0) / n);
+      var last = r.rounds[n - 1].date;
+      return '<tr><td>' + esc(r.label) + '</td><td>' + n + '</td><td>' + best + '%</td><td>' + avg + '%</td><td>' + last + '</td></tr>';
+    }).join('');
+    document.getElementById('statRows').innerHTML = rows;
+    document.getElementById('statEmpty').style.display = rows ? 'none' : '';
+    var R = ST[deck().id];
+    var miss = R ? Object.keys(R.missed).sort(function (a, b) { return R.missed[b] - R.missed[a]; }).slice(0, 12) : [];
+    document.getElementById('missedWrap').innerHTML = miss.length
+      ? miss.map(function (w) { return '<span lang="ar">' + esc(w) + '<small>×' + R.missed[w] + '</small></span>'; }).join('')
+      : '<div class="empty">No misses recorded for this set yet.</div>';
+  }
+
+  /* ---------- words view: the selected list, spelled out ---------- */
+  function renderWords() {
+    var d = deck();
+    document.getElementById('wordRows').innerHTML = d.words.map(function (w) {
+      return '<tr><td lang="ar">' + esc(w.ar) + '</td><td>' + esc(w.tr) + '</td><td>' + esc(w.en) + '</td></tr>';
+    }).join('');
+    document.getElementById('scopeCount').textContent = d.words.length + ' words \u00b7 ' + d.label;
+  }
+
+  /* ---------- mode + scope switching ---------- */
+  var mode = 'words';
+  document.querySelectorAll('.modes button').forEach(function (b) {
+    b.onclick = function () {
+      mode = b.dataset.m;
+      document.querySelectorAll('.modes button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      document.getElementById('wordsView').style.display = mode === 'words' ? '' : 'none';
+      document.getElementById('flipView').style.display = mode === 'flip' ? '' : 'none';
+      document.getElementById('learnView').style.display = mode === 'learn' ? '' : 'none';
+      document.getElementById('statsView').style.display = mode === 'stats' ? '' : 'none';
+      if (mode === 'words') renderWords();
+      if (mode === 'learn') startLearn();
+      if (mode === 'stats') renderStats();
+    };
+  });
+  sel.onchange = function () {
+    history.replaceState(null, '', '?src=' + encodeURIComponent(deck().id));
+    reshuffle(false);
+    if (mode === 'words') renderWords();
+    if (mode === 'learn') startLearn();
+    if (mode === 'stats') renderStats();
+  };
+  reshuffle(false); renderWords();
+})();
+</script>
+</body>
+</html>

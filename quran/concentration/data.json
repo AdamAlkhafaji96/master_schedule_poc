@@ -211,8 +211,8 @@
   {
    "id": "p002",
    "label": "Page 2",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-002.jpeg",
+   "thumb": "thumbs/page-002.jpeg",
    "meta": "Cumulative Quran coverage through this block: 41.5%",
    "themes": [
     {
@@ -374,8 +374,8 @@
   {
    "id": "p003",
    "label": "Page 3",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-003.jpeg",
+   "thumb": "thumbs/page-003.jpeg",
    "meta": "Cumulative Quran coverage through this block: 41.5%",
    "themes": [
     {
@@ -537,8 +537,8 @@
   {
    "id": "p004",
    "label": "Page 4",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-004.jpeg",
+   "thumb": "thumbs/page-004.jpeg",
    "meta": "Cumulative Quran coverage through this block: 41.5%",
    "themes": [
     {
@@ -700,8 +700,8 @@
   {
    "id": "p005",
    "label": "Page 5",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-005.jpeg",
+   "thumb": "thumbs/page-005.jpeg",
    "meta": "Cumulative Quran coverage through this block: 41.5%",
    "themes": [
     {
@@ -863,8 +863,8 @@
   {
    "id": "p006",
    "label": "Page 6",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-006.jpeg",
+   "thumb": "thumbs/page-006.jpeg",
    "meta": "Cumulative Quran coverage through this block: 41.5%",
    "themes": [
     {
@@ -1026,8 +1026,8 @@
   {
    "id": "p007",
    "label": "Page 7",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-007.jpeg",
+   "thumb": "thumbs/page-007.jpeg",
    "meta": "Cumulative Quran coverage through this block: 44.0%",
    "themes": [
     {
@@ -1184,8 +1184,8 @@
   {
    "id": "p008",
    "label": "Page 8",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-008.jpeg",
+   "thumb": "thumbs/page-008.jpeg",
    "meta": "Cumulative Quran coverage through this block: 45.4%",
    "themes": [
     {
@@ -1347,8 +1347,8 @@
   {
    "id": "p009",
    "label": "Page 9",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-009.jpeg",
+   "thumb": "thumbs/page-009.jpeg",
    "meta": "Cumulative Quran coverage through this block: 48.9%",
    "themes": [
     {
@@ -1505,8 +1505,8 @@
   {
    "id": "p010",
    "label": "Page 10",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-010.jpeg",
+   "thumb": "thumbs/page-010.jpeg",
    "meta": "Cumulative Quran coverage through this block: 51.6%",
    "themes": [
     {
@@ -1663,8 +1663,8 @@
   {
    "id": "p011",
    "label": "Page 11",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-011.jpeg",
+   "thumb": "thumbs/page-011.jpeg",
    "meta": "Cumulative Quran coverage through this block: 53.6%",
    "themes": [
     {
@@ -1826,8 +1826,8 @@
   {
    "id": "p012",
    "label": "Page 12",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-012.jpeg",
+   "thumb": "thumbs/page-012.jpeg",
    "meta": "Cumulative Quran coverage through this block: 53.6%",
    "themes": [
     {
@@ -1989,8 +1989,8 @@
   {
    "id": "p013",
    "label": "Page 13",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-013.jpeg",
+   "thumb": "thumbs/page-013.jpeg",
    "meta": "Cumulative Quran coverage through this block: 56.8%",
    "themes": [
     {
@@ -2152,8 +2152,8 @@
   {
    "id": "p014",
    "label": "Page 14",
-   "scan": null,
-   "thumb": null,
+   "scan": "scans/page-014.jpeg",
+   "thumb": "thumbs/page-014.jpeg",
    "meta": "Cumulative Quran coverage through this block: 59.3%",
    "themes": [
     {

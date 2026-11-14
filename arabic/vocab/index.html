@@ -255,9 +255,12 @@ function render() {
   const heading = level === 'themes'
     ? 'Theme ' + month + ' — ' + d.topic
     : LVL[level] + ' · Month ' + month + ' — ' + d.topic;
+  const deckSrc = level === 'themes' ? null : 'lv:' + level + ':' + month;
   document.getElementById('monthTheme').innerHTML =
     '<h2>' + heading + '</h2>' +
-    '<p>' + d.words.length + ' words</p>';
+    '<p>' + d.words.length + ' words' +
+    (deckSrc ? ' &nbsp;·&nbsp; <a class="deck-link" href="../study-deck/?src=' +
+      encodeURIComponent(deckSrc) + '">🃏 Practice this set &rarr;</a>' + ' &nbsp;·&nbsp; <a class="deck-link" href="../../practice/glossary/">📖 Glossary &rarr;</a>' : '') + '</p>';
   document.getElementById('cards').innerHTML = d.words.map(([ar, tr, en, hx]) =>
     '<div class="card">' +
       (typeof hx === 'string' && hx.charAt(0) === '#'
