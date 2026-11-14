@@ -12,7 +12,7 @@
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
-  var DEFAULTS = { theme: 'auto', icons: 'mixed', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'split' };
+  var DEFAULTS = { theme: 'auto', icons: 'mixed', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'split', drawer: 'auto' };
   var S;
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
@@ -386,14 +386,26 @@
     function setDrawer(open) {
       document.body.classList.toggle('ab-drawer-open', open);
     }
+    /* ——— ☰ on wide screens: GitHub-style persistent sidebar ———
+       The drawer DOCKS (pushes the page, no dim, links stay clickable) and the
+       choice sticks across pages via S.drawer, so you can leave it open and hop
+       sections without an overlay stealing focus. The dim slide-over remains
+       the phone behavior, where there is no room to dock. */
     var wide = window.matchMedia('(min-width: 900px)');
-    if (S.navStyle === 'rail' && wide.matches) {
+    function dockedWanted() {
+      if (S.drawer === 'open') return true;
+      if (S.drawer === 'closed') return false;
+      return S.navStyle === 'rail';            /* auto: rail style starts docked */
+    }
+    if (wide.matches && dockedWanted()) {
       document.body.classList.add('ab-docked');   /* drawer becomes a fixed sidebar */
     }
     menuBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      if (S.navStyle === 'rail' && wide.matches) {
-        document.body.classList.toggle('ab-docked');
+      if (wide.matches) {
+        var on = document.body.classList.toggle('ab-docked');
+        S.drawer = on ? 'open' : 'closed';
+        AB.save();
         return;
       }
       setDrawer(true);

@@ -75,7 +75,7 @@ for i, p in enumerate(cq["pages"]):
         for e in theme["entries"]:
             words.append((e.get("ar"), e.get("tag", ""), e.get("en")))
     titles = " / ".join(t["title"] for t in p["themes"])
-    add_list("cq:%d" % i, "Quran · 80% Words",
+    add_list("cq:%d" % i, "Quran · Vocabulary",
              "%s — %s" % (p["label"], titles), "quran/concentration/", words)
 
 # --- Islamic Studies -----------------------------------------------------

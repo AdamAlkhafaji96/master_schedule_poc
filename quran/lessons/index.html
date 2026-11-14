@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Read — 10 Lessons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4d1b30;
+    --primary-dark: #33101f;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.15rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: rgba(247,242,231,.85); margin-top: .5rem; max-width: 660px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+  .controls { max-width: 880px; margin: -1.2rem auto 0; background: var(--primary-dark);
+    border: 1px solid rgba(201,161,59,.45); border-radius: 14px; padding: .9rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; justify-content: center;
+    position: relative; z-index: 2; box-shadow: 0 10px 30px rgba(51,16,31,.25); }
+  .controls select { font-family: inherit; font-size: .92rem; padding: .5rem .7rem; border-radius: 8px;
+    border: 1px solid var(--gold); background: var(--vellum); color: var(--ink); max-width: 420px; }
+  .nbtn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--gold);
+    background: transparent; color: var(--gold-soft); font-family: inherit; font-size: 1rem; cursor: pointer; }
+  .nbtn:hover:not(:disabled) { background: var(--gold); color: var(--primary-dark); }
+  .nbtn:disabled { opacity: .3; cursor: default; }
+
+  main { max-width: 980px; margin: 1.6rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .lesson-head { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: baseline; margin-bottom: .7rem; }
+  .lesson-head h2 { font-weight: 500; font-size: 1.2rem; color: var(--primary); }
+  .chip { display: inline-block; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase;
+    border-radius: 999px; padding: .2rem .6rem; background: #eef3ee; color: var(--green); font-weight: 600; }
+
+  .frame { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 10px rgba(34,36,58,.08); }
+  .frame iframe { width: 100%; height: 72vh; min-height: 480px; border: 0; display: block; }
+  .frame .fallback { padding: 1rem 1.2rem; font-size: .88rem; }
+
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .8rem; margin-top: .9rem; }
+  .mcard { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .8rem 1rem; font-size: .88rem; }
+  .mcard b { color: var(--primary); display: block; margin-bottom: .35rem; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .mcard a { display: block; padding: .18rem 0; }
+  .mcard .none { color: #8a887c; font-style: italic; }
+
+  h2.sect { font-weight: 500; font-size: 1.05rem; color: var(--primary); margin: 1.8rem 0 .6rem; letter-spacing: .04em; border-bottom: 2px solid var(--vellum-dim); padding-bottom: .3rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); font-size: .86rem; }
+  th, td { padding: .45rem .65rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: top; }
+  th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+  tr.cur td { background: #fbf6e8; }
+  td .gap { color: #8a6d22; font-size: .78rem; font-style: italic; }
+  .tblwrap { overflow-x: auto; border-radius: 12px; }
+  .hint { font-size: .78rem; color: #605e54; margin-top: .5rem; line-height: 1.5; }
+
+  footer { text-align: center; padding: 1.2rem 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.6; }
+
+  html[data-theme="dark"] .lesson-head h2, html[data-theme="dark"] h2.sect { color: #d98aa6; }
+  html[data-theme="dark"] h2.sect { border-color: #332d44; }
+  html[data-theme="dark"] .mcard b { color: #d98aa6; }
+  html[data-theme="dark"] .chip { background: #1d3a28; color: #7fe08a; }
+  html[data-theme="dark"] tr.cur td { background: #3a3214; }
+  html[data-theme="dark"] .hint { color: #b7b5a6; }
+  html[data-theme="dark"] td .gap { color: #e3cf8f; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Quran · Lessons</div>
+  <h1>How to Read — 10 Lessons</h1>
+  <div class="ar">دروس القراءة — الدكتورة فاتن</div>
+  <p class="sub">Dr. Fatin's complete how-to-read-Quran notebook, digitized lesson by lesson —
+  from the alphabet's names and families to Lam Shamsi. Each lesson shows the clean
+  transcription with links to the original handwritten pages and the interactive page that practices it.</p>
+</header>
+
+<div class="controls">
+  <button class="nbtn" id="prevL" aria-label="Previous lesson">‹</button>
+  <select id="lessonSel" aria-label="Choose lesson"></select>
+  <button class="nbtn" id="nextL" aria-label="Next lesson">›</button>
+</div>
+
+<main>
+  <div class="lesson-head">
+    <h2 id="lTitle"></h2>
+    <span class="chip" id="lChip"></span>
+  </div>
+  <div class="frame">
+    <iframe id="pdfFrame" title="Lesson transcription (PDF)"></iframe>
+    <div class="fallback">If the PDF does not display in this browser,
+      <a id="pdfDirect" href="#" target="_blank" rel="noopener">open the lesson PDF directly</a>.</div>
+  </div>
+  <div class="meta">
+    <div class="mcard"><b>Practice it interactively</b><div id="lPractice"></div></div>
+    <div class="mcard"><b>Original handwritten pages</b><div id="lScans"></div></div>
+    <div class="mcard"><b>Whole notebook</b>
+      <a href="../../general/teacher-notes/digitized/quran-lessons-clean.pdf" target="_blank" rel="noopener">Clean transcription — full book (PDF, 22 pp)</a>
+      <a href="../../general/teacher-notes/digitized/quran-lessons-clean.docx" download>Editable transcription (Word)</a>
+      <a href="../../general/teacher-notes/digitized/quran-lessons-cleanup-record.pdf" target="_blank" rel="noopener">Transcription &amp; cleanup record</a>
+      <a href="../../general/teacher-notes/">Browse the full handwritten archive →</a>
+    </div>
+  </div>
+
+  <h2 class="sect">The course at a glance — each lesson's practice coverage</h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Lesson</th><th>Teaches</th><th>Interactive practice on the portal</th></tr></thead>
+    <tbody id="mapRows"></tbody>
+  </table></div>
+  <p class="hint">Where a row notes a <i>gap</i>, the topic is covered as reference but has no dedicated
+  drill yet — those are tracked on the staff Feature Checklist.</p>
+</main>
+
+<footer>Source: Dr. Fatin Alkhafaji's handwritten lesson notebook (19 pages), preserved in the
+<a href="../../general/teacher-notes/">Handwritten Teacher Notes</a> archive and transcribed page-for-page.</footer>
+
+<script>
+var D = '../../general/teacher-notes/digitized/';
+var S = '../../general/teacher-notes/';
+/* The ten lessons of the notebook, mapped to their practice pages.
+   Scans are the original handwritten pages in the archive. */
+var LESSONS = [
+  { n: 1, t: 'The Arabic Alphabet — Names & Families', ar: 'الحروف وأسماؤها',
+    practice: [['The Alphabet — all 28 letters', '../../arabic/letters/']],
+    scans: ['arabic-lesson-01-p1.jpeg', 'arabic-lesson-01-p2.jpeg'] },
+  { n: 2, t: 'The Shapes of the Letters — Beginning · Middle · End', ar: 'أشكال الحروف',
+    practice: [['The Alphabet — letter forms', '../../arabic/letters/']],
+    scans: ['arabic-lesson-02-p1.jpeg', 'arabic-lesson-02-p2.jpeg', 'arabic-lesson-02-p3.jpeg'] },
+  { n: 3, t: 'The Unfriendly Letters — the six non-connectors', ar: 'الحروف غير المتصلة',
+    practice: [['Letter Joining — watch them connect (or not)', '../../arabic/joining/']],
+    scans: ['arabic-lesson-03-p1.jpeg'] },
+  { n: 4, t: 'Connecting Letters to Make Words', ar: 'وصل الحروف',
+    practice: [['Letter Joining — build words letter by letter', '../../arabic/joining/']],
+    scans: ['arabic-lesson-04-p1.jpeg', 'arabic-lesson-04-p2.jpeg'] },
+  { n: 5, t: 'Al-Harakat — Arabic Vowels', ar: 'الحركات',
+    practice: [['Vowels — Harakat, tap to hear each syllable', '../../arabic/vowels/']],
+    scans: ['arabic-lesson-05-p1.jpeg'] },
+  { n: 6, t: 'Sounds of the Letters with Fatha · Dhamma · Kasra', ar: 'أصوات الحروف',
+    practice: [['Vowels — every letter with each haraka', '../../arabic/vowels/'],
+               ['Practice Deck — Harakat & marks list', '../../practice/deck/']],
+    scans: ['arabic-lesson-06-p1.jpeg', 'arabic-lesson-06-p2.jpeg', 'arabic-lesson-06-p3.jpeg'] },
+  { n: 7, t: 'Sukoon — Vowel-less Letters', ar: 'السكون',
+    practice: [['Vowels page — the Sukun mark', '../../arabic/vowels/']], gap: 'reference only — no dedicated sukoon drill yet',
+    scans: ['arabic-lesson-07-p1.jpeg'] },
+  { n: 8, t: 'Types of Tanween — Doubled Vowels', ar: 'التنوين',
+    practice: [['Vowels page — tanween marks', '../../arabic/vowels/']], gap: 'reference only — no dedicated tanween drill yet',
+    scans: ['arabic-lesson-08-p1.jpeg', 'arabic-lesson-08-p2.jpeg'] },
+  { n: 9, t: 'Ash-Shaddah — Doubled Letters', ar: 'الشدة',
+    practice: [['Vowels page — the Shadda mark', '../../arabic/vowels/']], gap: 'reference only — no dedicated shaddah drill yet',
+    scans: ['arabic-lesson-09-p1.jpeg'] },
+  { n: 10, t: 'Shamsi (Sun) & Qamari (Moon) Letters — Lam Shamsi', ar: 'الحروف الشمسية والقمرية',
+    practice: [['Sun & Moon Letters — teach panel and quiz', '../../arabic/sun-moon/']],
+    scans: ['arabic-lesson-10-p1.jpeg', 'arabic-lesson-10-p2.jpeg', 'arabic-lesson-10-p3.jpeg'] }
+];
+
+var params = new URLSearchParams(location.search);
+var cur = Math.min(10, Math.max(1, parseInt(params.get('l')) || 1)) - 1;
+
+var sel = document.getElementById('lessonSel');
+sel.innerHTML = LESSONS.map(function (l, i) {
+  return '<option value="' + i + '">Lesson ' + l.n + ' — ' + l.t + '</option>';
+}).join('');
+
+function pdfFor(l) { return D + 'quran-lessons-clean-L' + String(l.n).padStart(2, '0') + '.pdf'; }
+
+function show(i) {
+  cur = i;
+  var l = LESSONS[i];
+  sel.value = i;
+  document.getElementById('lTitle').textContent = 'Lesson ' + l.n + ' — ' + l.t;
+  document.getElementById('lChip').textContent = l.ar;
+  var pdf = pdfFor(l);
+  document.getElementById('pdfFrame').src = pdf;
+  document.getElementById('pdfDirect').href = pdf;
+  document.getElementById('lPractice').innerHTML = l.practice.map(function (p) {
+    return '<a href="' + p[1] + '">' + p[0] + ' →</a>';
+  }).join('') + (l.gap ? '<div class="none">' + l.gap + '</div>' : '');
+  document.getElementById('lScans').innerHTML = l.scans.map(function (f, k) {
+    return '<a href="' + S + 'scans/' + f + '" target="_blank" rel="noopener">Handwritten page ' + (k + 1) + ' (scan)</a>';
+  }).join('');
+  document.getElementById('prevL').disabled = i === 0;
+  document.getElementById('nextL').disabled = i === LESSONS.length - 1;
+  document.querySelectorAll('#mapRows tr').forEach(function (tr, k) {
+    tr.classList.toggle('cur', k === i);
+  });
+  try { history.replaceState(null, '', '?l=' + l.n); } catch (e) {}
+}
+
+document.getElementById('mapRows').innerHTML = LESSONS.map(function (l, i) {
+  return '<tr data-i="' + i + '" style="cursor:pointer"><td>Lesson ' + l.n + '</td><td>' + l.t + '</td>' +
+    '<td>' + l.practice.map(function (p) { return '<a href="' + p[1] + '">' + p[0] + '</a>'; }).join('<br>') +
+    (l.gap ? '<br><span class="gap">' + l.gap + '</span>' : '') + '</td></tr>';
+}).join('');
+document.querySelectorAll('#mapRows tr').forEach(function (tr) {
+  tr.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') return;        /* let practice links navigate */
+    show(parseInt(tr.dataset.i));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+sel.addEventListener('change', function () { show(parseInt(sel.value)); });
+document.getElementById('prevL').addEventListener('click', function () { show(cur - 1); });
+document.getElementById('nextL').addEventListener('click', function () { show(cur + 1); });
+show(cur);
+</script>
+</body>
+</html>

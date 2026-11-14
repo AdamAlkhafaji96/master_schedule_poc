@@ -18,7 +18,9 @@
   { "t": "Payment portal integration", "s": "part", "d": "Giving pages are live as present-and-route (official channels, no on-site processing - deliberate). True integration = a processor + webhooks + the ledger." },
   { "t": "Social media landing pages", "s": "part", "d": "Footer social strip is live. Dedicated landing/share pages with OpenGraph cards per section: not started." },
   { "t": "Database architecture (Phase F data platform)", "s": "plan", "d": "Schema, migration sequence, embedding pipeline and export step are designed in the Feature Backlog doc. Postgres + object storage behind an API; the JSON contracts become seed fixtures." },
-  { "t": "Gradebook backend (teacher grade entry)", "s": "plan", "d": "Rides on Phase F: assignments, submissions, grades tables; the Grades page becomes live data." }
+  { "t": "Gradebook backend (teacher grade entry)", "s": "plan", "d": "Rides on Phase F: assignments, submissions, grades tables; the Grades page becomes live data." },
+  { "t": "How to Read - 10 Lessons (Dr. Fatin's notebook)", "s": "done", "d": "All ten digitized lessons live under Quran - Lessons, each embedding its clean PDF with links to the original scans and its practice page." },
+  { "t": "Drills for Sukoon / Tanween / Shaddah (lessons 7-9)", "s": "plan", "d": "The three lessons whose topics have reference coverage on the Vowels page but no dedicated drill - the gaps the lesson map exposes." }
  ],
  "low": [
   { "t": "CI/CD - GitHub Actions", "s": "plan", "d": "On push: run the jsdom harness + Playwright suite + contrast audit, rebuild glossary, then deploy Pages. Replaces trust-me deploys." },

@@ -254,15 +254,6 @@
      "status": "soon"
     },
     {
-     "href": "arabic/sun-moon/",
-     "en": "Sun & Moon Letters",
-     "ar": "الحروف الشمسية والقمرية",
-     "desc": "Which letters swallow the laam of ال — teach panel and quiz",
-     "emoji": "🌓",
-     "icon": "sunmoon",
-     "status": "live"
-    },
-    {
      "href": "arabic/joining/",
      "en": "Letter Joining",
      "ar": "وصل الحروف",
@@ -301,11 +292,29 @@
     },
     {
      "href": "quran/concentration/",
-     "en": "80% Qur'anic Words",
+     "en": "Quran Vocabulary",
      "ar": "الكلمات القرآنية",
-     "desc": "Concentration-themed word lists — paper scans beside the modifiable digital version",
+     "desc": "Concentration-themed word lists from “80% of Qur'anic Words” — scans beside the digital version",
      "emoji": "💠",
      "icon": "gem",
+     "status": "live"
+    },
+    {
+     "href": "quran/lessons/",
+     "en": "How to Read — 10 Lessons",
+     "ar": "دروس القراءة",
+     "desc": "Dr. Fatin's ten reading lessons, digitized — alphabet to Lam Shamsi, each linked to its practice page",
+     "emoji": "📜",
+     "icon": "notes",
+     "status": "live"
+    },
+    {
+     "href": "arabic/sun-moon/",
+     "en": "Sun &amp; Moon Letters",
+     "ar": "الحروف الشمسية والقمرية",
+     "desc": "Which letters swallow the laam of ال — teach panel and quiz (Lesson 10 companion)",
+     "emoji": "🌓",
+     "icon": "sunmoon",
      "status": "live"
     },
     {
@@ -595,7 +604,6 @@
     "arabic/numbers/",
     "arabic/makharij/",
     "arabic/vowels/",
-    "arabic/sun-moon/",
     "arabic/joining/",
     "arabic/handwriting/"
    ],
@@ -612,6 +620,10 @@
    "Reading": [
     "quran/text/",
     "quran/concentration/"
+   ],
+   "Lessons": [
+    "quran/lessons/",
+    "arabic/sun-moon/"
    ],
    "Tracking": [
     "quran/memorization/",

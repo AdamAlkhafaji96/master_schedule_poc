@@ -318,85 +318,85 @@
   },
   {
    "scope": "cq:0",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:1",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:2",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:3",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:4",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:5",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:6",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:7",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:8",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:9",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:10",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:11",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:12",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "src": "quran/concentration/"
   },
   {
    "scope": "cq:13",
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "src": "quran/concentration/"
   },
@@ -5215,7 +5215,7 @@
    "src": "arabic/vowels/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "هَٰذَا",
@@ -5224,7 +5224,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "ذَٰلِكَ",
@@ -5233,7 +5233,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "هَٰذِهِ",
@@ -5242,7 +5242,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "تِلْكَ",
@@ -5251,7 +5251,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "هَٰؤُلَاءِ",
@@ -5260,7 +5260,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "أُولَٰئِكَ",
@@ -5269,7 +5269,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "الَّذِي",
@@ -5278,7 +5278,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "الَّتِي",
@@ -5287,7 +5287,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "الَّذِينَ",
@@ -5296,7 +5296,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "هَٰذِهِ",
@@ -5305,7 +5305,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "تِلْكَ",
@@ -5314,7 +5314,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "الَّتِي",
@@ -5323,7 +5323,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "لَا إِلَٰهَ",
@@ -5332,7 +5332,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "إِلَّا اللَّهُ",
@@ -5341,7 +5341,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "كَلَّا",
@@ -5350,7 +5350,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "لَنْ",
@@ -5359,7 +5359,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "لَمْ",
@@ -5368,7 +5368,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "مَا",
@@ -5377,7 +5377,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "لَيْسَ (لَيْسَتْ)",
@@ -5386,7 +5386,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "بَلَىٰ",
@@ -5395,7 +5395,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "غَيْر",
@@ -5404,7 +5404,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "دُونَ",
@@ -5413,7 +5413,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "إِلَّا",
@@ -5422,7 +5422,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 1 — This, that...! / No, No!!!",
    "scope": "cq:0",
    "ar": "نَعَمْ",
@@ -5431,7 +5431,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُ...",
@@ -5440,7 +5440,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُمْ...",
@@ -5449,7 +5449,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "كَ...",
@@ -5458,7 +5458,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "كُمْ...",
@@ -5467,7 +5467,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "...يْ (نِي)",
@@ -5476,7 +5476,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "نَا...",
@@ -5485,7 +5485,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هَا...",
@@ -5494,7 +5494,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُنَّ...",
@@ -5503,7 +5503,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "كِ...",
@@ -5512,7 +5512,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هَا...",
@@ -5521,7 +5521,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُمَا...",
@@ -5530,7 +5530,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "كُمَا...",
@@ -5539,7 +5539,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُوَ",
@@ -5548,7 +5548,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُمْ",
@@ -5557,7 +5557,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "أَنْتَ",
@@ -5566,7 +5566,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "أَنْتُمْ",
@@ -5575,7 +5575,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "أَنَا",
@@ -5584,7 +5584,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "نَحْنُ",
@@ -5593,7 +5593,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هِيَ",
@@ -5602,7 +5602,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُنَّ",
@@ -5611,7 +5611,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "أَنْتِ",
@@ -5620,7 +5620,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هِيَ",
@@ -5629,7 +5629,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "هُمَا",
@@ -5638,7 +5638,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 2 — Whose? / Who?",
    "scope": "cq:1",
    "ar": "أَنْتُمَا",
@@ -5647,7 +5647,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "فَوْقَ",
@@ -5656,7 +5656,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "تَحْتَ",
@@ -5665,7 +5665,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "بَيْنَ أَيْدِي، بَيْنَ يَدَيْ",
@@ -5674,7 +5674,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "خَلْفَ",
@@ -5683,7 +5683,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَمَامَ",
@@ -5692,7 +5692,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "وَرَاءَ",
@@ -5701,7 +5701,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "يَمِين (pl أَيْمَان)",
@@ -5710,7 +5710,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "شِمَال (pl شَمَائِل)",
@@ -5719,7 +5719,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "بَيْنَ",
@@ -5728,7 +5728,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "حَوْلَ",
@@ -5737,7 +5737,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "حَيْثُ",
@@ -5746,7 +5746,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَيْنَمَا",
@@ -5755,7 +5755,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "مَا",
@@ -5764,7 +5764,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "مَنْ",
@@ -5773,7 +5773,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "مَتَىٰ",
@@ -5782,7 +5782,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَيْنَ",
@@ -5791,7 +5791,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "كَيْفَ",
@@ -5800,7 +5800,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "كَمْ",
@@ -5809,7 +5809,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَيُّ",
@@ -5818,7 +5818,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَنَّىٰ",
@@ -5827,7 +5827,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "أَ، هَلْ",
@@ -5836,7 +5836,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "مَاذَا",
@@ -5845,7 +5845,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "لِمَ، لِمَاذَا",
@@ -5854,7 +5854,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 3 — Where? / Questions!?",
    "scope": "cq:2",
    "ar": "لَوْلَا",
@@ -5863,7 +5863,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "ذُو، ذَا، ذِي",
@@ -5872,7 +5872,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "ذَات",
@@ -5881,7 +5881,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "أُولُوا، أُولِي",
@@ -5890,7 +5890,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "أَهْل",
@@ -5899,7 +5899,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "آل",
@@ -5908,7 +5908,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "أَلَا",
@@ -5917,7 +5917,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "نِعْمَ",
@@ -5926,7 +5926,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "بِئْسَ",
@@ -5935,7 +5935,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "بِئْسَمَا",
@@ -5944,7 +5944,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "مِثْل",
@@ -5953,7 +5953,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "مَثَل (أَمْثَال)",
@@ -5962,7 +5962,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "مِمَّنْ (مِنْ+مَنْ)",
@@ -5971,7 +5971,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "قَبْلَ",
@@ -5980,7 +5980,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "بَعْدَ",
@@ -5989,7 +5989,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "حِينَ",
@@ -5998,7 +5998,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "إِذْ",
@@ -6007,7 +6007,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "إِذَا",
@@ -6016,7 +6016,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "ثُمَّ",
@@ -6025,7 +6025,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "فَ",
@@ -6034,7 +6034,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "بَلْ",
@@ -6043,7 +6043,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "عِنْدَ، لَدَىٰ، لَدُنْ",
@@ -6052,7 +6052,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "إِنْ ... إِلَّا",
@@ -6061,7 +6061,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "مَا ... إِلَّا",
@@ -6070,7 +6070,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 4 — Miscellaneous / When?",
    "scope": "cq:3",
    "ar": "أَلَّا (أَنْ+لَا)",
@@ -6079,7 +6079,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "بِمَا",
@@ -6088,7 +6088,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "عَمَّا",
@@ -6097,7 +6097,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "فِيمَا",
@@ -6106,7 +6106,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "كَمَا",
@@ -6115,7 +6115,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "لِمَا",
@@ -6124,7 +6124,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "مِمَّا",
@@ -6133,7 +6133,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "أَمَّا",
@@ -6142,7 +6142,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "إِمَّا",
@@ -6151,7 +6151,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "أَنَّمَا",
@@ -6160,7 +6160,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "إِنَّمَا",
@@ -6169,7 +6169,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "كَأَنَّمَا",
@@ -6178,7 +6178,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "كُلَّمَا",
@@ -6187,7 +6187,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "بِ",
@@ -6196,7 +6196,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "عَنْ",
@@ -6205,7 +6205,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "فِي",
@@ -6214,7 +6214,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "كَ",
@@ -6223,7 +6223,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "لِ، لَ",
@@ -6232,7 +6232,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "مِنْ",
@@ -6241,7 +6241,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "إِلَىٰ",
@@ -6250,7 +6250,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "تَ",
@@ -6259,7 +6259,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "حَتَّىٰ",
@@ -6268,7 +6268,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "عَلَىٰ",
@@ -6277,7 +6277,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "مَعَ",
@@ -6286,7 +6286,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 5 — Prepositions + مَا / Prepositions",
    "scope": "cq:4",
    "ar": "وَ",
@@ -6295,7 +6295,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "قَدْ (+فعل)",
@@ -6304,7 +6304,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "سَ (+فعل)",
@@ -6313,7 +6313,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "سَوْفَ (+فعل)",
@@ -6322,7 +6322,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَ+فعل+نَّ",
@@ -6331,7 +6331,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَقَدْ (+فعل)",
@@ -6340,7 +6340,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَ",
@@ -6349,7 +6349,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لِ، لْ (أَمْر)",
@@ -6358,7 +6358,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "الْ",
@@ -6367,7 +6367,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "أَمْ",
@@ -6376,7 +6376,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "أَوْ",
@@ -6385,7 +6385,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "بَعْض",
@@ -6394,7 +6394,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "كُلُّ",
@@ -6403,7 +6403,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "إِنَّ",
@@ -6412,7 +6412,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "أَنَّ",
@@ -6421,7 +6421,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "كَأَنَّ",
@@ -6430,7 +6430,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَكِنَّ (لَكِنْ)",
@@ -6439,7 +6439,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَعَلَّ",
@@ -6448,7 +6448,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "أَنْ",
@@ -6457,7 +6457,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "إِنْ",
@@ -6466,7 +6466,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "إِيَّا",
@@ -6475,7 +6475,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "عَسَىٰ",
@@ -6484,7 +6484,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَمَّا",
@@ -6493,7 +6493,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "لَوْ",
@@ -6502,7 +6502,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 6 — Prefix for verb,… / Inna",
    "scope": "cq:5",
    "ar": "يَا، يَا أَيُّهَا",
@@ -6511,7 +6511,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "خَبِير",
@@ -6520,7 +6520,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "رَبّ",
@@ -6529,7 +6529,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "رَحْمَٰن",
@@ -6538,7 +6538,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "سَلَام",
@@ -6547,7 +6547,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "سَمِيع",
@@ -6556,7 +6556,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "شَكُور",
@@ -6565,7 +6565,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "عَزِيز",
@@ -6574,7 +6574,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "غَفُور",
@@ -6583,7 +6583,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "قَدِير",
@@ -6592,7 +6592,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "نَذِير",
@@ -6601,7 +6601,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "نَصِير",
@@ -6610,7 +6610,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "وَكِيل",
@@ -6619,7 +6619,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "أَوَّل (fg أُولَىٰ)",
@@ -6628,7 +6628,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "آخِر (fg آخِرَة)",
@@ -6637,7 +6637,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "آخَر (fg أُخْرَىٰ)",
@@ -6646,7 +6646,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "أَمِين",
@@ -6655,7 +6655,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "بَصِير",
@@ -6664,7 +6664,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "بَعِيد",
@@ -6673,7 +6673,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "تَوَّاب",
@@ -6682,7 +6682,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "حَفِيظ",
@@ -6691,7 +6691,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "حَكِيم",
@@ -6700,7 +6700,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "حَلِيم",
@@ -6709,7 +6709,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "حَمِيد",
@@ -6718,7 +6718,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 7 — Some attributes (of Allah and others)",
    "scope": "cq:6",
    "ar": "حَمِيم",
@@ -6727,7 +6727,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَشَدّ",
@@ -6736,7 +6736,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَعْلَىٰ",
@@ -6745,7 +6745,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَعْلَم",
@@ -6754,7 +6754,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَقْرَب",
@@ -6763,7 +6763,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَكْبَر",
@@ -6772,7 +6772,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَكْثَر",
@@ -6781,7 +6781,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَحْسَن",
@@ -6790,7 +6790,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَحَقّ",
@@ -6799,7 +6799,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَدْنَىٰ",
@@ -6808,7 +6808,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَظْلَم",
@@ -6817,7 +6817,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَهْدَىٰ",
@@ -6826,7 +6826,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "أَوْلَىٰ",
@@ -6835,7 +6835,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "شَدِيد",
@@ -6844,7 +6844,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "عَلِيّ",
@@ -6853,7 +6853,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "عَلِيم",
@@ -6862,7 +6862,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "قَرِيب",
@@ -6871,7 +6871,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "كَبِير (fg كَبِيرَة)",
@@ -6880,7 +6880,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "كَثِير (fg كَثِيرَة)",
@@ -6889,7 +6889,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "سَرِيع",
@@ -6898,7 +6898,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "رَحِيم",
@@ -6907,7 +6907,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "عَظِيم",
@@ -6916,7 +6916,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "قَلِيل (fg قَلِيلَة)",
@@ -6925,7 +6925,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "كَرِيم",
@@ -6934,7 +6934,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 8 — Noun of Superiority اسم تَفْضِيل / Some attributes...",
    "scope": "cq:7",
    "ar": "لَطِيف",
@@ -6943,7 +6943,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "رَسُول (pl رُسُل)",
@@ -6952,7 +6952,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "نَبِيّ",
@@ -6961,7 +6961,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "نَبِيُّون، نَبِيِّين، أَنْبِيَاء",
@@ -6970,7 +6970,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "آدَم، نُوح، إِبْرَاهِيم",
@@ -6979,7 +6979,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "لُوط، إِسْمَاعِيل، إِسْحَاق",
@@ -6988,7 +6988,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "يَعْقُوب (إِسْرَائِيل) يُوسُف",
@@ -6997,7 +6997,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "هُود، شُعَيْب، صَالِح",
@@ -7006,7 +7006,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "مُوسَىٰ، عِيسَى ابْنُ مَرْيَم",
@@ -7015,7 +7015,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "شَيْطَان (pl شَيَاطِين)",
@@ -7024,7 +7024,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "فِرْعَوْن",
@@ -7033,7 +7033,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "عَاد",
@@ -7042,7 +7042,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "ثَمُود",
@@ -7051,7 +7051,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "آيَة (pl آيَات)",
@@ -7060,7 +7060,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "بَيِّنَة (pl بَيِّنَات)",
@@ -7069,7 +7069,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "قُرْآن",
@@ -7078,7 +7078,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "أَنْعَام",
@@ -7087,7 +7087,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "جَبَل (pl جِبَال)",
@@ -7096,7 +7096,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "بَحْر",
@@ -7105,7 +7105,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "شَمْس",
@@ -7114,7 +7114,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "قَمَر",
@@ -7123,7 +7123,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "لَيْل",
@@ -7132,7 +7132,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "نَهَار",
@@ -7141,7 +7141,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "أَرْض",
@@ -7150,7 +7150,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 9 — Prophets and Allah’s Signs",
    "scope": "cq:8",
    "ar": "سَمَاء (pl سَمَاوَات)",
@@ -7159,7 +7159,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "صَاحِب (أَصْحَاب)",
@@ -7168,7 +7168,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "عَاقِبَة",
@@ -7177,7 +7177,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "عَذَاب",
@@ -7186,7 +7186,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "عِقَاب",
@@ -7195,7 +7195,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "قِيَامَة",
@@ -7204,7 +7204,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "لِقَاء",
@@ -7213,7 +7213,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "مُسَمًّى",
@@ -7222,7 +7222,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "نَار",
@@ -7231,7 +7231,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "نَهَر (pl أَنْهَار)",
@@ -7240,7 +7240,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "وَيْل",
@@ -7249,7 +7249,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "يَوْم (pl أَيَّام)",
@@ -7258,7 +7258,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "يَوْمَئِذٍ",
@@ -7267,7 +7267,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "أَبَدًا",
@@ -7276,7 +7276,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "أَجْر (pl أُجُور)",
@@ -7285,7 +7285,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "أَجَل",
@@ -7294,7 +7294,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "الْآخِرَة",
@@ -7303,7 +7303,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "أَلِيم",
@@ -7312,7 +7312,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "ثَوَاب",
@@ -7321,7 +7321,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "جَحِيم",
@@ -7330,7 +7330,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "جَزَاء",
@@ -7339,7 +7339,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "جَنَّة (pl جَنَّات)",
@@ -7348,7 +7348,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "جَهَنَّم",
@@ -7357,7 +7357,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "حِسَاب",
@@ -7366,7 +7366,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 10 — Last day",
    "scope": "cq:9",
    "ar": "سَاعَة",
@@ -7375,7 +7375,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "أَمْر (pl أُمُور)",
@@ -7384,7 +7384,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "تَقْوَىٰ",
@@ -7393,7 +7393,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "حَقّ",
@@ -7402,7 +7402,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "بَاطِل",
@@ -7411,7 +7411,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "حِكْمَة",
@@ -7420,7 +7420,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "حَمْد",
@@ -7429,7 +7429,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "دِين",
@@ -7438,7 +7438,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "زَكَاة",
@@ -7447,7 +7447,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "شَهِيد (pl شُهَدَاء)",
@@ -7456,7 +7456,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "صَلَاة",
@@ -7465,7 +7465,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "مُبِين",
@@ -7474,7 +7474,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "نُور",
@@ -7483,7 +7483,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "أَحَد (fg إِحْدَىٰ)",
@@ -7492,7 +7492,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "إِلَٰه (pl آلِهَة)",
@@ -7501,7 +7501,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "شَرِيك (pl شُرَكَاء)",
@@ -7510,7 +7510,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "شَهَادَة",
@@ -7519,7 +7519,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "عَرْش",
@@ -7528,7 +7528,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "عَهْد",
@@ -7537,7 +7537,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "غَيْب",
@@ -7546,7 +7546,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "كِتَاب (pl كُتُب)",
@@ -7555,7 +7555,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "كَلِمَة",
@@ -7564,7 +7564,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "مَلَك (pl مَلَائِكَة)",
@@ -7573,7 +7573,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "مِيثَاق",
@@ -7582,7 +7582,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 11 — Dīn / Faith",
    "scope": "cq:10",
    "ar": "وَاحِد (fg وَاحِدَة)",
@@ -7591,7 +7591,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "أَعْمَال pl",
@@ -7600,7 +7600,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "حَسَنَة (pl حَسَنَات)",
@@ -7609,7 +7609,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "سَيِّئَة (pl سَيِّئَات)",
@@ -7618,7 +7618,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "خَيْر",
@@ -7627,7 +7627,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "شَرّ",
@@ -7636,7 +7636,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "إِثْم",
@@ -7645,7 +7645,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "ذَنْب (pl ذُنُوب)",
@@ -7654,7 +7654,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "جُنَاح",
@@ -7663,7 +7663,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "حَرَام",
@@ -7672,7 +7672,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "اِسْم (pl أَسْمَاء)",
@@ -7681,7 +7681,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "حَدِيث (أَحَادِيث)",
@@ -7690,7 +7690,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "طَيِّبَة (pl طَيِّبَات)",
@@ -7699,7 +7699,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "آلَاء",
@@ -7708,7 +7708,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "سُلْطَان",
@@ -7717,7 +7717,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "فَضْل",
@@ -7726,7 +7726,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "مَاء",
@@ -7735,7 +7735,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "مُلْك",
@@ -7744,7 +7744,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "نِعْمَة",
@@ -7753,7 +7753,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "أَجْمَعُون، أَجْمَعِين",
@@ -7762,7 +7762,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "إِذْن",
@@ -7771,7 +7771,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "بَأْس",
@@ -7780,7 +7780,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "جَمِيع",
@@ -7789,7 +7789,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "سَوَاء",
@@ -7798,7 +7798,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 12 — Deeds / Blessings",
    "scope": "cq:11",
    "ar": "فَرِيق",
@@ -7807,7 +7807,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "أُمّ (pl أُمَّهَات)",
@@ -7816,7 +7816,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "أَب، أَبَتِ (pl آبَاء)",
@@ -7825,7 +7825,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "زَوْج (pl أَزْوَاج)",
@@ -7834,7 +7834,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "رَجُل (pl رِجَال)",
@@ -7843,7 +7843,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "اِمْرَأَة (pl نِسَاء)",
@@ -7852,7 +7852,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "وَلَد (pl أَوْلَاد)",
@@ -7861,7 +7861,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "وَالِد (dl وَالِدَيْن)",
@@ -7870,7 +7870,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "ذُرِّيَّة",
@@ -7879,7 +7879,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "اِبْن",
@@ -7888,7 +7888,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "بَنُون، بَنِين، أَبْنَاء pl",
@@ -7897,7 +7897,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "أَخ (أَخُو، أَخَا، أَخِي)",
@@ -7906,7 +7906,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "إِخْوَان pl",
@@ -7915,7 +7915,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "وَجْه (pl وُجُوه)",
@@ -7924,7 +7924,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "عَيْن (pl أَعْيُن)",
@@ -7933,7 +7933,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "أَبْصَار pl",
@@ -7942,7 +7942,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "أَفْوَاه pl",
@@ -7951,7 +7951,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "لِسَان (pl أَلْسِنَة)",
@@ -7960,7 +7960,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "قَلْب (pl قُلُوب)",
@@ -7969,7 +7969,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "صَدْر (pl صُدُور)",
@@ -7978,7 +7978,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "يَد (pl أَيْدِي)",
@@ -7987,7 +7987,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "رِجْل (pl أَرْجُل)",
@@ -7996,7 +7996,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "نَفْس (pl أَنْفُس)",
@@ -8005,7 +8005,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "رُوح",
@@ -8014,7 +8014,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 13 — Relatives / Self (body parts)",
    "scope": "cq:12",
    "ar": "قُوَّة",
@@ -8023,7 +8023,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "بَيْت (pl بُيُوت)",
@@ -8032,7 +8032,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "دَار (pl دِيَار)",
@@ -8041,7 +8041,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "دُنْيَا",
@@ -8050,7 +8050,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "سَبِيل (pl سُبُل)",
@@ -8059,7 +8059,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "صِرَاط",
@@ -8068,7 +8068,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "عَالَم (pl عَالَمِين)",
@@ -8077,7 +8077,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "فِتْنَة",
@@ -8086,7 +8086,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "قَرْيَة (pl قُرَىٰ)",
@@ -8095,7 +8095,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مَال (pl أَمْوَال)",
@@ -8104,7 +8104,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مَتَاع",
@@ -8113,7 +8113,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مَسْجِد (pl مَسَاجِد)",
@@ -8122,7 +8122,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مَكَان (مَكَانَة)",
@@ -8131,7 +8131,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "أُمَّة (pl أُمَم)",
@@ -8140,7 +8140,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "قَوْم",
@@ -8149,7 +8149,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "إِنْسَان",
@@ -8158,7 +8158,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "نَاس",
@@ -8167,7 +8167,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "ذَكَر (pl ذُكُور)",
@@ -8176,7 +8176,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "أُنْثَىٰ (pl إِنَاث)",
@@ -8185,7 +8185,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "عَبْد (pl عِبَاد)",
@@ -8194,7 +8194,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "عَدُوّ (pl أَعْدَاء)",
@@ -8203,7 +8203,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "كُفَّار",
@@ -8212,7 +8212,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مُجْرِم",
@@ -8221,7 +8221,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "مَلَأ",
@@ -8230,7 +8230,7 @@
    "src": "quran/concentration/"
   },
   {
-   "section": "Quran · 80% Words",
+   "section": "Quran · Vocabulary",
    "list": "Page 14 — World / People",
    "scope": "cq:13",
    "ar": "وَلِيّ (أَوْلِيَاء)",
