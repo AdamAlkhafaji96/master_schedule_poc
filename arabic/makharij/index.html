@@ -213,7 +213,7 @@ document.getElementById('diaLearn').innerHTML = diagramSVG('L');
 document.getElementById('legend').innerHTML = AREAS.map(a =>
   '<div class="lg" data-zone="' + a.id + '"><span class="sw" style="background:' + a.color + '"></span>' +
   '<span><b>' + a.en + '</b> <span class="ar">' + a.ar + '</span><br>' +
-  '<span style="font-size:.78rem;color:#6b6a60">' + a.desc + '</span></span>' +
+  '<span style="font-size:.78rem;color:var(--abd-6b6a60,#6b6a60)">' + a.desc + '</span></span>' +
   '<span class="letters">' + a.letters + '</span></div>').join('');
 
 document.querySelectorAll('#diaLearn .zone').forEach(zn => zn.addEventListener('click', () => {

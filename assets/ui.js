@@ -175,6 +175,12 @@
   }
 
   var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318', admin: '#4a4466' };
+  var SECTION_LUM = { gold: '#d2ac4b', general: '#aeb6c9', arabic: '#8fa2e8', quran: '#d98aa6', islamic: '#7fc9a4', games: '#7bc8cf', practice: '#e0a35c', admin: '#b1a3e3' };
+  var SECTION_DEEP = { gold: '#8a6d22', games: '#8a6d22', practice: '#8a4512' };
+  function tabVars(color) {
+    return '--tabc:' + (SECTION_COLOR[color] || '#c9a13b') + ';--tabcl:' + (SECTION_LUM[color] || '#d2ac4b') +
+      ';--tabcd:' + (SECTION_DEEP[color] || SECTION_COLOR[color] || '#8a6d22');
+  }
   function injectStrip(nav) {
     var path = pagePath();
     if (nav.chromeless.some(function (c) { return path === c; })) return;
@@ -211,8 +217,7 @@
     function renderTabs() {
       tabs.innerHTML = AB.visibleSections(nav).map(function (s) {
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
-          '" data-sec="' + s.id + '" style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') +
-          '" href="' + ROOT + '?tab=' + s.id + '">' +
+          '" data-sec="' + s.id + '" style="' + tabVars(s.color) + '" href="' + ROOT + '?tab=' + s.id + '">' +
           AB.icon(s.icon, s.emoji) + s.title +
           (split ? '<span class="ab-chev" aria-label="Pages in ' + s.title + '">\u25be</span>' : '') +
         '</a>';
@@ -248,6 +253,7 @@
         cols = '<div>' + s.pages.map(link).join('') + '</div>';
       }
       mega.style.setProperty('--tabc', color);
+      mega.style.setProperty('--tabcl', SECTION_LUM[s.color] || '#d2ac4b');
       mega.innerHTML = cols +
         '<div class="mfoot">\u21b3 <a href="' + ROOT + '?tab=' + s.id + '">Open the ' + s.title + ' section overview</a></div>';
       mega.classList.add('open');
@@ -299,8 +305,7 @@
     var crumbs = document.createElement('div');
     crumbs.className = 'ab-crumbs';
     crumbs.innerHTML = '<a href="' + ROOT + '">Home</a>' +
-      (section ? '<span class="sep">❯</span><a class="sec" style="--tabc:' +
-        (SECTION_COLOR[section.color] || '#c9a13b') + '" href="' + ROOT + '?tab=' + section.id + '">' +
+      (section ? '<span class="sep">❯</span><a class="sec" style="' + tabVars(section.color) + '" href="' + ROOT + '?tab=' + section.id + '">' +
         section.title + '</a>' : '') +
       (page ? '<span class="sep">❯</span><span class="here">' + page.en + '</span>' : '');
     strip.appendChild(crumbs);
@@ -335,7 +340,7 @@
             inner = s.pages.map(link).join('');
           }
           return '<details class="ab-dr-sec"' + (open ? ' open' : '') +
-            ' style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') + '">' +
+            ' style="' + tabVars(s.color) + '">' +
             '<summary>' + AB.icon(s.icon, s.emoji) + ' ' + s.title + '</summary>' +
             '<div class="ab-dr-body">' + inner + '</div></details>';
         }).join('');

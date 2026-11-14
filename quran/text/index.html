@@ -201,13 +201,13 @@
   }
   .g-en {
     text-align: right; font-family: 'Spectral', Georgia, serif;
-    font-size: .8rem; font-weight: 600; color: #a08a45;
+    font-size: .8rem; font-weight: 600; color: var(--abd-a08a45, #8a6d22);
     padding-top: .35em; user-select: none;
   }
   .g-body { direction: rtl; text-align: right; min-width: 0; }
   .g-ar {
     text-align: left; direction: rtl; white-space: nowrap;
-    font-size: calc(1.05rem * var(--mushaf-scale, 1)); color: var(--gold);
+    font-size: calc(1.05rem * var(--mushaf-scale, 1)); color: var(--abd-a08a45, #8a6d22);
     user-select: none;
   }
   @media (max-width: 560px) { .ayah-row { grid-template-columns: 1.6rem 1fr 2.5rem; gap: .35rem; } }
@@ -300,6 +300,34 @@
     .mushaf { font-size: calc(1.45rem * var(--mushaf-scale)); line-height: 2.2; padding: 1.2rem 1rem; }
   }
   @media (prefers-reduced-motion: reduce) { .btn, .pager-btn, .ayah { transition: none; } }
+</style>
+<style>
+  /* ———— dark mode (unlocked Nov 14): brightened tajweed + dark surfaces ———— */
+  html[data-theme="dark"] body {
+    --tj-ghunnah:   #3ddfb2;
+    --tj-qalqalah:  #5fd0ff;
+    --tj-madd2:     #cf8df5;
+    --tj-madd246:   #ffa45c;
+    --tj-madd45:    #ff7aa8;
+    --tj-madd6:     #ff8f8f;
+    --tj-idgham:    #7fe08a;
+    --tj-ikhfa:     #e08df0;
+    --tj-iqlab:     #6fb7ff;
+    --tj-silent:    #9d9aa8;
+  }
+  html[data-theme="dark"] .mushaf { background: var(--surface, #211d2e); color: #ece4d2; border-color: #332d44; }
+  html[data-theme="dark"] .g-en { color: #d2ac4b; }
+  html[data-theme="dark"] .g-ar { color: #d2ac4b; }
+  html[data-theme="dark"] .ayah-row + .ayah-row { border-top-color: #332d44; }
+  html[data-theme="dark"] .ayah-en { color: #b7b5a6; }
+  html[data-theme="dark"] .ayah-row[data-hl="gold"] { background: #4a3c14; }
+  html[data-theme="dark"] .ayah-row[data-hl="mint"] { background: #1d3a28; }
+  html[data-theme="dark"] .ayah-row[data-hl="rose"] { background: #46202c; }
+  html[data-theme="dark"] .hlbar { background: var(--surface, #211d2e); border-color: #332d44; }
+  html[data-theme="dark"] .hlbar .dot.on { border-color: #d98aa6; }
+  html[data-theme="dark"] .legend { color: #b7b5a6; }
+  html[data-theme="dark"] .surah-title .arabic { color: #d98aa6; }
+  html[data-theme="dark"] .builder { background: var(--surface, #211d2e); border-color: #4a4260; }
 </style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>

@@ -297,3 +297,112 @@ body.ab-has-strip header .header-logo, body.ab-has-strip header img.header-logo 
 @media (prefers-reduced-motion: reduce) {
   .ab-strip *, .ab-pop, .ab-note .ab-bubble, .ab-hovercard { transition: none !important; }
 }
+
+/* ═══════ dark-mode fixes from the Nov 14 full-site audit ═══════ */
+/* section colors used as TEXT switch to their luminous twins */
+html[data-theme="dark"] .ab-crumbs a.sec { color: var(--tabcl, var(--ab-gold)); border-bottom-color: var(--tabcl, var(--ab-gold)); }
+html[data-theme="dark"] .ab-tab:not(.on) .ab-ic, html[data-theme="dark"] .ab-tab:not(.on) .ab-em { color: var(--tabcl, currentColor); }
+html[data-theme="dark"] .ab-dr-sec summary { color: var(--tabcl, var(--ab-ink)); }
+html[data-theme="dark"] .ab-dr-page.here { color: var(--tabcl, var(--ab-gold)); background: color-mix(in srgb, var(--tabcl, var(--ab-gold)) 16%, transparent); }
+html[data-theme="dark"] .ab-mega a.here, html[data-theme="dark"] .ab-mega a:hover,
+html[data-theme="dark"] .ab-mega .mfoot a { color: var(--tabcl, var(--ab-gold)); }
+/* solid buttons whose fill flips luminous need dark text in dark mode */
+html[data-theme="dark"] body :is(.item a.act, .say-it a.btn, .cta .btn, .btn:not(.ghost):not(.pager-btn)) { }
+html[data-theme="dark"] .item a.act { color: #171420; }
+html[data-theme="dark"] .item a.act.passage { background: #d98aa6; color: #171420; }
+/* cards/strips with hard-coded light fills */
+html[data-theme="dark"] .times .t { background: #262134; border-color: #332d44; }
+html[data-theme="dark"] .times .t .val { color: #ece4d2; }
+html[data-theme="dark"] button.check { color: #ece4d2; border-color: var(--ab-gold); }
+html[data-theme="dark"] .audio-btn { border-color: #8fa2e8; color: #8fa2e8; }
+html[data-theme="dark"] .audio-btn.sound-btn { border-color: #d2ac4b; color: #d2ac4b; }
+html[data-theme="dark"] .audio-btn:hover { background: #8fa2e8; color: #171420; }
+html[data-theme="dark"] .audio-btn.sound-btn:hover { background: #d2ac4b; color: #171420; }
+/* fixed-color bands keep light text whatever the theme */
+html[data-theme="dark"] .pledge, .pledge { }
+.pledge { color: #f7f2e7 !important; }
+.pledge .floor { color: rgba(247,242,231,.75) !important; }
+html[data-theme="dark"] .camp .kind, html[data-theme="dark"] .kind { color: var(--ab-gold); }
+html[data-theme="dark"] .camp h2, html[data-theme="dark"] .body .t { color: #ece4d2; }
+html[data-theme="dark"] .body .host, html[data-theme="dark"] .body .notes { color: #b7b5a6; }
+html[data-theme="dark"] :is(.camp, .card, .item, .sec, .node) :is(h2, h3, .en) { color: #ece4d2; }
+html[data-theme="dark"] .node .arabic { color: #8fa2e8; }
+html[data-theme="dark"] .node .sub, html[data-theme="dark"] .sidenote { color: #b7b5a6; }
+html[data-theme="dark"] .say-it, html[data-theme="dark"] .say-it a { color: #171420; }
+html[data-theme="dark"] .sec h3 { color: var(--primary); }
+html[data-theme="dark"] .sec p { color: #b7b5a6; }
+html[data-theme="dark"] .ph-note { color: #d2ac4b; }
+html[data-theme="dark"] .desc, html[data-theme="dark"] p.desc { color: #b7b5a6; }
+html[data-theme="dark"] .camp.placeholder, html[data-theme="dark"] .card.placeholder { background: transparent; }
+html[data-theme="dark"] .traces { color: #4a4260 !important; }
+html[data-theme="dark"] .tile { color: #ece4d2; }
+html[data-theme="dark"] .steps a, html[data-theme="dark"] .watch a, html[data-theme="dark"] .vid a { color: #8fd0ff; }
+html[data-theme="dark"] .audio-note { color: #d2ac4b; }
+html[data-theme="dark"] .teacher { color: #b1a3e3; }
+html[data-theme="dark"] .tracker td, html[data-theme="dark"] td { color: #ece4d2; }
+html[data-theme="dark"] .doc-controls { background: var(--ab-surface); }
+
+/* audit round 2: context-specific corrections */
+html[data-theme="dark"] :is(.cta .btn, a.btn[href^="mailto"], .cta-band .btn) { color: #171420 !important; }
+html[data-theme="dark"] button.btn { color: #ece4d2; }
+html[data-theme="dark"] .vid, html[data-theme="dark"] .watch { background: #262134 !important; }
+html[data-theme="dark"] .audio-note { background: #262134 !important; border-color: #4a4260; }
+html[data-theme="dark"] .pane-head { color: #36121f; font-weight: 600; }
+.pledge .kind { color: #e3cf8f !important; }
+html[data-theme="dark"] .steps a { color: #8fd0ff; }
+
+/* audit round 3: hard-coded light card fills go dark */
+html[data-theme="dark"] body :is(div.evt, div.prog, div.sec, div.node, .node.hero) {
+  background: var(--ab-surface) !important; border-color: var(--ab-rule) !important;
+}
+html[data-theme="dark"] body :is(span.badge, span.lvl, span.ph-note, .chip) {
+  background: transparent !important; border: 1px solid currentColor;
+}
+html[data-theme="dark"] body td { background-color: transparent !important; }
+
+/* audit round 4: last two */
+html[data-theme="dark"] .traces { color: #6e6596 !important; }  /* tracing guides: faint by design, 3:1 at display size */
+html[data-theme="dark"] .sidenote { background: var(--ab-surface) !important; border-color: var(--ab-rule) !important; color: #b7b5a6 !important; }
+
+/* light-mode legibility: brand-gold micro-labels deepen to readable gold-brown */
+html:not([data-theme="dark"]) body :is(th, .kind, .camp .kind, span.kind, .tier-amt, .word-bank-title,
+  .step-no, .eyebrow-label, .count) { color: #8a6d22; }
+html:not([data-theme="dark"]) body :is(.soon, span.soon, .due) { color: #76746a; }
+html:not([data-theme="dark"]) body :is(.muted, p.muted, div.muted, .ph-note, .g, .jmsg, .gap-label, .d, .aud, .src, .empty, .doc-footnote, td.meta, td.meta a, .pendtxt, .ar.pending) { color: #605e54; }
+html:not([data-theme="dark"]) .pledge .kind, html:not([data-theme="dark"]) .season-month { color: #e3cf8f !important; }
+
+/* audit round 5 — final pass */
+/* banner subtitles stay light on their colored banners */
+html:not([data-theme="dark"]) body > header .sub { color: rgba(247,242,231,.88) !important; }
+html:not([data-theme="dark"]) main .sub, html:not([data-theme="dark"]) .card .sub { color: #605e54; }
+/* status chips keep their hue, darkened to read on their tints */
+html:not([data-theme="dark"]) :is(span.badge, span.chip, span.st, span.lbl, span.ev, .yr, span.kind, .s-tier, .pstat) { filter: saturate(1.05) brightness(.68); }
+html:not([data-theme="dark"]) th { color: #8a6d22 !important; }
+html:not([data-theme="dark"]) :is(.times .t .ar, .doc-footnote) { color: #8a6d22; }
+/* dark: light-fixed containers + label corrections */
+html[data-theme="dark"] .country-head { background: #262134 !important; border-color: #332d44 !important; }
+html[data-theme="dark"] .card .top :is(.theme, .num) { color: #171420; }
+html[data-theme="dark"] :is(.pager-label, .zoom-label) { color: #ece4d2; }
+html[data-theme="dark"] body :is(span.st, span.lbl, span.ev, span.aud) { background: transparent !important; border: 1px solid currentColor; }
+html[data-theme="dark"] .pcard .arb { color: var(--tabcl, #b4aec6) !important; }
+
+/* audit round 6 — closing items */
+/* gold Amiri section subtitles deepen in light so they read on cream */
+html:not([data-theme="dark"]) :is(.group-title .ar, .topic-head .ar, .slide-body .ar,
+  .country-head .names .ar, .times .t .ar, .node .rank, .audio-note, .k, #scopeCount,
+  td.ref, tr.placeholder td, .masthead .wm .ar) { color: #8a6d22 !important; }
+html:not([data-theme="dark"]) .impact .imp.placeholder .n { color: #76746a; }
+/* dark-headed tables keep a light gold header where their thead band is dark */
+/* say-it child Arabic follows its band's dark text in dark mode */
+html[data-theme="dark"] .say-it .ar { color: #171420; }
+html[data-theme="dark"] .stage .ph-note { color: #7a5f17; }
+
+/* audit round 7 */
+html:not([data-theme="dark"]) div.sec > p { color: #605e54; }
+html:not([data-theme="dark"]) .ab-crumbs a.sec { color: var(--tabcd, var(--tabc, inherit)); }
+
+/* audit round 8 — last mile */
+html:not([data-theme="dark"]) .tools a span { color: #605e54; }
+html[data-theme="dark"] .post .p-pin { color: #d2ac4b; }
+html[data-theme="dark"] .legend span, html[data-theme="dark"] .zones .desc,
+html[data-theme="dark"] .zone span, html[data-theme="dark"] li span { color: #d8d4c8; }

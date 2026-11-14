@@ -132,10 +132,10 @@
 
   .post .p-pin {
     font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
+    color: #8a6d22; border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
   }
 
-  .post .p-date { margin-left: auto; font-size: .76rem; color: var(--abd-8a887c, #8a887c); white-space: nowrap; }
+  .post .p-date { margin-left: auto; font-size: .76rem; color: var(--abd-8a887c, #605e54); white-space: nowrap; }
 
   .post .p-body {
     padding: 0 1rem .9rem; border-top: 1px dashed var(--vellum-dim);
@@ -144,7 +144,7 @@
 
   .post .p-body p { margin-top: .7rem; }
 
-  .post .p-author { font-size: .76rem; color: var(--abd-8a887c, #8a887c); font-style: italic; margin-top: .6rem; }
+  .post .p-author { font-size: .76rem; color: var(--abd-8a887c, #605e54); font-style: italic; margin-top: .6rem; }
 
 
   .season-banner {
@@ -165,6 +165,10 @@
     color: var(--gold-soft);
   }
 
+  .season-inner { color: #f7f2e7 !important; }
+  .season-inner .season-month { color: #e3cf8f !important; }
+  .season-links a { color: #e3cf8f !important; border-color: rgba(227,207,143,.6) !important; }
+  .season-links a:hover { background: var(--gold); color: #11343a !important; }
   .season-theme { font-size: 1.05rem; margin-top: .2rem; }
 
   .season-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; }
@@ -240,7 +244,7 @@
   details.pack summary::-webkit-details-marker { display: none; }
   details.pack summary .chev { margin-left: auto; color: var(--gold); transition: transform .18s; }
   details.pack[open] summary .chev { transform: rotate(90deg); }
-  details.pack summary .cnt { font-size: .72rem; color: var(--abd-9a9cb3, #9a9cb3); }
+  details.pack summary .cnt { font-size: .72rem; color: var(--abd-9a9cb3, #76746a); }
   details.pack .packbody { padding: 0 .8rem .8rem; }
 
   .rail { display: none; position: fixed; left: max(8px, calc(50vw - 510px - 218px)); top: 128px; width: 200px;
@@ -288,7 +292,7 @@
   .rail .rsec.closed .rchev { transform: rotate(-90deg); }
   .rail .rsec.closed .rbody { display: none; }
   .rail .rgroup { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--ab-muted2, #8a887c); padding: .3rem 0 .1rem 1.15rem; }
+    color: var(--ab-muted2, #76746a); padding: .3rem 0 .1rem 1.15rem; }
   .rail .rpage { display: block; text-decoration: none; color: var(--ab-muted2, #6b6a60);
     padding: .16rem .3rem .16rem 1.7rem; border-radius: 6px; line-height: 1.3; }
   .rail .rpage:hover { color: var(--ink); background: var(--vellum); }
@@ -304,7 +308,7 @@
     border-radius: 12px; padding: .65rem .5rem .6rem; text-align: center;
   }
   .impact .imp.placeholder { border-style: dashed; border-color: #cbbf9d; background: transparent; }
-  .impact .imp .n { font-size: 1.25rem; font-weight: 600; color: var(--gold); line-height: 1.1; }
+  .impact .imp .n { font-size: 1.25rem; font-weight: 600; color: var(--abd-a08a45, #9c7a1f); line-height: 1.1; }
   .impact .imp.placeholder .n { color: var(--ab-muted2, #9a9cb3); }
   .impact .imp .l { font-size: .66rem; letter-spacing: .04em; color: var(--ab-muted2, #6b6a60); margin-top: .2rem; line-height: 1.35; }
   .ab-hovercard, .ab-note .ab-bubble { z-index: 999 !important; }
