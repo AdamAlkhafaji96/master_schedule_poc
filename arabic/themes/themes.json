@@ -1,0 +1,293 @@
+{
+ "note": "Theme word bank — physical picture-card deck, not tied to vocab levels. One seed card per theme from the first scan; add the rest as cards are scanned. Card schema: num, en, ar, en_ipa, ar_ipa, en_sent, ar_sent (empty string = pending scan). card_range = [first, last] card number for the theme (last null = open-ended).",
+ "themes": [
+  {
+   "name": "Action Verbs",
+   "cards": [
+    {
+     "num": 1,
+     "en": "Ask",
+     "ar": "يسأل \\ يطلب",
+     "en_ipa": "[æsk]",
+     "ar_ipa": "[jas.ʔal] / [jatˤ.lub]",
+     "en_sent": "I'm going to ask for help.",
+     "ar_sent": "سأطلب المساعدة."
+    }
+   ],
+   "card_range": [
+    1,
+    18
+   ]
+  },
+  {
+   "name": "Animals",
+   "cards": [
+    {
+     "num": 19,
+     "en": "Dog",
+     "ar": "كلب",
+     "en_ipa": "[dɔg]",
+     "ar_ipa": "[kalb]",
+     "en_sent": "Can you see the dog?",
+     "ar_sent": "هل تستطيع رؤية الكلب؟"
+    }
+   ],
+   "card_range": [
+    19,
+    39
+   ]
+  },
+  {
+   "name": "Home",
+   "cards": [
+    {
+     "num": 40,
+     "en": "Backyard",
+     "ar": "فناء خلفي",
+     "en_ipa": "[ˈbæk.jɑɹd]",
+     "ar_ipa": "[fi.naːʔ xal.fiː]",
+     "en_sent": "Go play in the backyard.",
+     "ar_sent": "اذهب للعب في الفناء الخلفي."
+    }
+   ],
+   "card_range": [
+    40,
+    62
+   ]
+  },
+  {
+   "name": "Clothing",
+   "cards": [
+    {
+     "num": 63,
+     "en": "Shirt",
+     "ar": "قميص",
+     "en_ipa": "[ʃɜt]",
+     "ar_ipa": "[qa.miːsˤ]",
+     "en_sent": "This is my red shirt.",
+     "ar_sent": "هذا قميصي الأحمر."
+    }
+   ],
+   "card_range": [
+    63,
+    80
+   ]
+  },
+  {
+   "name": "Feelings",
+   "cards": [
+    {
+     "num": 81,
+     "en": "Happy",
+     "ar": "سعيد",
+     "en_ipa": "[ˈhæpi]",
+     "ar_ipa": "[sa.ʕiːd]",
+     "en_sent": "You look very happy!",
+     "ar_sent": "تبدو سعيدا جدا!"
+    }
+   ],
+   "card_range": [
+    81,
+    101
+   ]
+  },
+  {
+   "name": "Food & Drink",
+   "cards": [
+    {
+     "num": 102,
+     "en": "Coffee",
+     "ar": "قهوة",
+     "en_ipa": "[ˈkɔfi]",
+     "ar_ipa": "[qah.wa]",
+     "en_sent": "I drink my coffee with cream.",
+     "ar_sent": "أشرب قهوتي مع الكريمة."
+    }
+   ],
+   "card_range": [
+    102,
+    123
+   ]
+  },
+  {
+   "name": "Health & Emergency",
+   "cards": [
+    {
+     "num": 124,
+     "en": "Hospital",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    124,
+    147
+   ]
+  },
+  {
+   "name": "People & Family",
+   "cards": [
+    {
+     "num": 148,
+     "en": "Father",
+     "ar": "أب",
+     "en_ipa": "[ˈfɑðɚ]",
+     "ar_ipa": "[ʔab]",
+     "en_sent": "My father is a tall man.",
+     "ar_sent": "أبي رجل طويل القامة."
+    }
+   ],
+   "card_range": [
+    148,
+    167
+   ]
+  },
+  {
+   "name": "Personal Hygiene",
+   "cards": [
+    {
+     "num": 168,
+     "en": "Soap",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    168,
+    184
+   ]
+  },
+  {
+   "name": "Places",
+   "cards": [
+    {
+     "num": 185,
+     "en": "School",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    185,
+    205
+   ]
+  },
+  {
+   "name": "Transportation",
+   "cards": [
+    {
+     "num": 206,
+     "en": "Car",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    206,
+    226
+   ]
+  },
+  {
+   "name": "Weather",
+   "cards": [
+    {
+     "num": 227,
+     "en": "Windy",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    227,
+    240
+   ]
+  },
+  {
+   "name": "Seasons",
+   "cards": [
+    {
+     "num": 241,
+     "en": "Spring",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    241,
+    244
+   ]
+  },
+  {
+   "name": "Months",
+   "cards": [
+    {
+     "num": 245,
+     "en": "January",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    245,
+    256
+   ]
+  },
+  {
+   "name": "Time",
+   "cards": [
+    {
+     "num": 257,
+     "en": "Morning",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    257,
+    274
+   ]
+  },
+  {
+   "name": "Numbers",
+   "cards": [
+    {
+     "num": 275,
+     "en": "One",
+     "ar": "",
+     "en_ipa": "",
+     "ar_ipa": "",
+     "en_sent": "",
+     "ar_sent": ""
+    }
+   ],
+   "card_range": [
+    275,
+    null
+   ]
+  }
+ ]
+}

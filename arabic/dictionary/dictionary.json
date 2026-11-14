@@ -1,5 +1,5 @@
 {
- "count": 284,
+ "count": 429,
  "entries": [
   {
    "ar": "أَب",
@@ -8,6 +8,15 @@
    "en": "Father",
    "src": [
     "Arabic L1 · Family"
+   ]
+  },
+  {
+   "ar": "أَبَدًا",
+   "bare": "ابدا",
+   "tr": "Abadan",
+   "en": "Never",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
    ]
   },
   {
@@ -20,12 +29,57 @@
    ]
   },
   {
+   "ar": "اِتِّجَاه",
+   "bare": "اتجاه",
+   "tr": "Ittijah",
+   "en": "Direction",
+   "src": [
+    "Arabic L3 · Journeys & places"
+   ]
+  },
+  {
+   "ar": "اِتِّفَاق",
+   "bare": "اتفاق",
+   "tr": "Ittifaq",
+   "en": "Agreement",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
    "ar": "اِثْنَان",
    "bare": "اثنان",
    "tr": "Ithnan",
    "en": "Two",
    "src": [
     "Arabic L1 · Numbers in use"
+   ]
+  },
+  {
+   "ar": "اِجْتِهَاد",
+   "bare": "اجتهاد",
+   "tr": "Ijtihad",
+   "en": "Independent reasoning",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
+   ]
+  },
+  {
+   "ar": "اِجْتَهَدَ",
+   "bare": "اجتهد",
+   "tr": "Ijtahada",
+   "en": "He strove",
+   "src": [
+    "Arabic L4 · Advanced verbs"
+   ]
+  },
+  {
+   "ar": "اِحْتِرَام",
+   "bare": "احترام",
+   "tr": "Ihtiram",
+   "en": "Respect",
+   "src": [
+    "Arabic L3 · Character & virtues"
    ]
   },
   {
@@ -41,8 +95,9 @@
    "ar": "إِحْسَان",
    "bare": "احسان",
    "tr": "Ihsan",
-   "en": "Excellence in faith",
+   "en": "Excellence / benevolence; Excellence in faith",
    "src": [
+    "Arabic L4 · Society & ethics",
     "Islamic Studies · Jumada al-Awwal"
    ]
   },
@@ -74,6 +129,24 @@
    ]
   },
   {
+   "ar": "اِخْتِلَاف",
+   "bare": "اختلاف",
+   "tr": "Ikhtilaf",
+   "en": "Disagreement",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
+   "ar": "آخِرَة",
+   "bare": "اخرة",
+   "tr": "Akhirah",
+   "en": "Hereafter",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
    "ar": "أَخْضَر",
    "bare": "اخضر",
    "tr": "Akhdar",
@@ -86,8 +159,9 @@
    "ar": "أَخْلَاق",
    "bare": "اخلاق",
    "tr": "Akhlaq",
-   "en": "Manners, ethics",
+   "en": "Ethics; Manners, ethics",
    "src": [
+    "Arabic L4 · Society & ethics",
     "Islamic Studies · Jumada al-Awwal"
    ]
   },
@@ -98,6 +172,15 @@
    "en": "Last",
    "src": [
     "Arabic L1 · Numbers in use"
+   ]
+  },
+  {
+   "ar": "إِذَا",
+   "bare": "اذا",
+   "tr": "Idha",
+   "en": "If",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
    ]
   },
   {
@@ -164,6 +247,33 @@
    ]
   },
   {
+   "ar": "اِسْتَغْفَرَ",
+   "bare": "استغفر",
+   "tr": "Istaghfara",
+   "en": "He sought forgiveness",
+   "src": [
+    "Arabic L4 · Advanced verbs"
+   ]
+  },
+  {
+   "ar": "اِسْتَقَامَ",
+   "bare": "استقام",
+   "tr": "Istaqama",
+   "en": "He remained upright",
+   "src": [
+    "Arabic L4 · Advanced verbs"
+   ]
+  },
+  {
+   "ar": "اِسْتَمَرَّ",
+   "bare": "استمر",
+   "tr": "Istamarra",
+   "en": "He continued",
+   "src": [
+    "Arabic L4 · Advanced verbs"
+   ]
+  },
+  {
    "ar": "أَسَد",
    "bare": "اسد",
    "tr": "Asad",
@@ -194,9 +304,10 @@
    "ar": "اِسْم",
    "bare": "اسم",
    "tr": "Ism",
-   "en": "Name",
+   "en": "Name; Noun",
    "src": [
-    "Arabic L1 · Greetings & introductions"
+    "Arabic L1 · Greetings & introductions",
+    "Arabic L4 · Grammar (Nahw) terms"
    ]
   },
   {
@@ -236,12 +347,39 @@
    ]
   },
   {
+   "ar": "إِعْرَاب",
+   "bare": "اعراب",
+   "tr": "I'rab",
+   "en": "Grammatical analysis",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
+   ]
+  },
+  {
    "ar": "إِفْطَار",
    "bare": "افطار",
    "tr": "Iftar",
    "en": "Breaking the fast",
    "src": [
     "Islamic Studies · Ramadan"
+   ]
+  },
+  {
+   "ar": "أُفُق",
+   "bare": "افق",
+   "tr": "Ufuq",
+   "en": "Horizon",
+   "src": [
+    "Arabic L3 · Creation & the sky"
+   ]
+  },
+  {
+   "ar": "اِقْتِرَاح",
+   "bare": "اقتراح",
+   "tr": "Iqtirah",
+   "en": "Proposal",
+   "src": [
+    "Arabic L4 · Debate & discussion"
    ]
   },
   {
@@ -296,6 +434,7 @@
    "tr": "Amanah",
    "en": "Trustworthiness",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
    ]
   },
@@ -305,7 +444,8 @@
    "tr": "Imtihan",
    "en": "Exam",
    "src": [
-    "Arabic L2 · School subjects"
+    "Arabic L2 · School subjects",
+    "Arabic L3 · Lessons & learning"
    ]
   },
   {
@@ -333,6 +473,15 @@
    "en": "You (m.); You (f.)",
    "src": [
     "Arabic L1 · Greetings & introductions"
+   ]
+  },
+  {
+   "ar": "اِنْتَصَرَ",
+   "bare": "انتصر",
+   "tr": "Intasara",
+   "en": "He was victorious",
+   "src": [
+    "Arabic L4 · Advanced verbs"
    ]
   },
   {
@@ -366,9 +515,19 @@
    "ar": "آيَة",
    "bare": "اية",
    "tr": "Ayah",
-   "en": "Verse; sign",
+   "en": "Verse / sign; Verse; sign",
    "src": [
+    "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rabi' al-Thani"
+   ]
+  },
+  {
+   "ar": "إِيمَان",
+   "bare": "ايمان",
+   "tr": "Iman",
+   "en": "Faith",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
    ]
   },
   {
@@ -413,6 +572,7 @@
    "tr": "Barakah",
    "en": "Blessing",
    "src": [
+    "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
    ]
   },
@@ -426,6 +586,24 @@
    ]
   },
   {
+   "ar": "بَعْث",
+   "bare": "بعث",
+   "tr": "Ba'th",
+   "en": "Resurrection",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
+   "ar": "بَعْدَ",
+   "bare": "بعد",
+   "tr": "Ba'da",
+   "en": "After",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
+   ]
+  },
+  {
    "ar": "بَعِيد",
    "bare": "بعيد",
    "tr": "Ba'id",
@@ -435,12 +613,39 @@
    ]
   },
   {
+   "ar": "بَلَاغَة",
+   "bare": "بلاغة",
+   "tr": "Balaghah",
+   "en": "Eloquence",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "بَنَّاء",
+   "bare": "بناء",
+   "tr": "Banna'",
+   "en": "Builder",
+   "src": [
+    "Arabic L3 · Trades & crafts"
+   ]
+  },
+  {
    "ar": "بَيْت",
    "bare": "بيت",
    "tr": "Bayt",
    "en": "House, home",
    "src": [
     "Arabic L1 · Family"
+   ]
+  },
+  {
+   "ar": "تَأْثِير",
+   "bare": "تاثير",
+   "tr": "Ta'thir",
+   "en": "Influence",
+   "src": [
+    "Arabic L4 · Abstract concepts"
    ]
   },
   {
@@ -458,7 +663,8 @@
    "tr": "Tarikh",
    "en": "History",
    "src": [
-    "Arabic L2 · School subjects"
+    "Arabic L2 · School subjects",
+    "Arabic L4 · History & civilization"
    ]
   },
   {
@@ -471,11 +677,12 @@
    ]
   },
   {
-   "ar": "تَدَبُّر",
+   "ar": "تَدَبَّرَ",
    "bare": "تدبر",
-   "tr": "Tadabbur",
-   "en": "Deep reflection",
+   "tr": "Tadabbara",
+   "en": "He pondered deeply; Deep reflection",
    "src": [
+    "Arabic L4 · Advanced verbs",
     "Islamic Studies · Rabi' al-Thani"
    ]
   },
@@ -489,12 +696,39 @@
    ]
   },
   {
+   "ar": "تُرَاث",
+   "bare": "تراث",
+   "tr": "Turath",
+   "en": "Heritage",
+   "src": [
+    "Arabic L4 · History & civilization"
+   ]
+  },
+  {
    "ar": "تَرَاوِيح",
    "bare": "تراويح",
    "tr": "Tarawih",
    "en": "Night prayers of Ramadan",
    "src": [
     "Islamic Studies · Ramadan"
+   ]
+  },
+  {
+   "ar": "تَشْبِيه",
+   "bare": "تشبيه",
+   "tr": "Tashbih",
+   "en": "Simile",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "تَعَاوُن",
+   "bare": "تعاون",
+   "tr": "Ta'awun",
+   "en": "Cooperation",
+   "src": [
+    "Arabic L4 · Society & ethics"
    ]
   },
   {
@@ -507,12 +741,40 @@
    ]
   },
   {
+   "ar": "تَفْسِير",
+   "bare": "تفسير",
+   "tr": "Tafsir",
+   "en": "Quranic exegesis",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
+   ]
+  },
+  {
+   "ar": "تَفَكَّرَ",
+   "bare": "تفكر",
+   "tr": "Tafakkara",
+   "en": "He reflected",
+   "src": [
+    "Arabic L4 · Advanced verbs"
+   ]
+  },
+  {
    "ar": "تَقْوَى",
    "bare": "تقوى",
    "tr": "Taqwa",
    "en": "God-consciousness",
    "src": [
+    "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Muharram"
+   ]
+  },
+  {
+   "ar": "تَقْوِيم",
+   "bare": "تقويم",
+   "tr": "Taqwim",
+   "en": "Calendar",
+   "src": [
+    "Arabic L3 · Time & the calendar"
    ]
   },
   {
@@ -545,9 +807,10 @@
   {
    "ar": "تَوَاضُع",
    "bare": "تواضع",
-   "tr": "Tawadu",
+   "tr": "Tawadu'",
    "en": "Humility",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
    ]
   },
@@ -557,15 +820,26 @@
    "tr": "Tawbah",
    "en": "Repentance",
    "src": [
+    "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
    ]
   },
   {
-   "ar": "تَوَكُّل",
-   "bare": "توكل",
-   "tr": "Tawakkul",
-   "en": "Trust in Allah",
+   "ar": "تَوْحِيد",
+   "bare": "توحيد",
+   "tr": "Tawhid",
+   "en": "Monotheism",
    "src": [
+    "Arabic L4 · Aqidah & belief"
+   ]
+  },
+  {
+   "ar": "تَوَكَّلَ",
+   "bare": "توكل",
+   "tr": "Tawakkala",
+   "en": "He relied (on God); Trust in Allah",
+   "src": [
+    "Arabic L4 · Advanced verbs",
     "Islamic Studies · Safar"
    ]
   },
@@ -606,6 +880,15 @@
    ]
   },
   {
+   "ar": "جَار",
+   "bare": "جار",
+   "tr": "Jar",
+   "en": "Neighbor",
+   "src": [
+    "Arabic L3 · The masjid & community"
+   ]
+  },
+  {
    "ar": "جَبَل",
    "bare": "جبل",
    "tr": "Jabal",
@@ -642,6 +925,24 @@
    ]
   },
   {
+   "ar": "جِسْر",
+   "bare": "جسر",
+   "tr": "Jisr",
+   "en": "Bridge",
+   "src": [
+    "Arabic L3 · Journeys & places"
+   ]
+  },
+  {
+   "ar": "جِسْم",
+   "bare": "جسم",
+   "tr": "Jism",
+   "en": "Body",
+   "src": [
+    "Arabic L3 · Health & the self"
+   ]
+  },
+  {
    "ar": "جُغْرَافِيَا",
    "bare": "جغرافيا",
    "tr": "Jughrafiya",
@@ -656,6 +957,7 @@
    "tr": "Jama'ah",
    "en": "Congregation",
    "src": [
+    "Arabic L3 · The masjid & community",
     "Islamic Studies · Jumada al-Thani"
    ]
   },
@@ -666,6 +968,24 @@
    "en": "Camel",
    "src": [
     "Arabic L1 · Animals"
+   ]
+  },
+  {
+   "ar": "جَنَّة",
+   "bare": "جنة",
+   "tr": "Jannah",
+   "en": "Paradise",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
+   "ar": "جَوَاب",
+   "bare": "جواب",
+   "tr": "Jawab",
+   "en": "Answer",
+   "src": [
+    "Arabic L3 · Lessons & learning"
    ]
   },
   {
@@ -723,12 +1043,49 @@
    ]
   },
   {
+   "ar": "حُجَّة",
+   "bare": "حجة",
+   "tr": "Hujjah",
+   "en": "Argument / proof",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
+   "ar": "حَدَّاد",
+   "bare": "حداد",
+   "tr": "Haddad",
+   "en": "Blacksmith",
+   "src": [
+    "Arabic L3 · Trades & crafts"
+   ]
+  },
+  {
+   "ar": "حُدُود",
+   "bare": "حدود",
+   "tr": "Hudud",
+   "en": "Borders",
+   "src": [
+    "Arabic L3 · Journeys & places"
+   ]
+  },
+  {
+   "ar": "حَدِيث",
+   "bare": "حديث",
+   "tr": "Hadith",
+   "en": "Prophetic narration",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
+   ]
+  },
+  {
    "ar": "حَدِيقَة",
    "bare": "حديقة",
    "tr": "Hadiqah",
-   "en": "Garden, park",
+   "en": "Garden, park; Park / garden",
    "src": [
-    "Arabic L2 · Places in town"
+    "Arabic L2 · Places in town",
+    "Arabic L3 · The city & civic life"
    ]
   },
   {
@@ -741,6 +1098,42 @@
    ]
   },
   {
+   "ar": "حَرَام",
+   "bare": "حرام",
+   "tr": "Haram",
+   "en": "Forbidden",
+   "src": [
+    "Arabic L4 · Fiqh & worship"
+   ]
+  },
+  {
+   "ar": "حَرْف",
+   "bare": "حرف",
+   "tr": "Harf",
+   "en": "Particle",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
+   ]
+  },
+  {
+   "ar": "حِرْفَة",
+   "bare": "حرفة",
+   "tr": "Hirfah",
+   "en": "Craft",
+   "src": [
+    "Arabic L3 · Trades & crafts"
+   ]
+  },
+  {
+   "ar": "حُرِّيَّة",
+   "bare": "حرية",
+   "tr": "Hurriyyah",
+   "en": "Freedom",
+   "src": [
+    "Arabic L4 · Society & ethics"
+   ]
+  },
+  {
    "ar": "حَزِين",
    "bare": "حزين",
    "tr": "Hazin",
@@ -750,12 +1143,30 @@
    ]
   },
   {
+   "ar": "حِسَاب",
+   "bare": "حساب",
+   "tr": "Hisab",
+   "en": "Reckoning",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
    "ar": "حِصَان",
    "bare": "حصان",
    "tr": "Hisan",
    "en": "Horse",
    "src": [
     "Arabic L1 · Animals"
+   ]
+  },
+  {
+   "ar": "حَضَارَة",
+   "bare": "حضارة",
+   "tr": "Hadarah",
+   "en": "Civilization",
+   "src": [
+    "Arabic L4 · History & civilization"
    ]
   },
   {
@@ -782,7 +1193,17 @@
    "tr": "Hikmah",
    "en": "Wisdom",
    "src": [
+    "Arabic L4 · Knowledge & scholarship",
     "Islamic Studies · Rabi' al-Thani"
+   ]
+  },
+  {
+   "ar": "حَلَال",
+   "bare": "حلال",
+   "tr": "Halal",
+   "en": "Permissible (halal)",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
    ]
   },
   {
@@ -792,6 +1213,15 @@
    "en": "Milk",
    "src": [
     "Arabic L1 · Food & drink"
+   ]
+  },
+  {
+   "ar": "حَيّ",
+   "bare": "حي",
+   "tr": "Hayy",
+   "en": "Neighborhood",
+   "src": [
+    "Arabic L3 · The city & civic life"
    ]
   },
   {
@@ -831,12 +1261,30 @@
    ]
   },
   {
+   "ar": "خَبَر",
+   "bare": "خبر",
+   "tr": "Khabar",
+   "en": "Predicate",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
+   ]
+  },
+  {
    "ar": "خُبْز",
    "bare": "خبز",
    "tr": "Khubz",
    "en": "Bread",
    "src": [
     "Arabic L1 · Food & drink"
+   ]
+  },
+  {
+   "ar": "خَرِيطَة",
+   "bare": "خريطة",
+   "tr": "Kharitah",
+   "en": "Map",
+   "src": [
+    "Arabic L3 · Journeys & places"
    ]
   },
   {
@@ -849,6 +1297,42 @@
    ]
   },
   {
+   "ar": "خِطَابَة",
+   "bare": "خطابة",
+   "tr": "Khitabah",
+   "en": "Oratory",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "خُطْبَة",
+   "bare": "خطبة",
+   "tr": "Khutbah",
+   "en": "Sermon",
+   "src": [
+    "Arabic L3 · The masjid & community"
+   ]
+  },
+  {
+   "ar": "خُلَاصَة",
+   "bare": "خلاصة",
+   "tr": "Khulasah",
+   "en": "Conclusion / summary",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
+   "ar": "خِلَافَة",
+   "bare": "خلافة",
+   "tr": "Khilafah",
+   "en": "Caliphate",
+   "src": [
+    "Arabic L4 · History & civilization"
+   ]
+  },
+  {
    "ar": "خَلْف",
    "bare": "خلف",
    "tr": "Khalf",
@@ -858,12 +1342,22 @@
    ]
   },
   {
-   "ar": "خُلُق",
+   "ar": "خَلْق",
    "bare": "خلق",
-   "tr": "Khuluq",
-   "en": "Character",
+   "tr": "Khalq",
+   "en": "Creation; Character",
    "src": [
+    "Arabic L3 · Creation & the sky",
     "Islamic Studies · Rabi' al-Awwal"
+   ]
+  },
+  {
+   "ar": "خَيَّاط",
+   "bare": "خياط",
+   "tr": "Khayyat",
+   "en": "Tailor",
+   "src": [
+    "Arabic L3 · Trades & crafts"
    ]
   },
   {
@@ -876,12 +1370,22 @@
    ]
   },
   {
+   "ar": "دَائِمًا",
+   "bare": "دايما",
+   "tr": "Da'iman",
+   "en": "Always",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
+   ]
+  },
+  {
    "ar": "دَرْس",
    "bare": "درس",
    "tr": "Dars",
    "en": "Lesson",
    "src": [
-    "Arabic L2 · School subjects"
+    "Arabic L2 · School subjects",
+    "Arabic L3 · Lessons & learning"
    ]
   },
   {
@@ -894,6 +1398,15 @@
    ]
   },
   {
+   "ar": "دَعْوَة",
+   "bare": "دعوة",
+   "tr": "Da'wah",
+   "en": "Invitation",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
+   ]
+  },
+  {
    "ar": "دَفْتَر",
    "bare": "دفتر",
    "tr": "Daftar",
@@ -903,11 +1416,48 @@
    ]
   },
   {
+   "ar": "دَقِيقَة",
+   "bare": "دقيقة",
+   "tr": "Daqiqah",
+   "en": "Minute",
+   "src": [
+    "Arabic L3 · Time & the calendar"
+   ]
+  },
+  {
+   "ar": "دَلِيل",
+   "bare": "دليل",
+   "tr": "Dalil",
+   "en": "Evidence",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
+   "ar": "دُنْيَا",
+   "bare": "دنيا",
+   "tr": "Dunya",
+   "en": "Worldly life",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
+   "ar": "دَوَاء",
+   "bare": "دواء",
+   "tr": "Dawa'",
+   "en": "Medicine",
+   "src": [
+    "Arabic L3 · Health & the self"
+   ]
+  },
+  {
    "ar": "ذِكْر",
    "bare": "ذكر",
    "tr": "Dhikr",
-   "en": "Remembrance of Allah",
+   "en": "Remembrance; Remembrance of Allah",
    "src": [
+    "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
    ]
   },
@@ -921,12 +1471,30 @@
    ]
   },
   {
+   "ar": "رَاحَة",
+   "bare": "راحة",
+   "tr": "Rahah",
+   "en": "Rest",
+   "src": [
+    "Arabic L3 · Health & the self"
+   ]
+  },
+  {
    "ar": "رَأْس",
    "bare": "راس",
    "tr": "Ra's",
    "en": "Head",
    "src": [
     "Arabic L1 · The body"
+   ]
+  },
+  {
+   "ar": "رَأْي",
+   "bare": "راي",
+   "tr": "Ra'y",
+   "en": "Opinion",
+   "src": [
+    "Arabic L4 · Debate & discussion"
    ]
   },
   {
@@ -942,8 +1510,9 @@
    "ar": "رِحْلَة",
    "bare": "رحلة",
    "tr": "Rihlah",
-   "en": "Trip, expedition",
+   "en": "Journey; Trip, expedition",
    "src": [
+    "Arabic L3 · Journeys & places",
     "Islamic Studies · Safar"
    ]
   },
@@ -953,7 +1522,26 @@
    "tr": "Rahmah",
    "en": "Mercy",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Rabi' al-Awwal"
+   ]
+  },
+  {
+   "ar": "رِسَالَة",
+   "bare": "رسالة",
+   "tr": "Risalah",
+   "en": "Prophetic message",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
+   ]
+  },
+  {
+   "ar": "رَسَّام",
+   "bare": "رسام",
+   "tr": "Rassam",
+   "en": "Painter / artist",
+   "src": [
+    "Arabic L3 · Trades & crafts"
    ]
   },
   {
@@ -990,6 +1578,24 @@
    "en": "The month of fasting",
    "src": [
     "Islamic Studies · Sha'ban"
+   ]
+  },
+  {
+   "ar": "رِوَايَة",
+   "bare": "رواية",
+   "tr": "Riwayah",
+   "en": "Narration / transmission",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
+   ]
+  },
+  {
+   "ar": "رُوح",
+   "bare": "روح",
+   "tr": "Ruh",
+   "en": "Soul",
+   "src": [
+    "Arabic L3 · Health & the self"
    ]
   },
   {
@@ -1041,8 +1647,9 @@
    "ar": "زِيَارَة",
    "bare": "زيارة",
    "tr": "Ziyarah",
-   "en": "Visiting (family and friends)",
+   "en": "Visit; Visiting (family and friends)",
    "src": [
+    "Arabic L3 · The masjid & community",
     "Islamic Studies · Shawwal"
    ]
   },
@@ -1052,7 +1659,8 @@
    "tr": "Sa'ah",
    "en": "Hour, clock",
    "src": [
-    "Arabic L2 · Days & time"
+    "Arabic L2 · Days & time",
+    "Arabic L3 · Time & the calendar"
    ]
   },
   {
@@ -1062,6 +1670,15 @@
    "en": "Driver",
    "src": [
     "Arabic L2 · Professions"
+   ]
+  },
+  {
+   "ar": "سَبَب",
+   "bare": "سبب",
+   "tr": "Sabab",
+   "en": "Cause",
+   "src": [
+    "Arabic L4 · Abstract concepts"
    ]
   },
   {
@@ -1158,8 +1775,9 @@
    "ar": "سُنَّة",
    "bare": "سنة",
    "tr": "Sunnah",
-   "en": "The Prophet's way",
+   "en": "Prophetic practice; The Prophet's way",
    "src": [
+    "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Rabi' al-Awwal"
    ]
   },
@@ -1170,6 +1788,15 @@
    "en": "Easy",
    "src": [
     "Arabic L2 · Opposites"
+   ]
+  },
+  {
+   "ar": "سُؤَال",
+   "bare": "سوال",
+   "tr": "Su'al",
+   "en": "Question",
+   "src": [
+    "Arabic L3 · Lessons & learning"
    ]
   },
   {
@@ -1203,8 +1830,9 @@
    "ar": "سِيرَة",
    "bare": "سيرة",
    "tr": "Sirah",
-   "en": "Biography of the Prophet ﷺ",
+   "en": "Prophetic biography; Biography of the Prophet ﷺ",
    "src": [
+    "Arabic L4 · History & civilization",
     "Islamic Studies · Rabi' al-Awwal"
    ]
   },
@@ -1214,7 +1842,8 @@
    "tr": "Shari'",
    "en": "Street",
    "src": [
-    "Arabic L2 · Places in town"
+    "Arabic L2 · Places in town",
+    "Arabic L3 · The city & civic life"
    ]
   },
   {
@@ -1224,6 +1853,15 @@
    "en": "Winter",
    "src": [
     "Arabic L2 · Nature & seasons"
+   ]
+  },
+  {
+   "ar": "شَجَاعَة",
+   "bare": "شجاعة",
+   "tr": "Shaja'ah",
+   "en": "Courage",
+   "src": [
+    "Arabic L3 · Character & virtues"
    ]
   },
   {
@@ -1245,11 +1883,30 @@
    ]
   },
   {
+   "ar": "شِعْر",
+   "bare": "شعر",
+   "tr": "Shi'r",
+   "en": "Poetry",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "شَفَاعَة",
+   "bare": "شفاعة",
+   "tr": "Shafa'ah",
+   "en": "Intercession",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
+   ]
+  },
+  {
    "ar": "شُكْر",
    "bare": "شكر",
    "tr": "Shukr",
-   "en": "Gratitude",
+   "en": "Thanks; Gratitude",
    "src": [
+    "Arabic L3 · Hospitality & the table",
     "Islamic Studies · Shawwal"
    ]
   },
@@ -1295,6 +1952,7 @@
    "tr": "Sabr",
    "en": "Patience",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Muharram"
    ]
   },
@@ -1305,6 +1963,15 @@
    "en": "Companions of the Prophet ﷺ",
    "src": [
     "Islamic Studies · Safar"
+   ]
+  },
+  {
+   "ar": "صِحَّة",
+   "bare": "صحة",
+   "tr": "Sihhah",
+   "en": "Health",
+   "src": [
+    "Arabic L3 · Health & the self"
    ]
   },
   {
@@ -1322,6 +1989,7 @@
    "tr": "Sidq",
    "en": "Honesty",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
    ]
   },
@@ -1329,9 +1997,19 @@
    "ar": "صَدَقَة",
    "bare": "صدقة",
    "tr": "Sadaqah",
-   "en": "Voluntary charity",
+   "en": "Charity; Voluntary charity",
    "src": [
+    "Arabic L4 · Society & ethics",
     "Islamic Studies · Shawwal"
+   ]
+  },
+  {
+   "ar": "صِرَاط",
+   "bare": "صراط",
+   "tr": "Sirat",
+   "en": "Path",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
    ]
   },
   {
@@ -1362,12 +2040,30 @@
    ]
   },
   {
+   "ar": "صِنَاعَة",
+   "bare": "صناعة",
+   "tr": "Sina'ah",
+   "en": "Industry",
+   "src": [
+    "Arabic L3 · Trades & crafts"
+   ]
+  },
+  {
    "ar": "صَوْم",
    "bare": "صوم",
    "tr": "Sawm",
    "en": "The fast",
    "src": [
     "Islamic Studies · Ramadan"
+   ]
+  },
+  {
+   "ar": "صَيَّاد",
+   "bare": "صياد",
+   "tr": "Sayyad",
+   "en": "Fisherman / hunter",
+   "src": [
+    "Arabic L3 · Trades & crafts"
    ]
   },
   {
@@ -1386,6 +2082,15 @@
    "en": "Summer",
    "src": [
     "Arabic L2 · Nature & seasons"
+   ]
+  },
+  {
+   "ar": "ضَيْف",
+   "bare": "ضيف",
+   "tr": "Dayf",
+   "en": "Guest",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
    ]
   },
   {
@@ -1425,6 +2130,15 @@
    ]
   },
   {
+   "ar": "طَبَق",
+   "bare": "طبق",
+   "tr": "Tabaq",
+   "en": "Dish",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
+   ]
+  },
+  {
    "ar": "طَبِيب",
    "bare": "طبيب",
    "tr": "Tabib",
@@ -1437,8 +2151,9 @@
    "ar": "طَرِيق",
    "bare": "طريق",
    "tr": "Tariq",
-   "en": "Road, path",
+   "en": "Road; Road, path",
    "src": [
+    "Arabic L3 · Journeys & places",
     "Islamic Studies · Safar"
    ]
   },
@@ -1449,6 +2164,15 @@
    "en": "Food",
    "src": [
     "Arabic L1 · Food & drink"
+   ]
+  },
+  {
+   "ar": "طَهَارَة",
+   "bare": "طهارة",
+   "tr": "Taharah",
+   "en": "Purification",
+   "src": [
+    "Arabic L4 · Fiqh & worship"
    ]
   },
   {
@@ -1467,6 +2191,42 @@
    "en": "Tall, long",
    "src": [
     "Arabic L2 · Opposites"
+   ]
+  },
+  {
+   "ar": "ظِلّ",
+   "bare": "ظل",
+   "tr": "Zill",
+   "en": "Shade",
+   "src": [
+    "Arabic L3 · Creation & the sky"
+   ]
+  },
+  {
+   "ar": "ظَلَام",
+   "bare": "ظلام",
+   "tr": "Zalam",
+   "en": "Darkness",
+   "src": [
+    "Arabic L3 · Creation & the sky"
+   ]
+  },
+  {
+   "ar": "ظُلْم",
+   "bare": "ظلم",
+   "tr": "Zulm",
+   "en": "Oppression",
+   "src": [
+    "Arabic L4 · Society & ethics"
+   ]
+  },
+  {
+   "ar": "ظُهْر",
+   "bare": "ظهر",
+   "tr": "Zuhr",
+   "en": "Noon",
+   "src": [
+    "Arabic L3 · Time & the calendar"
    ]
   },
   {
@@ -1499,10 +2259,20 @@
   {
    "ar": "عِبَادَة",
    "bare": "عبادة",
-   "tr": "Ibadah",
+   "tr": "'Ibadah",
    "en": "Worship",
    "src": [
+    "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Jumada al-Thani"
+   ]
+  },
+  {
+   "ar": "عَدَالَة",
+   "bare": "عدالة",
+   "tr": "'Adalah",
+   "en": "Justice",
+   "src": [
+    "Arabic L4 · Society & ethics"
    ]
   },
   {
@@ -1560,11 +2330,21 @@
    ]
   },
   {
+   "ar": "عَقْل",
+   "bare": "عقل",
+   "tr": "'Aql",
+   "en": "Mind",
+   "src": [
+    "Arabic L3 · Health & the self"
+   ]
+  },
+  {
    "ar": "عِلْم",
    "bare": "علم",
-   "tr": "Ilm",
+   "tr": "'Ilm",
    "en": "Knowledge",
    "src": [
+    "Arabic L4 · Knowledge & scholarship",
     "Islamic Studies · Rabi' al-Thani"
    ]
   },
@@ -1584,6 +2364,24 @@
    "en": "Work",
    "src": [
     "Arabic L2 · Professions"
+   ]
+  },
+  {
+   "ar": "عِنْدَمَا",
+   "bare": "عندما",
+   "tr": "'Indama",
+   "en": "When",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
+   ]
+  },
+  {
+   "ar": "عَهْد",
+   "bare": "عهد",
+   "tr": "'Ahd",
+   "en": "Era / covenant",
+   "src": [
+    "Arabic L4 · History & civilization"
    ]
   },
   {
@@ -1650,12 +2448,39 @@
    ]
   },
   {
+   "ar": "غُرُوب",
+   "bare": "غروب",
+   "tr": "Ghurub",
+   "en": "Sunset",
+   "src": [
+    "Arabic L3 · Time & the calendar"
+   ]
+  },
+  {
+   "ar": "غَزْوَة",
+   "bare": "غزوة",
+   "tr": "Ghazwah",
+   "en": "Expedition / battle",
+   "src": [
+    "Arabic L4 · History & civilization"
+   ]
+  },
+  {
    "ar": "غَضْبَان",
    "bare": "غضبان",
    "tr": "Ghadban",
    "en": "Angry",
    "src": [
     "Arabic L2 · Feelings"
+   ]
+  },
+  {
+   "ar": "غَيْب",
+   "bare": "غيب",
+   "tr": "Ghayb",
+   "en": "The unseen",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
    ]
   },
   {
@@ -1668,12 +2493,39 @@
    ]
   },
   {
+   "ar": "فَاعِل",
+   "bare": "فاعل",
+   "tr": "Fa'il",
+   "en": "Doer / subject",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
+   ]
+  },
+  {
+   "ar": "فَجْر",
+   "bare": "فجر",
+   "tr": "Fajr",
+   "en": "Dawn",
+   "src": [
+    "Arabic L3 · Time & the calendar"
+   ]
+  },
+  {
    "ar": "فَرَح",
    "bare": "فرح",
    "tr": "Farah",
    "en": "Joy",
    "src": [
     "Islamic Studies · Shawwal"
+   ]
+  },
+  {
+   "ar": "فَرْض",
+   "bare": "فرض",
+   "tr": "Fard",
+   "en": "Obligatory",
+   "src": [
+    "Arabic L4 · Fiqh & worship"
    ]
   },
   {
@@ -1687,12 +2539,39 @@
    ]
   },
   {
+   "ar": "فَضَاء",
+   "bare": "فضاء",
+   "tr": "Fada'",
+   "en": "Space",
+   "src": [
+    "Arabic L3 · Creation & the sky"
+   ]
+  },
+  {
+   "ar": "فِطْرَة",
+   "bare": "فطرة",
+   "tr": "Fitrah",
+   "en": "Innate nature",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
+   ]
+  },
+  {
    "ar": "فُطُور",
    "bare": "فطور",
    "tr": "Futur",
    "en": "Breakfast",
    "src": [
     "Arabic L2 · Meals & the table"
+   ]
+  },
+  {
+   "ar": "فِعْل",
+   "bare": "فعل",
+   "tr": "Fi'l",
+   "en": "Verb",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
    ]
   },
   {
@@ -1732,6 +2611,24 @@
    ]
   },
   {
+   "ar": "قَامُوس",
+   "bare": "قاموس",
+   "tr": "Qamus",
+   "en": "Dictionary",
+   "src": [
+    "Arabic L3 · Lessons & learning"
+   ]
+  },
+  {
+   "ar": "قَانُون",
+   "bare": "قانون",
+   "tr": "Qanun",
+   "en": "Law",
+   "src": [
+    "Arabic L3 · The city & civic life"
+   ]
+  },
+  {
    "ar": "قُبَّعَة",
    "bare": "قبعة",
    "tr": "Qubba'ah",
@@ -1741,12 +2638,30 @@
    ]
   },
   {
+   "ar": "قَبْلَ",
+   "bare": "قبل",
+   "tr": "Qabla",
+   "en": "Before",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
+   ]
+  },
+  {
    "ar": "قِبْلَة",
    "bare": "قبلة",
    "tr": "Qiblah",
    "en": "Direction of prayer",
    "src": [
     "Islamic Studies · Jumada al-Thani"
+   ]
+  },
+  {
+   "ar": "قَدَر",
+   "bare": "قدر",
+   "tr": "Qadar",
+   "en": "Divine decree",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
    ]
   },
   {
@@ -1809,7 +2724,17 @@
    "tr": "Qaryah",
    "en": "Village",
    "src": [
-    "Arabic L2 · Places in town"
+    "Arabic L2 · Places in town",
+    "Arabic L3 · Journeys & places"
+   ]
+  },
+  {
+   "ar": "قَصِيدَة",
+   "bare": "قصيدة",
+   "tr": "Qasidah",
+   "en": "Poem / ode",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
    ]
   },
   {
@@ -1894,6 +2819,15 @@
    ]
   },
   {
+   "ar": "قُوَّة",
+   "bare": "قوة",
+   "tr": "Quwwah",
+   "en": "Strength",
+   "src": [
+    "Arabic L3 · Health & the self"
+   ]
+  },
+  {
    "ar": "قِيَام",
    "bare": "قيام",
    "tr": "Qiyam",
@@ -1962,7 +2896,17 @@
    "tr": "Karam",
    "en": "Generosity",
    "src": [
+    "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
+   ]
+  },
+  {
+   "ar": "كَرِيم",
+   "bare": "كريم",
+   "tr": "Karim",
+   "en": "Generous",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
    ]
   },
   {
@@ -1993,12 +2937,30 @@
    ]
   },
   {
+   "ar": "كَوْكَب",
+   "bare": "كوكب",
+   "tr": "Kawkab",
+   "en": "Planet",
+   "src": [
+    "Arabic L3 · Creation & the sky"
+   ]
+  },
+  {
    "ar": "لَا أَفْهَم",
    "bare": "لا افهم",
    "tr": "La afham",
    "en": "I don't understand",
    "src": [
     "Arabic L2 · Conversation phrases"
+   ]
+  },
+  {
+   "ar": "لِأَنَّ",
+   "bare": "لان",
+   "tr": "Li'anna",
+   "en": "Because",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
    ]
   },
   {
@@ -2026,6 +2988,15 @@
    "en": "Language",
    "src": [
     "Arabic L2 · School subjects"
+   ]
+  },
+  {
+   "ar": "لٰكِنَّ",
+   "bare": "لكن",
+   "tr": "Lakinna",
+   "en": "But",
+   "src": [
+    "Arabic L3 · Connectors & expressions"
    ]
   },
   {
@@ -2079,7 +3050,26 @@
    "tr": "Ma'idah",
    "en": "Dining table",
    "src": [
-    "Arabic L2 · Meals & the table"
+    "Arabic L2 · Meals & the table",
+    "Arabic L3 · Hospitality & the table"
+   ]
+  },
+  {
+   "ar": "مُبَاح",
+   "bare": "مباح",
+   "tr": "Mubah",
+   "en": "Permissible",
+   "src": [
+    "Arabic L4 · Fiqh & worship"
+   ]
+  },
+  {
+   "ar": "مُبْتَدَأ",
+   "bare": "مبتدا",
+   "tr": "Mubtada'",
+   "en": "Subject (nominal)",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
    ]
   },
   {
@@ -2101,12 +3091,57 @@
    ]
   },
   {
+   "ar": "مَثَل",
+   "bare": "مثل",
+   "tr": "Mathal",
+   "en": "Proverb",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "مَجَاز",
+   "bare": "مجاز",
+   "tr": "Majaz",
+   "en": "Metaphor",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "مِحْرَاب",
+   "bare": "محراب",
+   "tr": "Mihrab",
+   "en": "Prayer niche",
+   "src": [
+    "Arabic L3 · The masjid & community"
+   ]
+  },
+  {
    "ar": "مُحَرَّم",
    "bare": "محرم",
    "tr": "Muharram",
    "en": "The first, sacred month",
    "src": [
     "Islamic Studies · Muharram"
+   ]
+  },
+  {
+   "ar": "مَحَطَّة",
+   "bare": "محطة",
+   "tr": "Mahattah",
+   "en": "Station",
+   "src": [
+    "Arabic L3 · The city & civic life"
+   ]
+  },
+  {
+   "ar": "مَخْطُوطَة",
+   "bare": "مخطوطة",
+   "tr": "Makhtutah",
+   "en": "Manuscript",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
    ]
   },
   {
@@ -2129,12 +3164,30 @@
    ]
   },
   {
+   "ar": "مُرَاجَعَة",
+   "bare": "مراجعة",
+   "tr": "Muraja'ah",
+   "en": "Review",
+   "src": [
+    "Arabic L3 · Lessons & learning"
+   ]
+  },
+  {
    "ar": "مَرْحَبًا",
    "bare": "مرحبا",
    "tr": "Marhaban",
    "en": "Hello",
    "src": [
     "Arabic L1 · Greetings & introductions"
+   ]
+  },
+  {
+   "ar": "مَرَض",
+   "bare": "مرض",
+   "tr": "Marad",
+   "en": "Illness",
+   "src": [
+    "Arabic L3 · Health & the self"
    ]
   },
   {
@@ -2152,7 +3205,8 @@
    "tr": "Mustashfa",
    "en": "Hospital",
    "src": [
-    "Arabic L2 · Places in town"
+    "Arabic L2 · Places in town",
+    "Arabic L3 · The city & civic life"
    ]
   },
   {
@@ -2161,6 +3215,7 @@
    "tr": "Masjid",
    "en": "Mosque",
    "src": [
+    "Arabic L3 · The masjid & community",
     "Islamic Studies · Jumada al-Thani"
    ]
   },
@@ -2174,12 +3229,40 @@
    ]
   },
   {
+   "ar": "مَسْؤُولِيَّة",
+   "bare": "مسوولية",
+   "tr": "Mas'uliyyah",
+   "en": "Responsibility",
+   "src": [
+    "Arabic L4 · Society & ethics"
+   ]
+  },
+  {
+   "ar": "مُصْطَلَح",
+   "bare": "مصطلح",
+   "tr": "Mustalah",
+   "en": "Technical term",
+   "src": [
+    "Arabic L4 · Knowledge & scholarship"
+   ]
+  },
+  {
+   "ar": "مُصَلًّى",
+   "bare": "مصلى",
+   "tr": "Musalla",
+   "en": "Prayer hall",
+   "src": [
+    "Arabic L3 · The masjid & community"
+   ]
+  },
+  {
    "ar": "مَطَار",
    "bare": "مطار",
    "tr": "Matar",
    "en": "Airport",
    "src": [
-    "Arabic L2 · Travel"
+    "Arabic L2 · Travel",
+    "Arabic L3 · Journeys & places"
    ]
   },
   {
@@ -2246,12 +3329,39 @@
    ]
   },
   {
+   "ar": "مَغْفِرَة",
+   "bare": "مغفرة",
+   "tr": "Maghfirah",
+   "en": "Forgiveness",
+   "src": [
+    "Arabic L4 · Quranic vocabulary I"
+   ]
+  },
+  {
    "ar": "مِفْتَاح",
    "bare": "مفتاح",
    "tr": "Miftah",
    "en": "Key",
    "src": [
     "Arabic L1 · The home"
+   ]
+  },
+  {
+   "ar": "مَفْعُول",
+   "bare": "مفعول",
+   "tr": "Maf'ul",
+   "en": "Object",
+   "src": [
+    "Arabic L4 · Grammar (Nahw) terms"
+   ]
+  },
+  {
+   "ar": "مَفْهُوم",
+   "bare": "مفهوم",
+   "tr": "Mafhum",
+   "en": "Concept",
+   "src": [
+    "Arabic L4 · Abstract concepts"
    ]
   },
   {
@@ -2264,12 +3374,40 @@
    ]
   },
   {
+   "ar": "مَكْتَب",
+   "bare": "مكتب",
+   "tr": "Maktab",
+   "en": "Office",
+   "src": [
+    "Arabic L3 · The city & civic life"
+   ]
+  },
+  {
    "ar": "مَكْتَبَة",
    "bare": "مكتبة",
    "tr": "Maktabah",
    "en": "Library, bookshop",
    "src": [
-    "Arabic L2 · Places in town"
+    "Arabic L2 · Places in town",
+    "Arabic L3 · Lessons & learning"
+   ]
+  },
+  {
+   "ar": "مَكْرُوه",
+   "bare": "مكروه",
+   "tr": "Makruh",
+   "en": "Disliked",
+   "src": [
+    "Arabic L4 · Fiqh & worship"
+   ]
+  },
+  {
+   "ar": "مَلَائِكَة",
+   "bare": "ملايكة",
+   "tr": "Mala'ikah",
+   "en": "Angels",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
    ]
   },
   {
@@ -2291,6 +3429,33 @@
    ]
   },
   {
+   "ar": "مِنْبَر",
+   "bare": "منبر",
+   "tr": "Minbar",
+   "en": "Pulpit",
+   "src": [
+    "Arabic L3 · The masjid & community"
+   ]
+  },
+  {
+   "ar": "مُنْتَصَف اللَّيْل",
+   "bare": "منتصف الليل",
+   "tr": "Muntasaf al-layl",
+   "en": "Midnight",
+   "src": [
+    "Arabic L3 · Time & the calendar"
+   ]
+  },
+  {
+   "ar": "مَنْهَج",
+   "bare": "منهج",
+   "tr": "Manhaj",
+   "en": "Methodology",
+   "src": [
+    "Arabic L4 · Abstract concepts"
+   ]
+  },
+  {
    "ar": "مِنًى",
    "bare": "منى",
    "tr": "Mina",
@@ -2309,6 +3474,15 @@
    ]
   },
   {
+   "ar": "مُوَاطِن",
+   "bare": "مواطن",
+   "tr": "Muwatin",
+   "en": "Citizen",
+   "src": [
+    "Arabic L3 · The city & civic life"
+   ]
+  },
+  {
    "ar": "مَوْز",
    "bare": "موز",
    "tr": "Mawz",
@@ -2318,12 +3492,30 @@
    ]
   },
   {
+   "ar": "مَوْعِد",
+   "bare": "موعد",
+   "tr": "Maw'id",
+   "en": "Appointment",
+   "src": [
+    "Arabic L3 · Time & the calendar"
+   ]
+  },
+  {
    "ar": "مَوْلِد",
    "bare": "مولد",
    "tr": "Mawlid",
    "en": "Birth",
    "src": [
     "Islamic Studies · Rabi' al-Awwal"
+   ]
+  },
+  {
+   "ar": "مِيزَان",
+   "bare": "ميزان",
+   "tr": "Mizan",
+   "en": "Scale / balance",
+   "src": [
+    "Arabic L4 · Quranic vocabulary II"
    ]
   },
   {
@@ -2363,12 +3555,40 @@
    ]
   },
   {
+   "ar": "نَتِيجَة",
+   "bare": "نتيجة",
+   "tr": "Natijah",
+   "en": "Result",
+   "src": [
+    "Arabic L4 · Abstract concepts"
+   ]
+  },
+  {
+   "ar": "نَثْر",
+   "bare": "نثر",
+   "tr": "Nathr",
+   "en": "Prose",
+   "src": [
+    "Arabic L4 · Rhetoric & literature"
+   ]
+  },
+  {
+   "ar": "نَجَّار",
+   "bare": "نجار",
+   "tr": "Najjar",
+   "en": "Carpenter",
+   "src": [
+    "Arabic L3 · Trades & crafts"
+   ]
+  },
+  {
    "ar": "نَجْم",
    "bare": "نجم",
    "tr": "Najm",
    "en": "Star",
    "src": [
-    "Arabic L1 · Weather & nature"
+    "Arabic L1 · Weather & nature",
+    "Arabic L3 · Creation & the sky"
    ]
   },
   {
@@ -2390,11 +3610,30 @@
    ]
   },
   {
+   "ar": "نَظَرِيَّة",
+   "bare": "نظرية",
+   "tr": "Nazariyyah",
+   "en": "Theory",
+   "src": [
+    "Arabic L4 · Abstract concepts"
+   ]
+  },
+  {
+   "ar": "نِقَاش",
+   "bare": "نقاش",
+   "tr": "Niqash",
+   "en": "Discussion",
+   "src": [
+    "Arabic L4 · Debate & discussion"
+   ]
+  },
+  {
    "ar": "نُور",
    "bare": "نور",
    "tr": "Nur",
    "en": "Light",
    "src": [
+    "Arabic L3 · Creation & the sky",
     "Islamic Studies · Rajab"
    ]
   },
@@ -2404,6 +3643,7 @@
    "tr": "Niyyah",
    "en": "Intention",
    "src": [
+    "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Muharram"
    ]
   },
@@ -2411,9 +3651,28 @@
    "ar": "هِجْرَة",
    "bare": "هجرة",
    "tr": "Hijrah",
-   "en": "Migration (of the Prophet ﷺ)",
+   "en": "Migration; Migration (of the Prophet ﷺ)",
    "src": [
+    "Arabic L4 · History & civilization",
     "Islamic Studies · Muharram"
+   ]
+  },
+  {
+   "ar": "هَدَف",
+   "bare": "هدف",
+   "tr": "Hadaf",
+   "en": "Objective",
+   "src": [
+    "Arabic L4 · Abstract concepts"
+   ]
+  },
+  {
+   "ar": "هُدًى",
+   "bare": "هدى",
+   "tr": "Huda",
+   "en": "Guidance",
+   "src": [
+    "Arabic L4 · Quranic vocabulary I"
    ]
   },
   {
@@ -2431,7 +3690,8 @@
    "tr": "Wajib",
    "en": "Homework, duty",
    "src": [
-    "Arabic L2 · School subjects"
+    "Arabic L2 · School subjects",
+    "Arabic L3 · Lessons & learning"
    ]
   },
   {
@@ -2444,12 +3704,48 @@
    ]
   },
   {
+   "ar": "وَحْي",
+   "bare": "وحي",
+   "tr": "Wahy",
+   "en": "Revelation",
+   "src": [
+    "Arabic L4 · Quranic vocabulary I"
+   ]
+  },
+  {
+   "ar": "وَسِيلَة",
+   "bare": "وسيلة",
+   "tr": "Wasilah",
+   "en": "Means",
+   "src": [
+    "Arabic L4 · Abstract concepts"
+   ]
+  },
+  {
    "ar": "وُضُوء",
    "bare": "وضوء",
    "tr": "Wudu",
    "en": "Ablution",
    "src": [
     "Islamic Studies · Jumada al-Thani"
+   ]
+  },
+  {
+   "ar": "وَلِيمَة",
+   "bare": "وليمة",
+   "tr": "Walimah",
+   "en": "Feast",
+   "src": [
+    "Arabic L3 · Hospitality & the table"
+   ]
+  },
+  {
+   "ar": "يَتَكَلَّم",
+   "bare": "يتكلم",
+   "tr": "Yatakallam",
+   "en": "He speaks",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
    ]
   },
   {
@@ -2498,12 +3794,48 @@
    ]
   },
   {
+   "ar": "يُسَاعِد",
+   "bare": "يساعد",
+   "tr": "Yusa'id",
+   "en": "He helps",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
+   ]
+  },
+  {
+   "ar": "يُسَافِر",
+   "bare": "يسافر",
+   "tr": "Yusafir",
+   "en": "He travels",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
+   ]
+  },
+  {
+   "ar": "يَسْتَمِع",
+   "bare": "يستمع",
+   "tr": "Yastami'",
+   "en": "He listens",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
+   ]
+  },
+  {
    "ar": "يَسْمَعُ",
    "bare": "يسمع",
    "tr": "Yasma'u",
    "en": "He hears",
    "src": [
     "Arabic L2 · Present-tense verbs"
+   ]
+  },
+  {
+   "ar": "يَعْمَل",
+   "bare": "يعمل",
+   "tr": "Ya'mal",
+   "en": "He works",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
    ]
   },
   {
@@ -2521,7 +3853,17 @@
    "tr": "Yaqra'u",
    "en": "He reads",
    "src": [
-    "Arabic L2 · Present-tense verbs"
+    "Arabic L2 · Present-tense verbs",
+    "Arabic L3 · Verbs of daily life"
+   ]
+  },
+  {
+   "ar": "يَقِين",
+   "bare": "يقين",
+   "tr": "Yaqin",
+   "en": "Certainty",
+   "src": [
+    "Arabic L4 · Aqidah & belief"
    ]
   },
   {
@@ -2530,7 +3872,8 @@
    "tr": "Yaktubu",
    "en": "He writes",
    "src": [
-    "Arabic L2 · Present-tense verbs"
+    "Arabic L2 · Present-tense verbs",
+    "Arabic L3 · Verbs of daily life"
    ]
   },
   {
@@ -2540,6 +3883,15 @@
    "en": "Right",
    "src": [
     "Arabic L2 · Rooms & directions"
+   ]
+  },
+  {
+   "ar": "يَنْتَظِر",
+   "bare": "ينتظر",
+   "tr": "Yantazir",
+   "en": "He waits",
+   "src": [
+    "Arabic L3 · Verbs of daily life"
    ]
   },
   {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ab-home>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
-  /* Each section keeps the color identity it already has inside:
-     slate = admin, lapis = Arabic, burgundy = Quran (green lives
-     within Arabic as the numbers page). */
-  :root {
+:root {
     --slate:    #3a3f4d;
     --lapis:    #1b2a5e;
     --green:    #1b4d38;
@@ -22,17 +20,21 @@
     --vellum-dim:#ece4d2;
     --ink:      #22243a;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--vellum);
     color: var(--ink);
     font-family: 'Spectral', Georgia, serif;
     min-height: 100vh;
   }
+
+
   header {
     text-align: center;
     padding: 2.4rem 1.5rem 2.2rem;
   }
+
   header .logo {
     width: clamp(120px, 22vw, 168px);
     height: auto;
@@ -41,17 +43,20 @@
     box-shadow: 0 6px 22px rgba(34,36,58,.18);
     margin-bottom: 1rem;
   }
+
   header .bismillah {
     font-family: 'Amiri', serif;
     font-size: 1.6rem;
     color: var(--gold);
     margin-bottom: .8rem;
   }
+
   header h1 {
     font-weight: 500;
     font-size: clamp(1.6rem, 5vw, 2.3rem);
     letter-spacing: .02em;
   }
+
   header p {
     color: #6b6a60;
     margin-top: .4rem;
@@ -59,119 +64,85 @@
     letter-spacing: .04em;
   }
 
-  main {
-    max-width: 900px;
-    margin: 0 auto 3.5rem;
-    padding: 0 1.2rem;
-    display: grid;
-    gap: 1.4rem;
-  }
-  .section {
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--vellum-dim);
-    box-shadow: 0 2px 12px rgba(34,36,58,.07);
-    background: #fff;
-  }
-  .section-head {
-    color: var(--vellum);
-    padding: 1.1rem 1.4rem;
-    display: flex;
-    align-items: baseline;
-    gap: .8rem;
-    border-bottom: 4px solid var(--gold);
-  }
-  .section-head h2 { font-weight: 500; font-size: 1.15rem; letter-spacing: .05em; }
-  .section-head .tag {
-    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--gold-soft);
-  }
-  .section.about    .section-head { background: var(--gold); }
-  .section.about    .section-head h2, .section.about .section-head .tag { color: #33260c; }
-  .section.general  .section-head { background: var(--slate); }
-  .section.arabic   .section-head { background: var(--lapis); }
-  .section.quran    .section-head { background: var(--burgundy); }
-  .section.islamic  .section-head { background: var(--green); }
-
-  .links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-  .links a {
-    display: block;
-    padding: 1.15rem 1.4rem;
-    text-decoration: none;
-    color: var(--ink);
-    border-top: 1px solid var(--vellum-dim);
-    transition: background .12s;
-  }
-  .links a:first-child { border-top: none; }
-  @media (min-width: 640px) {
-    .links a { border-top: none; border-left: 1px solid var(--vellum-dim); }
-    .links a:first-child { border-left: none; }
-  }
-  .links a:hover { background: var(--vellum); }
-  .links a:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
-  .links .name { font-weight: 600; letter-spacing: .02em; }
-  .links .name .ar { font-family: 'Amiri', serif; color: var(--gold); margin-left: .4rem; }
-  .links .desc { display: block; font-size: .85rem; color: #6b6a60; margin-top: .2rem; }
 
   /* ---- Connect panel ---- */
   .connect { max-width: 900px; margin: 0 auto 1.4rem; padding: 0 1.2rem; }
+
   .connect-inner {
     background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
     box-shadow: 0 2px 12px rgba(34,36,58,.07);
     padding: 1rem 1.2rem 1.1rem;
     display: flex; flex-wrap: wrap; gap: 1.1rem 2rem; justify-content: center;
   }
+
   .connect-group { text-align: center; }
+
   .connect-group .cg-title {
     font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
     color: #6b6a60; margin-bottom: .55rem;
   }
+
   .connect-icons { display: flex; gap: .6rem; justify-content: center; }
+
   .app-icon {
     display: flex; align-items: center; justify-content: center;
     width: 52px; height: 52px; border-radius: 14px;
     box-shadow: 0 2px 6px rgba(34,36,58,.22), inset 0 -2px 4px rgba(0,0,0,.12);
     transition: transform .1s, box-shadow .1s;
   }
+
   .app-icon:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 5px 12px rgba(34,36,58,.3); }
+
   .app-icon svg { width: 30px; height: 30px; display: block; }
+
   .app-label { display: block; font-size: .62rem; color: #6b6a60; margin-top: .25rem; letter-spacing: .03em; }
+
 
   /* ---- Announcements ---- */
   .announce { max-width: 900px; margin: 0 auto 1.8rem; padding: 0 1.2rem; }
+
   .announce-title {
     text-align: center; font-weight: 500; font-size: 1.15rem; color: var(--green);
     letter-spacing: .05em; margin-bottom: .8rem;
   }
+
   .post {
     background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
     box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .7rem; overflow: hidden;
   }
+
   .post summary {
     list-style: none; cursor: pointer; padding: .8rem 1rem;
     display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
   }
+
   .post summary::-webkit-details-marker { display: none; }
+
   .post summary:hover { background: #fbf8f0; }
+
   .post .p-title { font-weight: 600; font-size: .98rem; }
+
   .post .p-pin {
     font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
     color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
   }
+
   .post .p-date { margin-left: auto; font-size: .76rem; color: #8a887c; white-space: nowrap; }
+
   .post .p-body {
     padding: 0 1rem .9rem; border-top: 1px dashed var(--vellum-dim);
     font-size: .9rem; line-height: 1.55; color: #44435a;
   }
+
   .post .p-body p { margin-top: .7rem; }
+
   .post .p-author { font-size: .76rem; color: #8a887c; font-style: italic; margin-top: .6rem; }
+
 
   .season-banner {
     max-width: 900px; margin: 0 auto 1.6rem; padding: 0 1.2rem;
   }
+
   .season-inner {
     background: linear-gradient(135deg, var(--green), #14563c 60%, var(--green));
     border: 1px solid rgba(201,161,59,.5);
@@ -180,246 +151,149 @@
     padding: 1.15rem 1.4rem;
     box-shadow: 0 6px 20px rgba(15,51,36,.2);
   }
+
   .season-month {
     font-size: .74rem; letter-spacing: .24em; text-transform: uppercase;
     color: var(--gold-soft);
   }
+
   .season-theme { font-size: 1.05rem; margin-top: .2rem; }
+
   .season-links { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; }
+
   .season-links a {
     font-size: .82rem; letter-spacing: .04em; text-decoration: none;
     color: var(--gold-soft); border: 1px solid var(--gold);
     border-radius: 999px; padding: .38rem 1rem;
     transition: background .12s, color .12s;
   }
+
   .season-links a:hover { background: var(--gold); color: var(--primary-dark, #0f3324); }
+
   .season-links a:focus-visible { outline: 2px solid var(--vellum); outline-offset: 2px; }
+
 
   footer {
     text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem;
   }
+
+
+  /* ——— masthead, gilded tabs, cards (UI refresh) ——— */
+  .masthead { position: sticky; top: 0; z-index: 80; background: var(--vellum); border-bottom: 1px solid var(--vellum-dim); }
+  .mast-row { max-width: 1020px; margin: 0 auto; padding: .5rem 1rem .4rem; display: flex; align-items: center; gap: .7rem; }
+  .mast-row .mini { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex: none; background: #fff; display: grid; place-items: center; }
+  .mast-row .mini img, .mast-row .mini svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mast-row .wm { line-height: 1.12; }
+  .mast-row .wm .en { font-weight: 600; font-size: .98rem; }
+  .mast-row .wm .ar { font-family: 'Amiri', serif; font-size: .84rem; color: var(--gold); }
+  .mast-actions { margin-left: auto; display: flex; gap: .4rem; align-items: center; }
+  .tabsrow { max-width: 1020px; margin: 0 auto; padding: 0 1rem; display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: none; }
+  .tabsrow::-webkit-scrollbar { display: none; }
+  .mtab { font: inherit; font-size: .88rem; cursor: pointer; white-space: nowrap; background: #fff; color: var(--ab-muted, #6b6d85); border: 1px solid var(--vellum-dim); border-bottom: none; border-radius: 10px 10px 0 0; padding: .48rem .9rem .5rem; display: inline-flex; align-items: center; gap: .45rem; position: relative; top: 1px; }
+  html[data-theme="dark"] .mtab { background: var(--ab-surface); }
+  .mtab[aria-selected="true"] { color: var(--ink); font-weight: 600; border-color: var(--tabc, var(--gold)); border-top-width: 3px; background: var(--vellum); }
+  .mtab[aria-selected="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--vellum); }
+  body[data-nav="scroll"] .tabsrow { display: none; }
+
+  main { max-width: 1020px; margin: 1.1rem auto 2.4rem; padding: 0 1rem; }
+  .pane-head { display: flex; align-items: baseline; gap: .7rem; margin: 1.1rem 0 .7rem; }
+  .pane-head h2 { font-weight: 500; font-size: 1.3rem; display: flex; align-items: center; gap: .5rem; color: var(--sc, var(--ink)); }
+  .pane-head .tagline { font-size: .8rem; color: #9a9cb3; font-style: italic; }
+  .pane-head .ruleline { flex: 1; height: 1px; background: var(--vellum-dim); align-self: center; }
+  .cardgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(228px, 1fr)); gap: .7rem; }
+  a.pcard { background: #fff; text-decoration: none; color: inherit; border: 1px solid var(--vellum-dim); border-left: 4px solid var(--sc, var(--gold)); border-radius: 11px; padding: .72rem .9rem .66rem; display: flex; flex-direction: column; gap: .16rem; position: relative; }
+  html[data-theme="dark"] a.pcard { background: var(--ab-surface); border-color: var(--ab-rule); }
+  a.pcard:hover { border-color: var(--sc, var(--gold)); box-shadow: var(--ab-shadow, 0 10px 28px rgba(34,36,58,.12)); }
+  .pcard .l1 { display: flex; align-items: baseline; gap: .45rem; padding-right: 3.2rem; }
+  .pcard .ab-em { font-size: 1.02rem; } .pcard .ab-ic { width: 1.15em; height: 1.15em; color: var(--sc); }
+  .pcard .nm { font-weight: 600; font-size: .94rem; }
+  .pcard .arb { font-family: 'Amiri', serif; color: var(--sc, #6b6d85); margin-left: auto; font-size: 1.02rem; }
+  .pcard .ds { font-size: .78rem; color: #6b6d85; line-height: 1.4; }
+  html[data-theme="dark"] .pcard .ds { color: var(--ab-muted); }
+  .pcard .ab-status { position: absolute; top: .58rem; right: .62rem; }
+  .pcard .ab-hovercard { left: .6rem; right: .6rem; top: calc(100% - 6px); }
+  .pcard:hover .ab-hovercard, .pcard:focus-visible .ab-hovercard { opacity: 1; visibility: visible; }
+
+  details.pack { border: 1px solid var(--vellum-dim); border-radius: 11px; background: #fff; margin-bottom: .7rem; overflow: hidden; }
+  html[data-theme="dark"] details.pack { background: var(--ab-surface); border-color: var(--ab-rule); }
+  details.pack summary { list-style: none; cursor: pointer; padding: .66rem 1rem; display: flex; align-items: center; gap: .6rem; font-weight: 500; }
+  details.pack summary::-webkit-details-marker { display: none; }
+  details.pack summary .chev { margin-left: auto; color: var(--gold); transition: transform .18s; }
+  details.pack[open] summary .chev { transform: rotate(90deg); }
+  details.pack summary .cnt { font-size: .72rem; color: #9a9cb3; }
+  details.pack .packbody { padding: 0 .8rem .8rem; }
+
+  .rail { display: none; position: fixed; left: max(8px, calc(50vw - 510px - 148px)); top: 150px; width: 132px; font-size: .8rem; }
+  body[data-nav="scroll"] .rail { display: block; }
+  @media (max-width: 1330px) { body[data-nav="scroll"] .rail { display: none; } }
+  .rail a { display: flex; gap: .4rem; align-items: center; text-decoration: none; color: #6b6d85; padding: .3rem .55rem; border-left: 2px solid var(--vellum-dim); }
+  .rail a.on { color: var(--ink); font-weight: 600; border-left-color: var(--gold); }
+  body[data-nav="scroll"] section.pane { display: block !important; }
+
+  .announce-wrap, .banner-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1rem; }
+  header.hero { padding-top: 1.6rem; }
+  header.hero .logo { width: clamp(96px, 16vw, 136px); }
+  @media (prefers-reduced-motion: reduce) { .mtab, details.pack summary .chev { transition: none !important; } }
+
 </style>
 </head>
-<body>
+<body data-nav="tabs">
 
-<header>
-  <img class="logo" src="assets/logo.jpeg" alt="Al Baseera Academy">
+<div class="masthead">
+  <div class="mast-row">
+    <a class="mini" href="./" title="Al Baseera Academy"><img src="assets/logo.jpeg" alt="Al Baseera Academy"></a>
+    <div class="wm">
+      <div class="en">Al Baseera Learning Portal</div>
+      <div class="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    </div>
+    <div class="mast-actions">
+      <button class="ab-iconbtn" id="themeBtn" title="Theme">◐</button>
+      <div class="ab-popwrap" id="gearWrap">
+        <button class="ab-iconbtn" id="gearBtn" title="Settings">⚙</button>
+      </div>
+    </div>
+  </div>
+  <div class="tabsrow" id="tabsrow" role="tablist"></div>
+</div>
+
+<header class="hero">
+  <img class="logo" src="assets/logo.jpeg" alt="Al Baseera Academy"
+       onerror="this.style.display='none'">
   <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
   <h1>Al Baseera Learning Portal</h1>
   <p>Choose a section to begin</p>
 </header>
 
-<div class="connect" id="connect" style="display:none">
-  <div class="connect-inner" id="connectInner"></div>
-</div>
-
-<div class="announce">
-  <div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
+<div class="banner-wrap">
+<div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
     <div class="season-inner">
       <div class="season-month" id="seasonMonth"></div>
       <div class="season-theme" id="seasonTheme"></div>
       <div class="season-links" id="seasonLinks"></div>
     </div>
   </div>
+</div>
+
+<div class="announce-wrap">
   <div class="announce-title" id="announceTitle" style="display:none">📢 Announcements</div>
   <div id="announcePosts"></div>
 </div>
 
-<main>
-  <div class="section about">
-    <div class="section-head">
-      <h2>About</h2><span class="tag">The Academy &amp; Its Founder</span>
-    </div>
-    <div class="links">
-      <a href="about/academy/">
-        <span class="name">Al Baseera Academy<span class="ar">أكاديمية البصيرة</span></span>
-        <span class="desc">Mission, story, and what we teach</span>
-      </a>
-      <a href="about/dr-fatin/">
-        <span class="name">Dr. Fatin Alkhafaji<span class="ar">الدكتورة فاتن</span></span>
-        <span class="desc">The educator behind the curriculum — and her handwritten legacy</span>
-      </a>
-    </div>
-  </div>
+<nav class="rail" id="rail" aria-label="Sections"></nav>
 
-  <div class="section general">
-    <div class="section-head">
-      <h2>General</h2><span class="tag">Admin &amp; School</span>
-    </div>
-    <div class="links">
-      <a href="general/schedule/">
-        <span class="name">Master Schedule</span>
-        <span class="desc">Class periods, rooms, and teacher assignments</span>
-      </a>
-      <a href="general/calendar/">
-        <span class="name">School Calendar</span>
-        <span class="desc">Term dates, holidays, and events</span>
-      </a>
-      <a href="general/materials/">
-        <span class="name">Materials Library</span>
-        <span class="desc">Readings, study guides, and slides by subject</span>
-      </a>
-      <a href="general/assignments/">
-        <span class="name">Assignments</span>
-        <span class="desc">Homework, practice quizzes, recitations, and worksheets</span>
-      </a>
-      <a href="general/references/">
-        <span class="name">External References</span>
-        <span class="desc">Vetted textbooks, videos, and websites</span>
-      </a>
-      <a href="general/registrations/">
-        <span class="name">Registrations</span>
-        <span class="desc">Enrollment and program sign-ups — deadlines and where to register</span>
-      </a>
-      <a href="general/careers/">
-        <span class="name">Join Us</span>
-        <span class="desc">Careers and volunteering — teach, help, and build the school</span>
-      </a>
-      <a href="general/diagnostic/">
-        <span class="name">Universal Diagnostic Exam</span>
-        <span class="desc">One exam, three levels — reading, writing, speaking, and comprehension</span>
-      </a>
-      <a href="general/accreditation/">
-        <span class="name">Accreditation</span>
-        <span class="desc">Recognized certifications and accreditation paths the academy tracks</span>
-      </a>
-      <a href="general/competitions/">
-        <span class="name">Local Competitions</span>
-        <span class="desc">Quran, Arabic, and knowledge competitions around Houston — next event first</span>
-      </a>
-      <a href="general/giving/">
-        <span class="name">Giving</span>
-        <span class="desc">Fundraise, donate, or make a payment through official channels</span>
-      </a>
-      <a href="general/archives/">
-        <span class="name">Archives</span>
-        <span class="desc">Legacy slideshows and materials — recovered, linked, or still being found</span>
-      </a>
-      <a href="general/teacher-notes/">
-        <span class="name">Handwritten Teacher Notes</span>
-        <span class="desc">The Dr. Fatin archive — original lesson notes, preserved and ordered</span>
-      </a>
-    </div>
-  </div>
+<main id="panes"></main>
 
-  <div class="section arabic">
-    <div class="section-head">
-      <h2>Arabic</h2><span class="tag">Language Basics</span>
-    </div>
-    <div class="links">
-      <a href="arabic/letters/">
-        <span class="name">The Alphabet<span class="ar">الحروف</span></span>
-        <span class="desc">All 28 letters with names, sounds, and forms</span>
-      </a>
-      <a href="arabic/numbers/">
-        <span class="name">Numbers<span class="ar">الأرقام</span></span>
-        <span class="desc">Counting 0–100 with names and sounds</span>
-      </a>
-      <a href="arabic/makharij/">
-        <span class="name">Makharij al-Huruf<span class="ar">مخارج الحروف</span></span>
-        <span class="desc">Where each letter comes from — interactive diagram, quiz, and table assignment</span>
-      </a>
-      <a href="arabic/vowels/">
-        <span class="name">Vowels — Harakat<span class="ar">الحركات</span></span>
-        <span class="desc">Toggle fatha, kasra, damma and more — tap any letter to hear the syllable</span>
-      </a>
-      <a href="arabic/vocab/">
-        <span class="name">Vocabulary<span class="ar">المفردات</span></span>
-        <span class="desc">Levels 1–2 (3–4 planned) by month, plus searchable themed word lists</span>
-      </a>
-      <a href="arabic/dictionary/">
-        <span class="name">Dictionary<span class="ar">القاموس</span></span>
-        <span class="desc">English ⇄ Arabic — every word on the portal, searchable</span>
-      </a>
-      <a href="arabic/family-tree/">
-        <span class="name">Assignment: My Family Tree<span class="ar">شجرة عائلتي</span></span>
-        <span class="desc">Fill in your family with the Arabic words for each person, then print it</span>
-      </a>
-      <a href="arabic/flashcards/">
-        <span class="name">Flashcards<span class="ar">البطاقات</span></span>
-        <span class="desc">Flip, shuffle, and sort into Know / Again piles</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="section quran">
-    <div class="section-head">
-      <h2>Quran</h2><span class="tag">Main Reference</span>
-    </div>
-    <div class="links">
-      <a href="quran/text/">
-        <span class="name">Full Text &amp; Translation<span class="ar">القرآن الكريم</span></span>
-        <span class="desc">Complete mushaf with tajweed colors, English translation, and assignment links</span>
-      </a>
-      <a href="quran/concentration/">
-        <span class="name">80% Qur'anic Words<span class="ar">الكلمات القرآنية</span></span>
-        <span class="desc">Concentration-themed word lists — paper scans beside the modifiable digital version</span>
-      </a>
-      <a href="quran/memorization/">
-        <span class="name">Memorization Checklist<span class="ar">الحفظ</span></span>
-        <span class="desc">Track each surah's in-class recitation grade and completed date</span>
-      </a>
-      <a href="quran/recordings/">
-        <span class="name">Recording Checklist<span class="ar">التسجيلات</span></span>
-        <span class="desc">Submit a recitation recording per surah, dated as you go</span>
-      </a>
-    </div>
-  </div>
-  <div class="section islamic">
-    <div class="section-head">
-      <h2>Islamic Studies</h2><span class="tag">Reference</span>
-    </div>
-    <div class="links">
-      <a href="islamic-studies/names-of-allah/">
-        <span class="name">99 Names of Allah<span class="ar">أسماء الله الحسنى</span></span>
-        <span class="desc">Asma ul-Husna with transliteration, meanings, and search</span>
-      </a>
-      <a href="islamic-studies/prophets-and-imams/">
-        <span class="name">Prophets &amp; Imams<span class="ar">الأنبياء والأئمة</span></span>
-        <span class="desc">The 25 prophets with Quran reading links, and the Twelve Imams</span>
-      </a>
-      <a href="islamic-studies/wudu/">
-        <span class="name">How to Make Wudu<span class="ar">الوضوء</span></span>
-        <span class="desc">Step-by-step slideshow with photos and video demonstrations</span>
-      </a>
-      <a href="islamic-studies/topics/">
-        <span class="name">Topics<span class="ar">مواضيع</span></span>
-        <span class="desc">Halal &amp; haram, the unseen, adab, famous Muslims, and more — one lesson hub</span>
-      </a>
-      <a href="islamic-studies/countries/">
-        <span class="name">Countries &amp; Cultures<span class="ar">بلدان العالم</span></span>
-        <span class="desc">Flags, maps, and peoples of the Muslim world — linked to the Arabic nationalities vocab</span>
-      </a>
-      <a href="islamic-studies/prayer-times/">
-        <span class="name">Prayer Times<span class="ar">مواقيت الصلاة</span></span>
-        <span class="desc">Daily times for Houston or any location, with monthly and yearly timetables</span>
-      </a>
-      <a href="islamic-studies/prayer-tracker/">
-        <span class="name">Salah Daily Tracker<span class="ar">متابعة الصلاة</span></span>
-        <span class="desc">Check off the five daily prayers and build a consistency history</span>
-      </a>
-      <a href="islamic-studies/stories/">
-        <span class="name">Stories<span class="ar">قصص</span></span>
-        <span class="desc">Stories of the Prophets and Imams — their birth, their times, and readings</span>
-      </a>
-      <a href="islamic-studies/family-tree/">
-        <span class="name">Family Tree<span class="ar">شجرة النسب</span></span>
-        <span class="desc">Lineage of the prophets and the Twelve Imams in one diagram</span>
-      </a>
-      <a href="islamic-studies/vocab/">
-        <span class="name">Seasonal Vocabulary<span class="ar">مفردات الشهر</span></span>
-        <span class="desc">Quran &amp; Islamic Studies words for each hijri month</span>
-      </a>
-    </div>
-  </div>
-
-</main>
+<div class="connect" id="connect" style="display:none">
+  <div class="connect-inner" id="connectInner"></div>
+</div>
 
 <footer>
   Quran text: Tanzil project · Translation: Pickthall (public domain)
 </footer>
 
+<script defer src="assets/ui.js"></script>
 <script>
+
 /* Hijri seasonal banner — reads seasons.json, keyed by islamic-umalqura
    month number. Month-level granularity by design: computed hijri dates
    can differ a day or two from local moonsighting, so we never claim a
@@ -531,6 +405,122 @@
     document.getElementById('announceTitle').style.display = '';
   } catch (e) { /* announcements.json missing: section stays hidden */ }
 })();
+
+
+/* ============== Home UI layer — nav.json-driven tabs, cards, settings ============== */
+document.addEventListener('DOMContentLoaded', function () {
+  var S = AB.settings;
+  var COLOR = { gold: 'var(--gold)', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38' };
+  var state = { tab: new URLSearchParams(location.search).get('tab') || 'general' };
+
+  document.querySelectorAll('.mini img').forEach(function (img) {
+    img.onerror = function () { img.replaceWith(AB.fallbackLogo()); };
+  });
+
+  AB.navReady.then(function (nav) {
+    if (!nav.sections.some(function (s) { return s.id === state.tab; })) state.tab = 'general';
+
+    function card(sec, p) {
+      var st = p.status === 'live'
+        ? '<span class="ab-status live"><i>●</i>live</span>'
+        : '<span class="ab-status soon"><i>◌</i>soon</span>';
+      return '<a class="pcard" href="' + p.href + '" style="--sc:' + COLOR[sec.color] + '">' + st +
+        '<span class="l1">' + AB.icon(p.icon, p.emoji) + '<span class="nm">' + p.en + '</span>' +
+        (p.ar ? '<span class="arb">' + p.ar + '</span>' : '') + '</span>' +
+        '<span class="ds">' + p.desc + '</span>' +
+        '<span class="ab-hovercard"><b>' + p.en + '</b> — ' + p.desc + '.<br>' +
+        (p.status === 'live' ? 'Built and ready.' : 'Page is up; content still being added.') + '</span></a>';
+    }
+
+    function paneHTML(sec) {
+      var body;
+      if (sec.id === 'general' && nav.generalGroups) {
+        var groups = Object.keys(nav.generalGroups);
+        body = groups.map(function (g, i) {
+          var hrefs = nav.generalGroups[g];
+          var items = sec.pages.filter(function (p) { return hrefs.indexOf(p.href) > -1; });
+          return '<details class="pack"' + (i === 0 ? ' open' : '') + '><summary>' + g +
+            ' <span class="cnt">' + items.length + ' pages</span><span class="chev">▶</span></summary>' +
+            '<div class="packbody"><div class="cardgrid">' +
+            items.map(function (p) { return card(sec, p); }).join('') + '</div></div></details>';
+        }).join('');
+        var grouped = [].concat.apply([], groups.map(function (g) { return nav.generalGroups[g]; }));
+        var rest = sec.pages.filter(function (p) { return grouped.indexOf(p.href) < 0; });
+        if (rest.length) body += '<div class="cardgrid">' +
+          rest.map(function (p) { return card(sec, p); }).join('') + '</div>';
+      } else {
+        body = '<div class="cardgrid">' + sec.pages.map(function (p) { return card(sec, p); }).join('') + '</div>';
+      }
+      return '<section class="pane" id="pane-' + sec.id + '" style="--sc:' + COLOR[sec.color] + '"' +
+        (S.nav === 'scroll' || state.tab === sec.id ? '' : ' hidden') + '>' +
+        '<div class="pane-head"><h2>' + AB.icon(sec.icon, sec.emoji) + sec.title + '</h2>' +
+        '<span class="tagline">' + sec.tag + '</span><span class="ruleline"></span></div>' + body + '</section>';
+    }
+
+    function render() {
+      document.body.dataset.nav = S.nav;
+      document.getElementById('panes').innerHTML = nav.sections.map(paneHTML).join('');
+      var tr = document.getElementById('tabsrow');
+      tr.innerHTML = nav.sections.map(function (s) {
+        return '<button class="mtab" role="tab" data-t="' + s.id +
+          '" aria-selected="' + (state.tab === s.id) + '" style="--tabc:' + COLOR[s.color] + '">' +
+          AB.icon(s.icon, s.emoji) + s.title + '</button>';
+      }).join('');
+      tr.querySelectorAll('.mtab').forEach(function (b) {
+        b.onclick = function () {
+          state.tab = b.dataset.t;
+          history.replaceState(null, '', '?tab=' + state.tab);
+          render();
+        };
+      });
+      document.getElementById('rail').innerHTML = nav.sections.map(function (s) {
+        return '<a href="#pane-' + s.id + '" data-r="' + s.id + '">' +
+          AB.icon(s.icon, s.emoji) + ' ' + s.title + '</a>';
+      }).join('');
+    }
+    render();
+    document.addEventListener('ab:icons', render);
+    document.addEventListener('ab:theme', function () {});
+
+    addEventListener('scroll', function () {
+      if (S.nav !== 'scroll') return;
+      var cur = null;
+      document.querySelectorAll('section.pane').forEach(function (sec) {
+        if (sec.getBoundingClientRect().top < 170) cur = sec.id.replace('pane-', '');
+      });
+      document.querySelectorAll('.rail a').forEach(function (a) {
+        a.classList.toggle('on', a.dataset.r === cur);
+      });
+    }, { passive: true });
+
+    /* theme button + gear with the two home-only settings */
+    var tb = document.getElementById('themeBtn');
+    function glyph() { tb.textContent = S.theme === 'auto' ? '◐' : (S.theme === 'dark' ? '☾' : '☀'); }
+    glyph();
+    tb.onclick = function () {
+      S.theme = S.theme === 'auto' ? 'dark' : (S.theme === 'dark' ? 'light' : 'auto');
+      AB.save(); AB.applyTheme(); glyph(); syncPop();
+    };
+    var pop = AB.buildPopover([
+      ['Navigation', 'nav', [['tabs', 'Tabs'], ['scroll', 'Scroll + rail']], render],
+      ['Long lists', 'list', [['default', 'Per page'], ['pages', 'Paginate'], ['infinite', 'Infinite']], null]
+    ]);
+    var gear = document.getElementById('gearBtn');
+    pop._btn = gear;
+    document.getElementById('gearWrap').appendChild(pop);
+    gear.onclick = function (e) { e.stopPropagation(); pop.classList.toggle('open'); };
+    function syncPop() {
+      var segs = pop.querySelectorAll('.ab-seg');
+      if (segs[0]) segs[0].querySelectorAll('button').forEach(function (x) {
+        x.classList.toggle('on', x.dataset.v === S.theme);
+      });
+    }
+  }).catch(function (e) {
+    document.getElementById('panes').innerHTML =
+      '<p style="text-align:center;color:#a33028">Navigation failed to load (assets/nav.json): ' + e + '</p>';
+  });
+});
+
 </script>
 </body>
 </html>

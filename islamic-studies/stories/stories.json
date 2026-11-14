@@ -1,105 +1,495 @@
 {
-  "note": "PLACEHOLDER content — edit freely. Each figure: en, ar, type (prophet|imam), era (birth / time period they lived through), and readings[] of one or more assignments. A reading needs a label; url is optional (link to a Quran passage via ../../quran/text/?s=SURAH&from=A&to=B&trans=1&title=..., a materials file, or an outside page). excerpt is optional short text shown inline.",
-  "figures": [
+ "note": "PLACEHOLDER content — edit freely. Each figure: en, ar, type (prophet|imam), era (birth / time period they lived through), and readings[] of one or more assignments. A reading needs a label; url is optional (link to a Quran passage via ../../quran/text/?s=SURAH&from=A&to=B&trans=1&title=..., a materials file, or an outside page). excerpt is optional short text shown inline.",
+ "figures": [
+  {
+   "en": "Adam",
+   "ar": "آدَم",
+   "type": "prophet",
+   "era": "The first human and the first prophet — before all recorded history.",
+   "readings": [
     {
-      "en": "Adam",
-      "ar": "آدَم",
-      "type": "prophet",
-      "era": "The first human and the first prophet — before all recorded history.",
-      "readings": [
-        {
-          "label": "The creation of Adam and the command to the angels",
-          "url": "../../quran/text/?s=2&from=30&to=39&trans=1&title=Story+of+Adam",
-          "excerpt": "Allah teaches Adam the names of all things and commands the angels to prostrate."
-        }
-      ]
-    },
-    {
-      "en": "Nuh (Noah)",
-      "ar": "نُوح",
-      "type": "prophet",
-      "era": "Lived among a people who worshipped idols for generations; called them for 950 years.",
-      "readings": [
-        {
-          "label": "Surah Nuh — his call to his people",
-          "url": "../../quran/text/?s=71&trans=1&title=Story+of+Nuh",
-          "excerpt": "Night and day he invited them — openly and in secret — to seek forgiveness."
-        },
-        {
-          "label": "The flood and the ark",
-          "url": "../../quran/text/?s=11&from=36&to=48&trans=1&title=Nuh+and+the+Ark"
-        }
-      ]
-    },
-    {
-      "en": "Ibrahim (Abraham)",
-      "ar": "إِبْرَاهِيم",
-      "type": "prophet",
-      "era": "Born in Mesopotamia in the time of a tyrant king; father of prophets through Ismail and Ishaq.",
-      "readings": [
-        {
-          "label": "Ibrahim reasons with his people about the stars, moon, and sun",
-          "url": "../../quran/text/?s=6&from=74&to=83&trans=1&title=Ibrahim+and+the+Stars"
-        },
-        {
-          "label": "Building the Ka'bah with Ismail",
-          "url": "../../quran/text/?s=2&from=124&to=129&trans=1&title=Building+the+Kaaba"
-        }
-      ]
-    },
-    {
-      "en": "Musa (Moses)",
-      "ar": "مُوسَى",
-      "type": "prophet",
-      "era": "Born in Egypt under Pharaoh's rule, when the sons of Bani Israil were being killed.",
-      "readings": [
-        {
-          "label": "Musa's birth and rescue from the river",
-          "url": "../../quran/text/?s=28&from=1&to=13&trans=1&title=Birth+of+Musa",
-          "excerpt": "His mother is inspired to place him in the river; Allah returns him to her."
-        }
-      ]
-    },
-    {
-      "en": "Muhammad ﷺ",
-      "ar": "مُحَمَّد",
-      "type": "prophet",
-      "era": "Born in Makkah in the Year of the Elephant (~570 CE); received revelation at 40.",
-      "readings": [
-        {
-          "label": "The Year of the Elephant — the year of his birth",
-          "url": "../../quran/text/?s=105&trans=1&title=The+Year+of+the+Elephant",
-          "excerpt": "Surah Al-Fil recalls the army with the elephant that came against the Ka'bah."
-        },
-        {
-          "label": "The first revelation",
-          "url": "../../quran/text/?s=96&from=1&to=5&trans=1&title=The+First+Revelation"
-        }
-      ]
-    },
-    {
-      "en": "Ali ibn Abi Talib",
-      "ar": "عَلِيّ بْن أَبِي طَالِب",
-      "type": "imam",
-      "era": "Born inside the Ka'bah (~600 CE); raised in the Prophet's ﷺ household; the first Imam.",
-      "readings": [
-        {
-          "label": "The night of the Hijrah — sleeping in the Prophet's ﷺ bed",
-          "excerpt": "When the Prophet ﷺ left Makkah, Ali stayed behind in his place, giving himself for the Messenger's safety, and later returned every trust to its owner."
-        }
-      ]
-    },
-    {
-      "en": "Husayn ibn Ali",
-      "ar": "ٱلْحُسَيْن بْن عَلِيّ",
-      "type": "imam",
-      "era": "Grandson of the Prophet ﷺ (b. 626 CE); the third Imam; martyred at Karbala in 61 AH / 680 CE.",
-      "readings": [
-        {
-          "label": "Karbala and the day of Ashura",
-          "excerpt": "In Muharram of 61 AH, Imam Husayn stood with his family and companions at Karbala rather than accept injustice — a stand remembered every year on Ashura."
-        }
-      ]
+     "label": "The creation of Adam and the command to the angels",
+     "url": "../../quran/text/?s=2&from=30&to=39&trans=1&title=Story+of+Adam",
+     "excerpt": "Allah teaches Adam the names of all things and commands the angels to prostrate."
     }
-  ]
+   ]
+  },
+  {
+   "en": "Nuh (Noah)",
+   "ar": "نُوح",
+   "type": "prophet",
+   "era": "Lived among a people who worshipped idols for generations; called them for 950 years.",
+   "readings": [
+    {
+     "label": "Surah Nuh — his call to his people",
+     "url": "../../quran/text/?s=71&trans=1&title=Story+of+Nuh",
+     "excerpt": "Night and day he invited them — openly and in secret — to seek forgiveness."
+    },
+    {
+     "label": "The flood and the ark",
+     "url": "../../quran/text/?s=11&from=36&to=48&trans=1&title=Nuh+and+the+Ark"
+    }
+   ]
+  },
+  {
+   "en": "Ibrahim (Abraham)",
+   "ar": "إِبْرَاهِيم",
+   "type": "prophet",
+   "era": "Born in Mesopotamia in the time of a tyrant king; father of prophets through Ismail and Ishaq.",
+   "readings": [
+    {
+     "label": "Ibrahim reasons with his people about the stars, moon, and sun",
+     "url": "../../quran/text/?s=6&from=74&to=83&trans=1&title=Ibrahim+and+the+Stars"
+    },
+    {
+     "label": "Building the Ka'bah with Ismail",
+     "url": "../../quran/text/?s=2&from=124&to=129&trans=1&title=Building+the+Kaaba"
+    }
+   ]
+  },
+  {
+   "en": "Musa (Moses)",
+   "ar": "مُوسَى",
+   "type": "prophet",
+   "era": "Born in Egypt under Pharaoh's rule, when the sons of Bani Israil were being killed.",
+   "readings": [
+    {
+     "label": "Musa's birth and rescue from the river",
+     "url": "../../quran/text/?s=28&from=1&to=13&trans=1&title=Birth+of+Musa",
+     "excerpt": "His mother is inspired to place him in the river; Allah returns him to her."
+    }
+   ]
+  },
+  {
+   "en": "Muhammad ﷺ",
+   "ar": "مُحَمَّد",
+   "type": "prophet",
+   "era": "Born in Makkah in the Year of the Elephant (~570 CE); received revelation at 40.",
+   "readings": [
+    {
+     "label": "The Year of the Elephant — the year of his birth",
+     "url": "../../quran/text/?s=105&trans=1&title=The+Year+of+the+Elephant",
+     "excerpt": "Surah Al-Fil recalls the army with the elephant that came against the Ka'bah."
+    },
+    {
+     "label": "The first revelation",
+     "url": "../../quran/text/?s=96&from=1&to=5&trans=1&title=The+First+Revelation"
+    }
+   ]
+  },
+  {
+   "en": "Ali ibn Abi Talib",
+   "ar": "عَلِيّ بْن أَبِي طَالِب",
+   "type": "imam",
+   "era": "Born inside the Ka'bah (~600 CE); raised in the Prophet's ﷺ household; the first Imam.",
+   "readings": [
+    {
+     "label": "The night of the Hijrah — sleeping in the Prophet's ﷺ bed",
+     "excerpt": "When the Prophet ﷺ left Makkah, Ali stayed behind in his place, giving himself for the Messenger's safety, and later returned every trust to its owner."
+    }
+   ]
+  },
+  {
+   "en": "Husayn ibn Ali",
+   "ar": "ٱلْحُسَيْن بْن عَلِيّ",
+   "type": "imam",
+   "era": "Grandson of the Prophet ﷺ (b. 626 CE); the third Imam; martyred at Karbala in 61 AH / 680 CE.",
+   "readings": [
+    {
+     "label": "Karbala and the day of Ashura",
+     "excerpt": "In Muharram of 61 AH, Imam Husayn stood with his family and companions at Karbala rather than accept injustice — a stand remembered every year on Ashura."
+    }
+   ]
+  },
+  {
+   "en": "Idris",
+   "ar": "إِدْرِيس",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Maryam",
+     "url": "../../quran/text/?s=19&trans=1&title=Idris",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Hud",
+   "ar": "هُود",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Hud",
+     "url": "../../quran/text/?s=11&trans=1&title=Hud",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Salih",
+   "ar": "صَالِح",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Hud",
+     "url": "../../quran/text/?s=11&trans=1&title=Salih",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Lut (Lot)",
+   "ar": "لُوط",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Hud",
+     "url": "../../quran/text/?s=11&trans=1&title=Lut",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Isma'il (Ishmael)",
+   "ar": "إِسْمَاعِيل",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah As-Saffat",
+     "url": "../../quran/text/?s=37&trans=1&title=Isma'il",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ishaq (Isaac)",
+   "ar": "إِسْحَاق",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah As-Saffat",
+     "url": "../../quran/text/?s=37&trans=1&title=Ishaq",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ya'qub (Jacob)",
+   "ar": "يَعْقُوب",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Yusuf",
+     "url": "../../quran/text/?s=12&trans=1&title=Ya'qub",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Yusuf (Joseph)",
+   "ar": "يُوسُف",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Yusuf",
+     "url": "../../quran/text/?s=12&trans=1&title=Yusuf",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ayyub (Job)",
+   "ar": "أَيُّوب",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Al-Anbya",
+     "url": "../../quran/text/?s=21&trans=1&title=Ayyub",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Shu'ayb",
+   "ar": "شُعَيْب",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Hud",
+     "url": "../../quran/text/?s=11&trans=1&title=Shu'ayb",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Harun (Aaron)",
+   "ar": "هَارُون",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Taha",
+     "url": "../../quran/text/?s=20&trans=1&title=Harun",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Dhul-Kifl",
+   "ar": "ذُو ٱلْكِفْل",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Al-Anbya",
+     "url": "../../quran/text/?s=21&trans=1&title=Dhul-Kifl",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Dawud (David)",
+   "ar": "دَاوُد",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Sad",
+     "url": "../../quran/text/?s=38&trans=1&title=Dawud",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Sulayman (Solomon)",
+   "ar": "سُلَيْمَان",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah An-Naml",
+     "url": "../../quran/text/?s=27&trans=1&title=Sulayman",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ilyas (Elijah)",
+   "ar": "إِلْيَاس",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah As-Saffat",
+     "url": "../../quran/text/?s=37&trans=1&title=Ilyas",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Al-Yasa (Elisha)",
+   "ar": "ٱلْيَسَع",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Sad",
+     "url": "../../quran/text/?s=38&trans=1&title=Al-Yasa",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Yunus (Jonah)",
+   "ar": "يُونُس",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Yunus",
+     "url": "../../quran/text/?s=10&trans=1&title=Yunus",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Zakariyya (Zechariah)",
+   "ar": "زَكَرِيَّا",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Maryam",
+     "url": "../../quran/text/?s=19&trans=1&title=Zakariyya",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Yahya (John)",
+   "ar": "يَحْيَى",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Maryam",
+     "url": "../../quran/text/?s=19&trans=1&title=Yahya",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Isa (Jesus)",
+   "ar": "عِيسَى",
+   "type": "prophet",
+   "era": "Era — reading to be added",
+   "readings": [
+    {
+     "label": "Their birth and the world they lived through — read in Surah Maryam",
+     "url": "../../quran/text/?s=19&trans=1&title=Isa",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Hasan ibn Ali",
+   "ar": "ٱلْحَسَن بْن عَلِيّ",
+   "type": "imam",
+   "era": "625–670 CE — Madinah and Kufa",
+   "readings": [
+    {
+     "label": "Al-Mujtaba — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ali Zayn al-Abidin",
+   "ar": "عَلِيّ زَيْن ٱلْعَابِدِين",
+   "type": "imam",
+   "era": "659–713 CE — the generation after Karbala",
+   "readings": [
+    {
+     "label": "As-Sajjad — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Muhammad al-Baqir",
+   "ar": "مُحَمَّد ٱلْبَاقِر",
+   "type": "imam",
+   "era": "676–733 CE — Madinah under the Umayyads",
+   "readings": [
+    {
+     "label": "Baqir al-Ulum — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ja'far as-Sadiq",
+   "ar": "جَعْفَر ٱلصَّادِق",
+   "type": "imam",
+   "era": "702–765 CE — founder of the great Madinah school of learning",
+   "readings": [
+    {
+     "label": "As-Sadiq — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Musa al-Kazim",
+   "ar": "مُوسَى ٱلْكَاظِم",
+   "type": "imam",
+   "era": "745–799 CE — Madinah and Baghdad under the early Abbasids",
+   "readings": [
+    {
+     "label": "Al-Kazim — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ali ar-Rida",
+   "ar": "عَلِيّ ٱلرِّضَا",
+   "type": "imam",
+   "era": "766–818 CE — Madinah to Khurasan",
+   "readings": [
+    {
+     "label": "Ar-Rida — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Muhammad al-Jawad",
+   "ar": "مُحَمَّد ٱلْجَوَاد",
+   "type": "imam",
+   "era": "811–835 CE — the youngest Imam, Madinah and Baghdad",
+   "readings": [
+    {
+     "label": "At-Taqi — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Ali al-Hadi",
+   "ar": "عَلِيّ ٱلْهَادِي",
+   "type": "imam",
+   "era": "828–868 CE — Madinah, then Samarra",
+   "readings": [
+    {
+     "label": "An-Naqi — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Hasan al-Askari",
+   "ar": "ٱلْحَسَن ٱلْعَسْكَرِيّ",
+   "type": "imam",
+   "era": "846–874 CE — Samarra under Abbasid watch",
+   "readings": [
+    {
+     "label": "Al-Askari — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  },
+  {
+   "en": "Muhammad al-Mahdi",
+   "ar": "مُحَمَّد ٱلْمَهْدِيّ",
+   "type": "imam",
+   "era": "b. 869 CE — the awaited Imam, in occultation",
+   "readings": [
+    {
+     "label": "Al-Qa'im — birth and the era they lived through",
+     "url": "",
+     "excerpt": ""
+    }
+   ]
+  }
+ ]
 }

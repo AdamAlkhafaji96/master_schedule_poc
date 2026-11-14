@@ -1,55 +1,284 @@
 {
-  "note": "SOURCE OF TRUTH for the Dr. Fatin handwritten notes archive. Order = array order (insert anywhere); the Page Map view numbers every entry sequentially across all sections — that number is the ASSUMED page. Set an optional 'pg' on an item to record the page number written on the paper itself when it differs (shown as 'paper: X'). Item fields: id (stable, never reused), file (scans/...), thumb (optional thumbs/...), title, lesson, pg (optional paper page label), status (original | needs-rescan), notes, links[] ({label,url}) for related portal pages, and digitized[] ({label,file}) for produced digital replicas (docx/xlsx/pptx/html) stored under digitized/. A gap placeholder is {type:'gap', title, notes} and still occupies a page slot. Workflow: drop images into scans/ (small copies into thumbs/, replicas into digitized/), then add/insert entries here — or use Curate mode in the UI (Gallery or Page Map view) to reorder, renumber, rename, insert gaps, register files, and Export this manifest back for commit. CSV and zip exports are generated FROM this file.",
-  "sections": [
+ "note": "SOURCE OF TRUTH for the Dr. Fatin handwritten notes archive. Order = array order (insert anywhere); the Page Map view numbers every entry sequentially across all sections — that number is the ASSUMED page. Set an optional 'pg' on an item to record the page number written on the paper itself when it differs (shown as 'paper: X'). Item fields: id (stable, never reused), file (scans/...), thumb (optional thumbs/...), title, lesson, pg (optional paper page label), status (original | needs-rescan), notes, links[] ({label,url}) for related portal pages, and digitized[] ({label,file}) for produced digital replicas (docx/xlsx/pptx/html) stored under digitized/. A gap placeholder is {type:'gap', title, notes} and still occupies a page slot. Workflow: drop images into scans/ (small copies into thumbs/, replicas into digitized/), then add/insert entries here — or use Curate mode in the UI (Gallery or Page Map view) to reorder, renumber, rename, insert gaps, register files, and Export this manifest back for commit. CSV and zip exports are generated FROM this file.",
+ "sections": [
+  {
+   "id": "arabic-lessons",
+   "title": "Arabic — Lesson Notes",
+   "blurb": "The original handwritten Arabic curriculum, lesson by lesson.",
+   "items": [
     {
-      "id": "arabic-lessons",
-      "title": "Arabic — Lesson Notes",
-      "blurb": "The original handwritten Arabic curriculum, lesson by lesson.",
-      "items": [
-        {
-          "id": "ar-L01-p1",
-          "file": "scans/arabic-lesson-01-p1.jpeg",
-          "thumb": "thumbs/arabic-lesson-01-p1.jpeg",
-          "title": "Lesson 1 — The Arabic Alphabet (Their Names & Families)",
-          "lesson": "Lesson 1",
-          "status": "original",
-          "notes": "الدرس الأول — الحروف وأسماؤها. All 28 letters with their written names.",
-          "links": [
-            {
-              "label": "Interactive: The Alphabet",
-              "url": "../../arabic/letters/"
-            }
-          ],
-          "digitized": []
-        },
-        {
-          "id": "ar-L01-p2",
-          "file": "scans/arabic-lesson-01-p2.jpeg",
-          "thumb": "thumbs/arabic-lesson-01-p2.jpeg",
-          "title": "Lesson 1 — The Alphabetical Families",
-          "lesson": "Lesson 1",
-          "status": "original",
-          "notes": "Boat, Tummy, Fish-mouth, Slide, Teeth, Lost-their-Teeth, Stick, Backward-3, Circle-Head, Hook families, and the Orphans.",
-          "links": [],
-          "digitized": []
-        },
-        {
-          "type": "gap",
-          "title": "Lesson 1 — practice exercises (suspected)",
-          "notes": "Placeholder — check the older binders for a worksheet page that followed the families list."
-        },
-        {
-          "type": "gap",
-          "title": "Lesson 2 — first page not yet located",
-          "notes": "Placeholder holding Lesson 2's spot in the sequence."
-        }
-      ]
+     "id": "ar-L01-p1",
+     "file": "scans/arabic-lesson-01-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-01-p1.jpeg",
+     "title": "Lesson 1 — The Arabic Alphabet (Their Names & Families)",
+     "lesson": "Lesson 1",
+     "status": "original",
+     "notes": "الدرس الأول — الحروف وأسماؤها. All 28 letters with their written names.",
+     "links": [
+      {
+       "label": "Interactive: The Alphabet",
+       "url": "../../arabic/letters/"
+      }
+     ],
+     "digitized": [
+      {
+       "label": "Clean transcription — full book (PDF, 22 pp)",
+       "file": "digitized/quran-lessons-clean.pdf"
+      },
+      {
+       "label": "Clean transcription — editable (Word .docx)",
+       "file": "digitized/quran-lessons-clean.docx"
+      },
+      {
+       "label": "Transcription & cleanup record (what was left out, per page)",
+       "file": "digitized/quran-lessons-cleanup-record.pdf"
+      },
+      {
+       "label": "Clean transcription — Lesson 1 (PDF)",
+       "file": "digitized/quran-lessons-clean-L01.pdf"
+      }
+     ]
     },
     {
-      "id": "unsorted",
-      "title": "Unsorted / To Be Placed",
-      "blurb": "Scans that are saved but not yet placed into a lesson sequence.",
-      "items": []
+     "id": "ar-L01-p2",
+     "file": "scans/arabic-lesson-01-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-01-p2.jpeg",
+     "title": "Lesson 1 — The Alphabetical Families",
+     "lesson": "Lesson 1",
+     "status": "original",
+     "notes": "Boat, Tummy, Fish-mouth, Slide, Teeth, Lost-their-Teeth, Stick, Backward-3, Circle-Head, Hook families, and the Orphans.",
+     "links": [],
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 1 (PDF)",
+       "file": "digitized/quran-lessons-clean-L01.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L02-p1",
+     "file": "scans/arabic-lesson-02-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-02-p1.jpeg",
+     "title": "Lesson 2 — The Shapes of the Letters — Beginning · Middle · End (part 1)",
+     "lesson": "Lesson 2",
+     "status": "original",
+     "notes": "Notebook page 3 of 19. Digitized in the clean transcription (Lesson 2).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 2 (PDF)",
+       "file": "digitized/quran-lessons-clean-L02.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L02-p2",
+     "file": "scans/arabic-lesson-02-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-02-p2.jpeg",
+     "title": "Lesson 2 — The Shapes of the Letters (part 2)",
+     "lesson": "Lesson 2",
+     "status": "original",
+     "notes": "Notebook page 4 of 19. Digitized in the clean transcription (Lesson 2)."
+    },
+    {
+     "id": "ar-L02-p3",
+     "file": "scans/arabic-lesson-02-p3.jpeg",
+     "thumb": "thumbs/arabic-lesson-02-p3.jpeg",
+     "title": "Lesson 2 — The Shapes of the Letters (part 3)",
+     "lesson": "Lesson 2",
+     "status": "original",
+     "notes": "Notebook page 5 of 19. Digitized in the clean transcription (Lesson 2)."
+    },
+    {
+     "id": "ar-L03-p1",
+     "file": "scans/arabic-lesson-03-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-03-p1.jpeg",
+     "title": "Lesson 3 — The Unfriendly Letters — the six non-connectors",
+     "lesson": "Lesson 3",
+     "status": "original",
+     "notes": "Notebook page 6 of 19. Digitized in the clean transcription (Lesson 3).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 3 (PDF)",
+       "file": "digitized/quran-lessons-clean-L03.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L04-p1",
+     "file": "scans/arabic-lesson-04-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-04-p1.jpeg",
+     "title": "Lesson 4 — Connecting 2 Letters to Make a Word",
+     "lesson": "Lesson 4",
+     "status": "original",
+     "notes": "Notebook page 7 of 19. Digitized in the clean transcription (Lesson 4).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 4 (PDF)",
+       "file": "digitized/quran-lessons-clean-L04.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L04-p2",
+     "file": "scans/arabic-lesson-04-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-04-p2.jpeg",
+     "title": "Lesson 4 — Connecting 3 Letters to Make a Word",
+     "lesson": "Lesson 4",
+     "status": "original",
+     "notes": "Notebook page 8 of 19. Digitized in the clean transcription (Lesson 4)."
+    },
+    {
+     "id": "ar-L05-p1",
+     "file": "scans/arabic-lesson-05-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-05-p1.jpeg",
+     "title": "Lesson 5 — Al-Harakat — Arabic Vowels (short, long, tanween, Uthmani script)",
+     "lesson": "Lesson 5",
+     "status": "original",
+     "notes": "Notebook page 9 of 19. Digitized in the clean transcription (Lesson 5).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 5 (PDF)",
+       "file": "digitized/quran-lessons-clean-L05.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L06-p1",
+     "file": "scans/arabic-lesson-06-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-06-p1.jpeg",
+     "title": "Lesson 6 — Sounds of the Letters with Fatha · Dhamma · Kasra (part 1)",
+     "lesson": "Lesson 6",
+     "status": "original",
+     "notes": "Notebook page 10 of 19. Digitized in the clean transcription (Lesson 6).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 6 (PDF)",
+       "file": "digitized/quran-lessons-clean-L06.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L06-p2",
+     "file": "scans/arabic-lesson-06-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-06-p2.jpeg",
+     "title": "Lesson 6 — Sounds of the Letters with Fatha · Dhamma · Kasra (part 2)",
+     "lesson": "Lesson 6",
+     "status": "original",
+     "notes": "Notebook page 11 of 19. Digitized in the clean transcription (Lesson 6)."
+    },
+    {
+     "id": "ar-L06-p3",
+     "file": "scans/arabic-lesson-06-p3.jpeg",
+     "thumb": "thumbs/arabic-lesson-06-p3.jpeg",
+     "title": "Lesson 6 — Exercise — practice words with different vowels",
+     "lesson": "Lesson 6",
+     "status": "original",
+     "notes": "Notebook page 12 of 19. Digitized in the clean transcription (Lesson 6)."
+    },
+    {
+     "id": "ar-L07-p1",
+     "file": "scans/arabic-lesson-07-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-07-p1.jpeg",
+     "title": "Lesson 7 — Sukoon — Vowel-less Letters",
+     "lesson": "Lesson 7",
+     "status": "original",
+     "notes": "Notebook page 13 of 19. Digitized in the clean transcription (Lesson 7).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 7 (PDF)",
+       "file": "digitized/quran-lessons-clean-L07.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L08-p1",
+     "file": "scans/arabic-lesson-08-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-08-p1.jpeg",
+     "title": "Lesson 8 — Types of Tanween (Doubled Vowels)",
+     "lesson": "Lesson 8",
+     "status": "original",
+     "notes": "Notebook page 14 of 19. Digitized in the clean transcription (Lesson 8).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 8 (PDF)",
+       "file": "digitized/quran-lessons-clean-L08.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L08-p2",
+     "file": "scans/arabic-lesson-08-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-08-p2.jpeg",
+     "title": "Lesson 8 — Exercise on doubled vowels (Tanween)",
+     "lesson": "Lesson 8",
+     "status": "original",
+     "notes": "Notebook page 15 of 19. Digitized in the clean transcription (Lesson 8)."
+    },
+    {
+     "id": "ar-L09-p1",
+     "file": "scans/arabic-lesson-09-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-09-p1.jpeg",
+     "title": "Lesson 9 — Ash-Shaddah — Doubled Letters",
+     "lesson": "Lesson 9",
+     "status": "original",
+     "notes": "Notebook page 16 of 19. Digitized in the clean transcription (Lesson 9).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 9 (PDF)",
+       "file": "digitized/quran-lessons-clean-L09.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L10-p1",
+     "file": "scans/arabic-lesson-10-p1.jpeg",
+     "thumb": "thumbs/arabic-lesson-10-p1.jpeg",
+     "title": "Lesson 10 — Shamsi (Sun) & Qamari (Moon) Letters — Lam Shamsi",
+     "lesson": "Lesson 10",
+     "status": "original",
+     "notes": "Notebook page 17 of 19. Digitized in the clean transcription (Lesson 10).",
+     "digitized": [
+      {
+       "label": "Clean transcription — Lesson 10 (PDF)",
+       "file": "digitized/quran-lessons-clean-L10.pdf"
+      }
+     ]
+    },
+    {
+     "id": "ar-L10-p2",
+     "file": "scans/arabic-lesson-10-p2.jpeg",
+     "thumb": "thumbs/arabic-lesson-10-p2.jpeg",
+     "title": "Lesson 10 — Exercise — practice Lam Shamsi",
+     "lesson": "Lesson 10",
+     "status": "original",
+     "notes": "Notebook page 18 of 19. Digitized in the clean transcription (Lesson 10)."
+    },
+    {
+     "id": "ar-L10-p3",
+     "file": "scans/arabic-lesson-10-p3.jpeg",
+     "thumb": "thumbs/arabic-lesson-10-p3.jpeg",
+     "title": "Lesson 10 — Qamari Letters & Exercise — practice Lam Qamari",
+     "lesson": "Lesson 10",
+     "status": "original",
+     "notes": "Notebook page 19 of 19. Digitized in the clean transcription (Lesson 10)."
+    },
+    {
+     "type": "gap",
+     "title": "Lesson 1 — practice exercises (suspected)",
+     "notes": "Placeholder — check the older binders for a worksheet page that followed the families list."
+    },
+    {
+     "type": "gap",
+     "title": "Lesson 2 — first page not yet located",
+     "notes": "Placeholder holding Lesson 2's spot in the sequence."
     }
-  ]
+   ]
+  },
+  {
+   "id": "unsorted",
+   "title": "Unsorted / To Be Placed",
+   "blurb": "Scans that are saved but not yet placed into a lesson sequence.",
+   "items": []
+  }
+ ]
 }

@@ -1,87 +1,2316 @@
 {
-  "note": "SOURCE OF TRUTH for the '80% Qur'anic Words' concentration-themed vocabulary. Every electronic page keeps a reference to its raw paper scan (scan/thumb, or null if the page hasn't been photographed yet — that renders as a paper placeholder). Entry shape: {en, tag, ar, status}. status: 'ok' = transcribed and checked; 'placeholder' = spot held for a term not yet transcribed or not yet legible. Edit this file directly, or use Edit mode in the UI (inline edits, add rows, toggle placeholder) and Export data.json back for commit. CSV/exports are generated from this file, never the other way around.",
-  "book": {
-    "title": "80% of Qur'anic Words",
-    "subtitle": "Concentration-themed word lists — paper source & electronic modifiable version",
-    "abbreviations": [
-      ["mg", "masculine gender"],
-      ["fg", "feminine gender"],
-      ["br. pl", "broken plural"],
-      ["sg", "singular"],
-      ["dl", "dual"],
-      ["pl", "plural"],
-      ["sb", "somebody"],
-      ["st", "something"],
-      ["ss", "somebody or something"]
-    ],
-    "abbreviations_scan": "scans/front-abbreviations.jpeg",
-    "abbreviations_thumb": "thumbs/front-abbreviations.jpeg"
-  },
-  "pages": [
+ "note": "SOURCE OF TRUTH for the '80% Qur'anic Words' concentration-themed vocabulary. Every electronic page keeps a reference to its raw paper scan (scan/thumb, or null if the page hasn't been photographed yet — that renders as a paper placeholder). Entry shape: {en, tag, ar, status}. status: 'ok' = transcribed and checked; 'placeholder' = spot held for a term not yet transcribed or not yet legible. Edit this file directly, or use Edit mode in the UI (inline edits, add rows, toggle placeholder) and Export data.json back for commit. CSV/exports are generated from this file, never the other way around.",
+ "book": {
+  "title": "80% of Qur'anic Words",
+  "subtitle": "Concentration-themed word lists — paper source & electronic modifiable version",
+  "abbreviations": [
+   [
+    "mg",
+    "masculine gender"
+   ],
+   [
+    "fg",
+    "feminine gender"
+   ],
+   [
+    "br. pl",
+    "broken plural"
+   ],
+   [
+    "sg",
+    "singular"
+   ],
+   [
+    "dl",
+    "dual"
+   ],
+   [
+    "pl",
+    "plural"
+   ],
+   [
+    "sb",
+    "somebody"
+   ],
+   [
+    "st",
+    "something"
+   ],
+   [
+    "ss",
+    "somebody or something"
+   ]
+  ],
+  "abbreviations_scan": "scans/front-abbreviations.jpeg",
+  "abbreviations_thumb": "thumbs/front-abbreviations.jpeg"
+ },
+ "pages": [
+  {
+   "id": "p001",
+   "label": "Page 1",
+   "scan": "scans/page-001.jpeg",
+   "thumb": "thumbs/page-001.jpeg",
+   "meta": "Words (from first 6 pages): 32,263 · Percent (first 6 pages): 41.5",
+   "themes": [
     {
-      "id": "p001",
-      "label": "Page 1",
-      "scan": "scans/page-001.jpeg",
-      "thumb": "thumbs/page-001.jpeg",
-      "meta": "Words (from first 6 pages): 32,263 · Percent (first 6 pages): 41.5",
-      "themes": [
-        {
-          "title": "This, that…!",
-          "entries": [
-            { "en": "this", "tag": "mg", "ar": "هَٰذَا", "status": "ok" },
-            { "en": "that", "tag": "mg", "ar": "ذَٰلِكَ", "status": "ok" },
-            { "en": "this", "tag": "fg", "ar": "هَٰذِه", "status": "ok" },
-            { "en": "that", "tag": "fg", "ar": "تِلْكَ", "status": "ok" },
-            { "en": "these", "tag": "mg/fg", "ar": "هَٰؤُلَاء", "status": "ok" },
-            { "en": "those", "tag": "mg/fg", "ar": "أُولَٰئِكَ", "status": "ok" },
-            { "en": "he who", "tag": "mg", "ar": "الَّذِي", "status": "ok" },
-            { "en": "she who", "tag": "fg", "ar": "الَّتِي", "status": "ok" },
-            { "en": "those who", "tag": "mg", "ar": "الَّذِينَ", "status": "ok" },
-            { "en": "these", "tag": "for br. pl", "ar": "هَٰذِه", "status": "ok" },
-            { "en": "those", "tag": "for br. pl", "ar": "تِلْكَ", "status": "ok" },
-            { "en": "those who", "tag": "for br. pl", "ar": "الَّتِي", "status": "ok" }
-          ]
-        },
-        {
-          "title": "No, No!!!",
-          "entries": [
-            { "en": "(There is) no god", "tag": "", "ar": "لَا إِلَٰهَ", "status": "ok" },
-            { "en": "except Allah", "tag": "", "ar": "إِلَّا الله", "status": "ok" },
-            { "en": "never, certainly not", "tag": "", "ar": "كَلَّا", "status": "ok" },
-            { "en": "not", "tag": "for future", "ar": "لَنْ", "status": "ok" },
-            { "en": "not", "tag": "for past", "ar": "لَمْ", "status": "ok" },
-            { "en": "not", "tag": "", "ar": "مَا", "status": "ok" },
-            { "en": "not", "tag": "fg", "ar": "لَيْسَ (لَيْسَت)", "status": "ok" },
-            { "en": "yes, indeed", "tag": "", "ar": "بَلَى", "status": "ok" },
-            { "en": "not, other than", "tag": "", "ar": "غَيْر", "status": "ok" },
-            { "en": "besides; less than", "tag": "", "ar": "دُونَ", "status": "ok" },
-            { "en": "except; unless; if not", "tag": "", "ar": "إِلَّا", "status": "ok" },
-            { "en": "yes", "tag": "", "ar": "نَعَمْ", "status": "ok" }
-          ]
-        }
-      ]
+     "title": "This, that...!",
+     "entries": [
+      {
+       "en": "this",
+       "tag": "mg",
+       "ar": "هَٰذَا",
+       "status": "ok"
+      },
+      {
+       "en": "that",
+       "tag": "mg",
+       "ar": "ذَٰلِكَ",
+       "status": "ok"
+      },
+      {
+       "en": "this",
+       "tag": "fg",
+       "ar": "هَٰذِهِ",
+       "status": "ok"
+      },
+      {
+       "en": "that",
+       "tag": "fg",
+       "ar": "تِلْكَ",
+       "status": "ok"
+      },
+      {
+       "en": "these",
+       "tag": "mg/fg",
+       "ar": "هَٰؤُلَاءِ",
+       "status": "ok"
+      },
+      {
+       "en": "those",
+       "tag": "mg/fg",
+       "ar": "أُولَٰئِكَ",
+       "status": "ok"
+      },
+      {
+       "en": "he who",
+       "tag": "mg",
+       "ar": "الَّذِي",
+       "status": "ok"
+      },
+      {
+       "en": "she who",
+       "tag": "fg",
+       "ar": "الَّتِي",
+       "status": "ok"
+      },
+      {
+       "en": "those who",
+       "tag": "mg",
+       "ar": "الَّذِينَ",
+       "status": "ok"
+      },
+      {
+       "en": "these",
+       "tag": "for br. pl",
+       "ar": "هَٰذِهِ",
+       "status": "ok"
+      },
+      {
+       "en": "those",
+       "tag": "for br. pl",
+       "ar": "تِلْكَ",
+       "status": "ok"
+      },
+      {
+       "en": "those who",
+       "tag": "for br. pl",
+       "ar": "الَّتِي",
+       "status": "ok"
+      }
+     ]
     },
     {
-      "id": "p002",
-      "label": "Page 2",
-      "scan": null,
-      "thumb": null,
-      "meta": "Scan not yet photographed — themes below are placeholders holding the page's spot.",
-      "themes": [
-        {
-          "title": "Theme title — to be transcribed",
-          "entries": [
-            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" },
-            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" }
-          ]
-        },
-        {
-          "title": "Theme title — to be transcribed",
-          "entries": [
-            { "en": "— term pending —", "tag": "", "ar": "—", "status": "placeholder" }
-          ]
-        }
-      ]
+     "title": "No, No!!!",
+     "entries": [
+      {
+       "en": "(There is) no god",
+       "tag": "",
+       "ar": "لَا إِلَٰهَ",
+       "status": "ok"
+      },
+      {
+       "en": "except Allah",
+       "tag": "",
+       "ar": "إِلَّا اللَّهُ",
+       "status": "ok"
+      },
+      {
+       "en": "never, certainly not",
+       "tag": "",
+       "ar": "كَلَّا",
+       "status": "ok"
+      },
+      {
+       "en": "not",
+       "tag": "for future",
+       "ar": "لَنْ",
+       "status": "ok"
+      },
+      {
+       "en": "not",
+       "tag": "for past",
+       "ar": "لَمْ",
+       "status": "ok"
+      },
+      {
+       "en": "not",
+       "tag": "",
+       "ar": "مَا",
+       "status": "ok"
+      },
+      {
+       "en": "not",
+       "tag": "fg",
+       "ar": "لَيْسَ (لَيْسَتْ)",
+       "status": "ok"
+      },
+      {
+       "en": "yes, indeed",
+       "tag": "",
+       "ar": "بَلَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "not, other than",
+       "tag": "",
+       "ar": "غَيْر",
+       "status": "ok"
+      },
+      {
+       "en": "besides; less than",
+       "tag": "",
+       "ar": "دُونَ",
+       "status": "ok"
+      },
+      {
+       "en": "except; unless; if not",
+       "tag": "",
+       "ar": "إِلَّا",
+       "status": "ok"
+      },
+      {
+       "en": "yes",
+       "tag": "",
+       "ar": "نَعَمْ",
+       "status": "ok"
+      }
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "id": "p002",
+   "label": "Page 2",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 41.5%",
+   "themes": [
+    {
+     "title": "Whose?",
+     "entries": [
+      {
+       "en": "his",
+       "tag": "mg",
+       "ar": "هُ...",
+       "status": "ok"
+      },
+      {
+       "en": "their",
+       "tag": "mg",
+       "ar": "هُمْ...",
+       "status": "ok"
+      },
+      {
+       "en": "your",
+       "tag": "mg",
+       "ar": "كَ...",
+       "status": "ok"
+      },
+      {
+       "en": "your",
+       "tag": "mg",
+       "ar": "كُمْ...",
+       "status": "ok"
+      },
+      {
+       "en": "my (me)",
+       "tag": "",
+       "ar": "...يْ (نِي)",
+       "status": "ok"
+      },
+      {
+       "en": "us",
+       "tag": "mg/fg",
+       "ar": "نَا...",
+       "status": "ok"
+      },
+      {
+       "en": "her",
+       "tag": "fg",
+       "ar": "هَا...",
+       "status": "ok"
+      },
+      {
+       "en": "their",
+       "tag": "fg",
+       "ar": "هُنَّ...",
+       "status": "ok"
+      },
+      {
+       "en": "your",
+       "tag": "fg",
+       "ar": "كِ...",
+       "status": "ok"
+      },
+      {
+       "en": "their",
+       "tag": "for br. pl",
+       "ar": "هَا...",
+       "status": "ok"
+      },
+      {
+       "en": "their",
+       "tag": "dl",
+       "ar": "هُمَا...",
+       "status": "ok"
+      },
+      {
+       "en": "your",
+       "tag": "dl",
+       "ar": "كُمَا...",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Who?",
+     "entries": [
+      {
+       "en": "he",
+       "tag": "mg",
+       "ar": "هُوَ",
+       "status": "ok"
+      },
+      {
+       "en": "them",
+       "tag": "mg",
+       "ar": "هُمْ",
+       "status": "ok"
+      },
+      {
+       "en": "you",
+       "tag": "mg",
+       "ar": "أَنْتَ",
+       "status": "ok"
+      },
+      {
+       "en": "you all",
+       "tag": "mg",
+       "ar": "أَنْتُمْ",
+       "status": "ok"
+      },
+      {
+       "en": "I",
+       "tag": "mg/fg",
+       "ar": "أَنَا",
+       "status": "ok"
+      },
+      {
+       "en": "we",
+       "tag": "mg/fg",
+       "ar": "نَحْنُ",
+       "status": "ok"
+      },
+      {
+       "en": "she",
+       "tag": "fg",
+       "ar": "هِيَ",
+       "status": "ok"
+      },
+      {
+       "en": "they",
+       "tag": "fg",
+       "ar": "هُنَّ",
+       "status": "ok"
+      },
+      {
+       "en": "you",
+       "tag": "fg",
+       "ar": "أَنْتِ",
+       "status": "ok"
+      },
+      {
+       "en": "they",
+       "tag": "for br. pl",
+       "ar": "هِيَ",
+       "status": "ok"
+      },
+      {
+       "en": "those two",
+       "tag": "dl",
+       "ar": "هُمَا",
+       "status": "ok"
+      },
+      {
+       "en": "you two",
+       "tag": "dl",
+       "ar": "أَنْتُمَا",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p003",
+   "label": "Page 3",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 41.5%",
+   "themes": [
+    {
+     "title": "Where?",
+     "entries": [
+      {
+       "en": "above, up",
+       "tag": "",
+       "ar": "فَوْقَ",
+       "status": "ok"
+      },
+      {
+       "en": "under",
+       "tag": "",
+       "ar": "تَحْتَ",
+       "status": "ok"
+      },
+      {
+       "en": "in front of",
+       "tag": "",
+       "ar": "بَيْنَ أَيْدِي، بَيْنَ يَدَيْ",
+       "status": "ok"
+      },
+      {
+       "en": "back, after",
+       "tag": "",
+       "ar": "خَلْفَ",
+       "status": "ok"
+      },
+      {
+       "en": "in front of",
+       "tag": "",
+       "ar": "أَمَامَ",
+       "status": "ok"
+      },
+      {
+       "en": "behind",
+       "tag": "",
+       "ar": "وَرَاءَ",
+       "status": "ok"
+      },
+      {
+       "en": "right; oath",
+       "tag": "",
+       "ar": "يَمِين (pl أَيْمَان)",
+       "status": "ok"
+      },
+      {
+       "en": "left",
+       "tag": "",
+       "ar": "شِمَال (pl شَمَائِل)",
+       "status": "ok"
+      },
+      {
+       "en": "between",
+       "tag": "",
+       "ar": "بَيْنَ",
+       "status": "ok"
+      },
+      {
+       "en": "around",
+       "tag": "",
+       "ar": "حَوْلَ",
+       "status": "ok"
+      },
+      {
+       "en": "wherever",
+       "tag": "",
+       "ar": "حَيْثُ",
+       "status": "ok"
+      },
+      {
+       "en": "wherever",
+       "tag": "",
+       "ar": "أَيْنَمَا",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Questions!?",
+     "entries": [
+      {
+       "en": "what?, that which",
+       "tag": "",
+       "ar": "مَا",
+       "status": "ok"
+      },
+      {
+       "en": "who?, the one who",
+       "tag": "",
+       "ar": "مَنْ",
+       "status": "ok"
+      },
+      {
+       "en": "when?, the time when",
+       "tag": "",
+       "ar": "مَتَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "where?",
+       "tag": "",
+       "ar": "أَيْنَ",
+       "status": "ok"
+      },
+      {
+       "en": "how?",
+       "tag": "",
+       "ar": "كَيْفَ",
+       "status": "ok"
+      },
+      {
+       "en": "how many?",
+       "tag": "",
+       "ar": "كَمْ",
+       "status": "ok"
+      },
+      {
+       "en": "which?",
+       "tag": "",
+       "ar": "أَيُّ",
+       "status": "ok"
+      },
+      {
+       "en": "where from?, why?",
+       "tag": "",
+       "ar": "أَنَّىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "Is? Am? Are? Do? Have?",
+       "tag": "",
+       "ar": "أَ، هَلْ",
+       "status": "ok"
+      },
+      {
+       "en": "what?",
+       "tag": "",
+       "ar": "مَاذَا",
+       "status": "ok"
+      },
+      {
+       "en": "why?",
+       "tag": "",
+       "ar": "لِمَ، لِمَاذَا",
+       "status": "ok"
+      },
+      {
+       "en": "if not; why not",
+       "tag": "",
+       "ar": "لَوْلَا",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p004",
+   "label": "Page 4",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 41.5%",
+   "themes": [
+    {
+     "title": "Miscellaneous",
+     "entries": [
+      {
+       "en": "endowed with; owner of",
+       "tag": "mg",
+       "ar": "ذُو، ذَا، ذِي",
+       "status": "ok"
+      },
+      {
+       "en": "endowed with; owner of",
+       "tag": "fg",
+       "ar": "ذَات",
+       "status": "ok"
+      },
+      {
+       "en": "people of; owners of",
+       "tag": "",
+       "ar": "أُولُوا، أُولِي",
+       "status": "ok"
+      },
+      {
+       "en": "people of; relative",
+       "tag": "",
+       "ar": "أَهْل",
+       "status": "ok"
+      },
+      {
+       "en": "family, relatives, people",
+       "tag": "",
+       "ar": "آل",
+       "status": "ok"
+      },
+      {
+       "en": "lo!; do not?, will not?",
+       "tag": "",
+       "ar": "أَلَا",
+       "status": "ok"
+      },
+      {
+       "en": "what an excellent…",
+       "tag": "",
+       "ar": "نِعْمَ",
+       "status": "ok"
+      },
+      {
+       "en": "what an evil…",
+       "tag": "",
+       "ar": "بِئْسَ",
+       "status": "ok"
+      },
+      {
+       "en": "evil is that which",
+       "tag": "",
+       "ar": "بِئْسَمَا",
+       "status": "ok"
+      },
+      {
+       "en": "something similar",
+       "tag": "",
+       "ar": "مِثْل",
+       "status": "ok"
+      },
+      {
+       "en": "similitude",
+       "tag": "",
+       "ar": "مَثَل (أَمْثَال)",
+       "status": "ok"
+      },
+      {
+       "en": "than the one who; from those who",
+       "tag": "",
+       "ar": "مِمَّنْ (مِنْ+مَنْ)",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "When?",
+     "entries": [
+      {
+       "en": "before",
+       "tag": "",
+       "ar": "قَبْلَ",
+       "status": "ok"
+      },
+      {
+       "en": "after",
+       "tag": "",
+       "ar": "بَعْدَ",
+       "status": "ok"
+      },
+      {
+       "en": "time, period; at the time of",
+       "tag": "",
+       "ar": "حِينَ",
+       "status": "ok"
+      },
+      {
+       "en": "when",
+       "tag": "for past",
+       "ar": "إِذْ",
+       "status": "ok"
+      },
+      {
+       "en": "when",
+       "tag": "for future",
+       "ar": "إِذَا",
+       "status": "ok"
+      },
+      {
+       "en": "then",
+       "tag": "",
+       "ar": "ثُمَّ",
+       "status": "ok"
+      },
+      {
+       "en": "then, thus, therefore",
+       "tag": "",
+       "ar": "فَ",
+       "status": "ok"
+      },
+      {
+       "en": "nay, -- rather, but, however",
+       "tag": "",
+       "ar": "بَلْ",
+       "status": "ok"
+      },
+      {
+       "en": "near, with",
+       "tag": "",
+       "ar": "عِنْدَ، لَدَىٰ، لَدُنْ",
+       "status": "ok"
+      },
+      {
+       "en": "nothing --- but",
+       "tag": "",
+       "ar": "إِنْ ... إِلَّا",
+       "status": "ok"
+      },
+      {
+       "en": "nothing --- but",
+       "tag": "",
+       "ar": "مَا ... إِلَّا",
+       "status": "ok"
+      },
+      {
+       "en": "that…not; so as not to",
+       "tag": "",
+       "ar": "أَلَّا (أَنْ+لَا)",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p005",
+   "label": "Page 5",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 41.5%",
+   "themes": [
+    {
+     "title": "Prepositions + مَا",
+     "entries": [
+      {
+       "en": "with what, because",
+       "tag": "",
+       "ar": "بِمَا",
+       "status": "ok"
+      },
+      {
+       "en": "about what",
+       "tag": "",
+       "ar": "عَمَّا",
+       "status": "ok"
+      },
+      {
+       "en": "in what",
+       "tag": "",
+       "ar": "فِيمَا",
+       "status": "ok"
+      },
+      {
+       "en": "as, just as",
+       "tag": "",
+       "ar": "كَمَا",
+       "status": "ok"
+      },
+      {
+       "en": "for what; for that which",
+       "tag": "",
+       "ar": "لِمَا",
+       "status": "ok"
+      },
+      {
+       "en": "out of what",
+       "tag": "",
+       "ar": "مِمَّا",
+       "status": "ok"
+      },
+      {
+       "en": "as to, as for",
+       "tag": "",
+       "ar": "أَمَّا",
+       "status": "ok"
+      },
+      {
+       "en": "if; either/or",
+       "tag": "",
+       "ar": "إِمَّا",
+       "status": "ok"
+      },
+      {
+       "en": "that",
+       "tag": "",
+       "ar": "أَنَّمَا",
+       "status": "ok"
+      },
+      {
+       "en": "verily; is but",
+       "tag": "",
+       "ar": "إِنَّمَا",
+       "status": "ok"
+      },
+      {
+       "en": "as if",
+       "tag": "",
+       "ar": "كَأَنَّمَا",
+       "status": "ok"
+      },
+      {
+       "en": "whenever",
+       "tag": "",
+       "ar": "كُلَّمَا",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Prepositions",
+     "entries": [
+      {
+       "en": "with, in, from,…",
+       "tag": "",
+       "ar": "بِ",
+       "status": "ok"
+      },
+      {
+       "en": "about",
+       "tag": "",
+       "ar": "عَنْ",
+       "status": "ok"
+      },
+      {
+       "en": "in",
+       "tag": "",
+       "ar": "فِي",
+       "status": "ok"
+      },
+      {
+       "en": "as, like",
+       "tag": "",
+       "ar": "كَ",
+       "status": "ok"
+      },
+      {
+       "en": "for",
+       "tag": "",
+       "ar": "لِ، لَ",
+       "status": "ok"
+      },
+      {
+       "en": "from",
+       "tag": "",
+       "ar": "مِنْ",
+       "status": "ok"
+      },
+      {
+       "en": "towards",
+       "tag": "",
+       "ar": "إِلَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "by (of oath)",
+       "tag": "",
+       "ar": "تَ",
+       "status": "ok"
+      },
+      {
+       "en": "until",
+       "tag": "",
+       "ar": "حَتَّىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "on",
+       "tag": "",
+       "ar": "عَلَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "with",
+       "tag": "",
+       "ar": "مَعَ",
+       "status": "ok"
+      },
+      {
+       "en": "and; by (of oath)",
+       "tag": "",
+       "ar": "وَ",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p006",
+   "label": "Page 6",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 41.5%",
+   "themes": [
+    {
+     "title": "Prefix for verb,…",
+     "entries": [
+      {
+       "en": "has (with مَاضِي); surely (with مُضَارِع)",
+       "tag": "",
+       "ar": "قَدْ (+فعل)",
+       "status": "ok"
+      },
+      {
+       "en": "will",
+       "tag": "for near future",
+       "ar": "سَ (+فعل)",
+       "status": "ok"
+      },
+      {
+       "en": "will",
+       "tag": "for future",
+       "ar": "سَوْفَ (+فعل)",
+       "status": "ok"
+      },
+      {
+       "en": "will surely",
+       "tag": "",
+       "ar": "لَ+فعل+نَّ",
+       "status": "ok"
+      },
+      {
+       "en": "indeed",
+       "tag": "",
+       "ar": "لَقَدْ (+فعل)",
+       "status": "ok"
+      },
+      {
+       "en": "indeed, surely",
+       "tag": "",
+       "ar": "لَ",
+       "status": "ok"
+      },
+      {
+       "en": "let sb do (imperative)",
+       "tag": "",
+       "ar": "لِ، لْ (أَمْر)",
+       "status": "ok"
+      },
+      {
+       "en": "the",
+       "tag": "",
+       "ar": "الْ",
+       "status": "ok"
+      },
+      {
+       "en": "or?",
+       "tag": "",
+       "ar": "أَمْ",
+       "status": "ok"
+      },
+      {
+       "en": "or",
+       "tag": "",
+       "ar": "أَوْ",
+       "status": "ok"
+      },
+      {
+       "en": "some of",
+       "tag": "",
+       "ar": "بَعْض",
+       "status": "ok"
+      },
+      {
+       "en": "everyone; all",
+       "tag": "",
+       "ar": "كُلُّ",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Inna",
+     "entries": [
+      {
+       "en": "verily, truly",
+       "tag": "",
+       "ar": "إِنَّ",
+       "status": "ok"
+      },
+      {
+       "en": "that",
+       "tag": "",
+       "ar": "أَنَّ",
+       "status": "ok"
+      },
+      {
+       "en": "as if",
+       "tag": "",
+       "ar": "كَأَنَّ",
+       "status": "ok"
+      },
+      {
+       "en": "but, however",
+       "tag": "",
+       "ar": "لَكِنَّ (لَكِنْ)",
+       "status": "ok"
+      },
+      {
+       "en": "perhaps, may be",
+       "tag": "",
+       "ar": "لَعَلَّ",
+       "status": "ok"
+      },
+      {
+       "en": "that",
+       "tag": "",
+       "ar": "أَنْ",
+       "status": "ok"
+      },
+      {
+       "en": "if",
+       "tag": "",
+       "ar": "إِنْ",
+       "status": "ok"
+      },
+      {
+       "en": "alone",
+       "tag": "",
+       "ar": "إِيَّا",
+       "status": "ok"
+      },
+      {
+       "en": "possibly",
+       "tag": "",
+       "ar": "عَسَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "when",
+       "tag": "",
+       "ar": "لَمَّا",
+       "status": "ok"
+      },
+      {
+       "en": "if",
+       "tag": "",
+       "ar": "لَوْ",
+       "status": "ok"
+      },
+      {
+       "en": "O!",
+       "tag": "",
+       "ar": "يَا، يَا أَيُّهَا",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p007",
+   "label": "Page 7",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 44.0%",
+   "themes": [
+    {
+     "title": "Some attributes (of Allah and others)",
+     "entries": [
+      {
+       "en": "knowing, ever aware",
+       "tag": "",
+       "ar": "خَبِير",
+       "status": "ok"
+      },
+      {
+       "en": "Lord; Sustainer",
+       "tag": "",
+       "ar": "رَبّ",
+       "status": "ok"
+      },
+      {
+       "en": "Compassionate",
+       "tag": "",
+       "ar": "رَحْمَٰن",
+       "status": "ok"
+      },
+      {
+       "en": "peace",
+       "tag": "",
+       "ar": "سَلَام",
+       "status": "ok"
+      },
+      {
+       "en": "one who listens",
+       "tag": "",
+       "ar": "سَمِيع",
+       "status": "ok"
+      },
+      {
+       "en": "grateful",
+       "tag": "",
+       "ar": "شَكُور",
+       "status": "ok"
+      },
+      {
+       "en": "mighty",
+       "tag": "",
+       "ar": "عَزِيز",
+       "status": "ok"
+      },
+      {
+       "en": "most forgiving",
+       "tag": "",
+       "ar": "غَفُور",
+       "status": "ok"
+      },
+      {
+       "en": "All-powerful",
+       "tag": "",
+       "ar": "قَدِير",
+       "status": "ok"
+      },
+      {
+       "en": "warner",
+       "tag": "",
+       "ar": "نَذِير",
+       "status": "ok"
+      },
+      {
+       "en": "strong helper",
+       "tag": "",
+       "ar": "نَصِير",
+       "status": "ok"
+      },
+      {
+       "en": "one who takes care of a thing for another",
+       "tag": "",
+       "ar": "وَكِيل",
+       "status": "ok"
+      },
+      {
+       "en": "first",
+       "tag": "",
+       "ar": "أَوَّل (fg أُولَىٰ)",
+       "status": "ok"
+      },
+      {
+       "en": "last",
+       "tag": "",
+       "ar": "آخِر (fg آخِرَة)",
+       "status": "ok"
+      },
+      {
+       "en": "[other]",
+       "tag": "",
+       "ar": "آخَر (fg أُخْرَىٰ)",
+       "status": "ok"
+      },
+      {
+       "en": "trustworthy",
+       "tag": "",
+       "ar": "أَمِين",
+       "status": "ok"
+      },
+      {
+       "en": "one who sees clearly",
+       "tag": "",
+       "ar": "بَصِير",
+       "status": "ok"
+      },
+      {
+       "en": "far",
+       "tag": "",
+       "ar": "بَعِيد",
+       "status": "ok"
+      },
+      {
+       "en": "most forgiving",
+       "tag": "",
+       "ar": "تَوَّاب",
+       "status": "ok"
+      },
+      {
+       "en": "protector",
+       "tag": "",
+       "ar": "حَفِيظ",
+       "status": "ok"
+      },
+      {
+       "en": "wise",
+       "tag": "",
+       "ar": "حَكِيم",
+       "status": "ok"
+      },
+      {
+       "en": "forbearing",
+       "tag": "",
+       "ar": "حَلِيم",
+       "status": "ok"
+      },
+      {
+       "en": "praiseworthy",
+       "tag": "",
+       "ar": "حَمِيد",
+       "status": "ok"
+      },
+      {
+       "en": "warm (friend); boiling water",
+       "tag": "",
+       "ar": "حَمِيم",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p008",
+   "label": "Page 8",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 45.4%",
+   "themes": [
+    {
+     "title": "Noun of Superiority اسم تَفْضِيل",
+     "entries": [
+      {
+       "en": "most severe",
+       "tag": "",
+       "ar": "أَشَدّ",
+       "status": "ok"
+      },
+      {
+       "en": "higher, superior",
+       "tag": "",
+       "ar": "أَعْلَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "better-knowing, more informed",
+       "tag": "",
+       "ar": "أَعْلَم",
+       "status": "ok"
+      },
+      {
+       "en": "nearer",
+       "tag": "",
+       "ar": "أَقْرَب",
+       "status": "ok"
+      },
+      {
+       "en": "bigger",
+       "tag": "",
+       "ar": "أَكْبَر",
+       "status": "ok"
+      },
+      {
+       "en": "more; most",
+       "tag": "",
+       "ar": "أَكْثَر",
+       "status": "ok"
+      },
+      {
+       "en": "better",
+       "tag": "",
+       "ar": "أَحْسَن",
+       "status": "ok"
+      },
+      {
+       "en": "more entitled; more worthy",
+       "tag": "",
+       "ar": "أَحَقّ",
+       "status": "ok"
+      },
+      {
+       "en": "nearer; more likely; lower; less",
+       "tag": "",
+       "ar": "أَدْنَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "more unjust",
+       "tag": "",
+       "ar": "أَظْلَم",
+       "status": "ok"
+      },
+      {
+       "en": "better guided",
+       "tag": "",
+       "ar": "أَهْدَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "nearer, closer; woe",
+       "tag": "",
+       "ar": "أَوْلَىٰ",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Some attributes...",
+     "entries": [
+      {
+       "en": "severe; strong",
+       "tag": "",
+       "ar": "شَدِيد",
+       "status": "ok"
+      },
+      {
+       "en": "high, exalted",
+       "tag": "",
+       "ar": "عَلِيّ",
+       "status": "ok"
+      },
+      {
+       "en": "knower",
+       "tag": "",
+       "ar": "عَلِيم",
+       "status": "ok"
+      },
+      {
+       "en": "near",
+       "tag": "",
+       "ar": "قَرِيب",
+       "status": "ok"
+      },
+      {
+       "en": "big",
+       "tag": "",
+       "ar": "كَبِير (fg كَبِيرَة)",
+       "status": "ok"
+      },
+      {
+       "en": "plenty; much",
+       "tag": "",
+       "ar": "كَثِير (fg كَثِيرَة)",
+       "status": "ok"
+      },
+      {
+       "en": "quick; swift; fast",
+       "tag": "",
+       "ar": "سَرِيع",
+       "status": "ok"
+      },
+      {
+       "en": "merciful",
+       "tag": "",
+       "ar": "رَحِيم",
+       "status": "ok"
+      },
+      {
+       "en": "supreme",
+       "tag": "",
+       "ar": "عَظِيم",
+       "status": "ok"
+      },
+      {
+       "en": "little",
+       "tag": "",
+       "ar": "قَلِيل (fg قَلِيلَة)",
+       "status": "ok"
+      },
+      {
+       "en": "noble; honourable; generous",
+       "tag": "",
+       "ar": "كَرِيم",
+       "status": "ok"
+      },
+      {
+       "en": "subtle",
+       "tag": "",
+       "ar": "لَطِيف",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p009",
+   "label": "Page 9",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 48.9%",
+   "themes": [
+    {
+     "title": "Prophets and Allah’s Signs",
+     "entries": [
+      {
+       "en": "Messenger",
+       "tag": "",
+       "ar": "رَسُول (pl رُسُل)",
+       "status": "ok"
+      },
+      {
+       "en": "Prophet",
+       "tag": "",
+       "ar": "نَبِيّ",
+       "status": "ok"
+      },
+      {
+       "en": "Prophets",
+       "tag": "",
+       "ar": "نَبِيُّون، نَبِيِّين، أَنْبِيَاء",
+       "status": "ok"
+      },
+      {
+       "en": "[Adam, Nuh, Ibrahim]",
+       "tag": "",
+       "ar": "آدَم، نُوح، إِبْرَاهِيم",
+       "status": "ok"
+      },
+      {
+       "en": "[Lut, Isma'il, Ishaq]",
+       "tag": "",
+       "ar": "لُوط، إِسْمَاعِيل، إِسْحَاق",
+       "status": "ok"
+      },
+      {
+       "en": "[Ya'qub (Isra'il), Yusuf]",
+       "tag": "",
+       "ar": "يَعْقُوب (إِسْرَائِيل) يُوسُف",
+       "status": "ok"
+      },
+      {
+       "en": "[Hud, Shu'ayb, Salih]",
+       "tag": "",
+       "ar": "هُود، شُعَيْب، صَالِح",
+       "status": "ok"
+      },
+      {
+       "en": "[Musa, 'Isa son of Maryam]",
+       "tag": "",
+       "ar": "مُوسَىٰ، عِيسَى ابْنُ مَرْيَم",
+       "status": "ok"
+      },
+      {
+       "en": "Satan",
+       "tag": "",
+       "ar": "شَيْطَان (pl شَيَاطِين)",
+       "status": "ok"
+      },
+      {
+       "en": "Pharaoh",
+       "tag": "",
+       "ar": "فِرْعَوْن",
+       "status": "ok"
+      },
+      {
+       "en": "People of Hud",
+       "tag": "",
+       "ar": "عَاد",
+       "status": "ok"
+      },
+      {
+       "en": "People of Salih",
+       "tag": "",
+       "ar": "ثَمُود",
+       "status": "ok"
+      },
+      {
+       "en": "sign",
+       "tag": "",
+       "ar": "آيَة (pl آيَات)",
+       "status": "ok"
+      },
+      {
+       "en": "evidence",
+       "tag": "",
+       "ar": "بَيِّنَة (pl بَيِّنَات)",
+       "status": "ok"
+      },
+      {
+       "en": "Qur’an; reading, recitation",
+       "tag": "",
+       "ar": "قُرْآن",
+       "status": "ok"
+      },
+      {
+       "en": "cattle",
+       "tag": "",
+       "ar": "أَنْعَام",
+       "status": "ok"
+      },
+      {
+       "en": "mountain",
+       "tag": "",
+       "ar": "جَبَل (pl جِبَال)",
+       "status": "ok"
+      },
+      {
+       "en": "sea; large river",
+       "tag": "",
+       "ar": "بَحْر",
+       "status": "ok"
+      },
+      {
+       "en": "sun",
+       "tag": "",
+       "ar": "شَمْس",
+       "status": "ok"
+      },
+      {
+       "en": "moon",
+       "tag": "",
+       "ar": "قَمَر",
+       "status": "ok"
+      },
+      {
+       "en": "night",
+       "tag": "",
+       "ar": "لَيْل",
+       "status": "ok"
+      },
+      {
+       "en": "day",
+       "tag": "",
+       "ar": "نَهَار",
+       "status": "ok"
+      },
+      {
+       "en": "earth",
+       "tag": "",
+       "ar": "أَرْض",
+       "status": "ok"
+      },
+      {
+       "en": "sky",
+       "tag": "",
+       "ar": "سَمَاء (pl سَمَاوَات)",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p010",
+   "label": "Page 10",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 51.6%",
+   "themes": [
+    {
+     "title": "Last day",
+     "entries": [
+      {
+       "en": "companion, fellow",
+       "tag": "",
+       "ar": "صَاحِب (أَصْحَاب)",
+       "status": "ok"
+      },
+      {
+       "en": "end",
+       "tag": "",
+       "ar": "عَاقِبَة",
+       "status": "ok"
+      },
+      {
+       "en": "torment",
+       "tag": "",
+       "ar": "عَذَاب",
+       "status": "ok"
+      },
+      {
+       "en": "chastisement (as a result of sin)",
+       "tag": "",
+       "ar": "عِقَاب",
+       "status": "ok"
+      },
+      {
+       "en": "Resurrection",
+       "tag": "",
+       "ar": "قِيَامَة",
+       "status": "ok"
+      },
+      {
+       "en": "meeting",
+       "tag": "",
+       "ar": "لِقَاء",
+       "status": "ok"
+      },
+      {
+       "en": "fixed",
+       "tag": "",
+       "ar": "مُسَمًّى",
+       "status": "ok"
+      },
+      {
+       "en": "fire",
+       "tag": "",
+       "ar": "نَار",
+       "status": "ok"
+      },
+      {
+       "en": "river",
+       "tag": "",
+       "ar": "نَهَر (pl أَنْهَار)",
+       "status": "ok"
+      },
+      {
+       "en": "woe unto …",
+       "tag": "",
+       "ar": "وَيْل",
+       "status": "ok"
+      },
+      {
+       "en": "day",
+       "tag": "",
+       "ar": "يَوْم (pl أَيَّام)",
+       "status": "ok"
+      },
+      {
+       "en": "that day",
+       "tag": "",
+       "ar": "يَوْمَئِذٍ",
+       "status": "ok"
+      },
+      {
+       "en": "forever; ever",
+       "tag": "",
+       "ar": "أَبَدًا",
+       "status": "ok"
+      },
+      {
+       "en": "reward",
+       "tag": "",
+       "ar": "أَجْر (pl أُجُور)",
+       "status": "ok"
+      },
+      {
+       "en": "term",
+       "tag": "",
+       "ar": "أَجَل",
+       "status": "ok"
+      },
+      {
+       "en": "the Hereafter",
+       "tag": "",
+       "ar": "الْآخِرَة",
+       "status": "ok"
+      },
+      {
+       "en": "painful",
+       "tag": "",
+       "ar": "أَلِيم",
+       "status": "ok"
+      },
+      {
+       "en": "reward",
+       "tag": "",
+       "ar": "ثَوَاب",
+       "status": "ok"
+      },
+      {
+       "en": "hellfire",
+       "tag": "",
+       "ar": "جَحِيم",
+       "status": "ok"
+      },
+      {
+       "en": "reward",
+       "tag": "",
+       "ar": "جَزَاء",
+       "status": "ok"
+      },
+      {
+       "en": "garden",
+       "tag": "",
+       "ar": "جَنَّة (pl جَنَّات)",
+       "status": "ok"
+      },
+      {
+       "en": "the hell",
+       "tag": "",
+       "ar": "جَهَنَّم",
+       "status": "ok"
+      },
+      {
+       "en": "reckoning",
+       "tag": "",
+       "ar": "حِسَاب",
+       "status": "ok"
+      },
+      {
+       "en": "hour (day of resurrection)",
+       "tag": "",
+       "ar": "سَاعَة",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p011",
+   "label": "Page 11",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 53.6%",
+   "themes": [
+    {
+     "title": "Dīn",
+     "entries": [
+      {
+       "en": "matter; affair",
+       "tag": "",
+       "ar": "أَمْر (pl أُمُور)",
+       "status": "ok"
+      },
+      {
+       "en": "piety; fear; protection",
+       "tag": "",
+       "ar": "تَقْوَىٰ",
+       "status": "ok"
+      },
+      {
+       "en": "truth, true; right",
+       "tag": "",
+       "ar": "حَقّ",
+       "status": "ok"
+      },
+      {
+       "en": "[falsehood]",
+       "tag": "",
+       "ar": "بَاطِل",
+       "status": "ok"
+      },
+      {
+       "en": "wisdom",
+       "tag": "",
+       "ar": "حِكْمَة",
+       "status": "ok"
+      },
+      {
+       "en": "praise",
+       "tag": "",
+       "ar": "حَمْد",
+       "status": "ok"
+      },
+      {
+       "en": "religion; law; judgement",
+       "tag": "",
+       "ar": "دِين",
+       "status": "ok"
+      },
+      {
+       "en": "poor-due, charity",
+       "tag": "",
+       "ar": "زَكَاة",
+       "status": "ok"
+      },
+      {
+       "en": "witness, present",
+       "tag": "",
+       "ar": "شَهِيد (pl شُهَدَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "prayer",
+       "tag": "",
+       "ar": "صَلَاة",
+       "status": "ok"
+      },
+      {
+       "en": "clear, self-expressive",
+       "tag": "",
+       "ar": "مُبِين",
+       "status": "ok"
+      },
+      {
+       "en": "light",
+       "tag": "",
+       "ar": "نُور",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Faith",
+     "entries": [
+      {
+       "en": "one",
+       "tag": "",
+       "ar": "أَحَد (fg إِحْدَىٰ)",
+       "status": "ok"
+      },
+      {
+       "en": "god; deity",
+       "tag": "",
+       "ar": "إِلَٰه (pl آلِهَة)",
+       "status": "ok"
+      },
+      {
+       "en": "partner, associate",
+       "tag": "",
+       "ar": "شَرِيك (pl شُرَكَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "witness",
+       "tag": "",
+       "ar": "شَهَادَة",
+       "status": "ok"
+      },
+      {
+       "en": "throne",
+       "tag": "",
+       "ar": "عَرْش",
+       "status": "ok"
+      },
+      {
+       "en": "covenant, promise",
+       "tag": "",
+       "ar": "عَهْد",
+       "status": "ok"
+      },
+      {
+       "en": "unseen",
+       "tag": "",
+       "ar": "غَيْب",
+       "status": "ok"
+      },
+      {
+       "en": "book",
+       "tag": "",
+       "ar": "كِتَاب (pl كُتُب)",
+       "status": "ok"
+      },
+      {
+       "en": "word",
+       "tag": "",
+       "ar": "كَلِمَة",
+       "status": "ok"
+      },
+      {
+       "en": "angel",
+       "tag": "",
+       "ar": "مَلَك (pl مَلَائِكَة)",
+       "status": "ok"
+      },
+      {
+       "en": "covenant, treaty",
+       "tag": "",
+       "ar": "مِيثَاق",
+       "status": "ok"
+      },
+      {
+       "en": "one",
+       "tag": "",
+       "ar": "وَاحِد (fg وَاحِدَة)",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p012",
+   "label": "Page 12",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 53.6%",
+   "themes": [
+    {
+     "title": "Deeds",
+     "entries": [
+      {
+       "en": "actions, deeds, works",
+       "tag": "",
+       "ar": "أَعْمَال pl",
+       "status": "ok"
+      },
+      {
+       "en": "good (deed)",
+       "tag": "",
+       "ar": "حَسَنَة (pl حَسَنَات)",
+       "status": "ok"
+      },
+      {
+       "en": "evil, bad",
+       "tag": "",
+       "ar": "سَيِّئَة (pl سَيِّئَات)",
+       "status": "ok"
+      },
+      {
+       "en": "good, better",
+       "tag": "",
+       "ar": "خَيْر",
+       "status": "ok"
+      },
+      {
+       "en": "evil, bad, worse",
+       "tag": "",
+       "ar": "شَرّ",
+       "status": "ok"
+      },
+      {
+       "en": "sin",
+       "tag": "",
+       "ar": "إِثْم",
+       "status": "ok"
+      },
+      {
+       "en": "sin",
+       "tag": "",
+       "ar": "ذَنْب (pl ذُنُوب)",
+       "status": "ok"
+      },
+      {
+       "en": "sin",
+       "tag": "",
+       "ar": "جُنَاح",
+       "status": "ok"
+      },
+      {
+       "en": "unlawful",
+       "tag": "",
+       "ar": "حَرَام",
+       "status": "ok"
+      },
+      {
+       "en": "name",
+       "tag": "",
+       "ar": "اِسْم (pl أَسْمَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "discourse; speech",
+       "tag": "",
+       "ar": "حَدِيث (أَحَادِيث)",
+       "status": "ok"
+      },
+      {
+       "en": "good",
+       "tag": "",
+       "ar": "طَيِّبَة (pl طَيِّبَات)",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Blessings",
+     "entries": [
+      {
+       "en": "favours",
+       "tag": "",
+       "ar": "آلَاء",
+       "status": "ok"
+      },
+      {
+       "en": "authority; warrant",
+       "tag": "",
+       "ar": "سُلْطَان",
+       "status": "ok"
+      },
+      {
+       "en": "grace",
+       "tag": "",
+       "ar": "فَضْل",
+       "status": "ok"
+      },
+      {
+       "en": "water",
+       "tag": "",
+       "ar": "مَاء",
+       "status": "ok"
+      },
+      {
+       "en": "dominion, reign",
+       "tag": "",
+       "ar": "مُلْك",
+       "status": "ok"
+      },
+      {
+       "en": "favour",
+       "tag": "",
+       "ar": "نِعْمَة",
+       "status": "ok"
+      },
+      {
+       "en": "all",
+       "tag": "",
+       "ar": "أَجْمَعُون، أَجْمَعِين",
+       "status": "ok"
+      },
+      {
+       "en": "permission",
+       "tag": "",
+       "ar": "إِذْن",
+       "status": "ok"
+      },
+      {
+       "en": "punishment; power; adversity",
+       "tag": "",
+       "ar": "بَأْس",
+       "status": "ok"
+      },
+      {
+       "en": "all, everybody",
+       "tag": "",
+       "ar": "جَمِيع",
+       "status": "ok"
+      },
+      {
+       "en": "same; equals; level; fair",
+       "tag": "",
+       "ar": "سَوَاء",
+       "status": "ok"
+      },
+      {
+       "en": "party, group",
+       "tag": "",
+       "ar": "فَرِيق",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p013",
+   "label": "Page 13",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 56.8%",
+   "themes": [
+    {
+     "title": "Relatives",
+     "entries": [
+      {
+       "en": "mother",
+       "tag": "",
+       "ar": "أُمّ (pl أُمَّهَات)",
+       "status": "ok"
+      },
+      {
+       "en": "father",
+       "tag": "",
+       "ar": "أَب، أَبَتِ (pl آبَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "wife; husband",
+       "tag": "",
+       "ar": "زَوْج (pl أَزْوَاج)",
+       "status": "ok"
+      },
+      {
+       "en": "man",
+       "tag": "",
+       "ar": "رَجُل (pl رِجَال)",
+       "status": "ok"
+      },
+      {
+       "en": "woman",
+       "tag": "",
+       "ar": "اِمْرَأَة (pl نِسَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "child",
+       "tag": "",
+       "ar": "وَلَد (pl أَوْلَاد)",
+       "status": "ok"
+      },
+      {
+       "en": "father",
+       "tag": "",
+       "ar": "وَالِد (dl وَالِدَيْن)",
+       "status": "ok"
+      },
+      {
+       "en": "descendants; children",
+       "tag": "",
+       "ar": "ذُرِّيَّة",
+       "status": "ok"
+      },
+      {
+       "en": "son",
+       "tag": "",
+       "ar": "اِبْن",
+       "status": "ok"
+      },
+      {
+       "en": "sons",
+       "tag": "",
+       "ar": "بَنُون، بَنِين، أَبْنَاء pl",
+       "status": "ok"
+      },
+      {
+       "en": "brother",
+       "tag": "",
+       "ar": "أَخ (أَخُو، أَخَا، أَخِي)",
+       "status": "ok"
+      },
+      {
+       "en": "brothers",
+       "tag": "",
+       "ar": "إِخْوَان pl",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "Self (body parts)",
+     "entries": [
+      {
+       "en": "face",
+       "tag": "",
+       "ar": "وَجْه (pl وُجُوه)",
+       "status": "ok"
+      },
+      {
+       "en": "eye; spring",
+       "tag": "",
+       "ar": "عَيْن (pl أَعْيُن)",
+       "status": "ok"
+      },
+      {
+       "en": "sights",
+       "tag": "",
+       "ar": "أَبْصَار pl",
+       "status": "ok"
+      },
+      {
+       "en": "mouths",
+       "tag": "",
+       "ar": "أَفْوَاه pl",
+       "status": "ok"
+      },
+      {
+       "en": "tongue; language",
+       "tag": "",
+       "ar": "لِسَان (pl أَلْسِنَة)",
+       "status": "ok"
+      },
+      {
+       "en": "heart",
+       "tag": "",
+       "ar": "قَلْب (pl قُلُوب)",
+       "status": "ok"
+      },
+      {
+       "en": "breast",
+       "tag": "",
+       "ar": "صَدْر (pl صُدُور)",
+       "status": "ok"
+      },
+      {
+       "en": "hand",
+       "tag": "",
+       "ar": "يَد (pl أَيْدِي)",
+       "status": "ok"
+      },
+      {
+       "en": "foot",
+       "tag": "",
+       "ar": "رِجْل (pl أَرْجُل)",
+       "status": "ok"
+      },
+      {
+       "en": "soul",
+       "tag": "",
+       "ar": "نَفْس (pl أَنْفُس)",
+       "status": "ok"
+      },
+      {
+       "en": "soul, spirit",
+       "tag": "",
+       "ar": "رُوح",
+       "status": "ok"
+      },
+      {
+       "en": "power, strength",
+       "tag": "",
+       "ar": "قُوَّة",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p014",
+   "label": "Page 14",
+   "scan": null,
+   "thumb": null,
+   "meta": "Cumulative Quran coverage through this block: 59.3%",
+   "themes": [
+    {
+     "title": "World",
+     "entries": [
+      {
+       "en": "house",
+       "tag": "",
+       "ar": "بَيْت (pl بُيُوت)",
+       "status": "ok"
+      },
+      {
+       "en": "abode",
+       "tag": "",
+       "ar": "دَار (pl دِيَار)",
+       "status": "ok"
+      },
+      {
+       "en": "world",
+       "tag": "",
+       "ar": "دُنْيَا",
+       "status": "ok"
+      },
+      {
+       "en": "way",
+       "tag": "",
+       "ar": "سَبِيل (pl سُبُل)",
+       "status": "ok"
+      },
+      {
+       "en": "path",
+       "tag": "",
+       "ar": "صِرَاط",
+       "status": "ok"
+      },
+      {
+       "en": "world",
+       "tag": "",
+       "ar": "عَالَم (pl عَالَمِين)",
+       "status": "ok"
+      },
+      {
+       "en": "trial; persecution",
+       "tag": "",
+       "ar": "فِتْنَة",
+       "status": "ok"
+      },
+      {
+       "en": "town",
+       "tag": "",
+       "ar": "قَرْيَة (pl قُرَىٰ)",
+       "status": "ok"
+      },
+      {
+       "en": "wealth",
+       "tag": "",
+       "ar": "مَال (pl أَمْوَال)",
+       "status": "ok"
+      },
+      {
+       "en": "provision; enjoyment",
+       "tag": "",
+       "ar": "مَتَاع",
+       "status": "ok"
+      },
+      {
+       "en": "mosque",
+       "tag": "",
+       "ar": "مَسْجِد (pl مَسَاجِد)",
+       "status": "ok"
+      },
+      {
+       "en": "place; abode",
+       "tag": "",
+       "ar": "مَكَان (مَكَانَة)",
+       "status": "ok"
+      }
+     ]
+    },
+    {
+     "title": "People",
+     "entries": [
+      {
+       "en": "community",
+       "tag": "",
+       "ar": "أُمَّة (pl أُمَم)",
+       "status": "ok"
+      },
+      {
+       "en": "people",
+       "tag": "",
+       "ar": "قَوْم",
+       "status": "ok"
+      },
+      {
+       "en": "man",
+       "tag": "",
+       "ar": "إِنْسَان",
+       "status": "ok"
+      },
+      {
+       "en": "men, people",
+       "tag": "",
+       "ar": "نَاس",
+       "status": "ok"
+      },
+      {
+       "en": "male",
+       "tag": "",
+       "ar": "ذَكَر (pl ذُكُور)",
+       "status": "ok"
+      },
+      {
+       "en": "female",
+       "tag": "",
+       "ar": "أُنْثَىٰ (pl إِنَاث)",
+       "status": "ok"
+      },
+      {
+       "en": "slave",
+       "tag": "",
+       "ar": "عَبْد (pl عِبَاد)",
+       "status": "ok"
+      },
+      {
+       "en": "enemy",
+       "tag": "",
+       "ar": "عَدُوّ (pl أَعْدَاء)",
+       "status": "ok"
+      },
+      {
+       "en": "disbelievers",
+       "tag": "",
+       "ar": "كُفَّار",
+       "status": "ok"
+      },
+      {
+       "en": "criminal",
+       "tag": "",
+       "ar": "مُجْرِم",
+       "status": "ok"
+      },
+      {
+       "en": "chiefs, leaders",
+       "tag": "",
+       "ar": "مَلَأ",
+       "status": "ok"
+      },
+      {
+       "en": "protecting friend; guardian",
+       "tag": "",
+       "ar": "وَلِيّ (أَوْلِيَاء)",
+       "status": "ok"
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

@@ -1,0 +1,167 @@
+/* Al Baseera shared UI kit — chrome tokens, nav strip, dark mode.
+   Loaded on every page after its own styles so the dark overrides win.
+   Chrome classes are ab-prefixed to stay clear of page CSS. */
+
+:root {
+  --ab-vellum:  #f7f2e7;
+  --ab-surface: #ffffff;
+  --ab-ink:     #22243a;
+  --ab-muted:   #6b6d85;
+  --ab-rule:    #ece4d2;
+  --ab-gold:    #c9a13b;
+  --ab-gold-soft: #e3cf8f;
+  --ab-general: #3a3f4d;
+  --ab-arabic:  #1b2a5e;
+  --ab-quran:   #4d1b30;
+  --ab-islamic: #1b4d38;
+  --ab-shadow:  0 10px 28px rgba(34,36,58,.12);
+}
+html[data-theme="dark"] {
+  --ab-vellum:  #171420;
+  --ab-surface: #211d2e;
+  --ab-ink:     #ece4d2;
+  --ab-muted:   #b4aec6;
+  --ab-rule:    #332d44;
+  --ab-gold:    #d2ac4b;
+  --ab-gold-soft: #8a6d2f;
+  --ab-general: #aeb6c9;
+  --ab-arabic:  #8fa2e8;
+  --ab-quran:   #d98aa6;
+  --ab-islamic: #7fc9a4;
+  --ab-shadow:  0 10px 28px rgba(0,0,0,.45);
+}
+
+/* ——— dark mode: re-tint the shared page palette ——— */
+html[data-theme="dark"] body {
+  --vellum:     #171420;
+  --vellum-dim: #332d44;
+  --ink:        #ece4d2;
+  --gold:       #d2ac4b;
+  --gold-soft:  #c7a662;
+  background: #171420;
+  color: #ece4d2;
+}
+/* common white surfaces across portal pages */
+html[data-theme="dark"] body :is(.entry, .item, .card, .cat, .slot, .reading,
+  details.panel, details.pack, details.fig, details.post, .tblwrap,
+  .listdemo, .person, .sidebox, .chip, .letter-card, .num-card, .name-card,
+  .fig-card, .month-card, .word-card, .face.front, .stage .front) {
+  background: #211d2e;
+  border-color: #332d44;
+  color: #ece4d2;
+}
+html[data-theme="dark"] body :is(table, th, td) { border-color: #332d44; }
+html[data-theme="dark"] body th { background: #262134; color: #c7a662; }
+html[data-theme="dark"] body :is(input, select, textarea) {
+  background: #171420; color: #ece4d2; border-color: #4a4260;
+}
+html[data-theme="dark"] body img.header-logo,
+html[data-theme="dark"] body .logo-ring img { filter: none; }
+html[data-theme="dark"] a { color: inherit; }
+
+/* ——— the injected top strip ——— */
+.ab-strip {
+  position: sticky; top: 0; z-index: 90;
+  background: var(--ab-vellum);
+  border-bottom: 2px solid var(--ab-gold);
+  font-family: 'Spectral', Georgia, serif;
+  color: var(--ab-ink);
+}
+.ab-strip * { box-sizing: border-box; }
+.ab-strip-row {
+  max-width: 1020px; margin: 0 auto; padding: .35rem .9rem;
+  display: flex; align-items: center; gap: .6rem;
+}
+.ab-mini-logo {
+  width: 30px; height: 30px; border-radius: 50%; flex: none;
+  border: 1.5px solid var(--ab-gold); overflow: hidden;
+  display: grid; place-items: center; background: var(--ab-surface);
+}
+.ab-mini-logo img, .ab-mini-logo svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-tabs { display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none; flex: 1; }
+.ab-tabs::-webkit-scrollbar { display: none; }
+.ab-tab {
+  font-size: .78rem; white-space: nowrap; text-decoration: none;
+  color: var(--ab-muted); border: 1px solid transparent; border-radius: 999px;
+  padding: .28rem .7rem; display: inline-flex; align-items: center; gap: .35rem;
+}
+.ab-tab:hover { border-color: var(--ab-rule); color: var(--ab-ink); }
+.ab-tab.on { background: var(--ab-surface); border-color: var(--ab-gold); color: var(--ab-ink); font-weight: 600; }
+.ab-ic { width: 1em; height: 1em; display: inline-block; vertical-align: -0.1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ab-iconbtn {
+  font: inherit; font-size: .9rem; line-height: 1; cursor: pointer; flex: none;
+  background: var(--ab-surface); color: var(--ab-ink);
+  border: 1px solid var(--ab-rule); border-radius: 999px;
+  width: 30px; height: 30px; display: grid; place-items: center;
+}
+.ab-iconbtn:hover { border-color: var(--ab-gold); }
+.ab-crumbs {
+  max-width: 1020px; margin: 0 auto; padding: .22rem .9rem .3rem;
+  font-size: .72rem; color: var(--ab-muted);
+  display: flex; align-items: center; gap: .4rem; flex-wrap: wrap;
+}
+.ab-crumbs a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--ab-gold-soft); }
+.ab-crumbs .sep { color: var(--ab-gold); }
+.ab-crumbs .here { color: var(--ab-ink); font-weight: 600; }
+
+/* the strip supersedes each page's own ad-hoc nav list */
+body.ab-has-strip .site-nav { display: none !important; }
+
+/* ——— settings popover ——— */
+.ab-popwrap { position: relative; }
+.ab-pop {
+  position: absolute; right: 0; top: calc(100% + 8px); width: 248px; z-index: 95;
+  background: var(--ab-surface); border: 1px solid var(--ab-gold); border-radius: 12px;
+  box-shadow: var(--ab-shadow); padding: .75rem .85rem; display: none;
+  font-family: 'Spectral', Georgia, serif; color: var(--ab-ink); text-align: left;
+}
+.ab-pop.open { display: block; }
+.ab-pop h4 {
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ab-gold); margin: .55rem 0 .3rem; font-weight: 600;
+}
+.ab-pop h4:first-child { margin-top: 0; }
+.ab-pop .hint { font-size: .68rem; color: var(--ab-muted); margin-top: .5rem; line-height: 1.4; }
+.ab-seg { display: flex; border: 1px solid var(--ab-rule); border-radius: 999px; overflow: hidden; }
+.ab-seg button {
+  flex: 1; font: inherit; font-size: .76rem; padding: .32rem .2rem;
+  border: 0; background: transparent; color: var(--ab-muted); cursor: pointer;
+}
+.ab-seg button.on { background: var(--ab-gold); color: #2b2310; font-weight: 600; }
+
+/* ——— info bubbles (hover tooltips) ——— */
+.ab-note {
+  display: inline-grid; place-items: center; vertical-align: middle;
+  width: 16px; height: 16px; margin-left: .3rem; flex: none;
+  border-radius: 50%; border: 1px solid var(--ab-gold);
+  color: var(--ab-gold); font-size: .6rem; font-weight: 600; font-style: normal;
+  cursor: help; position: relative;
+}
+.ab-note .ab-bubble, .ab-hovercard {
+  position: absolute; z-index: 96;
+  background: var(--ab-ink); color: var(--ab-vellum);
+  font-size: .72rem; font-weight: 400; line-height: 1.45; text-align: left;
+  border-radius: 9px; padding: .5rem .65rem; box-shadow: var(--ab-shadow);
+  opacity: 0; visibility: hidden; transition: opacity .15s; pointer-events: none;
+}
+html[data-theme="dark"] .ab-note .ab-bubble,
+html[data-theme="dark"] .ab-hovercard { background: #0e0c14; color: #ece4d2; border: 1px solid #332d44; }
+.ab-note .ab-bubble {
+  bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); width: 230px;
+}
+.ab-note .ab-bubble b, .ab-hovercard b { color: var(--ab-gold-soft); }
+.ab-note:hover .ab-bubble, .ab-note:focus-visible .ab-bubble { opacity: 1; visibility: visible; }
+
+/* ——— status dots ——— */
+.ab-status {
+  font-size: .56rem; letter-spacing: .05em; color: var(--ab-muted);
+  display: inline-flex; align-items: center; gap: .28rem; text-transform: uppercase;
+}
+.ab-status i { font-style: normal; font-size: .78rem; line-height: 1; }
+.ab-status.live i { color: var(--ab-islamic); }
+.ab-status.soon i { color: var(--ab-muted); }
+
+:focus-visible { outline: 2px solid var(--ab-gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .ab-strip *, .ab-pop, .ab-note .ab-bubble, .ab-hovercard { transition: none !important; }
+}

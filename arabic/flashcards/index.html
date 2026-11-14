@@ -64,6 +64,8 @@
   .done p { color: #6b6d85; margin-bottom: 1.2rem; }
   .hiddenEl { display: none !important; }
 </style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
 </head>
 <body>
 <header>
@@ -122,10 +124,10 @@ Promise.all([
   fetch('../vocab/levels.json').then(r => r.json()),
   fetch('../../islamic-studies/vocab/months.json').then(r => r.json())
 ]).then(([lv, mo]) => {
-  for (const lvl of ['level1', 'level2']) {
+  for (const lvl of Object.keys(lv).sort()) {
     const L = 'Arabic L' + lvl.slice(-1);
     const all = [];
-    for (const m of Object.keys(lvl === 'level1' ? lv.level1 : lv.level2).sort((a,b)=>a-b)) {
+    for (const m of Object.keys(lv[lvl]).sort((a,b)=>a-b)) {
       const t = lv[lvl][m];
       DECKS[`${L} · M${m}: ${t.topic}`] = t.words;
       all.push(...t.words);

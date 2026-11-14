@@ -1,0 +1,427 @@
+{
+ "note": "SOURCE OF TRUTH for site navigation and the home page cards. Edit here; the home page and every internal page header render from this file. status: live (● built) | soon (◌ content pending) — flip freely. General pages are grouped on home by the groups map below.",
+ "sections": [
+  {
+   "id": "about",
+   "title": "About",
+   "tag": "The Academy &amp; Its Founder",
+   "emoji": "🎓",
+   "icon": "academy",
+   "color": "gold",
+   "pages": [
+    {
+     "href": "about/academy/",
+     "en": "Al Baseera Academy",
+     "ar": "أكاديمية البصيرة",
+     "desc": "Mission, story, and what we teach",
+     "emoji": "🏛️",
+     "icon": "academy",
+     "status": "soon"
+    },
+    {
+     "href": "about/dr-fatin/",
+     "en": "Dr. Fatin Alkhafaji",
+     "ar": "الدكتورة فاتن",
+     "desc": "The educator behind the curriculum — and her handwritten legacy",
+     "emoji": "👩‍⚕️",
+     "icon": "founder",
+     "status": "soon"
+    }
+   ]
+  },
+  {
+   "id": "general",
+   "title": "General",
+   "tag": "Admin &amp; School",
+   "emoji": "🏫",
+   "icon": "general",
+   "color": "general",
+   "pages": [
+    {
+     "href": "general/schedule/",
+     "en": "Master Schedule",
+     "ar": "",
+     "desc": "Class periods, rooms, and teacher assignments",
+     "emoji": "🗓️",
+     "icon": "schedule",
+     "status": "live"
+    },
+    {
+     "href": "general/calendar/",
+     "en": "School Calendar",
+     "ar": "",
+     "desc": "Term dates, holidays, and events",
+     "emoji": "📆",
+     "icon": "calendar",
+     "status": "live"
+    },
+    {
+     "href": "general/materials/",
+     "en": "Materials Library",
+     "ar": "",
+     "desc": "Readings, study guides, and slides by subject",
+     "emoji": "📚",
+     "icon": "materials",
+     "status": "soon"
+    },
+    {
+     "href": "general/assignments/",
+     "en": "Assignments",
+     "ar": "",
+     "desc": "Homework, practice quizzes, recitations, and worksheets",
+     "emoji": "✍️",
+     "icon": "assignments",
+     "status": "soon"
+    },
+    {
+     "href": "general/references/",
+     "en": "External References",
+     "ar": "",
+     "desc": "Vetted textbooks, videos, and websites",
+     "emoji": "🔗",
+     "icon": "references",
+     "status": "soon"
+    },
+    {
+     "href": "general/registrations/",
+     "en": "Registrations",
+     "ar": "",
+     "desc": "Enrollment and program sign-ups — deadlines and where to register",
+     "emoji": "📝",
+     "icon": "form",
+     "status": "live"
+    },
+    {
+     "href": "general/careers/",
+     "en": "Join Us",
+     "ar": "",
+     "desc": "Careers and volunteering — teach, help, and build the school",
+     "emoji": "🤝",
+     "icon": "join",
+     "status": "live"
+    },
+    {
+     "href": "general/diagnostic/",
+     "en": "Universal Diagnostic Exam",
+     "ar": "",
+     "desc": "One exam, three levels — reading, writing, speaking, and comprehension",
+     "emoji": "🧪",
+     "icon": "exam",
+     "status": "live"
+    },
+    {
+     "href": "general/accreditation/",
+     "en": "Accreditation",
+     "ar": "",
+     "desc": "Recognized certifications and accreditation paths the academy tracks",
+     "emoji": "🏅",
+     "icon": "ribbon",
+     "status": "live"
+    },
+    {
+     "href": "general/competitions/",
+     "en": "Local Competitions",
+     "ar": "",
+     "desc": "Quran, Arabic, and knowledge competitions around Houston — next event first",
+     "emoji": "🏆",
+     "icon": "trophy",
+     "status": "live"
+    },
+    {
+     "href": "general/giving/",
+     "en": "Giving",
+     "ar": "",
+     "desc": "Fundraise, donate, or make a payment through official channels",
+     "emoji": "💝",
+     "icon": "heart",
+     "status": "live"
+    },
+    {
+     "href": "general/archives/",
+     "en": "Archives",
+     "ar": "",
+     "desc": "Legacy slideshows and materials — recovered, linked, or still being found",
+     "emoji": "🗄️",
+     "icon": "archive",
+     "status": "live"
+    },
+    {
+     "href": "general/teacher-notes/",
+     "en": "Handwritten Teacher Notes",
+     "ar": "",
+     "desc": "The Dr. Fatin archive — original lesson notes, preserved and ordered",
+     "emoji": "🗒️",
+     "icon": "notes",
+     "status": "live"
+    }
+   ]
+  },
+  {
+   "id": "arabic",
+   "title": "Arabic",
+   "tag": "Language Basics",
+   "emoji": "🔤",
+   "icon": "letters",
+   "color": "arabic",
+   "pages": [
+    {
+     "href": "arabic/letters/",
+     "en": "The Alphabet",
+     "ar": "الحروف",
+     "desc": "All 28 letters with names, sounds, and forms",
+     "emoji": "🅰️",
+     "icon": "letters",
+     "status": "live"
+    },
+    {
+     "href": "arabic/numbers/",
+     "en": "Numbers",
+     "ar": "الأرقام",
+     "desc": "Counting 0–100 with names and sounds",
+     "emoji": "🔢",
+     "icon": "numbers",
+     "status": "live"
+    },
+    {
+     "href": "arabic/makharij/",
+     "en": "Makharij al-Huruf",
+     "ar": "مخارج الحروف",
+     "desc": "Where each letter comes from — interactive diagram, quiz, and table assignment",
+     "emoji": "👄",
+     "icon": "mouth",
+     "status": "live"
+    },
+    {
+     "href": "arabic/vowels/",
+     "en": "Vowels — Harakat",
+     "ar": "الحركات",
+     "desc": "Toggle fatha, kasra, damma and more — tap any letter to hear the syllable",
+     "emoji": "◌ً",
+     "icon": "vowels",
+     "status": "live"
+    },
+    {
+     "href": "arabic/vocab/",
+     "en": "Vocabulary",
+     "ar": "المفردات",
+     "desc": "Levels 1–4 by month, plus searchable themed word lists",
+     "emoji": "📖",
+     "icon": "book",
+     "status": "live"
+    },
+    {
+     "href": "arabic/dictionary/",
+     "en": "Dictionary",
+     "ar": "القاموس",
+     "desc": "English ⇄ Arabic — every word on the portal, searchable",
+     "emoji": "🔎",
+     "icon": "search",
+     "status": "live"
+    },
+    {
+     "href": "arabic/family-tree/",
+     "en": "Assignment: My Family Tree",
+     "ar": "شجرة عائلتي",
+     "desc": "Fill in your family with the Arabic words for each person, then print it",
+     "emoji": "🌳",
+     "icon": "tree",
+     "status": "live"
+    },
+    {
+     "href": "arabic/flashcards/",
+     "en": "Flashcards",
+     "ar": "البطاقات",
+     "desc": "Flip, shuffle, and sort into Know / Again piles",
+     "emoji": "🃏",
+     "icon": "cards",
+     "status": "live"
+    },
+    {
+     "href": "arabic/themes/",
+     "en": "Theme Word Bank",
+     "ar": "بنك الكلمات",
+     "desc": "The classroom picture-card deck by theme — IPA and example sentences",
+     "emoji": "🖼️",
+     "icon": "picture",
+     "status": "soon"
+    }
+   ]
+  },
+  {
+   "id": "quran",
+   "title": "Quran",
+   "tag": "Main Reference",
+   "emoji": "📖",
+   "icon": "mushaf",
+   "color": "quran",
+   "pages": [
+    {
+     "href": "quran/text/",
+     "en": "Full Text &amp; Translation",
+     "ar": "القرآن الكريم",
+     "desc": "Complete mushaf with tajweed colors, English translation, and assignment links",
+     "emoji": "📖",
+     "icon": "mushaf",
+     "status": "live"
+    },
+    {
+     "href": "quran/concentration/",
+     "en": "80% Qur'anic Words",
+     "ar": "الكلمات القرآنية",
+     "desc": "Concentration-themed word lists — paper scans beside the modifiable digital version",
+     "emoji": "💠",
+     "icon": "gem",
+     "status": "live"
+    },
+    {
+     "href": "quran/memorization/",
+     "en": "Memorization Checklist",
+     "ar": "الحفظ",
+     "desc": "Track each surah's in-class recitation grade and completed date",
+     "emoji": "✅",
+     "icon": "check",
+     "status": "live"
+    },
+    {
+     "href": "quran/recordings/",
+     "en": "Recording Checklist",
+     "ar": "التسجيلات",
+     "desc": "Submit a recitation recording per surah, dated as you go",
+     "emoji": "🎙️",
+     "icon": "mic",
+     "status": "live"
+    }
+   ]
+  },
+  {
+   "id": "islamic",
+   "title": "Islamic Studies",
+   "tag": "Reference",
+   "emoji": "🕌",
+   "icon": "masjid",
+   "color": "islamic",
+   "pages": [
+    {
+     "href": "islamic-studies/names-of-allah/",
+     "en": "99 Names of Allah",
+     "ar": "أسماء الله الحسنى",
+     "desc": "Asma ul-Husna with transliteration, meanings, and search",
+     "emoji": "💎",
+     "icon": "gem",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/prophets-and-imams/",
+     "en": "Prophets &amp; Imams",
+     "ar": "الأنبياء والأئمة",
+     "desc": "The 25 prophets with Quran reading links, and the Twelve Imams",
+     "emoji": "🌟",
+     "icon": "star",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/wudu/",
+     "en": "How to Make Wudu",
+     "ar": "الوضوء",
+     "desc": "Step-by-step slideshow with photos and video demonstrations",
+     "emoji": "💧",
+     "icon": "drop",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/topics/",
+     "en": "Topics",
+     "ar": "مواضيع",
+     "desc": "Halal &amp; haram, the unseen, adab, famous Muslims, and more — one lesson hub",
+     "emoji": "🗂️",
+     "icon": "folder",
+     "status": "soon"
+    },
+    {
+     "href": "islamic-studies/countries/",
+     "en": "Countries &amp; Cultures",
+     "ar": "بلدان العالم",
+     "desc": "Flags, maps, and peoples of the Muslim world — linked to the Arabic nationalities vocab",
+     "emoji": "🗺️",
+     "icon": "globe",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/prayer-times/",
+     "en": "Prayer Times",
+     "ar": "مواقيت الصلاة",
+     "desc": "Daily times for Houston or any location, with monthly and yearly timetables",
+     "emoji": "🕐",
+     "icon": "clock",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/prayer-tracker/",
+     "en": "Salah Daily Tracker",
+     "ar": "متابعة الصلاة",
+     "desc": "Check off the five daily prayers and build a consistency history",
+     "emoji": "🗓️",
+     "icon": "calendar",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/stories/",
+     "en": "Stories",
+     "ar": "قصص",
+     "desc": "Stories of the Prophets and Imams — their birth, their times, and readings",
+     "emoji": "📜",
+     "icon": "scroll",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/family-tree/",
+     "en": "Family Tree",
+     "ar": "شجرة النسب",
+     "desc": "Lineage of the prophets and the Twelve Imams in one diagram",
+     "emoji": "🌳",
+     "icon": "tree",
+     "status": "live"
+    },
+    {
+     "href": "islamic-studies/vocab/",
+     "en": "Seasonal Vocabulary",
+     "ar": "مفردات الشهر",
+     "desc": "Quran &amp; Islamic Studies words for each hijri month",
+     "emoji": "🌙",
+     "icon": "moon",
+     "status": "live"
+    }
+   ]
+  }
+ ],
+ "generalGroups": {
+  "School office": [
+   "general/schedule/",
+   "general/calendar/",
+   "general/registrations/",
+   "general/diagnostic/",
+   "general/accreditation/"
+  ],
+  "Learning": [
+   "general/materials/",
+   "general/assignments/",
+   "general/references/",
+   "general/teacher-notes/",
+   "general/archives/"
+  ],
+  "Community": [
+   "general/careers/",
+   "general/competitions/",
+   "general/giving/"
+  ]
+ },
+ "chromeless": [
+  "general/schedule/",
+  "general/calendar/"
+ ],
+ "lightLocked": [
+  "quran/text/",
+  "general/schedule/",
+  "general/calendar/"
+ ]
+}
