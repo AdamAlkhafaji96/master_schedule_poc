@@ -12,7 +12,7 @@
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
-  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff' };
+  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'mega' };
   var S;
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
@@ -45,6 +45,18 @@
   };
   if (mq.addEventListener) mq.addEventListener('change', AB.applyTheme);
   AB.applyTheme();
+
+  /* ---------------- device-view override (set from the Admin Panel) ----------------
+     'mobile' previews the phone layout on a desktop; 'desktop' asks phones for the
+     full-width layout (classic "request desktop site"). 'auto' = responsive. */
+  AB.applyForceView = function () {
+    document.documentElement.classList.toggle('ab-vm-mobile', S.forceView === 'mobile');
+    if (S.forceView === 'desktop') {
+      var vp = document.querySelector('meta[name="viewport"]');
+      if (vp) vp.setAttribute('content', 'width=1100');
+    }
+  };
+  AB.applyForceView();
 
   /* ---------------- icon resolver ---------------- */
   AB.icon = function (name, emoji) {
@@ -195,17 +207,66 @@
 
     var tabs = document.createElement('nav');
     tabs.className = 'ab-tabs'; tabs.setAttribute('aria-label', 'Sections');
+    var split = S.navStyle === 'split';
     function renderTabs() {
       tabs.innerHTML = AB.visibleSections(nav).map(function (s) {
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
-          '" style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') + '" href="' + ROOT + '?tab=' + s.id + '">' +
-          AB.icon(s.icon, s.emoji) + s.title + '</a>';
+          '" data-sec="' + s.id + '" style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') +
+          '" href="' + ROOT + '?tab=' + s.id + '">' +
+          AB.icon(s.icon, s.emoji) + s.title +
+          (split ? '<span class="ab-chev" aria-label="Pages in ' + s.title + '">\u25be</span>' : '') +
+        '</a>';
       }).join('');
     }
     renderTabs();
     document.addEventListener('ab:icons', renderTabs);
     document.addEventListener('ab:admin', renderTabs);
     row.appendChild(tabs);
+
+    /* ---- mega-menu: tab click shows the section's pages in place ---- */
+    var mega = document.createElement('div');
+    mega.className = 'ab-mega';
+    var megaSec = null;
+    function openMega(id) {
+      var s = AB.visibleSections(nav).find(function (x) { return x.id === id; });
+      if (!s) return;
+      megaSec = id;
+      var color = SECTION_COLOR[s.color] || '#c9a13b';
+      var gmap = (nav.groups && nav.groups[s.id]) || null;
+      function link(p) {
+        return '<a class="' + (p.href === path ? 'here' : '') + '" href="' + ROOT + p.href + '">' +
+          p.en + (p.status === 'soon' ? ' \u25cc' : '') + '</a>';
+      }
+      var cols = '';
+      if (gmap) {
+        Object.keys(gmap).forEach(function (g) {
+          var items = s.pages.filter(function (p) { return gmap[g].indexOf(p.href) > -1; });
+          if (!items.length) return;
+          cols += '<div><div class="mg">' + g + '</div>' + items.map(link).join('') + '</div>';
+        });
+      } else {
+        cols = '<div>' + s.pages.map(link).join('') + '</div>';
+      }
+      mega.style.setProperty('--tabc', color);
+      mega.innerHTML = cols +
+        '<div class="mfoot">\u21b3 <a href="' + ROOT + '?tab=' + s.id + '">Open the ' + s.title + ' section overview</a></div>';
+      mega.classList.add('open');
+    }
+    function closeMega() { mega.classList.remove('open'); megaSec = null; }
+    tabs.addEventListener('click', function (e) {
+      var a = e.target.closest('a.ab-tab');
+      if (!a) return;
+      if (S.navStyle === 'rail') return;                   /* rail mode: tabs navigate */
+      if (split && !e.target.closest('.ab-chev')) return;  /* split: only the chevron opens */
+      e.preventDefault();
+      var id = a.dataset.sec;
+      megaSec === id ? closeMega() : openMega(id);
+    });
+    document.addEventListener('click', function (e) {
+      if (!strip.contains(e.target)) closeMega();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMega(); });
+    strip.appendChild(mega);
 
     var themeBtn = document.createElement('button');
     themeBtn.className = 'ab-iconbtn'; themeBtn.title = 'Theme';
@@ -289,7 +350,18 @@
     function setDrawer(open) {
       document.body.classList.toggle('ab-drawer-open', open);
     }
-    menuBtn.addEventListener('click', function (e) { e.stopPropagation(); setDrawer(true); });
+    var wide = window.matchMedia('(min-width: 900px)');
+    if (S.navStyle === 'rail' && wide.matches) {
+      document.body.classList.add('ab-docked');   /* drawer becomes a fixed sidebar */
+    }
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (S.navStyle === 'rail' && wide.matches) {
+        document.body.classList.toggle('ab-docked');
+        return;
+      }
+      setDrawer(true);
+    });
     backdrop.addEventListener('click', function () { setDrawer(false); });
     drawer.addEventListener('click', function (e) {
       if (e.target.closest('.ab-drawer-x')) setDrawer(false);

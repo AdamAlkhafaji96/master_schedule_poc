@@ -1,0 +1,71 @@
+{
+ "note": "Source-file lineage for the Admin Panel: where each feature's content comes from and how it regenerates. Maintained by hand; keep in step when a pipeline changes.",
+ "rows": [
+  {
+   "feature": "80% Qur'anic Words",
+   "contract": "quran/concentration/data.json",
+   "source": "source/quran_vocabulary_pages_1-14.xlsx (book photos pages 1–14)",
+   "rebuild": "python3 quran/concentration/tools/build_data.py"
+  },
+  {
+   "feature": "Teacher Notes",
+   "contract": "general/teacher-notes/manifest.json",
+   "source": "scans/ photos + digitized/ clean set (Dr. Fatin's notebooks)",
+   "rebuild": "Curate mode → ⬇ manifest.json → commit"
+  },
+  {
+   "feature": "Arabic vocabulary",
+   "contract": "arabic/vocab/levels.json",
+   "source": "curriculum months L1–L4 (authored in-thread)",
+   "rebuild": "hand-edit"
+  },
+  {
+   "feature": "Theme word banks",
+   "contract": "arabic/themes/themes.json",
+   "source": "classroom picture-card deck (scans pending)",
+   "rebuild": "hand-edit as cards are scanned"
+  },
+  {
+   "feature": "Dictionary",
+   "contract": "arabic/dictionary/dictionary.json",
+   "source": "derived from levels.json + extras",
+   "rebuild": "regenerate from levels"
+  },
+  {
+   "feature": "Glossary + Practice deck",
+   "contract": "practice/glossary/glossary.json (+ glossary.xlsx)",
+   "source": "ALL word contracts above + letters/numbers/names extracts",
+   "rebuild": "python3 tools/build_glossary.py"
+  },
+  {
+   "feature": "Quran reader",
+   "contract": "quran/data/surah_*.json + trans_*.json",
+   "source": "Tanzil (Uthmani) + AlQuran.cloud tajweed + Pickthall",
+   "rebuild": "fixed import"
+  },
+  {
+   "feature": "Hijri vocabulary",
+   "contract": "islamic-studies/vocab/months.json",
+   "source": "authored in-thread",
+   "rebuild": "hand-edit"
+  },
+  {
+   "feature": "Home impact strip",
+   "contract": "metrics.json",
+   "source": "office-maintained counters",
+   "rebuild": "hand-edit"
+  },
+  {
+   "feature": "Navigation / sections",
+   "contract": "assets/nav.json",
+   "source": "single source for tabs, groups, drawer, home",
+   "rebuild": "hand-edit"
+  },
+  {
+   "feature": "Support & Partners",
+   "contract": "general/sponsors|giving-ledger|partner-schools JSONs",
+   "source": "Aug 2026 strategy thread drafts",
+   "rebuild": "hand-edit"
+  }
+ ]
+}

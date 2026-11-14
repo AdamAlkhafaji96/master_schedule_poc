@@ -48,6 +48,10 @@
   .dev button { font: inherit; font-size: .8rem; padding: .35rem .8rem; border-radius: 999px; border: 1px solid var(--abd-b04a4a, #b04a4a); background: transparent; color: var(--abd-b04a4a, #b04a4a); cursor: pointer; margin: 0 .35rem .4rem 0; }
   .dev button:hover { background: #f6dde1; }
   .dev .size { color: var(--abd-8a887c, #8a887c); font-size: .78rem; }
+  .modesrow { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .modesrow button { font: inherit; font-size: .86rem; padding: .5rem 1rem; border-radius: 999px;
+    border: 1.5px solid var(--primary); background: transparent; color: var(--primary); cursor: pointer; }
+  .modesrow button.on { background: var(--primary); color: var(--vellum); font-weight: 600; }
   #gate { text-align: center; padding: 3rem 1rem; display: none; }
   #gate .big { font-size: 2.2rem; }
   html:not([data-ab-admin="on"]) #panel { display: none; }
@@ -71,6 +75,7 @@
 </div>
 
 <div id="panel">
+<div class="note-box" id="buildStamp" style="border-left-color:var(--primary)">Build: loading&hellip;</div>
 <div class="note-box">Everything here runs on this device from the public data files — it is a staff <em>dashboard</em>, not a control plane. Real user accounts, roles, and server-side management arrive with the Phase F backend; until then User Management below is the office&rsquo;s reference roster (edit <code>admin/users.json</code> in the repo).</div>
 
 <h2 class="sect">Content health</h2>
@@ -88,8 +93,39 @@
   <a href="../quran/concentration/"><b>💠 80% Words editor</b><span>Paper/Both views, in-place edit, CSV exports</span></a>
   <a href="../general/teacher-notes/"><b>🗒️ Scan gallery &amp; curate</b><span>Raw scans, page map, manifest and ZIP exports</span></a>
   <a href="../general/schedule/"><b>🗓️ Schedule imports</b><span>Soft import/refresh, conflicts view, edit mode</span></a>
+  <a href="../practice/glossary/"><b>📖 Glossary browser</b><span id="glosCount">Every term, filterable by tab and list</span></a>
   <a href="../practice/glossary/glossary.xlsx" download><b>📊 Glossary Excel</b><span>The tagged master glossary spreadsheet</span></a>
   <a href="../general/materials/"><b>📚 Materials library</b><span>Awaiting-upload rows show here first</span></a>
+</div>
+
+<h2 class="sect">Source file lineage</h2>
+<div class="note-box">Where each feature&rsquo;s content comes from and how it regenerates — the map to follow before editing anything by hand.</div>
+<div class="tblwrap"><table>
+  <thead><tr><th>Feature</th><th>Data contract</th><th>Source</th><th>Rebuild</th></tr></thead>
+  <tbody id="lineageRows"></tbody>
+</table></div>
+
+<h2 class="sect">Device view</h2>
+<div class="note-box">Preview the phone layout on this screen, or ask a phone for the desktop layout. Applies on this device until set back to Auto; reload after switching.</div>
+<div class="modesrow" id="viewSeg">
+  <button type="button" data-v="auto">Auto (responsive)</button>
+  <button type="button" data-v="mobile">📱 Mobile preview</button>
+  <button type="button" data-v="desktop">🖥️ Desktop site</button>
+</div>
+
+<h2 class="sect">Navigation style</h2>
+<div class="note-box">How the top section tabs behave on internal pages, on this device. <b>Mega-menu</b> (default): a tab opens that section&rsquo;s page panel in place. <b>Split tab</b>: the name navigates as before, the ▾ chevron opens the panel. <b>Docked rail</b>: the page directory stays docked on the left on wide screens. Reloads the page on change.</div>
+<div class="modesrow" id="navSeg">
+  <button type="button" data-v="mega">A · Mega-menu</button>
+  <button type="button" data-v="split">B · Split tab</button>
+  <button type="button" data-v="rail">C · Docked rail</button>
+</div>
+
+<h2 class="sect">Image library</h2>
+<div class="grid">
+  <div class="card" style="border-style:dashed"><div class="k">Placeholder</div>
+    <div class="d" style="margin-top:.3rem">A browsable library of every image on the portal — logos, scans, thumbnails, future lesson media — with upload and replace. Arrives with the Phase F uploads pipeline; today&rsquo;s images live in <code>assets/</code>, <code>quran/concentration/scans/</code>, and <code>general/teacher-notes/scans/</code>.</div>
+    <div class="n" id="imgCount" style="font-size:1.1rem;margin-top:.4rem"></div></div>
 </div>
 
 <h2 class="sect">This device&rsquo;s data</h2>
@@ -104,10 +140,21 @@
 (async function () {
   /* ---- content health: real counts from the live data contracts ---- */
   async function j(u) { try { return await (await fetch(u)).json(); } catch (e) { return null; } }
-  var [nav, glos, mats, conc, metrics] = await Promise.all([
+  var [nav, glos, mats, conc, metrics, ver, lin] = await Promise.all([
     j('../assets/nav.json'), j('../practice/glossary/glossary.json'),
     j('../general/materials/materials.json'), j('../quran/concentration/data.json'),
-    j('../metrics.json')]);
+    j('../metrics.json'), j('version.json'), j('lineage.json')]);
+  if (ver) document.getElementById('buildStamp').innerHTML =
+    '<b>Build:</b> ' + esc(ver.label) + ' &nbsp;·&nbsp; packaged ' +
+    esc(String(ver.built).replace('T', ' ').slice(0, 16)) + ' &nbsp;·&nbsp; preview v' + esc(ver.preview);
+  if (lin) document.getElementById('lineageRows').innerHTML = lin.rows.map(function (r) {
+    return '<tr><td>' + esc(r.feature) + '</td><td><code>' + esc(r.contract) + '</code></td>' +
+      '<td>' + esc(r.source) + '</td><td>' + esc(r.rebuild) + '</td></tr>';
+  }).join('');
+  if (glos) document.getElementById('glosCount').textContent =
+    glos.terms.length + ' terms in ' + glos.lists.length + ' lists, filterable by tab';
+  if (conc) document.getElementById('imgCount').textContent =
+    (conc.pages.filter(function (p) { return p.scan; }).length * 2 + 4) + ' images on the site today';
   var cards = [];
   if (nav) {
     var pages = [], soon = 0;
@@ -172,6 +219,39 @@
     });
   }
   renderDev();
+
+  /* ---- device view seg ---- */
+  function paintView() {
+    var v = (window.AB && AB.settings.forceView) || 'auto';
+    document.querySelectorAll('#viewSeg button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.v === v);
+    });
+  }
+  document.querySelectorAll('#viewSeg button').forEach(function (b) {
+    b.onclick = function () {
+      if (!window.AB) return;
+      AB.settings.forceView = b.dataset.v; AB.save();
+      AB.applyForceView(); paintView();
+      if (b.dataset.v !== 'mobile') location.reload();
+    };
+  });
+  if (window.AB) paintView(); else document.addEventListener('DOMContentLoaded', paintView);
+
+  /* ---- navigation style seg ---- */
+  function paintNav() {
+    var v = (window.AB && AB.settings.navStyle) || 'mega';
+    document.querySelectorAll('#navSeg button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.v === v);
+    });
+  }
+  document.querySelectorAll('#navSeg button').forEach(function (b) {
+    b.onclick = function () {
+      if (!window.AB) return;
+      AB.settings.navStyle = b.dataset.v; AB.save();
+      location.reload();
+    };
+  });
+  if (window.AB) paintNav(); else document.addEventListener('DOMContentLoaded', paintNav);
 })();
 </script>
 </body>

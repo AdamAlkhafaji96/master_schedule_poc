@@ -257,6 +257,39 @@ body.ab-drawer-open .ab-drawer-backdrop { opacity: 1; pointer-events: auto; }
 .ab-dr-page.here { color: var(--tabc, var(--ab-gold)); font-weight: 600; background: color-mix(in srgb, var(--tabc, var(--ab-gold)) 12%, transparent); }
 @media (prefers-reduced-motion: reduce) { .ab-drawer, .ab-drawer-backdrop { transition: none; } }
 
+/* device-view override: phone-width preview on any screen */
+html.ab-vm-mobile body { max-width: 430px; margin: 0 auto; box-shadow: 0 0 0 1px var(--ab-rule), 0 0 40px rgba(34,36,58,.18); min-height: 100vh; }
+
+
+/* ——— mega-menu under the strip (navStyle mega/split) ——— */
+.ab-mega {
+  display: none; position: absolute; left: .6rem; right: .6rem; top: calc(100% + 4px); z-index: 95;
+  background: var(--ab-surface); border: 1px solid var(--ab-gold); border-radius: 12px;
+  box-shadow: var(--ab-shadow); padding: .8rem .95rem;
+  font-family: 'Spectral', Georgia, serif; font-size: .85rem; color: var(--ab-ink); text-align: left;
+}
+.ab-mega.open { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .6rem .9rem; }
+.ab-mega .mg { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ab-gold); margin-bottom: .2rem; }
+.ab-mega a { display: block; color: var(--ab-ink); text-decoration: none; padding: .15rem 0; border-bottom: 0; }
+.ab-mega a:hover { color: var(--tabc, var(--ab-gold)); }
+.ab-mega a.here { color: var(--tabc, var(--ab-gold)); font-weight: 600; }
+.ab-mega .mfoot { grid-column: 1 / -1; border-top: 1px solid var(--ab-rule); padding-top: .5rem; font-size: .8rem; }
+.ab-mega .mfoot a { display: inline; color: var(--tabc, var(--ab-gold)); font-weight: 600; }
+.ab-strip { overflow: visible; }
+.ab-strip-row { position: relative; }
+.ab-chev { font-size: .6rem; opacity: .75; margin-left: .3rem; padding-left: .3rem; border-left: 1px solid currentColor; }
+
+/* ——— navStyle rail: the drawer docks as a sidebar on wide screens ——— */
+@media (min-width: 900px) {
+  body.ab-docked { padding-left: 238px; }
+  body.ab-docked .ab-drawer {
+    transform: none; visibility: visible; width: 238px; z-index: 60;
+    box-shadow: none; padding-top: 6rem;
+  }
+  body.ab-docked .ab-drawer-backdrop { display: none; }
+  body.ab-docked .ab-drawer-x { display: none; }
+}
+
 /* page headers: the strip's corner logo is enough — drop the big center one */
 body.ab-has-strip header .header-logo, body.ab-has-strip header img.header-logo { display: none !important; }
 
