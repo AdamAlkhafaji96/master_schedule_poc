@@ -24,6 +24,12 @@
     } else {
       delete document.documentElement.dataset.abAdmin;
     }
+    document.dispatchEvent(new CustomEvent('ab:admin'));
+  };
+  AB.visibleSections = function (nav) {
+    return nav.sections.filter(function (s) {
+      return !s.adminOnly || document.documentElement.dataset.abAdmin === 'on';
+    });
   };
   AB.applyAdmin();
   AB.save = function () { try { localStorage.setItem('ab-settings', JSON.stringify(S)); } catch (e) {} };
@@ -156,7 +162,7 @@
     return here.indexOf(rootPath) === 0 ? here.slice(rootPath.length) : here;
   }
 
-  var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318' };
+  var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318', admin: '#4a4466' };
   function injectStrip(nav) {
     var path = pagePath();
     if (nav.chromeless.some(function (c) { return path === c; })) return;
@@ -190,7 +196,7 @@
     var tabs = document.createElement('nav');
     tabs.className = 'ab-tabs'; tabs.setAttribute('aria-label', 'Sections');
     function renderTabs() {
-      tabs.innerHTML = nav.sections.map(function (s) {
+      tabs.innerHTML = AB.visibleSections(nav).map(function (s) {
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
           '" style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') + '" href="' + ROOT + '?tab=' + s.id + '">' +
           AB.icon(s.icon, s.emoji) + s.title + '</a>';
@@ -198,6 +204,7 @@
     }
     renderTabs();
     document.addEventListener('ab:icons', renderTabs);
+    document.addEventListener('ab:admin', renderTabs);
     row.appendChild(tabs);
 
     var themeBtn = document.createElement('button');
@@ -248,7 +255,7 @@
       drawer.innerHTML = '<div class="ab-drawer-head">Al Baseera Academy' +
         '<button class="ab-drawer-x" aria-label="Close">\u2715</button></div>' +
         '<a class="ab-dr-home" href="' + ROOT + '">\u2302 Home</a>' +
-        nav.sections.map(function (s) {
+        AB.visibleSections(nav).map(function (s) {
           var open = section && s.id === section.id;
           var gmap = (nav.groups && nav.groups[s.id]) || null;
           var inner = '';
@@ -274,6 +281,7 @@
     }
     renderDrawer();
     document.addEventListener('ab:icons', renderDrawer);
+    document.addEventListener('ab:admin', renderDrawer);
     var backdrop = document.createElement('div');
     backdrop.className = 'ab-drawer-backdrop';
     document.body.appendChild(backdrop);

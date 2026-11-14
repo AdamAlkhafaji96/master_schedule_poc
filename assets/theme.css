@@ -16,6 +16,7 @@
   --ab-islamic: #1b4d38;
   --ab-games:   #14555c;
   --ab-practice: #a85318;
+  --ab-admin:   #4a4466;
   --ab-shadow:  0 10px 28px rgba(34,36,58,.12);
 }
 html[data-theme="dark"] {
@@ -32,6 +33,7 @@ html[data-theme="dark"] {
   --ab-islamic: #7fc9a4;
   --ab-games:   #7bc8cf;
   --ab-practice: #e0a35c;
+  --ab-admin:   #b1a3e3;
   --ab-shadow:  0 10px 28px rgba(0,0,0,.45);
 }
 
@@ -74,6 +76,7 @@ html[data-theme="dark"][data-ab-sec="general"] body { --primary: #aeb6c9; --prim
 html[data-theme="dark"][data-ab-sec="gold"]    body { --primary: #d2ac4b; --primary-dark: #2e2718; }
 html[data-theme="dark"][data-ab-sec="games"]   body { --primary: #7bc8cf; --primary-dark: #11343a; }
 html[data-theme="dark"][data-ab-sec="practice"] body { --primary: #e0a35c; --primary-dark: #3a2410; }
+html[data-theme="dark"][data-ab-sec="admin"]    body { --primary: #b1a3e3; --primary-dark: #2a2440; }
 /* page headers paint with var(--primary); in dark, drop to the section's deep tint
    and keep anything var(--vellum)-colored inside them light */
 html[data-theme="dark"] body > header {

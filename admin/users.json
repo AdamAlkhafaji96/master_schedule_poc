@@ -1,0 +1,26 @@
+{
+ "note": "PLACEHOLDER roster for the Admin Panel's user management. Real accounts, sign-ins and per-student grades arrive with the Phase 4 accounts layer on the Phase F backend; until then this file is a reference roster the office maintains by hand. role: student|teacher|admin. status: active|invited|placeholder.",
+ "users": [
+  {
+   "name": "Dr. Fatin Alkhafaji",
+   "role": "teacher",
+   "classes": [
+    "Arabic",
+    "Quran"
+   ],
+   "status": "active"
+  },
+  {
+   "name": "Portal Administrator",
+   "role": "admin",
+   "classes": [],
+   "status": "active"
+  },
+  {
+   "name": "— student rows arrive with the accounts layer —",
+   "role": "student",
+   "classes": [],
+   "status": "placeholder"
+  }
+ ]
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Al Baseera Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4a4466;
+    --primary-dark: #332e4a;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 920px; margin: 1.6rem auto 2.5rem; padding: 0 1.2rem; }
+  h2.sect { font-weight: 600; font-size: 1.05rem; color: var(--primary); margin: 1.5rem 0 .7rem; border-bottom: 2px solid var(--gold-soft); padding-bottom: .25rem; }
+  .note-box { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-left: 4px solid var(--gold); border-radius: 10px; padding: .7rem .9rem; font-size: .85rem; line-height: 1.55; color: var(--abd-55544a, #55544a); margin-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .8rem; }
+  .card { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .85rem 1rem; }
+  .card .k { font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: .2rem; }
+  .card .n { font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+  .card .d { font-size: .8rem; color: var(--abd-8a887c, #8a887c); margin-top: .15rem; line-height: 1.4; }
+  .tools a { display: block; background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .75rem .95rem; text-decoration: none; color: var(--ink); }
+  .tools a:hover { border-color: var(--gold); }
+  .tools a b { color: var(--primary); display: block; }
+  .tools a span { font-size: .8rem; color: var(--abd-8a887c, #8a887c); }
+  .tblwrap { overflow-x: auto; background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: .86rem; }
+  th, td { text-align: left; padding: .5rem .65rem; border-bottom: 1px solid var(--vellum-dim); }
+  th { font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); background: #fbf8f0; }
+  tr.placeholder td { color: var(--abd-9a9cb3, #9a9cb3); font-style: italic; }
+  .role { font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--vellum-dim); border-radius: 999px; padding: .12rem .5rem; }
+  .role.teacher { color: var(--green); border-color: var(--green); }
+  .role.admin { color: var(--primary); border-color: var(--primary); }
+  .dev button { font: inherit; font-size: .8rem; padding: .35rem .8rem; border-radius: 999px; border: 1px solid var(--abd-b04a4a, #b04a4a); background: transparent; color: var(--abd-b04a4a, #b04a4a); cursor: pointer; margin: 0 .35rem .4rem 0; }
+  .dev button:hover { background: #f6dde1; }
+  .dev .size { color: var(--abd-8a887c, #8a887c); font-size: .78rem; }
+  #gate { text-align: center; padding: 3rem 1rem; display: none; }
+  #gate .big { font-size: 2.2rem; }
+  html:not([data-ab-admin="on"]) #panel { display: none; }
+  html:not([data-ab-admin="on"]) #gate { display: block; }
+</style>
+<link rel="stylesheet" href="../assets/theme.css">
+<script defer src="../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Staff Only</div>
+  <h1>Admin Panel</h1>
+  <p class="sub">Content health, the roster, staff tools, and this device&rsquo;s data — visible only in staff mode.</p>
+</header>
+
+<main>
+<div id="gate">
+  <div class="big">🛡️</div>
+  <p>This page is for staff. Open the ⚙ settings menu and use <b>Staff sign-in</b>, then reload.</p>
+</div>
+
+<div id="panel">
+<div class="note-box">Everything here runs on this device from the public data files — it is a staff <em>dashboard</em>, not a control plane. Real user accounts, roles, and server-side management arrive with the Phase F backend; until then User Management below is the office&rsquo;s reference roster (edit <code>admin/users.json</code> in the repo).</div>
+
+<h2 class="sect">Content health</h2>
+<div class="grid" id="health">Loading…</div>
+
+<h2 class="sect">User management</h2>
+<div class="tblwrap"><table>
+  <thead><tr><th>Name</th><th>Role</th><th>Classes</th><th>Status</th></tr></thead>
+  <tbody id="userRows"></tbody>
+</table></div>
+
+<h2 class="sect">Staff tools</h2>
+<div class="grid tools">
+  <a href="../quran/text/"><b>📖 Assignment links</b><span>Build reading links with highlights in the Quran reader</span></a>
+  <a href="../quran/concentration/"><b>💠 80% Words editor</b><span>Paper/Both views, in-place edit, CSV exports</span></a>
+  <a href="../general/teacher-notes/"><b>🗒️ Scan gallery &amp; curate</b><span>Raw scans, page map, manifest and ZIP exports</span></a>
+  <a href="../general/schedule/"><b>🗓️ Schedule imports</b><span>Soft import/refresh, conflicts view, edit mode</span></a>
+  <a href="../practice/glossary/glossary.xlsx" download><b>📊 Glossary Excel</b><span>The tagged master glossary spreadsheet</span></a>
+  <a href="../general/materials/"><b>📚 Materials library</b><span>Awaiting-upload rows show here first</span></a>
+</div>
+
+<h2 class="sect">This device&rsquo;s data</h2>
+<div class="note-box">Student progress lives in each browser, so these buttons only affect <b>this device</b> — useful for shared classroom computers.</div>
+<div class="dev" id="devTools"></div>
+</div>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(async function () {
+  /* ---- content health: real counts from the live data contracts ---- */
+  async function j(u) { try { return await (await fetch(u)).json(); } catch (e) { return null; } }
+  var [nav, glos, mats, conc, metrics] = await Promise.all([
+    j('../assets/nav.json'), j('../practice/glossary/glossary.json'),
+    j('../general/materials/materials.json'), j('../quran/concentration/data.json'),
+    j('../metrics.json')]);
+  var cards = [];
+  if (nav) {
+    var pages = [], soon = 0;
+    nav.sections.forEach(function (s) { s.pages.forEach(function (p) {
+      pages.push(p); if (p.status === 'soon') soon++; }); });
+    cards.push(['Pages live', (pages.length - soon) + ' / ' + pages.length, soon + ' still marked “soon”']);
+  }
+  if (glos) cards.push(['Glossary terms', glos.terms.length, glos.lists.length + ' word lists — rebuild with tools/build_glossary.py']);
+  if (conc) {
+    var scans = conc.pages.filter(function (p) { return p.scan; }).length;
+    cards.push(['80% Words scans', scans + ' / ' + conc.pages.length, 'paper pages photographed']);
+  }
+  if (mats) {
+    var items = [], waiting = 0;
+    mats.subjects.forEach(function (s) { s.items.forEach(function (it) {
+      items.push(it); if (!it.url) waiting++; }); });
+    cards.push(['Materials', (items.length - waiting) + ' / ' + items.length, waiting + ' awaiting upload']);
+  }
+  if (metrics) {
+    var ph = metrics.impact.filter(function (x) { return x.status === 'placeholder'; }).length;
+    cards.push(['Impact counters', (metrics.impact.length - ph) + ' / ' + metrics.impact.length, ph + ' placeholders on the home strip']);
+  }
+  document.getElementById('health').innerHTML = cards.map(function (c) {
+    return '<div class="card"><div class="k">' + esc(c[0]) + '</div>' +
+      '<div class="n">' + esc(c[1]) + '</div><div class="d">' + esc(c[2]) + '</div></div>';
+  }).join('');
+
+  /* ---- roster ---- */
+  var U = await j('users.json');
+  document.getElementById('userRows').innerHTML = ((U && U.users) || []).map(function (u) {
+    var ph = u.status === 'placeholder';
+    return '<tr' + (ph ? ' class="placeholder"' : '') + '><td>' + esc(u.name) + '</td>' +
+      '<td><span class="role ' + esc(u.role) + '">' + esc(u.role) + '</span></td>' +
+      '<td>' + esc((u.classes || []).join(', ') || '—') + '</td>' +
+      '<td>' + esc(u.status) + '</td></tr>';
+  }).join('');
+
+  /* ---- device data manager ---- */
+  var STORES = [
+    ['ab-deck-stats', 'Practice scores & benchmarks'],
+    ['ab-hl', 'Quran highlights'],
+    ['ab-game-scores', 'Game leaderboard scores'],
+    ['ab-match-best', 'Vocab Match best'],
+    ['ab-units-l3', 'Quran unit tracker'],
+    ['albaseera-fc-deck', 'Legacy flashcards pick']
+  ];
+  function renderDev() {
+    var host = document.getElementById('devTools');
+    host.innerHTML = STORES.map(function (s) {
+      var v = null;
+      try { v = localStorage.getItem(s[0]); } catch (e) {}
+      if (v == null) return '';
+      return '<button type="button" data-k="' + s[0] + '">✕ Clear: ' + s[1] +
+        ' <span class="size">(' + (v.length / 1024).toFixed(1) + ' KB)</span></button>';
+    }).join('') || '<span class="size">Nothing stored on this device yet.</span>';
+    host.querySelectorAll('button').forEach(function (b) {
+      b.onclick = function () {
+        if (!window.confirm('Clear "' + b.textContent.trim() + '" on this device?')) return;
+        try { localStorage.removeItem(b.dataset.k); } catch (e) {}
+        renderDev();
+      };
+    });
+  }
+  renderDev();
+})();
+</script>
+</body>
+</html>

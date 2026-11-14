@@ -1,5 +1,5 @@
 {
- "note": "SOURCE OF TRUTH for site navigation and the home page cards. Edit here; the home page and every internal page header render from this file. status: live (● built) | soon (◌ content pending) — flip freely. Every section is grouped on home by the groups map below; a section banner click collapses or expands all its groups. The About pages live inside the General section (About group).",
+ "note": "SOURCE OF TRUTH for site navigation and the home page cards. Edit here; the home page and every internal page header render from this file. status: live (● built) | soon (◌ content pending) — flip freely. Every section is grouped on home by the groups map below; a section banner click collapses or expands all its groups. The About pages live inside the General section (About group). Sections marked adminOnly render only in staff mode.",
  "sections": [
   {
    "id": "general",
@@ -510,6 +510,26 @@
      "status": "soon"
     }
    ]
+  },
+  {
+   "id": "admin",
+   "title": "Admin",
+   "tag": "Staff only",
+   "emoji": "🛡️",
+   "icon": "gear",
+   "color": "admin",
+   "adminOnly": true,
+   "pages": [
+    {
+     "href": "admin/",
+     "en": "Admin Panel",
+     "ar": "",
+     "desc": "Content status, roster, staff tools, and device data — staff only",
+     "emoji": "🛡️",
+     "icon": "gear",
+     "status": "live"
+    }
+   ]
   }
  ],
  "chromeless": [
@@ -612,6 +632,11 @@
    "Study": [
     "practice/deck/",
     "practice/glossary/"
+   ]
+  },
+  "admin": {
+   "Staff": [
+    "admin/"
    ]
   }
  }

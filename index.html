@@ -500,7 +500,7 @@
 /* ============== Home UI layer — nav.json-driven tabs, cards, settings ============== */
 document.addEventListener('DOMContentLoaded', function () {
   var S = AB.settings;
-  var COLOR = { gold: 'var(--gold)', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318' };
+  var COLOR = { gold: 'var(--gold)', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318', admin: '#4a4466' };
   var state = { tab: new URLSearchParams(location.search).get('tab') || 'general' };
 
   document.querySelectorAll('.mini img').forEach(function (img) {
@@ -556,13 +556,16 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.dataset.nav = S.nav;
       document.body.dataset.rail = S.rail === 'show' ? 'on' : 'off';
       document.body.classList.toggle('mobile-nav', window.matchMedia('(max-width: 899px)').matches);
-      document.getElementById('panes').innerHTML = nav.sections.map(paneHTML).join('');
+      var SECS = (window.AB && AB.visibleSections) ? AB.visibleSections(nav)
+        : nav.sections.filter(function (s) { return !s.adminOnly; });
+      if (!SECS.some(function (s) { return s.id === state.tab; })) state.tab = 'general';
+      document.getElementById('panes').innerHTML = SECS.map(paneHTML).join('');
       if (S.nav === 'tabs') {
         var selPane = document.getElementById('pane-' + state.tab);
         if (selPane) selPane.open = true;
       }
       var tr = document.getElementById('tabsrow');
-      tr.innerHTML = nav.sections.map(function (s) {
+      tr.innerHTML = SECS.map(function (s) {
         return '<button class="mtab" role="tab" data-t="' + s.id +
           '" aria-selected="' + (state.tab === s.id) + '" style="--tabc:' + COLOR[s.color] + '">' +
           AB.icon(s.icon, s.emoji) + s.title + '</button>';
@@ -582,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
           render();
         };
       });
-      document.getElementById('rail').innerHTML = nav.sections.map(function (s) {
+      document.getElementById('rail').innerHTML = SECS.map(function (s) {
         var gmap = (nav.groups && nav.groups[s.id]) || null;
         var inner = '';
         function pageLink(p) {
@@ -617,6 +620,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (e) {}
     render(); announceIcon();
     document.addEventListener('ab:icons', function () { render(); announceIcon(); });
+    document.addEventListener('ab:admin', render);
     document.addEventListener('ab:theme', function () {});
 
     addEventListener('scroll', function () {
