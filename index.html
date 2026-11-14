@@ -102,7 +102,7 @@
   .announce { max-width: 900px; margin: 0 auto 1.8rem; padding: 0 1.2rem; }
 
   .announce-title {
-    text-align: center; font-weight: 500; font-size: 1.15rem; color: var(--green);
+    text-align: left; font-weight: 500; font-size: 1.15rem; color: var(--green);
     letter-spacing: .05em; margin-bottom: .8rem; cursor: pointer; list-style: none;
     -webkit-user-select: none; user-select: none;
   }
@@ -150,12 +150,12 @@
   }
 
   .season-inner {
-    background: linear-gradient(135deg, var(--green), #14563c 60%, var(--green));
+    background: linear-gradient(135deg, #14555c, #0d3a3f 60%, #14555c);
     border: 1px solid rgba(201,161,59,.5);
     border-radius: 16px;
     color: var(--vellum);
     padding: 1.15rem 1.4rem;
-    box-shadow: 0 6px 20px rgba(15,51,36,.2);
+    box-shadow: 0 6px 20px rgba(13,58,63,.25);
   }
 
   .season-month {
@@ -272,7 +272,7 @@
   .impact .imp .n { font-size: 1.25rem; font-weight: 600; color: var(--gold); line-height: 1.1; }
   .impact .imp.placeholder .n { color: var(--ab-muted2, #9a9cb3); }
   .impact .imp .l { font-size: .66rem; letter-spacing: .04em; color: var(--ab-muted2, #6b6a60); margin-top: .2rem; line-height: 1.35; }
-  .announce-wrap, .banner-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1rem; }
+  .announce-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1rem; }
   @media (prefers-reduced-motion: reduce) { .mtab, details.pack summary .chev { transition: none !important; } }
 
 </style>
@@ -296,19 +296,16 @@
   <div class="tabsrow" id="tabsrow" role="tablist"></div>
 </div>
 
-<div class="banner-wrap">
-<div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
-    <div class="season-inner">
-      <div class="season-month" id="seasonMonth"></div>
-      <div class="season-theme" id="seasonTheme"></div>
-      <div class="season-links" id="seasonLinks"></div>
-    </div>
-  </div>
-</div>
-
 <div class="announce-wrap">
   <details class="announce-fold" id="announceFold" style="display:none">
     <summary class="announce-title" id="announceTitle">📢 Announcements <span class="achev">▶</span></summary>
+    <div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
+      <div class="season-inner">
+        <div class="season-month" id="seasonMonth"></div>
+        <div class="season-theme" id="seasonTheme"></div>
+        <div class="season-links" id="seasonLinks"></div>
+      </div>
+    </div>
     <div class="impact" id="impact" style="display:none"></div>
     <div id="announcePosts"></div>
   </details>
@@ -353,6 +350,7 @@
     document.getElementById('seasonLinks').innerHTML = m.features.map(f =>
       '<a href="' + f.url + '">' + f.label + '</a>').join('');
     document.getElementById('seasonBanner').style.display = '';
+    document.getElementById('announceFold').style.display = '';
   } catch (e) { /* seasons.json missing: banner stays hidden */ }
 })();
 

@@ -452,7 +452,7 @@
    "tag": "Play &amp; practice",
    "emoji": "🎮",
    "icon": "game",
-   "color": "games",
+   "color": "gold",
    "pages": [
     {
      "href": "games/vocab-match/",
