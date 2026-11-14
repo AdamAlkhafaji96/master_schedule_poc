@@ -43,7 +43,8 @@
      "Ma'a as-salamah",
      "Goodbye"
     ]
-   ]
+   ],
+   "level": 1
   },
   "2": {
    "topic": "Family",
@@ -88,7 +89,8 @@
      "Bayt",
      "House, home"
     ]
-   ]
+   ],
+   "level": 1
   },
   "3": {
    "topic": "Colors",
@@ -133,7 +135,8 @@
      "Lawn",
      "Color"
     ]
-   ]
+   ],
+   "level": 1
   },
   "4": {
    "topic": "School objects",
@@ -178,7 +181,8 @@
      "Fasl",
      "Classroom"
     ]
-   ]
+   ],
+   "level": 1
   },
   "5": {
    "topic": "The body",
@@ -223,7 +227,8 @@
      "Qalb",
      "Heart"
     ]
-   ]
+   ],
+   "level": 1
   },
   "6": {
    "topic": "Food & drink",
@@ -268,7 +273,8 @@
      "Ladhidh",
      "Delicious"
     ]
-   ]
+   ],
+   "level": 1
   },
   "7": {
    "topic": "Animals",
@@ -313,7 +319,8 @@
      "Hayawan",
      "Animal"
     ]
-   ]
+   ],
+   "level": 1
   },
   "8": {
    "topic": "Numbers in use",
@@ -358,7 +365,8 @@
      "Akhir",
      "Last"
     ]
-   ]
+   ],
+   "level": 1
   },
   "9": {
    "topic": "The home",
@@ -403,7 +411,8 @@
      "Miftah",
      "Key"
     ]
-   ]
+   ],
+   "level": 1
   },
   "10": {
    "topic": "Clothing",
@@ -448,7 +457,8 @@
      "Saghir",
      "Small"
     ]
-   ]
+   ],
+   "level": 1
   },
   "11": {
    "topic": "Weather & nature",
@@ -493,7 +503,8 @@
      "Jabal",
      "Mountain"
     ]
-   ]
+   ],
+   "level": 1
   },
   "12": {
    "topic": "Everyday verbs",
@@ -538,7 +549,8 @@
      "La'iba",
      "He played"
     ]
-   ]
+   ],
+   "level": 1
   }
  },
  "level2": {
@@ -585,7 +597,8 @@
      "Masa'",
      "Evening"
     ]
-   ]
+   ],
+   "level": 2
   },
   "2": {
    "topic": "Places in town",
@@ -630,7 +643,8 @@
      "Mat'am",
      "Restaurant"
     ]
-   ]
+   ],
+   "level": 2
   },
   "3": {
    "topic": "Professions",
@@ -675,7 +689,8 @@
      "Amal",
      "Work"
     ]
-   ]
+   ],
+   "level": 2
   },
   "4": {
    "topic": "Opposites",
@@ -720,7 +735,8 @@
      "Ba'id",
      "Far"
     ]
-   ]
+   ],
+   "level": 2
   },
   "5": {
    "topic": "Present-tense verbs",
@@ -765,7 +781,8 @@
      "Yuhibbu",
      "He loves"
     ]
-   ]
+   ],
+   "level": 2
   },
   "6": {
    "topic": "Feelings",
@@ -810,7 +827,8 @@
      "Masrur",
      "Delighted"
     ]
-   ]
+   ],
+   "level": 2
   },
   "7": {
    "topic": "Travel",
@@ -855,7 +873,8 @@
      "Funduq",
      "Hotel"
     ]
-   ]
+   ],
+   "level": 2
   },
   "8": {
    "topic": "Meals & the table",
@@ -900,7 +919,8 @@
      "Ma'idah",
      "Dining table"
     ]
-   ]
+   ],
+   "level": 2
   },
   "9": {
    "topic": "Rooms & directions",
@@ -945,7 +965,8 @@
      "Kharij",
      "Outside"
     ]
-   ]
+   ],
+   "level": 2
   },
   "10": {
    "topic": "School subjects",
@@ -990,7 +1011,8 @@
      "Wajib",
      "Homework, duty"
     ]
-   ]
+   ],
+   "level": 2
   },
   "11": {
    "topic": "Nature & seasons",
@@ -1035,7 +1057,8 @@
      "Zahrah",
      "Flower"
     ]
-   ]
+   ],
+   "level": 2
   },
   "12": {
    "topic": "Conversation phrases",
@@ -1080,7 +1103,8 @@
      "Limadha",
      "Why?"
     ]
-   ]
+   ],
+   "level": 2
   }
  },
  "level3": {
@@ -1127,7 +1151,8 @@
      "Rahmah",
      "Mercy"
     ]
-   ]
+   ],
+   "level": 3
   },
   "2": {
    "topic": "Verbs of daily life",
@@ -1172,7 +1197,8 @@
      "Yantazir",
      "He waits"
     ]
-   ]
+   ],
+   "level": 3
   },
   "3": {
    "topic": "Lessons & learning",
@@ -1217,7 +1243,8 @@
      "Muraja'ah",
      "Review"
     ]
-   ]
+   ],
+   "level": 3
   },
   "4": {
    "topic": "The masjid & community",
@@ -1262,7 +1289,8 @@
      "Ziyarah",
      "Visit"
     ]
-   ]
+   ],
+   "level": 3
   },
   "5": {
    "topic": "Time & the calendar",
@@ -1307,7 +1335,8 @@
      "Taqwim",
      "Calendar"
     ]
-   ]
+   ],
+   "level": 3
   },
   "6": {
    "topic": "Creation & the sky",
@@ -1352,7 +1381,8 @@
      "Fada'",
      "Space"
     ]
-   ]
+   ],
+   "level": 3
   },
   "7": {
    "topic": "Hospitality & the table",
@@ -1397,7 +1427,8 @@
      "Shukr",
      "Thanks"
     ]
-   ]
+   ],
+   "level": 3
   },
   "8": {
    "topic": "Health & the self",
@@ -1442,7 +1473,8 @@
      "Rahah",
      "Rest"
     ]
-   ]
+   ],
+   "level": 3
   },
   "9": {
    "topic": "Journeys & places",
@@ -1487,7 +1519,8 @@
      "Ittijah",
      "Direction"
     ]
-   ]
+   ],
+   "level": 3
   },
   "10": {
    "topic": "The city & civic life",
@@ -1532,7 +1565,8 @@
      "Qanun",
      "Law"
     ]
-   ]
+   ],
+   "level": 3
   },
   "11": {
    "topic": "Trades & crafts",
@@ -1577,7 +1611,8 @@
      "Sina'ah",
      "Industry"
     ]
-   ]
+   ],
+   "level": 3
   },
   "12": {
    "topic": "Connectors & expressions",
@@ -1622,7 +1657,8 @@
      "Abadan",
      "Never"
     ]
-   ]
+   ],
+   "level": 3
   }
  },
  "level4": {
@@ -1669,7 +1705,8 @@
      "Barakah",
      "Blessing"
     ]
-   ]
+   ],
+   "level": 4
   },
   "2": {
    "topic": "Quranic vocabulary II",
@@ -1714,7 +1751,8 @@
      "Ba'th",
      "Resurrection"
     ]
-   ]
+   ],
+   "level": 4
   },
   "3": {
    "topic": "Grammar (Nahw) terms",
@@ -1759,7 +1797,8 @@
      "I'rab",
      "Grammatical analysis"
     ]
-   ]
+   ],
+   "level": 4
   },
   "4": {
    "topic": "Rhetoric & literature",
@@ -1804,7 +1843,8 @@
      "Khitabah",
      "Oratory"
     ]
-   ]
+   ],
+   "level": 4
   },
   "5": {
    "topic": "Fiqh & worship",
@@ -1849,7 +1889,8 @@
      "'Ibadah",
      "Worship"
     ]
-   ]
+   ],
+   "level": 4
   },
   "6": {
    "topic": "Aqidah & belief",
@@ -1894,7 +1935,8 @@
      "Fitrah",
      "Innate nature"
     ]
-   ]
+   ],
+   "level": 4
   },
   "7": {
    "topic": "History & civilization",
@@ -1939,7 +1981,8 @@
      "Turath",
      "Heritage"
     ]
-   ]
+   ],
+   "level": 4
   },
   "8": {
    "topic": "Knowledge & scholarship",
@@ -1984,7 +2027,8 @@
      "Mustalah",
      "Technical term"
     ]
-   ]
+   ],
+   "level": 4
   },
   "9": {
    "topic": "Society & ethics",
@@ -2029,7 +2073,8 @@
      "Akhlaq",
      "Ethics"
     ]
-   ]
+   ],
+   "level": 4
   },
   "10": {
    "topic": "Advanced verbs",
@@ -2074,7 +2119,8 @@
      "Istamarra",
      "He continued"
     ]
-   ]
+   ],
+   "level": 4
   },
   "11": {
    "topic": "Abstract concepts",
@@ -2119,7 +2165,8 @@
      "Ta'thir",
      "Influence"
     ]
-   ]
+   ],
+   "level": 4
   },
   "12": {
    "topic": "Debate & discussion",
@@ -2164,7 +2211,8 @@
      "Khulasah",
      "Conclusion / summary"
     ]
-   ]
+   ],
+   "level": 4
   }
  }
 }

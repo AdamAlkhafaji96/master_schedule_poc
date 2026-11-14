@@ -1,5 +1,5 @@
 {
- "note": "Theme word bank — physical picture-card deck, not tied to vocab levels. One seed card per theme from the first scan; add the rest as cards are scanned. Card schema: num, en, ar, en_ipa, ar_ipa, en_sent, ar_sent (empty string = pending scan). card_range = [first, last] card number for the theme (last null = open-ended).",
+ "note": "Theme word bank — physical picture-card deck, not tied to vocab levels. One seed card per theme from the first scan; add the rest as cards are scanned. Card schema: num, en, ar, en_ipa, ar_ipa, en_sent, ar_sent (empty string = pending scan). card_range = [first, last] card number for the theme (last null = open-ended). level: proficiency tag (1-4) or null when a theme spans levels.",
  "themes": [
   {
    "name": "Action Verbs",
@@ -17,7 +17,8 @@
    "card_range": [
     1,
     18
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Animals",
@@ -35,7 +36,8 @@
    "card_range": [
     19,
     39
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Home",
@@ -53,7 +55,8 @@
    "card_range": [
     40,
     62
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Clothing",
@@ -71,7 +74,8 @@
    "card_range": [
     63,
     80
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Feelings",
@@ -89,7 +93,8 @@
    "card_range": [
     81,
     101
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Food & Drink",
@@ -107,7 +112,8 @@
    "card_range": [
     102,
     123
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Health & Emergency",
@@ -125,7 +131,8 @@
    "card_range": [
     124,
     147
-   ]
+   ],
+   "level": null
   },
   {
    "name": "People & Family",
@@ -143,7 +150,8 @@
    "card_range": [
     148,
     167
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Personal Hygiene",
@@ -161,7 +169,8 @@
    "card_range": [
     168,
     184
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Places",
@@ -179,7 +188,8 @@
    "card_range": [
     185,
     205
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Transportation",
@@ -197,7 +207,8 @@
    "card_range": [
     206,
     226
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Weather",
@@ -215,7 +226,8 @@
    "card_range": [
     227,
     240
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Seasons",
@@ -233,7 +245,8 @@
    "card_range": [
     241,
     244
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Months",
@@ -251,7 +264,8 @@
    "card_range": [
     245,
     256
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Time",
@@ -269,7 +283,8 @@
    "card_range": [
     257,
     274
-   ]
+   ],
+   "level": null
   },
   {
    "name": "Numbers",
@@ -287,7 +302,8 @@
    "card_range": [
     275,
     null
-   ]
+   ],
+   "level": null
   }
  ]
 }

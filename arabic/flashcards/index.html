@@ -44,14 +44,14 @@
   .card { position: relative; width: 100%; max-width: 480px; height: 280px; margin: 0 auto; cursor: pointer; transform-style: preserve-3d; transition: transform .45s; }
   .card.flipped { transform: rotateY(180deg); }
   .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem; padding: 1.4rem; text-align: center; box-shadow: 0 12px 34px rgba(17,28,66,.18); }
-  .face.front { background: #fff; border: 1px solid var(--vellum-dim); border-top: 6px solid var(--primary); }
+  .face.front { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-top: 6px solid var(--primary); }
   .face.back  { background: var(--primary); color: var(--vellum); border-top: 6px solid var(--gold); transform: rotateY(180deg); }
   .face .ar { font-family: 'Amiri', serif; font-size: 3rem; direction: rtl; line-height: 1.3; }
   .face.back .ar { color: var(--gold-soft); }
-  .face .tr { font-style: italic; color: #8a6d2f; }
+  .face .tr { font-style: italic; color: var(--ab-goldlab, #8a6d2f); }
   .face.back .tr { color: var(--gold-soft); }
   .face .en { font-size: 1.5rem; }
-  .face .hint { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #9a9cb3; margin-top: .5rem; }
+  .face .hint { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--abd-9a9cb3, #9a9cb3); margin-top: .5rem; }
   .face.back .hint { color: rgba(247,242,231,.55); }
 
   .actions { display: flex; justify-content: center; gap: .8rem; margin-top: 1.3rem; flex-wrap: wrap; }
@@ -61,7 +61,7 @@
   .actions .flip  { background: var(--primary); }
   .done { text-align: center; padding: 2.5rem 1rem; }
   .done h2 { font-weight: 500; margin-bottom: .6rem; }
-  .done p { color: #6b6d85; margin-bottom: 1.2rem; }
+  .done p { color: var(--ab-muted2, #6b6d85); margin-bottom: 1.2rem; }
   .hiddenEl { display: none !important; }
 </style>
 <link rel="stylesheet" href="../../assets/theme.css">

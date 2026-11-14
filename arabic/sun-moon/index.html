@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun & Moon Letters — Arabic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b2a5e;
+    --primary-dark: #131d40;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.15rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 880px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  h2.sect { font-weight: 600; font-size: 1.05rem; color: var(--primary); margin: 1.5rem 0 .7rem; border-bottom: 2px solid var(--gold-soft); padding-bottom: .25rem; }
+  .note-box { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-left: 4px solid var(--gold); border-radius: 10px; padding: .7rem .9rem; font-size: .85rem; line-height: 1.55; color: var(--abd-55544a, #55544a); margin-bottom: 1.2rem; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+  .group { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px; padding: 1rem; }
+  .group.sun { border-top: 4px solid #c9811b; }
+  .group.moon { border-top: 4px solid #4a5a8a; }
+  .group h3 { font-weight: 600; font-size: 1rem; margin-bottom: .6rem; }
+  .group.sun h3 { color: #a05a00; } .group.moon h3 { color: var(--primary); }
+  html[data-theme="dark"] .group.sun h3 { color: #e0a35c; }
+  .lgrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .35rem; }
+  .lgrid span { font-family: 'Amiri', serif; font-size: 1.5rem; text-align: center; background: var(--vellum); border-radius: 8px; padding: .3rem 0; }
+  .ex { font-size: .84rem; color: var(--abd-55544a, #55544a); margin-top: .6rem; line-height: 1.6; }
+  .ex b { font-family: 'Amiri', serif; font-size: 1.1rem; font-weight: 400; }
+  .quiz { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px; padding: 1.3rem; text-align: center; }
+  .qletter { font-family: 'Amiri', serif; font-size: 4rem; line-height: 1.2; }
+  .qbtns { display: flex; gap: .7rem; justify-content: center; margin: .8rem 0; flex-wrap: wrap; }
+  .qbtns button { font: inherit; font-size: .95rem; padding: .55rem 1.3rem; border-radius: 999px; cursor: pointer; border: 2px solid var(--vellum-dim); background: var(--vellum); color: var(--ink); }
+  .qbtns button.sunb { border-color: #c9811b; } .qbtns button.moonb { border-color: #4a5a8a; }
+  .verdict { min-height: 2.4em; font-size: .9rem; line-height: 1.5; }
+  .verdict.ok { color: var(--green); } .verdict.no { color: var(--abd-b04a4a, #b04a4a); }
+  html[data-theme="dark"] .verdict.ok { color: #7fc9a4; }
+  .qscore { font-size: .8rem; color: var(--abd-8a887c, #8a887c); margin-top: .4rem; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Arabic</div>
+  <h1>Sun &amp; Moon Letters</h1>
+  <div class="ar">الحُرُوف الشَّمْسِيَّة وَالقَمَرِيَّة</div>
+  <p class="sub">When ال (al-) meets a sun letter, the laam goes silent and the letter doubles: الشَّمْس is &ldquo;ash-shams&rdquo;, not &ldquo;al-shams&rdquo;. Moon letters keep the laam: القَمَر stays &ldquo;al-qamar&rdquo;.</p>
+</header>
+
+<main>
+<div class="cols">
+  <div class="group sun">
+    <h3>☀️ Sun letters — the laam melts</h3>
+    <div class="lgrid" id="sunGrid"></div>
+    <p class="ex">Say it doubled: <b>التَّمْر</b> &rarr; at-tamr · <b>الشَّمْس</b> &rarr; ash-shams · <b>النُّور</b> &rarr; an-nur</p>
+  </div>
+  <div class="group moon">
+    <h3>🌙 Moon letters — the laam stays</h3>
+    <div class="lgrid" id="moonGrid"></div>
+    <p class="ex">Say the laam clearly: <b>القَمَر</b> &rarr; al-qamar · <b>الكِتَاب</b> &rarr; al-kitab · <b>البَيْت</b> &rarr; al-bayt</p>
+  </div>
+</div>
+<h2 class="sect">Quiz — sun or moon?</h2>
+<div class="quiz">
+  <div class="qletter" id="qLetter" lang="ar"></div>
+  <div class="qbtns">
+    <button type="button" class="sunb" id="pickSun">☀️ Sun</button>
+    <button type="button" class="moonb" id="pickMoon">🌙 Moon</button>
+  </div>
+  <div class="verdict" id="verdict">Which family does this letter belong to?</div>
+  <div class="qscore"><span id="right">0</span> right · <span id="wrong">0</span> wrong</div>
+</div>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(function () {
+  var SUN  = ['ت','ث','د','ذ','ر','ز','س','ش','ص','ض','ط','ظ','ل','ن'];
+  var MOON = ['ا','ب','ج','ح','خ','ع','غ','ف','ق','ك','م','ه','و','ي'];
+  document.getElementById('sunGrid').innerHTML  = SUN.map(function (l) { return '<span lang="ar">' + l + '</span>'; }).join('');
+  document.getElementById('moonGrid').innerHTML = MOON.map(function (l) { return '<span lang="ar">' + l + '</span>'; }).join('');
+  var all = SUN.map(function (l) { return [l, 'sun']; }).concat(MOON.map(function (l) { return [l, 'moon']; }));
+  var cur, right = 0, wrong = 0;
+  function next() {
+    cur = all[Math.floor(Math.random() * all.length)];
+    document.getElementById('qLetter').textContent = cur[0];
+  }
+  function answer(a) {
+    var v = document.getElementById('verdict');
+    if (a === cur[1]) {
+      right++; v.className = 'verdict ok';
+      v.textContent = cur[0] + ' is a ' + cur[1] + ' letter — ' +
+        (cur[1] === 'sun' ? 'the laam melts into it.' : 'the laam is pronounced.');
+    } else {
+      wrong++; v.className = 'verdict no';
+      v.textContent = 'Not quite — ' + cur[0] + ' is a ' + cur[1] + ' letter.';
+    }
+    document.getElementById('right').textContent = right;
+    document.getElementById('wrong').textContent = wrong;
+    setTimeout(next, 900);
+  }
+  document.getElementById('pickSun').onclick  = function () { answer('sun'); };
+  document.getElementById('pickMoon').onclick = function () { answer('moon'); };
+  next();
+})();
+</script>
+</body>
+</html>

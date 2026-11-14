@@ -8,7 +8,8 @@
    "en": "Father",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَبَدًا",
@@ -17,7 +18,8 @@
    "en": "Never",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "أَبْيَض",
@@ -26,7 +28,8 @@
    "en": "White",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "اِتِّجَاه",
@@ -35,7 +38,8 @@
    "en": "Direction",
    "src": [
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "اِتِّفَاق",
@@ -44,7 +48,8 @@
    "en": "Agreement",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "اِثْنَان",
@@ -53,7 +58,8 @@
    "en": "Two",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "اِجْتِهَاد",
@@ -62,7 +68,8 @@
    "en": "Independent reasoning",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "اِجْتَهَدَ",
@@ -71,7 +78,8 @@
    "en": "He strove",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "اِحْتِرَام",
@@ -80,7 +88,8 @@
    "en": "Respect",
    "src": [
     "Arabic L3 · Character & virtues"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "إِحْرَام",
@@ -89,7 +98,8 @@
    "en": "Pilgrim's sacred state and dress",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "إِحْسَان",
@@ -99,7 +109,8 @@
    "src": [
     "Arabic L4 · Society & ethics",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَحْمَر",
@@ -108,7 +119,8 @@
    "en": "Red",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَخ",
@@ -117,7 +129,8 @@
    "en": "Brother",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أُخْت",
@@ -126,7 +139,8 @@
    "en": "Sister",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "اِخْتِلَاف",
@@ -135,7 +149,8 @@
    "en": "Disagreement",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "آخِرَة",
@@ -144,7 +159,8 @@
    "en": "Hereafter",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَخْضَر",
@@ -153,7 +169,8 @@
    "en": "Green",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَخْلَاق",
@@ -163,7 +180,8 @@
    "src": [
     "Arabic L4 · Society & ethics",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَخِير",
@@ -172,7 +190,8 @@
    "en": "Last",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "إِذَا",
@@ -181,7 +200,8 @@
    "en": "If",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "أَذَان",
@@ -190,7 +210,8 @@
    "en": "Call to prayer",
    "src": [
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "أُذُن",
@@ -199,7 +220,8 @@
    "en": "Ear",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَرُزّ",
@@ -208,7 +230,8 @@
    "en": "Rice",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَزْرَق",
@@ -217,7 +240,8 @@
    "en": "Blue",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أُسْبُوع",
@@ -226,7 +250,8 @@
    "en": "Week",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "اِسْتِعْدَاد",
@@ -235,7 +260,8 @@
    "en": "Preparation",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "اِسْتِغْفَار",
@@ -244,7 +270,8 @@
    "en": "Seeking forgiveness",
    "src": [
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "اِسْتَغْفَرَ",
@@ -253,7 +280,8 @@
    "en": "He sought forgiveness",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "اِسْتَقَامَ",
@@ -262,7 +290,8 @@
    "en": "He remained upright",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "اِسْتَمَرَّ",
@@ -271,7 +300,8 @@
    "en": "He continued",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَسَد",
@@ -280,7 +310,8 @@
    "en": "Lion",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "إِسْرَاء",
@@ -289,7 +320,8 @@
    "en": "The Night Journey",
    "src": [
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "آسِف",
@@ -298,7 +330,8 @@
    "en": "Sorry",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "اِسْم",
@@ -308,7 +341,8 @@
    "src": [
     "Arabic L1 · Greetings & introductions",
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أُسْوَة",
@@ -317,7 +351,8 @@
    "en": "Role model, example",
    "src": [
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "أَسْوَد",
@@ -326,7 +361,8 @@
    "en": "Black",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَصْفَر",
@@ -335,7 +371,8 @@
    "en": "Yellow",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أُضْحِيَة",
@@ -344,7 +381,8 @@
    "en": "Sacrifice",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "إِعْرَاب",
@@ -353,7 +391,8 @@
    "en": "Grammatical analysis",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "إِفْطَار",
@@ -362,7 +401,8 @@
    "en": "Breaking the fast",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "أُفُق",
@@ -371,7 +411,8 @@
    "en": "Horizon",
    "src": [
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "اِقْتِرَاح",
@@ -380,7 +421,8 @@
    "en": "Proposal",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَكَلَ",
@@ -389,7 +431,8 @@
    "en": "He ate",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "اَلْيَوْم",
@@ -398,7 +441,8 @@
    "en": "Today",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "أُمّ",
@@ -407,7 +451,8 @@
    "en": "Mother",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَمَام",
@@ -417,7 +462,8 @@
    "src": [
     "Arabic L2 · Rooms & directions",
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "أَمَان",
@@ -426,7 +472,8 @@
    "en": "Safety",
    "src": [
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "أَمَانَة",
@@ -436,7 +483,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "اِمْتِحَان",
@@ -446,7 +494,8 @@
    "src": [
     "Arabic L2 · School subjects",
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "أَمْس",
@@ -455,7 +504,8 @@
    "en": "Yesterday",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "أَنَا",
@@ -464,7 +514,8 @@
    "en": "I / me",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَنْتَ",
@@ -473,7 +524,8 @@
    "en": "You (m.); You (f.)",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "اِنْتَصَرَ",
@@ -482,7 +534,8 @@
    "en": "He was victorious",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَنْف",
@@ -491,7 +544,8 @@
    "en": "Nose",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَهْلًا وَسَهْلًا",
@@ -500,7 +554,8 @@
    "en": "Welcome",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "أَوَّل",
@@ -509,7 +564,8 @@
    "en": "First",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "آيَة",
@@ -519,7 +575,8 @@
    "src": [
     "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "إِيمَان",
@@ -528,7 +585,8 @@
    "en": "Faith",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "أَيْنَ",
@@ -537,7 +595,8 @@
    "en": "Where?",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "بَاب",
@@ -546,7 +605,8 @@
    "en": "Door",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "بَحْر",
@@ -555,7 +615,8 @@
    "en": "Sea",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "بُرْتُقَالِيّ",
@@ -564,7 +625,8 @@
    "en": "Orange",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "بَرَكَة",
@@ -574,7 +636,8 @@
    "src": [
     "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "بَطِيء",
@@ -583,7 +646,8 @@
    "en": "Slow",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "بَعْث",
@@ -592,7 +656,8 @@
    "en": "Resurrection",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "بَعْدَ",
@@ -601,7 +666,8 @@
    "en": "After",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "بَعِيد",
@@ -610,7 +676,8 @@
    "en": "Far",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "بَلَاغَة",
@@ -619,7 +686,8 @@
    "en": "Eloquence",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "بَنَّاء",
@@ -628,7 +696,8 @@
    "en": "Builder",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "بَيْت",
@@ -637,7 +706,8 @@
    "en": "House, home",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "تَأْثِير",
@@ -646,7 +716,8 @@
    "en": "Influence",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَاجِر",
@@ -655,7 +726,8 @@
    "en": "Merchant",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "تَارِيخ",
@@ -665,7 +737,8 @@
    "src": [
     "Arabic L2 · School subjects",
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "تَحْت",
@@ -674,7 +747,8 @@
    "en": "Below",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "تَدَبَّرَ",
@@ -684,7 +758,8 @@
    "src": [
     "Arabic L4 · Advanced verbs",
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَذْكِرَة",
@@ -693,7 +768,8 @@
    "en": "Ticket",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "تُرَاث",
@@ -702,7 +778,8 @@
    "en": "Heritage",
    "src": [
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَرَاوِيح",
@@ -711,7 +788,8 @@
    "en": "Night prayers of Ramadan",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "تَشْبِيه",
@@ -720,7 +798,8 @@
    "en": "Simile",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَعَاوُن",
@@ -729,7 +808,8 @@
    "en": "Cooperation",
    "src": [
     "Arabic L4 · Society & ethics"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تُفَّاح",
@@ -738,7 +818,8 @@
    "en": "Apples",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "تَفْسِير",
@@ -747,7 +828,8 @@
    "en": "Quranic exegesis",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَفَكَّرَ",
@@ -756,7 +838,8 @@
    "en": "He reflected",
    "src": [
     "Arabic L4 · Advanced verbs"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَقْوَى",
@@ -766,7 +849,8 @@
    "src": [
     "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَقْوِيم",
@@ -775,7 +859,8 @@
    "en": "Calendar",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "تَكْبِير",
@@ -784,7 +869,8 @@
    "en": "Declaring Allah's greatness",
    "src": [
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "تِلَاوَة",
@@ -793,7 +879,8 @@
    "en": "Recitation",
    "src": [
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "تَلْبِيَة",
@@ -802,7 +889,8 @@
    "en": "The pilgrim's call",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "تَوَاضُع",
@@ -812,7 +900,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "تَوْبَة",
@@ -822,7 +911,8 @@
    "src": [
     "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَوْحِيد",
@@ -831,7 +921,8 @@
    "en": "Monotheism",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "تَوَكَّلَ",
@@ -841,7 +932,8 @@
    "src": [
     "Arabic L4 · Advanced verbs",
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "ثَلَاثَة",
@@ -850,7 +942,8 @@
    "en": "Three",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "ثَلْج",
@@ -859,7 +952,8 @@
    "en": "Snow",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "ثَوْب",
@@ -868,7 +962,8 @@
    "en": "Garment",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَاءَ",
@@ -877,7 +972,8 @@
    "en": "He came",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَار",
@@ -886,7 +982,8 @@
    "en": "Neighbor",
    "src": [
     "Arabic L3 · The masjid & community"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "جَبَل",
@@ -895,7 +992,8 @@
    "en": "Mountain",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَدّ",
@@ -904,7 +1002,8 @@
    "en": "Grandfather",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَدَّة",
@@ -913,7 +1012,8 @@
    "en": "Grandmother",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَدِيد",
@@ -922,7 +1022,8 @@
    "en": "New",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جِسْر",
@@ -931,7 +1032,8 @@
    "en": "Bridge",
    "src": [
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "جِسْم",
@@ -940,7 +1042,8 @@
    "en": "Body",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "جُغْرَافِيَا",
@@ -949,7 +1052,8 @@
    "en": "Geography",
    "src": [
     "Arabic L2 · School subjects"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "جَمَاعَة",
@@ -959,7 +1063,8 @@
    "src": [
     "Arabic L3 · The masjid & community",
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "جَمَل",
@@ -968,7 +1073,8 @@
    "en": "Camel",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "جَنَّة",
@@ -977,7 +1083,8 @@
    "en": "Paradise",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "جَوَاب",
@@ -986,7 +1093,8 @@
    "en": "Answer",
    "src": [
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "جَوَاز سَفَر",
@@ -995,7 +1103,8 @@
    "en": "Passport",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "جُوع",
@@ -1004,7 +1113,8 @@
    "en": "Hunger",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "جَوْعَان",
@@ -1013,7 +1123,8 @@
    "en": "Hungry",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "حَاجّ",
@@ -1022,7 +1133,8 @@
    "en": "Pilgrim",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "حَافِلَة",
@@ -1031,7 +1143,8 @@
    "en": "Bus",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "حَجّ",
@@ -1040,7 +1153,8 @@
    "en": "The pilgrimage",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "حُجَّة",
@@ -1049,7 +1163,8 @@
    "en": "Argument / proof",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حَدَّاد",
@@ -1058,7 +1173,8 @@
    "en": "Blacksmith",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "حُدُود",
@@ -1067,7 +1183,8 @@
    "en": "Borders",
    "src": [
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "حَدِيث",
@@ -1076,7 +1193,8 @@
    "en": "Prophetic narration",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حَدِيقَة",
@@ -1086,7 +1204,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "حِذَاء",
@@ -1095,7 +1214,8 @@
    "en": "Shoes",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "حَرَام",
@@ -1104,7 +1224,8 @@
    "en": "Forbidden",
    "src": [
     "Arabic L4 · Fiqh & worship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حَرْف",
@@ -1113,7 +1234,8 @@
    "en": "Particle",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حِرْفَة",
@@ -1122,7 +1244,8 @@
    "en": "Craft",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "حُرِّيَّة",
@@ -1131,7 +1254,8 @@
    "en": "Freedom",
    "src": [
     "Arabic L4 · Society & ethics"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حَزِين",
@@ -1140,7 +1264,8 @@
    "en": "Sad",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "حِسَاب",
@@ -1149,7 +1274,8 @@
    "en": "Reckoning",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حِصَان",
@@ -1158,7 +1284,8 @@
    "en": "Horse",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "حَضَارَة",
@@ -1167,7 +1294,8 @@
    "en": "Civilization",
    "src": [
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حِفْظ",
@@ -1176,7 +1304,8 @@
    "en": "Memorization",
    "src": [
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "حَقِيبَة",
@@ -1185,7 +1314,8 @@
    "en": "Bag",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "حِكْمَة",
@@ -1195,7 +1325,8 @@
    "src": [
     "Arabic L4 · Knowledge & scholarship",
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "حَلَال",
@@ -1204,7 +1335,8 @@
    "en": "Permissible (halal)",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "حَلِيب",
@@ -1213,7 +1345,8 @@
    "en": "Milk",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "حَيّ",
@@ -1222,7 +1355,8 @@
    "en": "Neighborhood",
    "src": [
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "حَيَوَان",
@@ -1231,7 +1365,8 @@
    "en": "Animal",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "خَارِج",
@@ -1240,7 +1375,8 @@
    "en": "Outside",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "خَائِف",
@@ -1249,7 +1385,8 @@
    "en": "Afraid",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "خَبَّاز",
@@ -1258,7 +1395,8 @@
    "en": "Baker",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "خَبَر",
@@ -1267,7 +1405,8 @@
    "en": "Predicate",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "خُبْز",
@@ -1276,7 +1415,8 @@
    "en": "Bread",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "خَرِيطَة",
@@ -1285,7 +1425,8 @@
    "en": "Map",
    "src": [
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "خَرِيف",
@@ -1294,7 +1435,8 @@
    "en": "Autumn",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "خِطَابَة",
@@ -1303,7 +1445,8 @@
    "en": "Oratory",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "خُطْبَة",
@@ -1312,7 +1455,8 @@
    "en": "Sermon",
    "src": [
     "Arabic L3 · The masjid & community"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "خُلَاصَة",
@@ -1321,7 +1465,8 @@
    "en": "Conclusion / summary",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "خِلَافَة",
@@ -1330,7 +1475,8 @@
    "en": "Caliphate",
    "src": [
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "خَلْف",
@@ -1339,7 +1485,8 @@
    "en": "Behind",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "خَلْق",
@@ -1349,7 +1496,8 @@
    "src": [
     "Arabic L3 · Creation & the sky",
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "خَيَّاط",
@@ -1358,7 +1506,8 @@
    "en": "Tailor",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "دَاخِل",
@@ -1367,7 +1516,8 @@
    "en": "Inside",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "دَائِمًا",
@@ -1376,7 +1526,8 @@
    "en": "Always",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "دَرْس",
@@ -1386,7 +1537,8 @@
    "src": [
     "Arabic L2 · School subjects",
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "دُعَاء",
@@ -1395,7 +1547,8 @@
    "en": "Supplication",
    "src": [
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "دَعْوَة",
@@ -1404,7 +1557,8 @@
    "en": "Invitation",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "دَفْتَر",
@@ -1413,7 +1567,8 @@
    "en": "Notebook",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "دَقِيقَة",
@@ -1422,7 +1577,8 @@
    "en": "Minute",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "دَلِيل",
@@ -1431,7 +1587,8 @@
    "en": "Evidence",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "دُنْيَا",
@@ -1440,7 +1597,8 @@
    "en": "Worldly life",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "دَوَاء",
@@ -1449,7 +1607,8 @@
    "en": "Medicine",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "ذِكْر",
@@ -1459,7 +1618,8 @@
    "src": [
     "Arabic L4 · Quranic vocabulary I",
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "ذَهَبَ",
@@ -1468,7 +1628,8 @@
    "en": "He went",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "رَاحَة",
@@ -1477,7 +1638,8 @@
    "en": "Rest",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "رَأْس",
@@ -1486,7 +1648,8 @@
    "en": "Head",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "رَأْي",
@@ -1495,7 +1658,8 @@
    "en": "Opinion",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "رَبِيع",
@@ -1504,7 +1668,8 @@
    "en": "Spring",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "رِحْلَة",
@@ -1514,7 +1679,8 @@
    "src": [
     "Arabic L3 · Journeys & places",
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "رَحْمَة",
@@ -1524,7 +1690,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "رِسَالَة",
@@ -1533,7 +1700,8 @@
    "en": "Prophetic message",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "رَسَّام",
@@ -1542,7 +1710,8 @@
    "en": "Painter / artist",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "رَسُول",
@@ -1551,7 +1720,8 @@
    "en": "Messenger",
    "src": [
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "رِفْق",
@@ -1560,7 +1730,8 @@
    "en": "Gentleness",
    "src": [
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "رَفِيق",
@@ -1569,7 +1740,8 @@
    "en": "Companion",
    "src": [
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "رَمَضَان",
@@ -1578,7 +1750,8 @@
    "en": "The month of fasting",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "رِوَايَة",
@@ -1587,7 +1760,8 @@
    "en": "Narration / transmission",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "رُوح",
@@ -1596,7 +1770,8 @@
    "en": "Soul",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "رِيَاضِيَّات",
@@ -1605,7 +1780,8 @@
    "en": "Mathematics",
    "src": [
     "Arabic L2 · School subjects"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "رِيح",
@@ -1614,7 +1790,8 @@
    "en": "Wind",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "زَكَاة الْفِطْر",
@@ -1623,7 +1800,8 @@
    "en": "Charity ending Ramadan",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "زَمْزَم",
@@ -1632,7 +1810,8 @@
    "en": "The well of Zamzam",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "زَهْرَة",
@@ -1641,7 +1820,8 @@
    "en": "Flower",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "زِيَارَة",
@@ -1651,7 +1831,8 @@
    "src": [
     "Arabic L3 · The masjid & community",
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "سَاعَة",
@@ -1661,7 +1842,8 @@
    "src": [
     "Arabic L2 · Days & time",
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَائِق",
@@ -1670,7 +1852,8 @@
    "en": "Driver",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَبَب",
@@ -1679,7 +1862,8 @@
    "en": "Cause",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "سِتّ شَوَّال",
@@ -1688,7 +1872,8 @@
    "en": "The six days of Shawwal",
    "src": [
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سُحُور",
@@ -1697,7 +1882,8 @@
    "en": "Pre-dawn meal",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سَرِير",
@@ -1706,7 +1892,8 @@
    "en": "Bed",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "سَرِيع",
@@ -1715,7 +1902,8 @@
    "en": "Fast",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَعْي",
@@ -1724,7 +1912,8 @@
    "en": "Walking between Safa and Marwah",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سَعِيد",
@@ -1733,7 +1922,8 @@
    "en": "Happy",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَفَر",
@@ -1742,7 +1932,8 @@
    "en": "Travel, journey",
    "src": [
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سِكِّين",
@@ -1751,7 +1942,8 @@
    "en": "Knife",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَمَاء",
@@ -1760,7 +1952,8 @@
    "en": "Sky, heaven",
    "src": [
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سَمَك",
@@ -1769,7 +1962,8 @@
    "en": "Fish",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "سُنَّة",
@@ -1779,7 +1973,8 @@
    "src": [
     "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "سَهْل",
@@ -1788,7 +1983,8 @@
    "en": "Easy",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سُؤَال",
@@ -1797,7 +1993,8 @@
    "en": "Question",
    "src": [
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "سُورَة",
@@ -1806,7 +2003,8 @@
    "en": "Chapter of the Quran",
    "src": [
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "سُوق",
@@ -1815,7 +2013,8 @@
    "en": "Market",
    "src": [
     "Arabic L2 · Places in town"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سَيَّارَة",
@@ -1824,7 +2023,8 @@
    "en": "Car",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "سِيرَة",
@@ -1834,7 +2034,8 @@
    "src": [
     "Arabic L4 · History & civilization",
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "شَارِع",
@@ -1844,7 +2045,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "شِتَاء",
@@ -1853,7 +2055,8 @@
    "en": "Winter",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "شَجَاعَة",
@@ -1862,7 +2065,8 @@
    "en": "Courage",
    "src": [
     "Arabic L3 · Character & virtues"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "شَجَرَة",
@@ -1871,7 +2075,8 @@
    "en": "Tree",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "شَرِبَ",
@@ -1880,7 +2085,8 @@
    "en": "He drank",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "شِعْر",
@@ -1889,7 +2095,8 @@
    "en": "Poetry",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "شَفَاعَة",
@@ -1898,7 +2105,8 @@
    "en": "Intercession",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "شُكْر",
@@ -1908,7 +2116,8 @@
    "src": [
     "Arabic L3 · Hospitality & the table",
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "شُكْرًا",
@@ -1917,7 +2126,8 @@
    "en": "Thank you",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "شَمْس",
@@ -1926,7 +2136,8 @@
    "en": "Sun",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "شَهْر",
@@ -1935,7 +2146,8 @@
    "en": "Month",
    "src": [
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "صَبَاح",
@@ -1944,7 +2156,8 @@
    "en": "Morning",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "صَبْر",
@@ -1954,7 +2167,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "صَحَابَة",
@@ -1963,7 +2177,8 @@
    "en": "Companions of the Prophet ﷺ",
    "src": [
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "صِحَّة",
@@ -1972,7 +2187,8 @@
    "en": "Health",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "صَحْن",
@@ -1981,7 +2197,8 @@
    "en": "Plate",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "صِدْق",
@@ -1991,7 +2208,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "صَدَقَة",
@@ -2001,7 +2219,8 @@
    "src": [
     "Arabic L4 · Society & ethics",
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "صِرَاط",
@@ -2010,7 +2229,8 @@
    "en": "Path",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "صَعْب",
@@ -2019,7 +2239,8 @@
    "en": "Difficult",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "صَغِير",
@@ -2028,7 +2249,8 @@
    "en": "Small",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "صَلَاة",
@@ -2037,7 +2259,8 @@
    "en": "Prayer",
    "src": [
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "صِنَاعَة",
@@ -2046,7 +2269,8 @@
    "en": "Industry",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "صَوْم",
@@ -2055,7 +2279,8 @@
    "en": "The fast",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "صَيَّاد",
@@ -2064,7 +2289,8 @@
    "en": "Fisherman / hunter",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "صِيَام",
@@ -2073,7 +2299,8 @@
    "en": "Fasting",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "صَيْف",
@@ -2082,7 +2309,8 @@
    "en": "Summer",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "ضَيْف",
@@ -2091,7 +2319,8 @@
    "en": "Guest",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "طَالِب",
@@ -2100,7 +2329,8 @@
    "en": "Student (m.)",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "طَاوِلَة",
@@ -2109,7 +2339,8 @@
    "en": "Table",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "طَائِر",
@@ -2118,7 +2349,8 @@
    "en": "Bird",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "طَائِرَة",
@@ -2127,7 +2359,8 @@
    "en": "Airplane",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "طَبَق",
@@ -2136,7 +2369,8 @@
    "en": "Dish",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "طَبِيب",
@@ -2145,7 +2379,8 @@
    "en": "Doctor",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "طَرِيق",
@@ -2155,7 +2390,8 @@
    "src": [
     "Arabic L3 · Journeys & places",
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "طَعَام",
@@ -2164,7 +2400,8 @@
    "en": "Food",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "طَهَارَة",
@@ -2173,7 +2410,8 @@
    "en": "Purification",
    "src": [
     "Arabic L4 · Fiqh & worship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "طَوَاف",
@@ -2182,7 +2420,8 @@
    "en": "Circling the Ka'bah",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "طَوِيل",
@@ -2191,7 +2430,8 @@
    "en": "Tall, long",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "ظِلّ",
@@ -2200,7 +2440,8 @@
    "en": "Shade",
    "src": [
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "ظَلَام",
@@ -2209,7 +2450,8 @@
    "en": "Darkness",
    "src": [
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "ظُلْم",
@@ -2218,7 +2460,8 @@
    "en": "Oppression",
    "src": [
     "Arabic L4 · Society & ethics"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "ظُهْر",
@@ -2227,7 +2470,8 @@
    "en": "Noon",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "عَادَة",
@@ -2236,7 +2480,8 @@
    "en": "Habit",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَاشُورَاء",
@@ -2245,7 +2490,8 @@
    "en": "The tenth day of Muharram",
    "src": [
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَائِلَة",
@@ -2254,7 +2500,8 @@
    "en": "Family",
    "src": [
     "Arabic L1 · Family"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "عِبَادَة",
@@ -2264,7 +2511,8 @@
    "src": [
     "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "عَدَالَة",
@@ -2273,7 +2521,8 @@
    "en": "Justice",
    "src": [
     "Arabic L4 · Society & ethics"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "عَدْل",
@@ -2282,7 +2531,8 @@
    "en": "Justice",
    "src": [
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَرَفَة",
@@ -2291,7 +2541,8 @@
    "en": "The day and plain of Arafah",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَزْم",
@@ -2300,7 +2551,8 @@
    "en": "Resolve, determination",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَشَاء",
@@ -2309,7 +2561,8 @@
    "en": "Dinner",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "عَطْشَان",
@@ -2318,7 +2571,8 @@
    "en": "Thirsty",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "عَفْوًا",
@@ -2327,7 +2581,8 @@
    "en": "You're welcome; excuse me",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "عَقْل",
@@ -2336,7 +2591,8 @@
    "en": "Mind",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "عِلْم",
@@ -2346,7 +2602,8 @@
    "src": [
     "Arabic L4 · Knowledge & scholarship",
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "عُلُوم",
@@ -2355,7 +2612,8 @@
    "en": "Science",
    "src": [
     "Arabic L2 · School subjects"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "عَمَل",
@@ -2364,7 +2622,8 @@
    "en": "Work",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "عِنْدَمَا",
@@ -2373,7 +2632,8 @@
    "en": "When",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "عَهْد",
@@ -2382,7 +2642,8 @@
    "en": "Era / covenant",
    "src": [
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "عِيد الْأَضْحَى",
@@ -2391,7 +2652,8 @@
    "en": "Festival of sacrifice",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عِيد الْفِطْر",
@@ -2400,7 +2662,8 @@
    "en": "Festival of breaking the fast",
    "src": [
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عِيدِيَّة",
@@ -2409,7 +2672,8 @@
    "en": "Eid gift",
    "src": [
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "عَيْن",
@@ -2418,7 +2682,8 @@
    "en": "Eye",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "غَدًا",
@@ -2427,7 +2692,8 @@
    "en": "Tomorrow",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "غَدَاء",
@@ -2436,7 +2702,8 @@
    "en": "Lunch",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "غُرْفَة",
@@ -2445,7 +2712,8 @@
    "en": "Room",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "غُرُوب",
@@ -2454,7 +2722,8 @@
    "en": "Sunset",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "غَزْوَة",
@@ -2463,7 +2732,8 @@
    "en": "Expedition / battle",
    "src": [
     "Arabic L4 · History & civilization"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "غَضْبَان",
@@ -2472,7 +2742,8 @@
    "en": "Angry",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "غَيْب",
@@ -2481,7 +2752,8 @@
    "en": "The unseen",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "غَيْم",
@@ -2490,7 +2762,8 @@
    "en": "Clouds",
    "src": [
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "فَاعِل",
@@ -2499,7 +2772,8 @@
    "en": "Doer / subject",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "فَجْر",
@@ -2508,7 +2782,8 @@
    "en": "Dawn",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "فَرَح",
@@ -2517,7 +2792,8 @@
    "en": "Joy",
    "src": [
     "Islamic Studies · Shawwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "فَرْض",
@@ -2526,7 +2802,8 @@
    "en": "Obligatory",
    "src": [
     "Arabic L4 · Fiqh & worship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "فَصْل",
@@ -2536,7 +2813,8 @@
    "src": [
     "Arabic L1 · School objects",
     "Arabic L2 · Nature & seasons"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "فَضَاء",
@@ -2545,7 +2823,8 @@
    "en": "Space",
    "src": [
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "فِطْرَة",
@@ -2554,7 +2833,8 @@
    "en": "Innate nature",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "فُطُور",
@@ -2563,7 +2843,8 @@
    "en": "Breakfast",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "فِعْل",
@@ -2572,7 +2853,8 @@
    "en": "Verb",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "فَلَّاح",
@@ -2581,7 +2863,8 @@
    "en": "Farmer",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "فَم",
@@ -2590,7 +2873,8 @@
    "en": "Mouth",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "فُنْدُق",
@@ -2599,7 +2883,8 @@
    "en": "Hotel",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "فَوْق",
@@ -2608,7 +2893,8 @@
    "en": "Above",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "قَامُوس",
@@ -2617,7 +2903,8 @@
    "en": "Dictionary",
    "src": [
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "قَانُون",
@@ -2626,7 +2913,8 @@
    "en": "Law",
    "src": [
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "قُبَّعَة",
@@ -2635,7 +2923,8 @@
    "en": "Hat",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَبْلَ",
@@ -2644,7 +2933,8 @@
    "en": "Before",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "قِبْلَة",
@@ -2653,7 +2943,8 @@
    "en": "Direction of prayer",
    "src": [
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "قَدَر",
@@ -2662,7 +2953,8 @@
    "en": "Divine decree",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "قَدَم",
@@ -2671,7 +2963,8 @@
    "en": "Foot",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَدِيم",
@@ -2680,7 +2973,8 @@
    "en": "Old",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَرَأَ",
@@ -2689,7 +2983,8 @@
    "en": "He read",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قُرْآن",
@@ -2698,7 +2993,8 @@
    "en": "The Quran",
    "src": [
     "Islamic Studies · Rabi' al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "قُرْبَان",
@@ -2707,7 +3003,8 @@
    "en": "Offering drawn near to Allah",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "قَرِيب",
@@ -2716,7 +3013,8 @@
    "en": "Near",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "قَرْيَة",
@@ -2726,7 +3024,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "قَصِيدَة",
@@ -2735,7 +3034,8 @@
    "en": "Poem / ode",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "قَصِير",
@@ -2744,7 +3044,8 @@
    "en": "Short",
    "src": [
     "Arabic L2 · Opposites"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "قَضَاء",
@@ -2753,7 +3054,8 @@
    "en": "Make-up (of missed fasts)",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "قِطّ",
@@ -2762,7 +3064,8 @@
    "en": "Cat",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قِطَار",
@@ -2771,7 +3074,8 @@
    "en": "Train",
    "src": [
     "Arabic L2 · Travel"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "قَلْب",
@@ -2780,7 +3084,8 @@
    "en": "Heart",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَلَم",
@@ -2789,7 +3094,8 @@
    "en": "Pen",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَلِيل",
@@ -2798,7 +3104,8 @@
    "en": "Few",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَمَر",
@@ -2807,7 +3114,8 @@
    "en": "Moon",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قَمِيص",
@@ -2816,7 +3124,8 @@
    "en": "Shirt",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "قُوَّة",
@@ -2825,7 +3134,8 @@
    "en": "Strength",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "قِيَام",
@@ -2834,7 +3144,8 @@
    "en": "Standing in night prayer",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "كَأْس",
@@ -2843,7 +3154,8 @@
    "en": "Glass, cup",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "كَبِير",
@@ -2852,7 +3164,8 @@
    "en": "Big",
    "src": [
     "Arabic L1 · Clothing"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كِتَاب",
@@ -2861,7 +3174,8 @@
    "en": "Book",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كَتَبَ",
@@ -2870,7 +3184,8 @@
    "en": "He wrote",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كَثِير",
@@ -2879,7 +3194,8 @@
    "en": "Many",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كُرْسِيّ",
@@ -2888,7 +3204,8 @@
    "en": "Chair",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كَرَم",
@@ -2898,7 +3215,8 @@
    "src": [
     "Arabic L3 · Character & virtues",
     "Islamic Studies · Jumada al-Awwal"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "كَرِيم",
@@ -2907,7 +3225,8 @@
    "en": "Generous",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "كَعْبَة",
@@ -2916,7 +3235,8 @@
    "en": "The Ka'bah",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "كَلْب",
@@ -2925,7 +3245,8 @@
    "en": "Dog",
    "src": [
     "Arabic L1 · Animals"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كَمْ",
@@ -2934,7 +3255,8 @@
    "en": "How many?",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "كَوْكَب",
@@ -2943,7 +3265,8 @@
    "en": "Planet",
    "src": [
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "لَا أَفْهَم",
@@ -2952,7 +3275,8 @@
    "en": "I don't understand",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "لِأَنَّ",
@@ -2961,7 +3285,8 @@
    "en": "Because",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "لَذِيذ",
@@ -2970,7 +3295,8 @@
    "en": "Delicious",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "لَعِبَ",
@@ -2979,7 +3305,8 @@
    "en": "He played",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "لُغَة",
@@ -2988,7 +3315,8 @@
    "en": "Language",
    "src": [
     "Arabic L2 · School subjects"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "لٰكِنَّ",
@@ -2997,7 +3325,8 @@
    "en": "But",
    "src": [
     "Arabic L3 · Connectors & expressions"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "لِمَاذَا",
@@ -3006,7 +3335,8 @@
    "en": "Why?",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "لَوْن",
@@ -3015,7 +3345,8 @@
    "en": "Color",
    "src": [
     "Arabic L1 · Colors"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "لَيْلَة الْقَدْر",
@@ -3024,7 +3355,8 @@
    "en": "The Night of Power",
    "src": [
     "Islamic Studies · Ramadan"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مَاء",
@@ -3033,7 +3365,8 @@
    "en": "Water",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَاذَا",
@@ -3042,7 +3375,8 @@
    "en": "What?",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَائِدَة",
@@ -3052,7 +3386,8 @@
    "src": [
     "Arabic L2 · Meals & the table",
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مُبَاح",
@@ -3061,7 +3396,8 @@
    "en": "Permissible",
    "src": [
     "Arabic L4 · Fiqh & worship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مُبْتَدَأ",
@@ -3070,7 +3406,8 @@
    "en": "Subject (nominal)",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مُتْعَب",
@@ -3079,7 +3416,8 @@
    "en": "Tired",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَتَى",
@@ -3088,7 +3426,8 @@
    "en": "When?",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَثَل",
@@ -3097,7 +3436,8 @@
    "en": "Proverb",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مَجَاز",
@@ -3106,7 +3446,8 @@
    "en": "Metaphor",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مِحْرَاب",
@@ -3115,7 +3456,8 @@
    "en": "Prayer niche",
    "src": [
     "Arabic L3 · The masjid & community"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مُحَرَّم",
@@ -3124,7 +3466,8 @@
    "en": "The first, sacred month",
    "src": [
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مَحَطَّة",
@@ -3133,7 +3476,8 @@
    "en": "Station",
    "src": [
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَخْطُوطَة",
@@ -3142,7 +3486,8 @@
    "en": "Manuscript",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مَدْرَسَة",
@@ -3151,7 +3496,8 @@
    "en": "School",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَدِينَة",
@@ -3161,7 +3507,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Islamic Studies · Safar"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مُرَاجَعَة",
@@ -3170,7 +3517,8 @@
    "en": "Review",
    "src": [
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَرْحَبًا",
@@ -3179,7 +3527,8 @@
    "en": "Hello",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَرَض",
@@ -3188,7 +3537,8 @@
    "en": "Illness",
    "src": [
     "Arabic L3 · Health & the self"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَسَاء",
@@ -3197,7 +3547,8 @@
    "en": "Evening",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مُسْتَشْفَى",
@@ -3207,7 +3558,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَسْجِد",
@@ -3217,7 +3569,8 @@
    "src": [
     "Arabic L3 · The masjid & community",
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَسْرُور",
@@ -3226,7 +3579,8 @@
    "en": "Delighted",
    "src": [
     "Arabic L2 · Feelings"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَسْؤُولِيَّة",
@@ -3235,7 +3589,8 @@
    "en": "Responsibility",
    "src": [
     "Arabic L4 · Society & ethics"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مُصْطَلَح",
@@ -3244,7 +3599,8 @@
    "en": "Technical term",
    "src": [
     "Arabic L4 · Knowledge & scholarship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مُصَلًّى",
@@ -3253,7 +3609,8 @@
    "en": "Prayer hall",
    "src": [
     "Arabic L3 · The masjid & community"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَطَار",
@@ -3263,7 +3620,8 @@
    "src": [
     "Arabic L2 · Travel",
     "Arabic L3 · Journeys & places"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَطْبَخ",
@@ -3272,7 +3630,8 @@
    "en": "Kitchen",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَطَر",
@@ -3281,7 +3640,8 @@
    "en": "Rain",
    "src": [
     "Arabic L1 · Weather & nature"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَطْعَم",
@@ -3290,7 +3650,8 @@
    "en": "Restaurant",
    "src": [
     "Arabic L2 · Places in town"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَعَ السَّلَامَة",
@@ -3299,7 +3660,8 @@
    "en": "Goodbye",
    "src": [
     "Arabic L1 · Greetings & introductions"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مِعْرَاج",
@@ -3308,7 +3670,8 @@
    "en": "The Ascension",
    "src": [
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مُعَلِّم",
@@ -3317,7 +3680,8 @@
    "en": "Teacher (m.)",
    "src": [
     "Arabic L1 · School objects"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مُعَلِّمَة",
@@ -3326,7 +3690,8 @@
    "en": "Teacher (f.)",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَغْفِرَة",
@@ -3335,7 +3700,8 @@
    "en": "Forgiveness",
    "src": [
     "Arabic L4 · Quranic vocabulary I"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مِفْتَاح",
@@ -3344,7 +3710,8 @@
    "en": "Key",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَفْعُول",
@@ -3353,7 +3720,8 @@
    "en": "Object",
    "src": [
     "Arabic L4 · Grammar (Nahw) terms"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مَفْهُوم",
@@ -3362,7 +3730,8 @@
    "en": "Concept",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مَكَّة",
@@ -3371,7 +3740,8 @@
    "en": "Makkah",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مَكْتَب",
@@ -3380,7 +3750,8 @@
    "en": "Office",
    "src": [
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَكْتَبَة",
@@ -3390,7 +3761,8 @@
    "src": [
     "Arabic L2 · Places in town",
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مَكْرُوه",
@@ -3399,7 +3771,8 @@
    "en": "Disliked",
    "src": [
     "Arabic L4 · Fiqh & worship"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مَلَائِكَة",
@@ -3408,7 +3781,8 @@
    "en": "Angels",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مِلْعَقَة",
@@ -3417,7 +3791,8 @@
    "en": "Spoon",
    "src": [
     "Arabic L2 · Meals & the table"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مِنْ فَضْلِك",
@@ -3426,7 +3801,8 @@
    "en": "Please",
    "src": [
     "Arabic L2 · Conversation phrases"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مِنْبَر",
@@ -3435,7 +3811,8 @@
    "en": "Pulpit",
    "src": [
     "Arabic L3 · The masjid & community"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مُنْتَصَف اللَّيْل",
@@ -3444,7 +3821,8 @@
    "en": "Midnight",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَنْهَج",
@@ -3453,7 +3831,8 @@
    "en": "Methodology",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مِنًى",
@@ -3462,7 +3841,8 @@
    "en": "The valley of Mina",
    "src": [
     "Islamic Studies · Dhul-Hijjah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مُهَنْدِس",
@@ -3471,7 +3851,8 @@
    "en": "Engineer",
    "src": [
     "Arabic L2 · Professions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "مُوَاطِن",
@@ -3480,7 +3861,8 @@
    "en": "Citizen",
    "src": [
     "Arabic L3 · The city & civic life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَوْز",
@@ -3489,7 +3871,8 @@
    "en": "Bananas",
    "src": [
     "Arabic L1 · Food & drink"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "مَوْعِد",
@@ -3498,7 +3881,8 @@
    "en": "Appointment",
    "src": [
     "Arabic L3 · Time & the calendar"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "مَوْلِد",
@@ -3507,7 +3891,8 @@
    "en": "Birth",
    "src": [
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "مِيزَان",
@@ -3516,7 +3901,8 @@
    "en": "Scale / balance",
    "src": [
     "Arabic L4 · Quranic vocabulary II"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "مِيقَات",
@@ -3525,7 +3911,8 @@
    "en": "Boundary for entering ihram",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "نَافِذَة",
@@ -3534,7 +3921,8 @@
    "en": "Window",
    "src": [
     "Arabic L1 · The home"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "نَامَ",
@@ -3543,7 +3931,8 @@
    "en": "He slept",
    "src": [
     "Arabic L1 · Everyday verbs"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "نَبِيّ",
@@ -3552,7 +3941,8 @@
    "en": "Prophet",
    "src": [
     "Islamic Studies · Rabi' al-Awwal"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "نَتِيجَة",
@@ -3561,7 +3951,8 @@
    "en": "Result",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "نَثْر",
@@ -3570,7 +3961,8 @@
    "en": "Prose",
    "src": [
     "Arabic L4 · Rhetoric & literature"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "نَجَّار",
@@ -3579,7 +3971,8 @@
    "en": "Carpenter",
    "src": [
     "Arabic L3 · Trades & crafts"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "نَجْم",
@@ -3589,7 +3982,8 @@
    "src": [
     "Arabic L1 · Weather & nature",
     "Arabic L3 · Creation & the sky"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "نُسُك",
@@ -3598,7 +3992,8 @@
    "en": "Rites of worship",
    "src": [
     "Islamic Studies · Dhul-Qa'dah"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "نِصْف",
@@ -3607,7 +4002,8 @@
    "en": "Half (mid-Sha'ban)",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "نَظَرِيَّة",
@@ -3616,7 +4012,8 @@
    "en": "Theory",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "نِقَاش",
@@ -3625,7 +4022,8 @@
    "en": "Discussion",
    "src": [
     "Arabic L4 · Debate & discussion"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "نُور",
@@ -3635,7 +4033,8 @@
    "src": [
     "Arabic L3 · Creation & the sky",
     "Islamic Studies · Rajab"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "نِيَّة",
@@ -3645,7 +4044,8 @@
    "src": [
     "Arabic L4 · Fiqh & worship",
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "هِجْرَة",
@@ -3655,7 +4055,8 @@
    "src": [
     "Arabic L4 · History & civilization",
     "Islamic Studies · Muharram"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "هَدَف",
@@ -3664,7 +4065,8 @@
    "en": "Objective",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "هُدًى",
@@ -3673,7 +4075,8 @@
    "en": "Guidance",
    "src": [
     "Arabic L4 · Quranic vocabulary I"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "هِلَال",
@@ -3682,7 +4085,8 @@
    "en": "Crescent moon",
    "src": [
     "Islamic Studies · Sha'ban"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "وَاجِب",
@@ -3692,7 +4096,8 @@
    "src": [
     "Arabic L2 · School subjects",
     "Arabic L3 · Lessons & learning"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "وَاحِد",
@@ -3701,7 +4106,8 @@
    "en": "One",
    "src": [
     "Arabic L1 · Numbers in use"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "وَحْي",
@@ -3710,7 +4116,8 @@
    "en": "Revelation",
    "src": [
     "Arabic L4 · Quranic vocabulary I"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "وَسِيلَة",
@@ -3719,7 +4126,8 @@
    "en": "Means",
    "src": [
     "Arabic L4 · Abstract concepts"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "وُضُوء",
@@ -3728,7 +4136,8 @@
    "en": "Ablution",
    "src": [
     "Islamic Studies · Jumada al-Thani"
-   ]
+   ],
+   "level": null
   },
   {
    "ar": "وَلِيمَة",
@@ -3737,7 +4146,8 @@
    "en": "Feast",
    "src": [
     "Arabic L3 · Hospitality & the table"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يَتَكَلَّم",
@@ -3746,7 +4156,8 @@
    "en": "He speaks",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يُحِبُّ",
@@ -3755,7 +4166,8 @@
    "en": "He loves",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَد",
@@ -3764,7 +4176,8 @@
    "en": "Hand",
    "src": [
     "Arabic L1 · The body"
-   ]
+   ],
+   "level": 1
   },
   {
    "ar": "يَدْرُسُ",
@@ -3773,7 +4186,8 @@
    "en": "He studies",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَذْهَبُ",
@@ -3782,7 +4196,8 @@
    "en": "He goes",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَسَار",
@@ -3791,7 +4206,8 @@
    "en": "Left",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يُسَاعِد",
@@ -3800,7 +4216,8 @@
    "en": "He helps",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يُسَافِر",
@@ -3809,7 +4226,8 @@
    "en": "He travels",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يَسْتَمِع",
@@ -3818,7 +4236,8 @@
    "en": "He listens",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يَسْمَعُ",
@@ -3827,7 +4246,8 @@
    "en": "He hears",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَعْمَل",
@@ -3836,7 +4256,8 @@
    "en": "He works",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يَفْهَمُ",
@@ -3845,7 +4266,8 @@
    "en": "He understands",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَقْرَأُ",
@@ -3855,7 +4277,8 @@
    "src": [
     "Arabic L2 · Present-tense verbs",
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَقِين",
@@ -3864,7 +4287,8 @@
    "en": "Certainty",
    "src": [
     "Arabic L4 · Aqidah & belief"
-   ]
+   ],
+   "level": 4
   },
   {
    "ar": "يَكْتُبُ",
@@ -3874,7 +4298,8 @@
    "src": [
     "Arabic L2 · Present-tense verbs",
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَمِين",
@@ -3883,7 +4308,8 @@
    "en": "Right",
    "src": [
     "Arabic L2 · Rooms & directions"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَنْتَظِر",
@@ -3892,7 +4318,8 @@
    "en": "He waits",
    "src": [
     "Arabic L3 · Verbs of daily life"
-   ]
+   ],
+   "level": 3
   },
   {
    "ar": "يَنْظُرُ",
@@ -3901,7 +4328,8 @@
    "en": "He looks",
    "src": [
     "Arabic L2 · Present-tense verbs"
-   ]
+   ],
+   "level": 2
   },
   {
    "ar": "يَوْم",
@@ -3910,7 +4338,8 @@
    "en": "Day",
    "src": [
     "Arabic L2 · Days & time"
-   ]
+   ],
+   "level": 2
   }
  ]
 }

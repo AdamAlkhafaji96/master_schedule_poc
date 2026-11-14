@@ -1,0 +1,89 @@
+{
+ "note": "Handwriting letter families from Dr. Fatin's notes Lesson 1 (the Alphabetical Families). Each family: name (the teacher's own name for it), ar letters in writing order. The page renders print-ready tracing sheets from this file.",
+ "families": [
+  {
+   "name": "The Boat family",
+   "letters": [
+    "ب",
+    "ت",
+    "ث"
+   ]
+  },
+  {
+   "name": "The Tummy family",
+   "letters": [
+    "ج",
+    "ح",
+    "خ"
+   ]
+  },
+  {
+   "name": "The Fish-mouth family",
+   "letters": [
+    "د",
+    "ذ"
+   ]
+  },
+  {
+   "name": "The Slide family",
+   "letters": [
+    "ر",
+    "ز"
+   ]
+  },
+  {
+   "name": "The Teeth family",
+   "letters": [
+    "س",
+    "ش"
+   ]
+  },
+  {
+   "name": "Lost-their-Teeth family",
+   "letters": [
+    "ص",
+    "ض"
+   ]
+  },
+  {
+   "name": "The Stick family",
+   "letters": [
+    "ط",
+    "ظ"
+   ]
+  },
+  {
+   "name": "Backward-3 family",
+   "letters": [
+    "ع",
+    "غ"
+   ]
+  },
+  {
+   "name": "Circle-Head family",
+   "letters": [
+    "ف",
+    "ق"
+   ]
+  },
+  {
+   "name": "The Hook family",
+   "letters": [
+    "ك",
+    "ل"
+   ]
+  },
+  {
+   "name": "The Orphans",
+   "letters": [
+    "ا",
+    "ء",
+    "و",
+    "ي",
+    "ه",
+    "ن",
+    "م"
+   ]
+  }
+ ]
+}

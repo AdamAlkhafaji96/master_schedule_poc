@@ -1,0 +1,101 @@
+{
+ "note": "Letter-joining exercise data, seeded from Dr. Fatin's notes Lessons 3–4. words[]: ar (the joined word, auto-connects when rendered), gloss. unfriendly[]: the six letters that never connect forward, with an example word showing the break. Add words freely.",
+ "unfriendly": {
+  "letters": [
+   "ا",
+   "د",
+   "ذ",
+   "ر",
+   "ز",
+   "و"
+  ],
+  "examples": [
+   {
+    "ar": "دَاوُود",
+    "gloss": "Dawud — every letter stands apart"
+   },
+   {
+    "ar": "رَبّ",
+    "gloss": "Lord"
+   },
+   {
+    "ar": "وَقَع",
+    "gloss": "fell"
+   },
+   {
+    "ar": "رِزْق",
+    "gloss": "provision"
+   },
+   {
+    "ar": "ذَهَب",
+    "gloss": "gold / went"
+   }
+  ]
+ },
+ "words": [
+  {
+   "ar": "مَعَ",
+   "gloss": "with"
+  },
+  {
+   "ar": "فَم",
+   "gloss": "mouth"
+  },
+  {
+   "ar": "يَد",
+   "gloss": "hand"
+  },
+  {
+   "ar": "جَن",
+   "gloss": "jinn"
+  },
+  {
+   "ar": "دَم",
+   "gloss": "blood"
+  },
+  {
+   "ar": "لَك",
+   "gloss": "for you"
+  },
+  {
+   "ar": "كَتَبَ",
+   "gloss": "he wrote"
+  },
+  {
+   "ar": "قَرَأَ",
+   "gloss": "he read"
+  },
+  {
+   "ar": "حَمِدَ",
+   "gloss": "he praised"
+  },
+  {
+   "ar": "مَسَكَ",
+   "gloss": "he held"
+  },
+  {
+   "ar": "فَتَحَ",
+   "gloss": "he opened"
+  },
+  {
+   "ar": "غَسَلَ",
+   "gloss": "he washed"
+  },
+  {
+   "ar": "شَكَرَ",
+   "gloss": "he thanked"
+  },
+  {
+   "ar": "خَلَقَ",
+   "gloss": "he created"
+  },
+  {
+   "ar": "عَبَدَ",
+   "gloss": "he worshipped"
+  },
+  {
+   "ar": "صَبَرَ",
+   "gloss": "he was patient"
+  }
+ ]
+}

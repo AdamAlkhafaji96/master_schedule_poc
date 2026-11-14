@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letter Joining — Build Arabic Words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #1b2a5e;
+    --primary-dark: #131d40;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.15rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 880px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  h2.sect { font-weight: 600; font-size: 1.05rem; color: var(--primary); margin: 1.5rem 0 .7rem; border-bottom: 2px solid var(--gold-soft); padding-bottom: .25rem; }
+  .note-box { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-left: 4px solid var(--gold); border-radius: 10px; padding: .7rem .9rem; font-size: .85rem; line-height: 1.55; color: var(--abd-55544a, #55544a); margin-bottom: 1.2rem; }
+  .exercise { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px; padding: 1.2rem; text-align: center; }
+  .gloss { font-size: .9rem; color: var(--abd-55544a, #55544a); margin-bottom: .6rem; }
+  .pieces { display: flex; gap: .55rem; justify-content: center; flex-wrap: wrap; direction: rtl; margin: .6rem 0 .9rem; }
+  .pieces button { font-family: 'Amiri', serif; font-size: 2rem; line-height: 1.3; padding: .25rem .7rem; border-radius: 10px; border: 2px solid var(--vellum-dim); background: var(--vellum); cursor: pointer; color: var(--ink); }
+  .pieces button:disabled { opacity: .3; cursor: default; }
+  .built { font-family: 'Amiri', serif; font-size: 3rem; min-height: 1.4em; line-height: 1.4; direction: rtl; }
+  .built.done { color: var(--green); }
+  html[data-theme="dark"] .built.done { color: #7fc9a4; }
+  .jmsg { font-size: .84rem; min-height: 1.5em; color: var(--abd-8a887c, #8a887c); }
+  .jnav { display: flex; gap: .6rem; justify-content: center; margin-top: .8rem; }
+  .jnav button { font: inherit; font-size: .86rem; padding: .45rem 1rem; border-radius: 999px; border: 1.5px solid var(--primary); background: transparent; color: var(--primary); cursor: pointer; }
+  .jnav button.go { background: var(--primary); color: var(--vellum); }
+  .unf { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; }
+  .unf .card { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .8rem; text-align: center; }
+  .unf .aword { font-family: 'Amiri', serif; font-size: 1.9rem; }
+  .unf .g { font-size: .8rem; color: var(--abd-8a887c, #8a887c); margin-top: .2rem; }
+  .unf-letters { font-family: 'Amiri', serif; font-size: 1.7rem; letter-spacing: .3em; text-align: center; margin: .4rem 0 .8rem; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Arabic</div>
+  <h1>Letter Joining</h1>
+  <div class="ar">وَصْل الحُرُوف</div>
+  <p class="sub">Arabic letters change shape when they connect. Tap the separated letters in order and watch the word join itself — then compare with the connected form.</p>
+</header>
+
+<main>
+<div class="exercise">
+  <div class="gloss" id="gloss"></div>
+  <div class="pieces" id="pieces"></div>
+  <div class="built" id="built" lang="ar"></div>
+  <div class="jmsg" id="jmsg"></div>
+  <div class="jnav">
+    <button type="button" id="resetBtn">Reset</button>
+    <button type="button" class="go" id="nextBtn">Next word &rarr;</button>
+  </div>
+</div>
+<h2 class="sect">The six unfriendly letters</h2>
+<div class="note-box">These letters connect to the letter <em>before</em> them but never reach forward — the word breaks after each one.</div>
+<div class="unf-letters" id="unfLetters" lang="ar"></div>
+<div class="unf" id="unfEx"></div>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(async function () {
+  var D = await (await fetch('joining.json')).json();
+  document.getElementById('unfLetters').textContent = D.unfriendly.letters.join('   ');
+  document.getElementById('unfEx').innerHTML = D.unfriendly.examples.map(function (e) {
+    return '<div class="card"><div class="aword" lang="ar">' + esc(e.ar) + '</div><div class="g">' + esc(e.gloss) + '</div></div>';
+  }).join('');
+
+  var order = D.words.map(function (_, i) { return i; }).sort(function () { return Math.random() - .5; });
+  var at = 0, word, placed;
+  function strip(s) { return s.replace(/[\u064B-\u0652]/g, ''); }
+  function load() {
+    word = D.words[order[at % order.length]];
+    placed = 0;
+    document.getElementById('gloss').textContent = '"' + word.gloss + '"';
+    document.getElementById('built').textContent = '';
+    document.getElementById('built').className = 'built';
+    document.getElementById('jmsg').textContent = 'Tap the letters right to left, in order.';
+    var letters = Array.from(strip(word.ar));
+    var idxs = letters.map(function (_, i) { return i; }).sort(function () { return Math.random() - .5; });
+    document.getElementById('pieces').innerHTML = idxs.map(function (i) {
+      return '<button type="button" data-i="' + i + '" lang="ar">' + esc(letters[i]) + '</button>';
+    }).join('');
+    document.querySelectorAll('#pieces button').forEach(function (b) {
+      b.onclick = function () { tap(b, letters); };
+    });
+  }
+  function tap(b, letters) {
+    if (+b.dataset.i === placed) {
+      b.disabled = true; placed++;
+      var built = document.getElementById('built');
+      built.textContent = Array.from(word.ar).slice(0, vowelEnd(word.ar, placed)).join('');
+      if (placed === letters.length) {
+        built.textContent = word.ar; built.className = 'built done';
+        document.getElementById('jmsg').textContent = 'Joined! Notice how the shapes changed as they connected.';
+      }
+    } else {
+      document.getElementById('jmsg').textContent = 'Not that one yet — find the next letter in order.';
+    }
+  }
+  /* include trailing harakat of the consonants already placed */
+  function vowelEnd(full, nCons) {
+    var chars = Array.from(full), seen = 0;
+    for (var i = 0; i < chars.length; i++) {
+      if (!/[\u064B-\u0652]/.test(chars[i])) {
+        if (seen === nCons) return i;
+        seen++;
+      }
+    }
+    return chars.length;
+  }
+  document.getElementById('resetBtn').onclick = load;
+  document.getElementById('nextBtn').onclick = function () { at++; load(); };
+  load();
+})();
+</script>
+</body>
+</html>
