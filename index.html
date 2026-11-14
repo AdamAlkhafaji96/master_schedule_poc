@@ -75,7 +75,8 @@
     display: flex; flex-wrap: wrap; gap: .45rem 1.3rem; justify-content: center; align-items: center;
   }
 
-  .connect-group { display: flex; align-items: center; gap: .55rem; }
+  .connect-group { display: flex; flex-direction: column; align-items: center; gap: .3rem; }
+  .connect-group + .connect-group { border-left: 1px solid var(--vellum-dim); padding-left: 1.3rem; }
 
   .connect-group .cg-title {
     font-size: .58rem; letter-spacing: .16em; text-transform: uppercase;
@@ -107,6 +108,7 @@
     -webkit-user-select: none; user-select: none;
   }
   .announce-title::-webkit-details-marker { display: none; }
+  .announce-title .ab-ic { color: var(--green); }
   .announce-title .achev { display: inline-block; font-size: .8rem; color: var(--gold);
     transition: transform .18s; vertical-align: .08em; margin-left: .25rem; }
   details.announce-fold[open] .announce-title .achev { transform: rotate(90deg); }
@@ -229,7 +231,7 @@
   .pcard .ab-hovercard { left: .6rem; right: .6rem; top: calc(100% - 6px); }
   .pcard:hover .ab-hovercard, .pcard:focus-visible .ab-hovercard { opacity: 1; visibility: visible; }
 
-  details.pack { border: 1px solid var(--vellum-dim); border-radius: 11px; background: var(--surface, #fff); margin-bottom: .7rem; overflow: hidden; }
+  details.pack { border: 1px solid var(--vellum-dim); border-radius: 11px; background: var(--surface, #fff); margin-bottom: .7rem; overflow: visible; }
   html[data-theme="dark"] details.pack { background: var(--ab-surface); border-color: var(--ab-rule); }
   details.pack summary { list-style: none; cursor: pointer; padding: .66rem 1rem; display: flex; align-items: center; gap: .6rem; font-weight: 500; }
   details.pack summary::-webkit-details-marker { display: none; }
@@ -274,6 +276,9 @@
   .impact .imp .n { font-size: 1.25rem; font-weight: 600; color: var(--gold); line-height: 1.1; }
   .impact .imp.placeholder .n { color: var(--ab-muted2, #9a9cb3); }
   .impact .imp .l { font-size: .66rem; letter-spacing: .04em; color: var(--ab-muted2, #6b6a60); margin-top: .2rem; line-height: 1.35; }
+  .ab-hovercard, .ab-note .ab-bubble { z-index: 999 !important; }
+  details.pack .packbody { border-radius: 0 0 11px 11px; }
+
   .announce-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1rem; }
   @media (prefers-reduced-motion: reduce) { .mtab, details.pack summary .chev { transition: none !important; } }
 
@@ -290,6 +295,7 @@
       <div class="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     </div>
     <div class="mast-actions">
+      <button class="ab-iconbtn" id="expBtn" title="Expand or collapse all sections">⊞</button>
       <button class="ab-iconbtn" id="themeBtn" title="Theme">◐</button>
       <div class="ab-popwrap" id="gearWrap">
         <button class="ab-iconbtn" id="gearBtn" title="Settings">⚙</button>
@@ -301,7 +307,7 @@
 
 <div class="announce-wrap">
   <details class="announce-fold" id="announceFold" style="display:none">
-    <summary class="announce-title" id="announceTitle">📢 Announcements <span class="achev">▶</span></summary>
+    <summary class="announce-title" id="announceTitle"><span id="announceIc">📢</span> Announcements <span class="achev">▶</span></summary>
     <div class="season-banner" id="seasonBanner" style="display:none; padding:0; margin-bottom:1rem">
       <div class="season-inner">
         <div class="season-month" id="seasonMonth"></div>
@@ -569,8 +575,12 @@ document.addEventListener('DOMContentLoaded', function () {
         ch.onclick = function (e) { e.preventDefault(); ch.closest('.rsec').classList.toggle('closed'); };
       });
     }
-    render();
-    document.addEventListener('ab:icons', render);
+    function announceIcon() {
+      var el = document.getElementById('announceIc');
+      if (el && window.AB) el.innerHTML = AB.icon('megaphone', '📢');
+    }
+    render(); announceIcon();
+    document.addEventListener('ab:icons', function () { render(); announceIcon(); });
     document.addEventListener('ab:theme', function () {});
 
     addEventListener('scroll', function () {
@@ -592,6 +602,22 @@ document.addEventListener('DOMContentLoaded', function () {
       S.theme = S.theme === 'auto' ? 'dark' : (S.theme === 'dark' ? 'light' : 'auto');
       AB.save(); AB.applyTheme(); glyph(); syncPop();
     };
+    var expBtn = document.getElementById('expBtn');
+    function expGlyph() {
+      var anyClosed = document.querySelector('details.pane-wrap:not([open]), details.pack:not([open])');
+      expBtn.textContent = anyClosed ? '⊞' : '⊟';
+    }
+    expBtn.onclick = function () {
+      var anyClosed = document.querySelector('details.pane-wrap:not([open]), details.pack:not([open])');
+      document.querySelectorAll('details.pane-wrap, details.pack, #announceFold').forEach(function (d) {
+        d.open = !!anyClosed;
+      });
+      expGlyph();
+    };
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('summary')) setTimeout(expGlyph, 0);
+    });
+    expGlyph();
     var railBtn = document.getElementById('railBtn');
     railBtn.onclick = function () {
       S.rail = S.rail === 'show' ? 'hide' : 'show';
