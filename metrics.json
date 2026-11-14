@@ -1,0 +1,41 @@
+{
+ "note": "SOURCE OF TRUTH for the home-page Impact & Learning counter strip. Counter discipline from the Aug 2026 strategy thread: impact OUTPUTS only, blended cumulative activity numbers for scale, never paid-subscriber counts. value '—' + status 'placeholder' renders as a dashed pending tile. Edit values here; the home page renders this file.",
+ "impact": [
+  {
+   "icon": "📖",
+   "value": "6,236",
+   "label": "ayahs readable with tajweed",
+   "status": "live"
+  },
+  {
+   "icon": "📚",
+   "value": "429",
+   "label": "dictionary entries",
+   "status": "live"
+  },
+  {
+   "icon": "🗒️",
+   "value": "19",
+   "label": "teacher-note pages preserved",
+   "status": "live"
+  },
+  {
+   "icon": "💠",
+   "value": "336",
+   "label": "80% Qur'anic words transcribed",
+   "status": "live"
+  },
+  {
+   "icon": "🎓",
+   "value": "—",
+   "label": "students learning",
+   "status": "placeholder"
+  },
+  {
+   "icon": "🪪",
+   "value": "—",
+   "label": "sponsored access seats funded",
+   "status": "placeholder"
+  }
+ ]
+}

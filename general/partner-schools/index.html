@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Schools — Teach With Al Baseera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a35;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header {
+    background: var(--primary); color: var(--vellum);
+    padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold);
+  }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.05rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .note-box {
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-left: 4px solid var(--gold);
+    border-radius: 10px; padding: .7rem .9rem; font-size: .84rem; line-height: 1.55;
+    color: var(--abd-55544a, #55544a); margin-bottom: 1.2rem;
+  }
+  h2.sect { font-weight: 600; font-size: 1.05rem; color: var(--primary); margin: 1.4rem 0 .7rem;
+    border-bottom: 2px solid var(--gold-soft); padding-bottom: .25rem; }
+  .card {
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(34,36,58,.06); padding: 1rem 1.1rem;
+  }
+  .card.placeholder { border-style: dashed; border-color: #cbbf9d; background: transparent; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .9rem; }
+  .kind { font-size: .64rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: .15rem; }
+  .muted { color: var(--abd-8a887c, #8a887c); }
+  .btn {
+    display: inline-block; font: inherit; font-size: .86rem; cursor: pointer; text-decoration: none;
+    background: var(--primary); color: var(--vellum); border: 0; border-radius: 999px; padding: .5rem 1.1rem;
+  }
+  .btn.ghost { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); }
+  .ph-note { font-size: .74rem; color: var(--abd-a08a45, #a08a45); margin-top: .5rem; font-style: italic; }
+  .wall .card { text-align: center; padding: 1.3rem 1rem; }
+  .cta-band { background: var(--primary); color: var(--vellum); border-radius: 14px; text-align: center; padding: 1.4rem 1.2rem; margin-top: 1.6rem; }
+  .cta-band h2 { font-weight: 500; font-size: 1.2rem; margin-bottom: .4rem; }
+  .cta-band p { font-size: .88rem; color: var(--vellum-dim); max-width: 520px; margin: 0 auto .8rem; line-height: 1.5; }
+  .cta-band .btn { background: var(--gold); color: #2b2310; font-weight: 600; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Support & Partners</div>
+  <h1>Partner Schools</h1>
+  
+  <p class="sub">Weekend schools and academies teaching with the Al Baseera curriculum. Their students count into the learning totals on our home page.</p>
+</header>
+
+<main>
+<div class="note-box" id="blurb"></div>
+<h2 class="sect">Our partner schools</h2>
+<div class="grid wall" id="wall"></div>
+<div class="cta-band">
+  <h2 id="cta"></h2>
+  <p>A site license brings the full portal — Arabic, Quran, and Islamic Studies — to your classrooms, with your own trackers and materials.</p>
+  <a class="btn" id="contactBtn" href="#">Start the conversation</a>
+</div>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(async function () {
+  var D = await (await fetch('partners.json')).json();
+  document.getElementById('blurb').textContent = D.blurb;
+  document.getElementById('cta').textContent = D.cta;
+  document.getElementById('contactBtn').href = D.contact;
+  document.getElementById('wall').innerHTML = D.schools.map(function (s) {
+    var ph = s.status === 'placeholder';
+    return '<div class="card' + (ph ? ' placeholder' : '') + '">' +
+      '<div style="font-weight:600;color:var(--primary)">' + esc(s.name) + '</div>' +
+      '<div class="muted" style="font-size:.82rem;margin-top:.25rem">' + esc(s.city) +
+        (s.since ? ' · since ' + esc(s.since) : '') + '</div>' +
+      (ph ? '<div class="ph-note">Placeholder — your school could be here.</div>' : '') +
+    '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

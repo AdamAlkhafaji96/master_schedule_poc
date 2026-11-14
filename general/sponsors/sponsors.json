@@ -1,0 +1,66 @@
+{
+ "note": "PLACEHOLDER sponsor wall — the Partner With Us business tier. Four tiers from the Aug 2026 plan: Community $250 · Silver $750 · Gold $1,500 · Underwriter $2,500+. Placement policy: sponsors appear on this wall and program pages only, never inside lesson content. Fields: name, tier (community|silver|gold|underwriter), url, logo (files/... once provided), blurb, status (active|placeholder). Edit freely; the page renders this file.",
+ "placement_policy": "Sponsors are honored on this wall and on program pages. Lesson content is never sponsored.",
+ "packet_note": "A one-page sponsor packet for Houston Muslim-owned businesses is available from the office.",
+ "contact": "mailto:office@albaseeraacademy.com?subject=Sponsorship",
+ "tiers": [
+  {
+   "id": "underwriter",
+   "name": "Underwriter",
+   "amount": "$2,500+",
+   "desc": "Underwrites a full program or the scholarship fund for the year"
+  },
+  {
+   "id": "gold",
+   "name": "Gold",
+   "amount": "$1,500",
+   "desc": "Named support for a section of the portal and its classroom programs"
+  },
+  {
+   "id": "silver",
+   "name": "Silver",
+   "amount": "$750",
+   "desc": "Supports classroom materials and competitions"
+  },
+  {
+   "id": "community",
+   "name": "Community",
+   "amount": "$250",
+   "desc": "Friends of the academy — every class is honored here"
+  }
+ ],
+ "sponsors": [
+  {
+   "name": "Your Business Here",
+   "tier": "gold",
+   "url": "",
+   "logo": "",
+   "blurb": "",
+   "status": "placeholder"
+  },
+  {
+   "name": "Katy Family Dental (example)",
+   "tier": "silver",
+   "url": "",
+   "logo": "",
+   "blurb": "",
+   "status": "placeholder"
+  },
+  {
+   "name": "Al-Noor Halal Market (example)",
+   "tier": "community",
+   "url": "",
+   "logo": "",
+   "blurb": "",
+   "status": "placeholder"
+  },
+  {
+   "name": "The Alkhafaji Family (example)",
+   "tier": "underwriter",
+   "url": "",
+   "logo": "",
+   "blurb": "Underwriting the scholarship fund — placeholder example.",
+   "status": "placeholder"
+  }
+ ]
+}

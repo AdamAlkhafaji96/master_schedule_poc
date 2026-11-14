@@ -109,7 +109,7 @@
     max-width: 860px;
     margin: 1.2rem auto 0;
     padding: .8rem 1.2rem;
-    background: #fff;
+    background: var(--surface, #fff);
     border: 1px solid var(--gold);
     border-left: 6px solid var(--gold);
     border-radius: 10px;
@@ -144,10 +144,10 @@
   .surah-title .arabic {
     font-family: 'Amiri', serif; font-size: 2rem; color: var(--primary);
   }
-  .surah-title .english { font-size: .9rem; color: #6b6a60; letter-spacing: .04em; }
+  .surah-title .english { font-size: .9rem; color: var(--abd-6b6a60, #6b6a60); letter-spacing: .04em; }
   :root { --mushaf-scale: 1; }
   .mushaf {
-    background: #fff;
+    background: var(--surface, #fff);
     border: 1px solid var(--vellum-dim);
     border-radius: 14px;
     box-shadow: 0 2px 10px rgba(34,36,58,.06);
@@ -204,7 +204,7 @@
     font-family: 'Spectral', Georgia, serif;
     font-size: .98rem;
     line-height: 1.55;
-    color: #4c4b42;
+    color: var(--abd-4c4b42, #4c4b42);
     margin-top: .25rem;
   }
   .ayah-en .en-num {
@@ -246,7 +246,7 @@
   /* ---------- assignment builder ---------- */
   .builder {
     max-width: 860px; margin: 2rem auto 0; padding: 1.1rem 1.2rem;
-    background: #fff; border: 1px dashed var(--primary);
+    background: var(--surface, #fff); border: 1px dashed var(--primary);
     border-radius: 12px; font-size: .9rem;
   }
   .builder h2 { font-size: 1rem; color: var(--primary); margin-bottom: .5rem; letter-spacing: .04em; }
@@ -258,12 +258,12 @@
   }
   .builder .btn { border-color: var(--primary); color: var(--primary); }
   .builder .btn:hover { background: var(--primary); color: #fff; }
-  .builder .hint { color: #6b6a60; font-size: .8rem; margin-top: .45rem; }
+  .builder .hint { color: var(--abd-6b6a60, #6b6a60); font-size: .8rem; margin-top: .45rem; }
 
   footer {
-    text-align: center; font-size: .78rem; color: #8a887c; padding: 0 1rem 2.5rem;
+    text-align: center; font-size: .78rem; color: var(--abd-8a887c, #8a887c); padding: 0 1rem 2.5rem;
   }
-  .status { text-align: center; color: #a34a3c; min-height: 1.3rem; font-size: .85rem; margin-top: .8rem; }
+  .status { text-align: center; color: var(--abd-a34a3c, #a34a3c); min-height: 1.3rem; font-size: .85rem; margin-top: .8rem; }
 
   @media (max-width: 600px) {
     .mushaf { font-size: calc(1.45rem * var(--mushaf-scale)); line-height: 2.2; padding: 1.2rem 1rem; }

@@ -59,12 +59,12 @@
   main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
 
   .today-card {
-    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 16px;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 16px;
     padding: 1.2rem 1.2rem 1rem; margin-bottom: 1.6rem;
     box-shadow: 0 2px 12px rgba(34,36,58,.07); text-align: center;
   }
   .today-card h2 { font-weight: 500; font-size: 1.1rem; color: var(--primary); }
-  .today-card .where { font-size: .82rem; color: #6b6a60; margin-bottom: .8rem; }
+  .today-card .where { font-size: .82rem; color: var(--abd-6b6a60, #6b6a60); margin-bottom: .8rem; }
   .times { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: .6rem; }
   .times .t {
     border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .6rem .3rem .5rem;
@@ -78,32 +78,32 @@
   .month-head h2 { font-weight: 500; font-size: 1.15rem; color: var(--primary); }
   .month-head button {
     font-family: inherit; font-size: 1rem; width: 34px; height: 34px;
-    border-radius: 50%; border: 1px solid var(--gold); background: #fff; cursor: pointer;
+    border-radius: 50%; border: 1px solid var(--gold); background: var(--surface, #fff); cursor: pointer;
   }
   .dl-row { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
   .dl-row .btn {
     font-family: inherit; font-size: .82rem; padding: .45rem .85rem;
-    border-radius: 8px; border: 1px solid var(--gold); background: #fff; color: var(--ink); cursor: pointer;
+    border-radius: 8px; border: 1px solid var(--gold); background: var(--surface, #fff); color: var(--ink); cursor: pointer;
   }
   .dl-row .btn:hover { border-color: var(--primary); }
 
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  table { width: 100%; border-collapse: collapse; background: var(--surface, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
   th, td { padding: .4rem .55rem; border-bottom: 1px solid var(--vellum-dim); text-align: center; font-size: .85rem; }
   th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
   td:first-child { text-align: left; white-space: nowrap; }
   tr.today td { background: #f2f7f2; font-weight: 600; }
   tr.friday td:first-child { color: var(--primary); font-weight: 600; }
 
-  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.1rem; line-height: 1.55; }
-  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+  .note { font-size: .8rem; color: var(--abd-6b6a60, #6b6a60); text-align: center; margin-top: 1.1rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: var(--abd-8a887c, #8a887c); line-height: 1.5; }
 
   @media print {
     header, .controls, .dl-row, .month-head button, .note, footer, .today-card, .site-nav { display: none !important; }
-    body { background: #fff; }
+    body { background: var(--surface, #fff); }
     .print-title { display: block !important; text-align: center; margin: 0 0 .6rem; font-size: 1.05rem; }
     main { margin: 0; max-width: none; }
-    th { background: #eee !important; color: #000; }
+    th { background: #eee !important; color: var(--abd-000, #000); }
   }
   .print-title { display: none; }
 </style>

@@ -55,7 +55,7 @@
 
   main { max-width: 780px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
   .recovery {
-    text-align: center; font-size: .86rem; color: #6b6a60; margin-bottom: 1.2rem; line-height: 1.55;
+    text-align: center; font-size: .86rem; color: var(--abd-6b6a60, #6b6a60); margin-bottom: 1.2rem; line-height: 1.55;
   }
   .recovery b { color: var(--primary); }
 
@@ -64,7 +64,7 @@
   .year-title:first-of-type { margin-top: 0; }
 
   .item {
-    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px;
     box-shadow: 0 1px 3px rgba(34,36,58,.06); margin-bottom: .6rem;
     padding: .7rem .9rem; display: flex; gap: .7rem; align-items: baseline; flex-wrap: wrap;
   }
@@ -74,19 +74,19 @@
     color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .1rem .5rem;
   }
   .item .t { font-weight: 600; font-size: .95rem; }
-  .item .ev { font-size: .78rem; color: #8a887c; font-style: italic; }
+  .item .ev { font-size: .78rem; color: var(--abd-8a887c, #8a887c); font-style: italic; }
   .item .st { margin-left: auto; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
-  .item .st.recovered { color: #1b4d38; }
-  .item .st.link-only { color: #6b5a9e; }
-  .item .st.missing { color: #a08a45; }
+  .item .st.recovered { color: var(--abd-1b4d38, #1b4d38); }
+  .item .st.link-only { color: var(--abd-6b5a9e, #6b5a9e); }
+  .item .st.missing { color: var(--abd-a08a45, #a08a45); }
   .item .go a {
     font-size: .82rem; font-weight: 600; color: var(--primary);
     text-decoration: none; border-bottom: 1px solid var(--gold-soft); white-space: nowrap;
   }
-  .item .notes { flex-basis: 100%; font-size: .78rem; color: #6b6a60; line-height: 1.4; }
+  .item .notes { flex-basis: 100%; font-size: .78rem; color: var(--abd-6b6a60, #6b6a60); line-height: 1.4; }
 
-  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.55; }
-  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+  .note { font-size: .8rem; color: var(--abd-6b6a60, #6b6a60); text-align: center; margin-top: 1.2rem; line-height: 1.55; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: var(--abd-8a887c, #8a887c); line-height: 1.5; }
 </style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>

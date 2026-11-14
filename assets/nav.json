@@ -1,13 +1,13 @@
 {
- "note": "SOURCE OF TRUTH for site navigation and the home page cards. Edit here; the home page and every internal page header render from this file. status: live (● built) | soon (◌ content pending) — flip freely. General pages are grouped on home by the groups map below.",
+ "note": "SOURCE OF TRUTH for site navigation and the home page cards. Edit here; the home page and every internal page header render from this file. status: live (● built) | soon (◌ content pending) — flip freely. Every section is grouped on home by the groups map below; a section banner click collapses or expands all its groups. The About pages live inside the General section (About group).",
  "sections": [
   {
-   "id": "about",
-   "title": "About",
-   "tag": "The Academy &amp; Its Founder",
-   "emoji": "🎓",
-   "icon": "academy",
-   "color": "gold",
+   "id": "general",
+   "title": "General",
+   "tag": "Admin &amp; School",
+   "emoji": "🏫",
+   "icon": "general",
+   "color": "general",
    "pages": [
     {
      "href": "about/academy/",
@@ -26,17 +26,7 @@
      "emoji": "👩‍⚕️",
      "icon": "founder",
      "status": "soon"
-    }
-   ]
-  },
-  {
-   "id": "general",
-   "title": "General",
-   "tag": "Admin &amp; School",
-   "emoji": "🏫",
-   "icon": "general",
-   "color": "general",
-   "pages": [
+    },
     {
      "href": "general/schedule/",
      "en": "Master Schedule",
@@ -153,6 +143,33 @@
      "emoji": "🗒️",
      "icon": "notes",
      "status": "live"
+    },
+    {
+     "href": "general/sponsors/",
+     "en": "Sponsors",
+     "ar": "",
+     "desc": "Businesses and families who underwrite the academy",
+     "emoji": "💼",
+     "icon": "briefcase",
+     "status": "live"
+    },
+    {
+     "href": "general/giving-ledger/",
+     "en": "Giving Ledger",
+     "ar": "",
+     "desc": "The public receipt trail for our charity pledge",
+     "emoji": "🧾",
+     "icon": "receipt",
+     "status": "live"
+    },
+    {
+     "href": "general/partner-schools/",
+     "en": "Partner Schools",
+     "ar": "",
+     "desc": "Weekend schools teaching with the Al Baseera curriculum",
+     "emoji": "🎒",
+     "icon": "satchel",
+     "status": "live"
     }
    ]
   },
@@ -244,6 +261,33 @@
      "emoji": "🖼️",
      "icon": "picture",
      "status": "soon"
+    },
+    {
+     "href": "arabic/sun-moon/",
+     "en": "Sun & Moon Letters",
+     "ar": "الحروف الشمسية والقمرية",
+     "desc": "Which letters swallow the laam of ال — teach panel and quiz",
+     "emoji": "🌓",
+     "icon": "sunmoon",
+     "status": "live"
+    },
+    {
+     "href": "arabic/joining/",
+     "en": "Letter Joining",
+     "ar": "وصل الحروف",
+     "desc": "Build words letter by letter and watch them connect",
+     "emoji": "🔗",
+     "icon": "references",
+     "status": "live"
+    },
+    {
+     "href": "arabic/handwriting/",
+     "en": "Handwriting",
+     "ar": "الخط",
+     "desc": "Letter-family tracing sheets you can print",
+     "emoji": "✒️",
+     "icon": "pen",
+     "status": "live"
     }
    ]
   },
@@ -289,6 +333,15 @@
      "desc": "Submit a recitation recording per surah, dated as you go",
      "emoji": "🎙️",
      "icon": "mic",
+     "status": "live"
+    },
+    {
+     "href": "quran/units/",
+     "en": "Unit Tracker",
+     "ar": "",
+     "desc": "Quran For Life Level 3 units 21–32 — progress and quiz dates",
+     "emoji": "📘",
+     "icon": "check",
      "status": "live"
     }
    ]
@@ -392,29 +445,54 @@
      "status": "live"
     }
    ]
+  },
+  {
+   "id": "games",
+   "title": "Games",
+   "tag": "Play &amp; practice",
+   "emoji": "🎮",
+   "icon": "game",
+   "color": "games",
+   "pages": [
+    {
+     "href": "games/vocab-match/",
+     "en": "Vocab Match",
+     "ar": "طابق الكلمات",
+     "desc": "Tap the Arabic word, then its English meaning",
+     "emoji": "🧩",
+     "icon": "puzzle",
+     "status": "live"
+    },
+    {
+     "href": "games/hangman/",
+     "en": "Letter Hangman",
+     "ar": "",
+     "desc": "Guess the word one letter at a time",
+     "emoji": "🪢",
+     "icon": "letters",
+     "status": "soon"
+    },
+    {
+     "href": "games/trivia/",
+     "en": "Quran Trivia",
+     "ar": "",
+     "desc": "Timed questions from the Quran and Islamic Studies pages",
+     "emoji": "⏱️",
+     "icon": "clock",
+     "status": "soon"
+    },
+    {
+     "href": "games/leaderboard/",
+     "en": "Leaderboard",
+     "ar": "",
+     "desc": "Your best scores on this device",
+     "emoji": "🏆",
+     "icon": "trophy",
+     "status": "soon"
+    }
+   ]
   }
  ],
- "generalGroups": {
-  "School office": [
-   "general/schedule/",
-   "general/calendar/",
-   "general/registrations/",
-   "general/diagnostic/",
-   "general/accreditation/"
-  ],
-  "Learning": [
-   "general/materials/",
-   "general/assignments/",
-   "general/references/",
-   "general/teacher-notes/",
-   "general/archives/"
-  ],
-  "Community": [
-   "general/careers/",
-   "general/competitions/",
-   "general/giving/"
-  ]
- },
  "chromeless": [
   "general/schedule/",
   "general/calendar/"
@@ -423,5 +501,94 @@
   "quran/text/",
   "general/schedule/",
   "general/calendar/"
- ]
+ ],
+ "groups": {
+  "general": {
+   "About": [
+    "about/academy/",
+    "about/dr-fatin/"
+   ],
+   "School office": [
+    "general/schedule/",
+    "general/calendar/",
+    "general/registrations/",
+    "general/diagnostic/",
+    "general/accreditation/"
+   ],
+   "Learning": [
+    "general/materials/",
+    "general/assignments/",
+    "general/references/",
+    "general/teacher-notes/",
+    "general/archives/"
+   ],
+   "Community": [
+    "general/careers/",
+    "general/competitions/"
+   ],
+   "Support & Partners": [
+    "general/giving/",
+    "general/sponsors/",
+    "general/giving-ledger/",
+    "general/partner-schools/"
+   ]
+  },
+  "arabic": {
+   "Foundations": [
+    "arabic/letters/",
+    "arabic/numbers/",
+    "arabic/makharij/",
+    "arabic/vowels/",
+    "arabic/sun-moon/",
+    "arabic/joining/",
+    "arabic/handwriting/"
+   ],
+   "Words & Study": [
+    "arabic/vocab/",
+    "arabic/dictionary/",
+    "arabic/flashcards/",
+    "arabic/themes/"
+   ],
+   "Activities": [
+    "arabic/family-tree/"
+   ]
+  },
+  "quran": {
+   "Reading": [
+    "quran/text/",
+    "quran/concentration/"
+   ],
+   "Tracking": [
+    "quran/memorization/",
+    "quran/recordings/",
+    "quran/units/"
+   ]
+  },
+  "islamic": {
+   "Reference": [
+    "islamic-studies/names-of-allah/",
+    "islamic-studies/prophets-and-imams/",
+    "islamic-studies/family-tree/",
+    "islamic-studies/countries/"
+   ],
+   "Practice": [
+    "islamic-studies/wudu/",
+    "islamic-studies/prayer-times/",
+    "islamic-studies/prayer-tracker/"
+   ],
+   "Lessons & Stories": [
+    "islamic-studies/topics/",
+    "islamic-studies/stories/",
+    "islamic-studies/vocab/"
+   ]
+  },
+  "games": {
+   "Play": [
+    "games/vocab-match/",
+    "games/hangman/",
+    "games/trivia/",
+    "games/leaderboard/"
+   ]
+  }
+ }
 }

@@ -1,0 +1,29 @@
+{
+ "note": "PLACEHOLDER Partner Schools wall — weekend schools, Sunday schools, and academies using the Al Baseera curriculum through a site license ($500–1,500/yr, per the Aug 2026 plan; ISNA Education Forum is the outreach channel). Each partner's students count into the home learning totals. Fields: name, city, since (year), url, status (active|placeholder).",
+ "cta": "Bring the curriculum to your school",
+ "contact": "mailto:office@albaseeraacademy.com?subject=Partner%20School%20Inquiry",
+ "blurb": "Partner schools license the full portal and curriculum for their own students — their learning counts roll into the academy's totals above.",
+ "schools": [
+  {
+   "name": "Your Weekend School Here",
+   "city": "Houston, TX",
+   "since": "",
+   "url": "",
+   "status": "placeholder"
+  },
+  {
+   "name": "Example Sunday Academy",
+   "city": "Katy, TX",
+   "since": "",
+   "url": "",
+   "status": "placeholder"
+  },
+  {
+   "name": "Example Islamic Center School",
+   "city": "Sugar Land, TX",
+   "since": "",
+   "url": "",
+   "status": "placeholder"
+  }
+ ]
+}

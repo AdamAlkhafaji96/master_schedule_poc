@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocab Match — Arabic Word Game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #14555c;
+    --primary-dark: #0d3a3f;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: var(--vellum-dim); margin-top: .5rem; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+  main { max-width: 860px; margin: 1.8rem auto 2.5rem; padding: 0 1.2rem; }
+  .bar { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+  .bar select, .bar button { font: inherit; font-size: .88rem; padding: .45rem .8rem; border-radius: 10px; border: 1px solid var(--vellum-dim); background: var(--surface, #fff); color: var(--ink); cursor: pointer; }
+  .bar button.go { background: var(--primary); color: var(--vellum); border-color: var(--primary); }
+  .score { margin-left: auto; font-size: .88rem; color: var(--abd-55544a, #55544a); }
+  .score b { color: var(--primary); }
+  .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .6rem; }
+  .tile { font: inherit; background: var(--surface, #fff); border: 2px solid var(--vellum-dim); border-radius: 12px;
+    padding: .9rem .5rem; cursor: pointer; text-align: center; min-height: 64px; transition: transform .08s, border-color .12s; }
+  .tile.ar { font-family: 'Amiri', serif; font-size: 1.45rem; }
+  .tile.en { font-size: .92rem; }
+  .tile.sel { border-color: var(--gold); background: #fbf4df; transform: scale(1.03); }
+  .tile.hit { border-color: var(--green); background: #eaf4ee; color: var(--green); pointer-events: none; opacity: .55; }
+  .tile.miss { border-color: var(--abd-b04a4a, #b04a4a); animation: shake .25s; }
+  html[data-theme="dark"] .tile.sel { background: #3a3220; }
+  html[data-theme="dark"] .tile.hit { background: #1d322a; color: #7fc9a4; }
+  @keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+  .win { display: none; text-align: center; background: var(--green); color: var(--vellum); border-radius: 14px; padding: 1.2rem; margin-top: 1rem; }
+  .win b { color: var(--gold-soft); }
+  @media (prefers-reduced-motion: reduce) { .tile { transition: none; } .tile.miss { animation: none; } }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Games</div>
+  <h1>Vocab Match</h1>
+  <div class="ar">طَابِق الكَلِمَات</div>
+  <p class="sub">Tap an Arabic word, then its English meaning. Clear the board — fewer misses, better score. Words come straight from the Arabic vocabulary levels.</p>
+</header>
+
+<main>
+<div class="bar">
+  <label for="deck" style="font-size:.84rem">Deck</label>
+  <select id="deck"></select>
+  <select id="size"><option value="6">6 pairs</option><option value="8" selected>8 pairs</option><option value="10">10 pairs</option></select>
+  <button class="go" id="newBtn" type="button">New round</button>
+  <span class="score">Matched <b id="hits">0</b> · Misses <b id="miss">0</b> · Best <b id="best">—</b></span>
+</div>
+<div class="board" id="board" aria-live="polite"></div>
+<div class="win" id="win"></div>
+</main>
+
+<script>
+  var esc = function (t) { return String(t == null ? '' : t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+(async function () {
+  var LV = await (await fetch('../../arabic/vocab/levels.json')).json();
+  var deckSel = document.getElementById('deck');
+  var decks = [];
+  Object.keys(LV).forEach(function (lk) {
+    Object.keys(LV[lk]).forEach(function (mk) {
+      var m = LV[lk][mk];
+      if (m && m.words && m.words.length >= 6)
+        decks.push({ id: lk + ':' + mk, label: 'Level ' + lk.slice(-1) + ' · ' + m.topic, words: m.words });
+    });
+  });
+  deckSel.innerHTML = decks.map(function (d, i) {
+    return '<option value="' + i + '">' + esc(d.label) + '</option>';
+  }).join('');
+
+  var sel = null, hits = 0, miss = 0, pairs = 0;
+  var bestKey = 'ab-match-best';
+  function showBest() {
+    try { var b = localStorage.getItem(bestKey);
+      document.getElementById('best').textContent = b != null ? b + ' misses' : '—';
+    } catch (e) {}
+  }
+  function start() {
+    var d = decks[+deckSel.value || 0];
+    var n = +document.getElementById('size').value;
+    var pool = d.words.slice().sort(function () { return Math.random() - .5; }).slice(0, n);
+    pairs = pool.length; hits = 0; miss = 0; sel = null;
+    document.getElementById('hits').textContent = 0;
+    document.getElementById('miss').textContent = 0;
+    document.getElementById('win').style.display = 'none';
+    var tiles = [];
+    pool.forEach(function (w, i) {
+      tiles.push({ k: i, side: 'ar', txt: w[0] });
+      tiles.push({ k: i, side: 'en', txt: w[2] });
+    });
+    tiles.sort(function () { return Math.random() - .5; });
+    var board = document.getElementById('board');
+    board.innerHTML = tiles.map(function (t, j) {
+      return '<button type="button" class="tile ' + t.side + '" data-k="' + t.k + '" data-j="' + j + '"' +
+        (t.side === 'ar' ? ' lang="ar" dir="rtl"' : '') + '>' + esc(t.txt) + '</button>';
+    }).join('');
+    board.querySelectorAll('.tile').forEach(function (b) { b.onclick = function () { pick(b); }; });
+  }
+  function pick(b) {
+    if (b.classList.contains('hit')) return;
+    if (sel === b) { b.classList.remove('sel'); sel = null; return; }
+    if (!sel) { sel = b; b.classList.add('sel'); return; }
+    var a = sel; sel = null; a.classList.remove('sel');
+    if (a.dataset.k === b.dataset.k && a !== b) {
+      a.classList.add('hit'); b.classList.add('hit');
+      hits++; document.getElementById('hits').textContent = hits;
+      if (hits === pairs) finish();
+    } else {
+      miss++; document.getElementById('miss').textContent = miss;
+      b.classList.add('miss'); a.classList.add('miss');
+      setTimeout(function () { a.classList.remove('miss'); b.classList.remove('miss'); }, 300);
+    }
+  }
+  function finish() {
+    var w = document.getElementById('win');
+    w.innerHTML = 'Masha&rsquo;Allah — board cleared with <b>' + miss + '</b> ' + (miss === 1 ? 'miss' : 'misses') + '!';
+    w.style.display = 'block';
+    try {
+      var b = localStorage.getItem(bestKey);
+      if (b == null || miss < +b) { localStorage.setItem(bestKey, String(miss)); }
+      var log = JSON.parse(localStorage.getItem('ab-game-scores') || '[]');
+      log.push({ game: 'vocab-match', deck: decks[+deckSel.value || 0].label, pairs: pairs, misses: miss, date: new Date().toISOString().slice(0, 10) });
+      localStorage.setItem('ab-game-scores', JSON.stringify(log.slice(-100)));
+    } catch (e) {}
+    showBest();
+  }
+  document.getElementById('newBtn').onclick = start;
+  deckSel.onchange = start;
+  document.getElementById('size').onchange = start;
+  showBest(); start();
+})();
+</script>
+</body>
+</html>

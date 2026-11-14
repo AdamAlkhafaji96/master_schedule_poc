@@ -109,6 +109,7 @@
     return here.indexOf(rootPath) === 0 ? here.slice(rootPath.length) : here;
   }
 
+  var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c' };
   function injectStrip(nav) {
     var path = pagePath();
     if (nav.chromeless.some(function (c) { return path === c; })) return;
@@ -119,6 +120,7 @@
     nav.sections.forEach(function (s) {
       s.pages.forEach(function (p) { if (p.href === path) { section = s; page = p; } });
     });
+    document.documentElement.dataset.abSec = section ? section.color : '';
 
     var strip = document.createElement('div');
     strip.className = 'ab-strip';
@@ -138,7 +140,7 @@
     function renderTabs() {
       tabs.innerHTML = nav.sections.map(function (s) {
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
-          '" href="' + ROOT + '?tab=' + s.id + '">' +
+          '" style="--tabc:' + (SECTION_COLOR[s.color] || '#c9a13b') + '" href="' + ROOT + '?tab=' + s.id + '">' +
           AB.icon(s.icon, s.emoji) + s.title + '</a>';
       }).join('');
     }
@@ -177,7 +179,8 @@
     var crumbs = document.createElement('div');
     crumbs.className = 'ab-crumbs';
     crumbs.innerHTML = '<a href="' + ROOT + '">Home</a>' +
-      (section ? '<span class="sep">❯</span><a href="' + ROOT + '?tab=' + section.id + '">' +
+      (section ? '<span class="sep">❯</span><a class="sec" style="--tabc:' +
+        (SECTION_COLOR[section.color] || '#c9a13b') + '" href="' + ROOT + '?tab=' + section.id + '">' +
         section.title + '</a>' : '') +
       (page ? '<span class="sep">❯</span><span class="here">' + page.en + '</span>' : '');
     strip.appendChild(crumbs);

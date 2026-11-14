@@ -51,7 +51,7 @@
   main { max-width: 860px; margin: 2rem auto 2.5rem; padding: 0 1.2rem; }
 
   .figure {
-    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px;
     margin-bottom: 1rem; overflow: hidden;
     box-shadow: 0 1px 3px rgba(34,36,58,.06);
   }
@@ -70,7 +70,7 @@
     padding: .15rem .6rem; align-self: center;
   }
   .figure .body { padding: 0 1.1rem 1rem; border-top: 1px dashed var(--vellum-dim); }
-  .figure .era { font-size: .9rem; color: #6b6a60; margin: .8rem 0 .6rem; }
+  .figure .era { font-size: .9rem; color: var(--abd-6b6a60, #6b6a60); margin: .8rem 0 .6rem; }
   .figure .era b { color: var(--primary); font-weight: 600; }
   .reading {
     border-left: 3px solid var(--gold);
@@ -80,11 +80,11 @@
   .reading a { color: var(--primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold-soft); }
   .reading a:hover { border-color: var(--primary); }
   .reading .label { font-weight: 600; }
-  .reading .excerpt { font-size: .88rem; color: #55544a; margin-top: .2rem; font-style: italic; }
+  .reading .excerpt { font-size: .88rem; color: var(--abd-55544a, #55544a); margin-top: .2rem; font-style: italic; }
 
-  .empty { text-align: center; color: #6b6a60; padding: 2rem 0; }
-  .note { font-size: .8rem; color: #6b6a60; text-align: center; margin-top: 1.2rem; line-height: 1.5; }
-  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+  .empty { text-align: center; color: var(--abd-6b6a60, #6b6a60); padding: 2rem 0; }
+  .note { font-size: .8rem; color: var(--abd-6b6a60, #6b6a60); text-align: center; margin-top: 1.2rem; line-height: 1.5; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: var(--abd-8a887c, #8a887c); }
 </style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>

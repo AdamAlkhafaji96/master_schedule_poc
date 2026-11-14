@@ -47,7 +47,7 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
 
   .camp {
-    background: #fff; border: 1px solid var(--vellum-dim); border-radius: 14px;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 14px;
     box-shadow: 0 1px 3px rgba(34,36,58,.06); padding: 1rem 1.1rem 1.05rem;
     display: flex; flex-direction: column;
   }
@@ -57,9 +57,9 @@
     color: var(--gold); margin-bottom: .15rem;
   }
   .camp h2 { font-weight: 600; font-size: 1.08rem; color: var(--primary); }
-  .camp .desc { font-size: .88rem; color: #55544a; margin-top: .4rem; line-height: 1.5; flex: 1; }
+  .camp .desc { font-size: .88rem; color: var(--abd-55544a, #55544a); margin-top: .4rem; line-height: 1.5; flex: 1; }
   .goal-wrap { margin-top: .7rem; }
-  .goal-label { display: flex; justify-content: space-between; font-size: .78rem; color: #6b6a60; margin-bottom: .25rem; }
+  .goal-label { display: flex; justify-content: space-between; font-size: .78rem; color: var(--abd-6b6a60, #6b6a60); margin-bottom: .25rem; }
   .goal-bar { height: 12px; border-radius: 6px; background: var(--vellum-dim); border: 1px solid #ddd3bd; overflow: hidden; }
   .goal-bar .fill { height: 100%; background: var(--green); }
   .camp .act { margin-top: .85rem; }
@@ -70,13 +70,13 @@
   }
   .camp .act a:hover { background: #b8912f; }
   .camp.placeholder .act { display: none; }
-  .ph-note { font-size: .74rem; color: #a08a45; margin-top: .6rem; font-style: italic; }
+  .ph-note { font-size: .74rem; color: var(--abd-a08a45, #a08a45); margin-top: .6rem; font-style: italic; }
 
   .tax {
-    margin-top: 1.3rem; text-align: center; font-size: .82rem; color: #6b6a60;
+    margin-top: 1.3rem; text-align: center; font-size: .82rem; color: var(--abd-6b6a60, #6b6a60);
     border-top: 1px dashed var(--vellum-dim); padding-top: 1rem; line-height: 1.55;
   }
-  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; line-height: 1.5; }
+  footer { text-align: center; padding: 0 1.2rem 2.2rem; font-size: .78rem; color: var(--abd-8a887c, #8a887c); line-height: 1.5; }
 </style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>

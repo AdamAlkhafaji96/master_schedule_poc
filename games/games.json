@@ -1,0 +1,37 @@
+{
+ "note": "Roster for the Games section (roadmap Phase 2). Each game: id, title, ar, desc, status (live|soon), engine note. Games generate from existing data files (levels.json, themes.json, letters) — never hand-authored word lists. Leaderboards are device-local until the Phase 4 accounts layer.",
+ "games": [
+  {
+   "id": "vocab-match",
+   "title": "Vocab Match",
+   "ar": "طابق الكلمات",
+   "status": "live",
+   "source": "arabic/vocab/levels.json",
+   "desc": "Tap the Arabic word, then its English meaning — clear the board"
+  },
+  {
+   "id": "hangman",
+   "title": "Letter Hangman",
+   "ar": "لعبة الحروف",
+   "status": "soon",
+   "source": "arabic letters + vocab",
+   "desc": "Guess the word one letter at a time"
+  },
+  {
+   "id": "trivia",
+   "title": "Quran Trivia",
+   "ar": "مسابقة",
+   "status": "soon",
+   "source": "concentration + stories data",
+   "desc": "Timed questions from the Quran and Islamic Studies pages"
+  },
+  {
+   "id": "leaderboard",
+   "title": "Leaderboard",
+   "ar": "لوحة الصدارة",
+   "status": "soon",
+   "source": "device-local scores",
+   "desc": "Your best scores on this device — shared boards arrive with accounts"
+  }
+ ]
+}

@@ -14,6 +14,7 @@
   --ab-arabic:  #1b2a5e;
   --ab-quran:   #4d1b30;
   --ab-islamic: #1b4d38;
+  --ab-games:   #14555c;
   --ab-shadow:  0 10px 28px rgba(34,36,58,.12);
 }
 html[data-theme="dark"] {
@@ -28,6 +29,7 @@ html[data-theme="dark"] {
   --ab-arabic:  #8fa2e8;
   --ab-quran:   #d98aa6;
   --ab-islamic: #7fc9a4;
+  --ab-games:   #7bc8cf;
   --ab-shadow:  0 10px 28px rgba(0,0,0,.45);
 }
 
@@ -38,15 +40,51 @@ html[data-theme="dark"] body {
   --ink:        #ece4d2;
   --gold:       #d2ac4b;
   --gold-soft:  #c7a662;
+  --surface:    #211d2e;
+  --ab-muted2:  #b4aec6;
+  --ab-goldlab: #d2ac4b;
+  --ab-danger:  #e08a80;
+  --abd-6b6a60: #b7b5a6;
+  --abd-8a887c: #bdbbae;
+  --abd-55544a: #a9a799;
+  --abd-a08a45: #d2ac4b;
+  --abd-9a9cb3: #b4aec6;
+  --abd-1b4d38: #7fc9a4;
+  --abd-6b5a9e: #b1a3e3;
+  --abd-b04a4a: #e08a80;
+  --abd-a05a00: #e0a35c;
+  --abd-8a2f2f: #e08a80;
+  --abd-8a6d22: #d2ac4b;
+  --abd-44435a: #b4aec6;
+  --abd-000: #ece4d2;
+  --abd-4c4b42: #b7b5a6;
+  --abd-a34a3c: #e08a80;
+  --primary:      #d2ac4b;   /* sectionless fallback; remapped per section below */
+  --primary-dark: #262134;
   background: #171420;
   color: #ece4d2;
+}
+/* per-section luminous accents in dark — ui.js sets data-ab-sec from nav.json */
+html[data-theme="dark"][data-ab-sec="arabic"]  body { --primary: #8fa2e8; --primary-dark: #20284a; }
+html[data-theme="dark"][data-ab-sec="quran"]   body { --primary: #d98aa6; --primary-dark: #3a1b29; }
+html[data-theme="dark"][data-ab-sec="islamic"] body { --primary: #7fc9a4; --primary-dark: #17382c; }
+html[data-theme="dark"][data-ab-sec="general"] body { --primary: #aeb6c9; --primary-dark: #262b38; }
+html[data-theme="dark"][data-ab-sec="gold"]    body { --primary: #d2ac4b; --primary-dark: #2e2718; }
+html[data-theme="dark"][data-ab-sec="games"]   body { --primary: #7bc8cf; --primary-dark: #11343a; }
+/* page headers paint with var(--primary); in dark, drop to the section's deep tint
+   and keep anything var(--vellum)-colored inside them light */
+html[data-theme="dark"] body > header {
+  background: var(--primary-dark);
+  --vellum: #ece4d2;
+  --vellum-dim: rgba(236, 228, 210, .28);
+  color: var(--vellum);
 }
 /* common white surfaces across portal pages */
 html[data-theme="dark"] body :is(.entry, .item, .card, .cat, .slot, .reading,
   details.panel, details.pack, details.fig, details.post, .tblwrap,
   .listdemo, .person, .sidebox, .chip, .letter-card, .num-card, .name-card,
   .fig-card, .month-card, .word-card, .face.front, .stage .front) {
-  background: #211d2e;
+  background: var(--surface);
   border-color: #332d44;
   color: #ece4d2;
 }
@@ -86,8 +124,10 @@ html[data-theme="dark"] a { color: inherit; }
   padding: .28rem .7rem; display: inline-flex; align-items: center; gap: .35rem;
 }
 .ab-tab:hover { border-color: var(--ab-rule); color: var(--ab-ink); }
-.ab-tab.on { background: var(--ab-surface); border-color: var(--ab-gold); color: var(--ab-ink); font-weight: 600; }
-.ab-ic { width: 1em; height: 1em; display: inline-block; vertical-align: -0.1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ab-tab.on { background: var(--tabc, var(--ab-gold)); border-color: var(--tabc, var(--ab-gold)); color: #f7f2e7; font-weight: 600; }
+.ab-tab .ab-ic, .ab-tab .ab-em { color: var(--tabc, currentColor); }
+.ab-tab.on .ab-ic, .ab-tab.on .ab-em { color: var(--ab-gold-soft); }
+.ab-ic { width: 1.4em; height: 1.4em; display: inline-block; vertical-align: -0.33em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ab-iconbtn {
   font: inherit; font-size: .9rem; line-height: 1; cursor: pointer; flex: none;
   background: var(--ab-surface); color: var(--ab-ink);
@@ -103,6 +143,7 @@ html[data-theme="dark"] a { color: inherit; }
 .ab-crumbs a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--ab-gold-soft); }
 .ab-crumbs .sep { color: var(--ab-gold); }
 .ab-crumbs .here { color: var(--ab-ink); font-weight: 600; }
+.ab-crumbs a.sec { color: var(--tabc, inherit); border-bottom-color: var(--tabc, var(--ab-gold-soft)); font-weight: 600; }
 
 /* the strip supersedes each page's own ad-hoc nav list */
 body.ab-has-strip .site-nav { display: none !important; }

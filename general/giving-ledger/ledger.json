@@ -1,0 +1,34 @@
+{
+ "note": "PLACEHOLDER Giving Ledger — the public receipt trail for the revenue pledge. pledge: the fixed formula stated up front. months[]: period, units (blended supporter count — free+paid mixed metrics are fine, paid-only counts are NOT published), pledged, recipient, transferred (date or ''), receipt (reference/letter link or ''), status (transferred|pending|placeholder). floor: the pre-stated minimum so a small month never looks like a skipped promise.",
+ "pledge": "$1 of every monthly subscription and 5% of every annual plan goes to our named charity partners. (Placeholder formula — set before the first paid month.)",
+ "floor": "Minimum $100/quarter to partners even in low-revenue months, guaranteed by the school. (Placeholder rule.)",
+ "partners": [
+  {
+   "name": "ICNA Relief Houston",
+   "kind": "Islamic · local",
+   "url": "https://icnarelief.org/"
+  },
+  {
+   "name": "Islamic Relief USA",
+   "kind": "Islamic · international",
+   "url": "https://irusa.org/"
+  },
+  {
+   "name": "Houston Food Bank",
+   "kind": "Secular · regional",
+   "url": "https://www.houstonfoodbank.org/"
+  }
+ ],
+ "zakat_note": "Pledge transfers are sadaqah / general charity — never zakat, which follows its own eligibility rules and flows only through the school's dedicated zakat channels.",
+ "months": [
+  {
+   "period": "First paid month",
+   "units": "—",
+   "pledged": "—",
+   "recipient": "—",
+   "transferred": "",
+   "receipt": "",
+   "status": "placeholder"
+  }
+ ]
+}
