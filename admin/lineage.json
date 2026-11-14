@@ -66,6 +66,18 @@
    "contract": "general/sponsors|giving-ledger|partner-schools JSONs",
    "source": "Aug 2026 strategy thread drafts",
    "rebuild": "hand-edit"
+  },
+  {
+   "feature": "Grades & Progress",
+   "contract": "general/grades/index.html (sample academics inline)",
+   "source": "On-device records: memorization, recordings, deck stats, game scores, ab-time + admin/users.json roster",
+   "rebuild": "Live rows update themselves; real grades arrive with Phase F grade entry"
+  },
+  {
+   "feature": "Feature Checklist",
+   "contract": "admin/roadmap.json",
+   "source": "Maintained by hand by staff",
+   "rebuild": "Edit roadmap.json; admin/roadmap/ renders it as-is"
   }
  ]
 }

@@ -211,17 +211,52 @@
     user-select: none;
   }
   @media (max-width: 560px) { .ayah-row { grid-template-columns: 1.6rem 1fr 2.5rem; gap: .35rem; } }
-  /* highlights */
-  .ayah-row[data-hl="gold"] { background: #f8ecc3; }
-  .ayah-row[data-hl="mint"] { background: #d9eedd; }
-  .ayah-row[data-hl="rose"] { background: #f6dde1; }
-  body.hl-mode .ayah-row { cursor: crosshair; }
+  /* highlights — rows (line view) and inline spans (book view) */
+  .ayah-row[data-hl="gold"],  .b-ayah[data-hl="gold"]  { background: #f8ecc3; }
+  .ayah-row[data-hl="mint"],  .b-ayah[data-hl="mint"]  { background: #d9eedd; }
+  .ayah-row[data-hl="rose"],  .b-ayah[data-hl="rose"]  { background: #f6dde1; }
+  .ayah-row[data-hl="sky"],   .b-ayah[data-hl="sky"]   { background: #d7e9f7; }
+  .ayah-row[data-hl="lilac"], .b-ayah[data-hl="lilac"] { background: #e6def5; }
+  .ayah-row[data-hl="peach"], .b-ayah[data-hl="peach"] { background: #fbe3cf; }
+  body.hl-mode .ayah-row, body.hl-mode .b-ayah,
+  body.fl-mode .ayah-row, body.fl-mode .b-ayah,
+  body.rg-mode .ayah-row, body.rg-mode .b-ayah { cursor: crosshair; }
+
+  /* ---------- book view: continuous mushaf flow, no index gutters ---------- */
+  .mushaf.bookflow { text-align: justify; direction: rtl; }
+  .b-ayah { border-radius: 6px; padding: 0 .15rem; cursor: pointer; transition: background .12s; }
+  .b-ayah:hover { background: rgba(201,161,59,.14); }
+  .b-ayah.selected { background: rgba(201,161,59,.3); }
+  .b-num { font-size: calc(1.05rem * var(--mushaf-scale)); color: var(--abd-a08a45, #8a6d22); white-space: nowrap; margin: 0 .2rem; }
+
+  /* ---------- flags: return to this later / homework / rediscuss ---------- */
+  .ayah-row[data-fl] { box-shadow: inset 4px 0 0 #c9762b; }
+  .ayah-row[data-fl] .g-en::before { content: "⚑ "; color: #c9762b; font-size: .72rem; }
+  .b-ayah[data-fl] .b-num::after { content: "⚑"; color: #c9762b; font-size: .72em; vertical-align: super; }
+
+  /* ---------- reading range: start–stop markers ---------- */
+  .ayah-row.inrange { box-shadow: inset -4px 0 0 var(--primary); }
+  .ayah-row[data-fl].inrange { box-shadow: inset 4px 0 0 #c9762b, inset -4px 0 0 var(--primary); }
+  .b-ayah.r-start::before { content: "⟫ "; color: var(--primary); font-weight: 700; }
+  .b-ayah.r-end::after { content: " ⟪"; color: var(--primary); font-weight: 700; }
+
+  /* ---------- meta bars (flag list / range summary) ---------- */
+  .metabar { display: none; align-items: center; gap: .5rem; flex-wrap: wrap;
+    max-width: 900px; margin: .5rem auto 0; padding: .45rem .9rem; font-size: .84rem;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; }
+  .metabar.active { display: flex; }
+  .metabar .jump { font: inherit; font-size: .8rem; padding: .15rem .55rem; border-radius: 999px;
+    border: 1px solid var(--vellum-dim); background: var(--vellum); cursor: pointer; color: var(--ink); }
+  .metabar .jump:hover { border-color: var(--gold); }
+  .metabar .mlbl { font-weight: 600; color: var(--primary); }
+  .btn.mode-on { background: var(--gold); color: var(--primary-dark); }
   .hlbar { display: none; align-items: center; gap: .45rem; flex-wrap: wrap;
     max-width: 900px; margin: .5rem auto 0; padding: .5rem .9rem;
     background: #fff; border: 1px solid var(--vellum-dim); border-radius: 12px; }
   body.hl-mode .hlbar { display: flex; }
   .hlbar .dot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; }
   .hlbar .dot.gold { background: #f1dd9a; } .hlbar .dot.mint { background: #bfe3c8; } .hlbar .dot.rose { background: #efc6cd; }
+  .hlbar .dot.sky { background: #b8d8f0; } .hlbar .dot.lilac { background: #d4c6ee; } .hlbar .dot.peach { background: #f6cfa5; }
   .hlbar .dot.on { border-color: var(--primary, #4d1b30); transform: scale(1.12); }
   .hlbar .hbtn { font: inherit; font-size: .8rem; padding: .3rem .75rem; border-radius: 999px;
     border: 1px solid var(--vellum-dim); background: var(--vellum); cursor: pointer; }
@@ -320,9 +355,18 @@
   html[data-theme="dark"] .g-ar { color: #d2ac4b; }
   html[data-theme="dark"] .ayah-row + .ayah-row { border-top-color: #332d44; }
   html[data-theme="dark"] .ayah-en { color: #b7b5a6; }
-  html[data-theme="dark"] .ayah-row[data-hl="gold"] { background: #4a3c14; }
-  html[data-theme="dark"] .ayah-row[data-hl="mint"] { background: #1d3a28; }
-  html[data-theme="dark"] .ayah-row[data-hl="rose"] { background: #46202c; }
+  html[data-theme="dark"] .ayah-row[data-hl="gold"],  html[data-theme="dark"] .b-ayah[data-hl="gold"]  { background: #4a3c14; }
+  html[data-theme="dark"] .ayah-row[data-hl="mint"],  html[data-theme="dark"] .b-ayah[data-hl="mint"]  { background: #1d3a28; }
+  html[data-theme="dark"] .ayah-row[data-hl="rose"],  html[data-theme="dark"] .b-ayah[data-hl="rose"]  { background: #46202c; }
+  html[data-theme="dark"] .ayah-row[data-hl="sky"],   html[data-theme="dark"] .b-ayah[data-hl="sky"]   { background: #173a52; }
+  html[data-theme="dark"] .ayah-row[data-hl="lilac"], html[data-theme="dark"] .b-ayah[data-hl="lilac"] { background: #352a52; }
+  html[data-theme="dark"] .ayah-row[data-hl="peach"], html[data-theme="dark"] .b-ayah[data-hl="peach"] { background: #4e3014; }
+  html[data-theme="dark"] .metabar { background: var(--surface, #211d2e); border-color: #332d44; }
+  html[data-theme="dark"] .metabar .jump { background: #2a2438; border-color: #3b3450; color: #ece4d2; }
+  html[data-theme="dark"] .metabar .mlbl { color: #d98aa6; }
+  html[data-theme="dark"] .b-num { color: #d2ac4b; }
+  html[data-theme="dark"] .ayah-row.inrange { box-shadow: inset -4px 0 0 #d98aa6; }
+  html[data-theme="dark"] .b-ayah.r-start::before, html[data-theme="dark"] .b-ayah.r-end::after { color: #d98aa6; }
   html[data-theme="dark"] .hlbar { background: var(--surface, #211d2e); border-color: #332d44; }
   html[data-theme="dark"] .hlbar .dot.on { border-color: #d98aa6; }
   html[data-theme="dark"] .legend { color: #b7b5a6; }
@@ -371,8 +415,12 @@
   </select>
   <input type="number" id="pageSizeCustom" min="1" max="286" value="10"
          style="display:none" aria-label="Custom ayahs per page">
+  <button class="btn" id="viewBtn" title="Continuous mushaf flow — no index column, ayahs run together like the printed book">📖 Book view</button>
   <button class="btn" id="jumpTop">Top of surah</button>
   <button class="btn" id="hlToggle">🖍 Highlight</button>
+  <button class="btn" id="flToggle" title="Mark ayahs to return to — homework, re-evaluate, or discuss again">⚑ Flag</button>
+  <button class="btn" id="rgToggle" title="Set a start and stop ayah — plan a reading or guide a student remotely">📍 Range</button>
+  <button class="btn" id="resetBtn" title="Clear highlights, flags and range; restore 100% zoom and line view — keeps this surah">↺ Reset</button>
 </div>
 
 <div class="legend" id="legend">
@@ -393,11 +441,17 @@
   <button class="dot gold on" data-c="gold" aria-label="Gold highlighter" type="button"></button>
   <button class="dot mint" data-c="mint" aria-label="Mint highlighter" type="button"></button>
   <button class="dot rose" data-c="rose" aria-label="Rose highlighter" type="button"></button>
+  <button class="dot sky" data-c="sky" aria-label="Sky highlighter" type="button"></button>
+  <button class="dot lilac" data-c="lilac" aria-label="Lilac highlighter" type="button"></button>
+  <button class="dot peach" data-c="peach" aria-label="Peach highlighter" type="button"></button>
   <button class="hbtn" id="hlErase" type="button">Eraser</button>
   <button class="hbtn" id="hlClear" type="button">Clear all</button>
   <button class="hbtn" id="hlDone" type="button">✓ Done — back to reading</button>
   <span style="font-size:.74rem;color:#8a887c">Tap an ayah to mark it. Highlights stay on this device.</span>
 </div>
+
+<div class="metabar" id="flagbar"></div>
+<div class="metabar" id="rangebar"></div>
 
 <div class="assignment-banner" id="assignmentBanner"></div>
 
@@ -423,7 +477,7 @@
       <input type="text" id="linkOut" readonly placeholder="Assignment link appears here">
       <button class="btn" id="copyLink">Copy</button>
     </div>
-    <p class="hint">Share the link — it opens this page showing only that passage, with a banner naming the assignment. Add <code>&amp;title=Week+3+Reading</code> to label it.</p>
+    <p class="hint">Share the link — it opens this page showing only that passage, with a banner naming the assignment. Your highlights, ⚑ flags, and 📍 reading range inside the passage travel with the link, so a teacher can mark ayahs and guide a student remotely. Add <code>&amp;title=Week+3+Reading</code> to label it.</p>
   </div>
 </main>
 
@@ -516,11 +570,38 @@ try { HL = JSON.parse(localStorage.getItem('ab-hl') || '{}'); } catch (e) {}
 function saveHL() { try { localStorage.setItem('ab-hl', JSON.stringify(HL)); } catch (e) {} }
 const urlHL = {};
 (params.get('hl') || '').split(',').forEach(part => {
-  const m = part.match(/^(\d+)(?:-(\d+))?:(gold|mint|rose)$/);
+  const m = part.match(/^(\d+)(?:-(\d+))?:(gold|mint|rose|sky|lilac|peach)$/);
   if (!m) return;
   for (let n = +m[1]; n <= +(m[2] || m[1]); n++) urlHL[n] = m[3];
 });
-let hlMode = false, hlColor = 'gold';
+/* mode: null | 'hl' | 'fl' | 'rg' — highlight, flag, or range-setting */
+let mode = null, hlColor = 'gold';
+
+/* flags: {surah:{ayah:1}} — "come back to this" marks; ?fl=3,7-9 arrives from links */
+let FL = {};
+try { FL = JSON.parse(localStorage.getItem('ab-flags') || '{}'); } catch (e) {}
+function saveFL() { try { localStorage.setItem('ab-flags', JSON.stringify(FL)); } catch (e) {} }
+const urlFL = {};
+(params.get('fl') || '').split(',').forEach(part => {
+  const m = part.match(/^(\d+)(?:-(\d+))?$/);
+  if (!m) return;
+  for (let n = +m[1]; n <= +(m[2] || m[1]); n++) urlFL[n] = 1;
+});
+function flFor(n) { return (FL[state.surah] || {})[n] || urlFL[n] || 0; }
+
+/* reading range: {surah:[from,to]} — a planned start–stop; ?range=5-20 from links */
+let RG = {};
+try { RG = JSON.parse(localStorage.getItem('ab-range') || '{}'); } catch (e) {}
+function saveRG() { try { localStorage.setItem('ab-range', JSON.stringify(RG)); } catch (e) {} }
+let urlRG = null;
+{ const m = (params.get('range') || '').match(/^(\d+)-(\d+)$/); if (m) urlRG = [+m[1], +m[2]]; }
+let rgPending = null;   /* first tap of a new range while in rg mode */
+function rangeFor() { return RG[state.surah] || urlRG || null; }
+
+/* view: 'lines' (indexed rows) | 'book' (continuous mushaf flow) */
+let view = 'lines';
+try { view = localStorage.getItem('ab-reader-view') === 'book' ? 'book' : 'lines'; } catch (e) {}
+
 function hlFor(n) {
   const mine = (HL[state.surah] || {})[n];
   return mine || urlHL[n] || '';
@@ -543,6 +624,76 @@ function visibleAyahs(surah) {
     a = a.filter(x => x.n >= state.from && x.n <= to);
   }
   return a;
+}
+
+/* ---- interaction modes: highlight / flag / range are mutually exclusive ---- */
+function setMode(m) {
+  mode = (mode === m) ? null : m;
+  rgPending = null;
+  document.body.classList.toggle('hl-mode', mode === 'hl');
+  document.body.classList.toggle('fl-mode', mode === 'fl');
+  document.body.classList.toggle('rg-mode', mode === 'rg');
+  const hb = document.getElementById('hlToggle'), fb = document.getElementById('flToggle'),
+        rb = document.getElementById('rgToggle');
+  hb.textContent = mode === 'hl' ? '🖍 Highlighting…' : '🖍 Highlight';
+  fb.textContent = mode === 'fl' ? '⚑ Flagging — tap ayahs' : '⚑ Flag';
+  rb.textContent = mode === 'rg' ? '📍 Tap the start ayah' : '📍 Range';
+  hb.classList.toggle('mode-on', mode === 'hl');
+  fb.classList.toggle('mode-on', mode === 'fl');
+  rb.classList.toggle('mode-on', mode === 'rg');
+  if (mode !== 'rg') {
+    const st = document.getElementById('status');
+    if (st.textContent.indexOf('Start set') === 0) st.textContent = '';
+  }
+}
+
+function jumpToAyah(n) {
+  const s = surahCache[state.surah];
+  if (!s) return;
+  const i = visibleAyahs(s).findIndex(a => a.n === n);
+  if (i < 0) return;
+  state.page = Math.floor(i / PAGE_SIZE);
+  render();
+}
+
+/* ---- meta bars: flagged-ayah list and the reading-range summary ---- */
+function renderMeta() {
+  const flagbar = document.getElementById('flagbar');
+  const marks = Object.assign({}, urlFL, FL[state.surah] || {});
+  const ns = Object.keys(marks).map(Number).sort((a, b) => a - b);
+  if (ns.length) {
+    flagbar.classList.add('active');
+    flagbar.innerHTML = '<span class="mlbl">⚑ Flagged to revisit:</span>' +
+      ns.map(n => '<button class="jump" data-j="' + n + '">' + n + '</button>').join('') +
+      '<button class="jump" id="flClearAll" style="margin-left:auto">Clear flags</button>';
+    flagbar.querySelectorAll('[data-j]').forEach(b =>
+      b.addEventListener('click', () => jumpToAyah(+b.dataset.j)));
+    flagbar.querySelector('#flClearAll').addEventListener('click', () => {
+      delete FL[state.surah]; saveFL();
+      for (const k in urlFL) delete urlFL[k];
+      render();
+    });
+  } else {
+    flagbar.classList.remove('active');
+    flagbar.innerHTML = '';
+  }
+
+  const rangebar = document.getElementById('rangebar');
+  const rg = rangeFor();
+  if (rg) {
+    rangebar.classList.add('active');
+    rangebar.innerHTML = '<span class="mlbl">📍 Reading range:</span> ayah ' + rg[0] + ' – ' + rg[1] +
+      ' (' + (rg[1] - rg[0] + 1) + ' ayahs)' +
+      '<button class="jump" data-j="' + rg[0] + '">Go to start</button>' +
+      '<button class="jump" id="rgClear" style="margin-left:auto">Clear range</button>';
+    rangebar.querySelector('[data-j]').addEventListener('click', () => jumpToAyah(rg[0]));
+    rangebar.querySelector('#rgClear').addEventListener('click', () => {
+      delete RG[state.surah]; saveRG(); urlRG = null; render();
+    });
+  } else {
+    rangebar.classList.remove('active');
+    rangebar.innerHTML = '';
+  }
 }
 
 /* ==============================================================
@@ -573,26 +724,50 @@ async function render() {
     catch (e) { statusEl.textContent = e.message; }
   }
 
-  /* every ayah is an indexed row: EN number in the left gutter,
-     the Arabic ayah marker in the right gutter, highlights as row tint */
-  mushaf.classList.add('interleaved');
-  mushaf.innerHTML = slice.map(a => {
-    const hl = hlFor(a.n);
-    return '<div class="ayah-row' + (selected.has(a.n) ? ' selected' : '') +
-      '" data-n="' + a.n + '"' + (hl ? ' data-hl="' + hl + '"' : '') + '>' +
-      '<div class="g-en">' + a.n + '</div>' +
-      '<div class="g-body"><div class="ayah-ar">' + renderTajweed(a.taj) + '</div>' +
-        (trans ? '<div class="ayah-en">' + esc(trans[a.n] || '') + '</div>' : '') +
-      '</div>' +
-      '<div class="g-ar">﴿' + toArabic(a.n) + '﴾</div>' +
-    '</div>';
-  }).join('');
+  const rg = rangeFor();
+  const inRange = n => rg && n >= rg[0] && n <= rg[1];
 
-  /* ayah tap: selection mode collects ranges for assignment links */
-  mushaf.querySelectorAll('.ayah, .ayah-row').forEach(el => {
+  if (view === 'book') {
+    /* book flow: the ayahs run together like the printed mushaf —
+       no index column, no translation lines, just text and ayah markers */
+    mushaf.classList.remove('interleaved');
+    mushaf.classList.add('bookflow');
+    mushaf.innerHTML = slice.map(a => {
+      const hl = hlFor(a.n);
+      const cls = ['b-ayah'];
+      if (selected.has(a.n)) cls.push('selected');
+      if (rg && a.n === rg[0]) cls.push('r-start');
+      if (rg && a.n === rg[1]) cls.push('r-end');
+      return '<span class="' + cls.join(' ') + '" data-n="' + a.n + '"' +
+        (hl ? ' data-hl="' + hl + '"' : '') + (flFor(a.n) ? ' data-fl="1"' : '') + '>' +
+        renderTajweed(a.taj) +
+        '<span class="b-num">﴿' + toArabic(a.n) + '﴾</span></span>';
+    }).join(' ');
+  } else {
+    /* line view: every ayah is an indexed row — EN number in the left gutter,
+       the Arabic ayah marker in the right gutter, highlights as row tint */
+    mushaf.classList.remove('bookflow');
+    mushaf.classList.add('interleaved');
+    mushaf.innerHTML = slice.map(a => {
+      const hl = hlFor(a.n);
+      return '<div class="ayah-row' + (selected.has(a.n) ? ' selected' : '') +
+        (inRange(a.n) ? ' inrange' : '') +
+        '" data-n="' + a.n + '"' + (hl ? ' data-hl="' + hl + '"' : '') +
+        (flFor(a.n) ? ' data-fl="1"' : '') + '>' +
+        '<div class="g-en">' + a.n + '</div>' +
+        '<div class="g-body"><div class="ayah-ar">' + renderTajweed(a.taj) + '</div>' +
+          (trans ? '<div class="ayah-en">' + esc(trans[a.n] || '') + '</div>' : '') +
+        '</div>' +
+        '<div class="g-ar">﴿' + toArabic(a.n) + '﴾</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  /* ayah tap: highlight / flag / range modes, or assignment selection */
+  mushaf.querySelectorAll('.ayah, .ayah-row, .b-ayah').forEach(el => {
     el.addEventListener('click', () => {
       const n = parseInt(el.dataset.n);
-      if (hlMode) {
+      if (mode === 'hl') {
         HL[state.surah] = HL[state.surah] || {};
         if (hlColor === 'erase' || HL[state.surah][n] === hlColor) {
           delete HL[state.surah][n];
@@ -604,12 +779,36 @@ async function render() {
         saveHL();
         return;
       }
+      if (mode === 'fl') {
+        FL[state.surah] = FL[state.surah] || {};
+        if (FL[state.surah][n]) { delete FL[state.surah][n]; el.removeAttribute('data-fl'); }
+        else { FL[state.surah][n] = 1; el.setAttribute('data-fl', '1'); }
+        saveFL(); renderMeta();
+        return;
+      }
+      if (mode === 'rg') {
+        if (rgPending === null) {
+          rgPending = n;
+          document.getElementById('status').textContent =
+            'Start set at ayah ' + n + ' — now tap the stop ayah.';
+        } else {
+          RG[state.surah] = [Math.min(rgPending, n), Math.max(rgPending, n)];
+          rgPending = null;
+          saveRG();
+          document.getElementById('status').textContent = '';
+          setMode(null);
+          render();
+        }
+        return;
+      }
       if (!selecting) return;
       selected.has(n) ? selected.delete(n) : selected.add(n);
       el.classList.toggle('selected');
       syncBuilderFromSelection();
     });
   });
+
+  renderMeta();
 
   document.getElementById('pageLabel').textContent =
     'Page ' + (state.page + 1) + ' of ' + pages;
@@ -736,14 +935,49 @@ async function init() {
     if (e.key === 'ArrowRight') { state.page++; render(); }
   });
 
-  /* highlighter */
-  const hlBtn = document.getElementById('hlToggle');
-  hlBtn.addEventListener('click', () => {
-    hlMode = !hlMode;
-    document.body.classList.toggle('hl-mode', hlMode);
-    hlBtn.textContent = hlMode ? '🖍 Highlighting…' : '🖍 Highlight';
+  /* view toggle: line view ⇄ book flow */
+  const viewBtn = document.getElementById('viewBtn');
+  function paintViewBtn() {
+    viewBtn.textContent = view === 'book' ? '☰ Line view' : '📖 Book view';
+    document.getElementById('transToggle').disabled = view === 'book';
+  }
+  paintViewBtn();
+  viewBtn.addEventListener('click', () => {
+    view = view === 'book' ? 'lines' : 'book';
+    try { localStorage.setItem('ab-reader-view', view); } catch (e) {}
+    paintViewBtn(); render();
   });
-  document.getElementById('hlDone').addEventListener('click', () => hlBtn.click());
+
+  /* highlight / flag / range modes */
+  document.getElementById('hlToggle').addEventListener('click', () => setMode('hl'));
+  document.getElementById('flToggle').addEventListener('click', () => setMode('fl'));
+  document.getElementById('rgToggle').addEventListener('click', () => setMode('rg'));
+  document.getElementById('hlDone').addEventListener('click', () => setMode('hl'));
+
+  /* reset to defaults: two-step confirm; keeps the current surah */
+  const resetBtn = document.getElementById('resetBtn');
+  let resetArmed = null;
+  resetBtn.addEventListener('click', () => {
+    if (resetArmed) {
+      clearTimeout(resetArmed); resetArmed = null;
+      resetBtn.textContent = '↺ Reset';
+      HL = {}; saveHL();
+      FL = {}; saveFL();
+      RG = {}; saveRG();
+      urlRG = null;
+      for (const k in urlHL) delete urlHL[k];
+      for (const k in urlFL) delete urlFL[k];
+      zoom = 1; applyZoom();
+      view = 'lines';
+      try { localStorage.setItem('ab-reader-view', 'lines'); } catch (e) {}
+      paintViewBtn();
+      setMode(null); if (mode) setMode(mode);   /* force off whatever is on */
+      psSelect.value = '10'; psCustom.style.display = 'none'; setPageSize(10);
+      return;
+    }
+    resetBtn.textContent = '↺ Confirm reset?';
+    resetArmed = setTimeout(() => { resetArmed = null; resetBtn.textContent = '↺ Reset'; }, 4000);
+  });
   document.querySelectorAll('#hlbar .dot').forEach(d => d.addEventListener('click', () => {
     hlColor = d.dataset.c;
     document.querySelectorAll('#hlbar .dot').forEach(x => x.classList.toggle('on', x === d));
@@ -766,6 +1000,11 @@ async function init() {
     const hlParts = Object.keys(marks).filter(n => n >= from && n <= to)
       .sort((a, b) => a - b).map(n => n + ':' + marks[n]);
     if (hlParts.length) url += '&hl=' + hlParts.join(',');
+    const flags = FL[state.surah] || {};
+    const flParts = Object.keys(flags).filter(n => n >= from && n <= to).sort((a, b) => a - b);
+    if (flParts.length) url += '&fl=' + flParts.join(',');
+    const rg = RG[state.surah];
+    if (rg) url += '&range=' + rg[0] + '-' + rg[1];
     return url;
   }
   document.getElementById('makeLink').addEventListener('click', () => {

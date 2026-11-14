@@ -1,0 +1,37 @@
+{
+ "note": "FEATURE CHECKLIST / ROADMAP - drives admin/roadmap/. Statuses: done (shipped and live), part (placeholder or partial - the shape exists, the engine does not), plan (not started - designed or listed only). Edit this file to update the checklist; the page renders it as-is. 'detail' is the honest one-line truth of where it stands.",
+ "updated": "2026-11-14",
+ "high": [
+  { "t": "Core content: Arabic / Quran / Islamic Studies sections", "s": "done", "d": "All three subject tabs live with interactive lessons, references, and trackers." },
+  { "t": "Practice tab: unified deck + glossary pipeline", "s": "done", "d": "One build script discovers every word source (1,057 terms, 78 lists); deck and glossary read from it." },
+  { "t": "Staff mode with view-as toggle", "s": "part", "d": "Passphrase curtain + Staff/Student view-as. Superficial by design - real auth is the sign-on feature below." },
+  { "t": "Quran reader: highlights, flags, ranges, book view, share links", "s": "done", "d": "Six highlighter colors, flag-to-revisit, start-stop reading range, book flow - all travel on assignment links for remote guidance." },
+  { "t": "Grades & Progress page", "s": "part", "d": "Student view live with on-device activity + sample academics; admin gradebook on the real roster with sample metrics. Real grades need accounts." },
+  { "t": "Audio: listen to recitation per ayah", "s": "plan", "d": "Stream a qari per ayah in the reader. Needs an audio CDN decision (everyayah-style) and offline fallback." },
+  { "t": "Audio: record + sound library in the student profile", "s": "plan", "d": "MediaRecorder capture on the Recording Checklist, saved to the student's library and surfaced to the teacher in the gradebook. Storage needs the Phase F backend." },
+  { "t": "Remote teaching: live guided session", "s": "part", "d": "Today: teacher sends a link carrying range + highlights + flags. Next: a shared session where the teacher's position moves the student's view (needs a realtime channel)." },
+  { "t": "Sign-on feature (real accounts)", "s": "plan", "d": "Student/teacher/admin login replacing the staff curtain. Phase F: identity provider + roster sync." },
+  { "t": "Access privilege profiles", "s": "plan", "d": "Rule-driven visibility: free sees X, premium sees X+Y, admin sees all; per-level scoping (e.g. a Level 1 Quran student hides Islamic Studies). nav.json already gates per-section (adminOnly) - generalize to a profiles map." },
+  { "t": "Free vs premium user views", "s": "plan", "d": "Depends on access profiles + payments. Decide what is ever paywalled for a volunteer school before building." },
+  { "t": "Subject-specific user views", "s": "plan", "d": "A student enrolled only in Arabic sees an Arabic-first portal. Same profiles map, keyed by enrollment." },
+  { "t": "Google Classroom integration", "s": "plan", "d": "Push assignment links (the reader already generates them) as Classroom assignments; pull rosters. Needs OAuth + the accounts layer first." },
+  { "t": "Payment portal integration", "s": "part", "d": "Giving pages are live as present-and-route (official channels, no on-site processing - deliberate). True integration = a processor + webhooks + the ledger." },
+  { "t": "Social media landing pages", "s": "part", "d": "Footer social strip is live. Dedicated landing/share pages with OpenGraph cards per section: not started." },
+  { "t": "Database architecture (Phase F data platform)", "s": "plan", "d": "Schema, migration sequence, embedding pipeline and export step are designed in the Feature Backlog doc. Postgres + object storage behind an API; the JSON contracts become seed fixtures." },
+  { "t": "Gradebook backend (teacher grade entry)", "s": "plan", "d": "Rides on Phase F: assignments, submissions, grades tables; the Grades page becomes live data." }
+ ],
+ "low": [
+  { "t": "CI/CD - GitHub Actions", "s": "plan", "d": "On push: run the jsdom harness + Playwright suite + contrast audit, rebuild glossary, then deploy Pages. Replaces trust-me deploys." },
+  { "t": "CI/CD - Jenkins", "s": "plan", "d": "Mirror of the Actions pipeline for practice parity with work tooling. Build after Actions is proven." },
+  { "t": "Branch workflow + version tags", "s": "plan", "d": "Numbered feature branches merged to master with tags matching admin/version.json (v25, v26...). Replaces direct-to-master." },
+  { "t": "Set of validation functions", "s": "part", "d": "build_glossary.py fails loudly on shape surprises; 55-check jsdom harness + 39-check browser suite exist. Not started: one site-wide validate.py (nav.json refs resolve, JSON contracts well-formed, links unbroken) runnable locally and in CI." },
+  { "t": "Map files: titles → emoji → hand-drawn image", "s": "part", "d": "nav.json maps every page to emoji + icons.svg hand-drawn id, switchable site-wide. Not started: extending the map to lesson images / the image library." },
+  { "t": "Image library", "s": "part", "d": "Placeholder card in the Admin Panel; images live in assets/ and scans/. Browsable library with upload needs Phase F storage." },
+  { "t": "Domain trust", "s": "part", "d": "Custom domain + HTTPS live on portal.albaseeraacademy.com. Not started: apex strategy, SPF/DKIM/DMARC for school mail, search-console verification, security.txt." },
+  { "t": "Network security: DDoS & malicious activity", "s": "part", "d": "GitHub Pages fronting absorbs volumetric attacks and the site is static (no injectable backend). Revisit when Phase F adds an API: WAF/rate limits, input validation server-side, audit logging." },
+  { "t": "Validation of user-generated content", "s": "plan", "d": "The moment uploads/recordings exist: type checks, size caps, AV scanning, moderation queue." },
+  { "t": "Analytics (privacy-respecting)", "s": "plan", "d": "Page-level usage without tracking children personally. Candidate: self-hosted counts per page, no cookies." },
+  { "t": "Offline / PWA", "s": "plan", "d": "Installable with cached lessons for weekend classrooms with poor Wi-Fi. Service worker + manifest." },
+  { "t": "Time-on-platform tracking", "s": "done", "d": "On-device daily counter (ab-time) feeding the Grades page. Server-side rollup arrives with accounts." }
+ ]
+}

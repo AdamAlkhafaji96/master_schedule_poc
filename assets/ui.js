@@ -12,7 +12,7 @@
   AB.root = ROOT;
 
   /* ---------------- settings ---------------- */
-  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'mega' };
+  var DEFAULTS = { theme: 'auto', icons: 'emoji', nav: 'tabs', list: 'default', rail: 'show', adminView: 'staff', forceView: 'auto', navStyle: 'split' };
   var S;
   try { S = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem('ab-settings') || '{}')); }
   catch (e) { S = Object.assign({}, DEFAULTS); }
@@ -232,7 +232,7 @@
     var mega = document.createElement('div');
     mega.className = 'ab-mega';
     var megaSec = null;
-    function openMega(id) {
+    function openMega(id, anchor) {
       var s = AB.visibleSections(nav).find(function (x) { return x.id === id; });
       if (!s) return;
       megaSec = id;
@@ -254,9 +254,20 @@
       }
       mega.style.setProperty('--tabc', color);
       mega.style.setProperty('--tabcl', SECTION_LUM[s.color] || '#d2ac4b');
-      mega.innerHTML = cols +
-        '<div class="mfoot">\u21b3 <a href="' + ROOT + '?tab=' + s.id + '">Open the ' + s.title + ' section overview</a></div>';
+      /* split style: anchored dropdown near its tab, centered content, no footer
+         (the tab name itself is the way to the section overview) */
+      mega.innerHTML = cols + (split ? '' :
+        '<div class="mfoot">\u21b3 <a href="' + ROOT + '?tab=' + s.id + '">Open the ' + s.title + ' section overview</a></div>');
+      mega.classList.toggle('anch', !!(split && anchor));
+      mega.style.removeProperty('--mx');
       mega.classList.add('open');
+      if (split && anchor) {
+        var rowEl = strip.querySelector('.ab-strip-row') || strip;
+        var ar = anchor.getBoundingClientRect(), rr = rowEl.getBoundingClientRect();
+        var w = mega.offsetWidth;
+        var x = Math.max(8, Math.min(ar.left - rr.left, rr.width - w - 8));
+        mega.style.setProperty('--mx', Math.round(x) + 'px');
+      }
     }
     function closeMega() { mega.classList.remove('open'); megaSec = null; }
     tabs.addEventListener('click', function (e) {
@@ -266,7 +277,7 @@
       if (split && !e.target.closest('.ab-chev')) return;  /* split: only the chevron opens */
       e.preventDefault();
       var id = a.dataset.sec;
-      megaSec === id ? closeMega() : openMega(id);
+      megaSec === id ? closeMega() : openMega(id, a);
     });
     document.addEventListener('click', function (e) {
       if (!strip.contains(e.target)) closeMega();
@@ -381,4 +392,24 @@
       console.error('Al Baseera UI kit: nav.json failed to load —', e);
     });
   }
+})();
+
+/* ——— time-on-platform counter (feeds the Grades page) ———
+   Accumulates visible seconds per day in localStorage 'ab-time'
+   ({"YYYY-MM-DD": seconds}). On-device only, pruned past 120 days. */
+(function () {
+  var KEY = 'ab-time', TICK = 30;
+  function bump() {
+    if (document.visibilityState !== 'visible') return;
+    try {
+      var t = JSON.parse(localStorage.getItem(KEY) || '{}');
+      var d = new Date(), k = d.getFullYear() + '-' +
+        String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+      t[k] = (t[k] || 0) + TICK;
+      var ks = Object.keys(t).sort();
+      while (ks.length > 120) delete t[ks.shift()];
+      localStorage.setItem(KEY, JSON.stringify(t));
+    } catch (e) {}
+  }
+  setInterval(bump, TICK * 1000);
 })();

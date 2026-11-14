@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #4a4466;
+    --primary-dark: #332e4a;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .sub { font-size: .86rem; color: rgba(247,242,231,.85); margin-top: .5rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+  main { max-width: 920px; margin: 1.6rem auto 2.5rem; padding: 0 1.2rem; }
+
+  .gate { text-align: center; padding: 3rem 1rem; }
+  .gate .big { font-size: 2.2rem; }
+  html[data-ab-admin="on"] .gate { display: none; }
+  html:not([data-ab-admin="on"]) #panel { display: none; }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .7rem; margin-bottom: 1.4rem; }
+  .sum { border-radius: 12px; padding: .7rem .6rem .6rem; text-align: center; border: 1px solid var(--vellum-dim); background: var(--surface, #fff); }
+  .sum .n { font-size: 1.5rem; font-weight: 600; }
+  .sum .l { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #605e54; }
+  .sum.done .n { color: var(--green); } .sum.part .n { color: #8a6d22; } .sum.plan .n { color: #605e54; }
+
+  h2.sect { font-weight: 500; font-size: 1.05rem; color: var(--primary); margin: 1.6rem 0 .6rem; letter-spacing: .04em; border-bottom: 2px solid var(--vellum-dim); padding-bottom: .3rem; }
+  .legend { font-size: .78rem; color: #605e54; margin-bottom: .8rem; line-height: 1.6; }
+
+  .item { display: grid; grid-template-columns: 7.6rem 1fr; gap: .8rem; align-items: start;
+    background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 10px;
+    padding: .6rem .8rem; margin-bottom: .45rem; }
+  .st { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+    border-radius: 999px; padding: .22rem .5rem; text-align: center; margin-top: .1rem; }
+  .st.done { background: #e4efe6; color: var(--green); }
+  .st.part { background: #faf4df; color: #8a6d22; }
+  .st.plan { background: #ededea; color: #605e54; border: 1px dashed #c9c5b8; }
+  .item .t { font-weight: 600; font-size: .94rem; }
+  .item .d { font-size: .84rem; color: #55544a; line-height: 1.5; margin-top: .15rem; }
+  .item.done { border-left: 4px solid var(--green); }
+  .item.part { border-left: 4px solid var(--gold); }
+  .item.plan { border-left: 4px solid #c9c5b8; }
+
+  footer { text-align: center; padding: 1.2rem 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+
+  html[data-theme="dark"] .sum .l, html[data-theme="dark"] .legend { color: #b7b5a6; }
+  html[data-theme="dark"] h2.sect { color: #b1a3e3; border-color: #332d44; }
+  html[data-theme="dark"] .st.done { background: #1d3a28; color: #7fe08a; }
+  html[data-theme="dark"] .st.part { background: #3a3214; color: #e3cf8f; }
+  html[data-theme="dark"] .st.plan { background: #2a2438; color: #b7b5a6; border-color: #4a4260; }
+  html[data-theme="dark"] .item .d { color: #b7b5a6; }
+  html[data-theme="dark"] .item.plan { border-left-color: #4a4260; }
+  html[data-theme="dark"] .sum.plan .n { color: #b7b5a6; }
+  html[data-theme="dark"] .sum.part .n { color: #e3cf8f; }
+  html[data-theme="dark"] .sum.done .n { color: #7fe08a; }
+  html[data-theme="dark"] .item.done { border-left-color: #2e7d52; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script>/*staff flag before paint*/try{if(JSON.parse(localStorage.getItem("ab-settings")||"{}").admin==="on")document.documentElement.dataset.abAdmin="on"}catch(e){}</script>
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Staff</div>
+  <h1>Feature Checklist</h1>
+  <p class="sub">The build roadmap at a glance — what has shipped, what exists as a placeholder,
+  and what is planned. Edited in <code>admin/roadmap.json</code>.</p>
+</header>
+
+<main>
+  <div class="gate">
+    <div class="big">🛡️</div>
+    <p>This checklist is for staff. Sign in from the ⚙ settings popover (Staff sign-in), then reload.</p>
+  </div>
+
+  <div id="panel">
+    <div class="summary" id="summary"></div>
+    <p class="legend">
+      <b>Shipped</b> — live on the portal today. &nbsp;
+      <b>Placeholder</b> — the shape exists (page, map, or partial engine); the full feature does not. &nbsp;
+      <b>Planned</b> — designed or listed, not started. Most planned items ride on the
+      <b>Phase F data platform</b> (accounts + database + API) already specced in the Feature Backlog.
+    </p>
+
+    <h2 class="sect">High-level features</h2>
+    <div id="high"></div>
+
+    <h2 class="sect">Low-level / platform features</h2>
+    <div id="low"></div>
+  </div>
+</main>
+
+<footer>Updated <span id="upd">—</span> · Statuses are the honest state, not aspirations.</footer>
+
+<script>
+var esc = function (t) { return String(t == null ? '' : t)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+var LBL = { done: 'Shipped', part: 'Placeholder', plan: 'Planned' };
+fetch('../roadmap.json').then(function (r) { return r.json(); }).then(function (d) {
+  document.getElementById('upd').textContent = d.updated || '—';
+  var all = d.high.concat(d.low);
+  var c = { done: 0, part: 0, plan: 0 };
+  all.forEach(function (i) { c[i.s] = (c[i.s] || 0) + 1; });
+  document.getElementById('summary').innerHTML =
+    '<div class="sum done"><div class="n">' + c.done + '</div><div class="l">Shipped</div></div>' +
+    '<div class="sum part"><div class="n">' + c.part + '</div><div class="l">Placeholder</div></div>' +
+    '<div class="sum plan"><div class="n">' + c.plan + '</div><div class="l">Planned</div></div>' +
+    '<div class="sum"><div class="n">' + all.length + '</div><div class="l">Tracked</div></div>';
+  function row(i) {
+    return '<div class="item ' + i.s + '"><span class="st ' + i.s + '">' + LBL[i.s] + '</span>' +
+      '<div><div class="t">' + esc(i.t) + '</div><div class="d">' + esc(i.d) + '</div></div></div>';
+  }
+  document.getElementById('high').innerHTML = d.high.map(row).join('');
+  document.getElementById('low').innerHTML = d.low.map(row).join('');
+}).catch(function () {
+  document.getElementById('high').innerHTML = 'Could not load roadmap.json.';
+});
+</script>
+</body>
+</html>

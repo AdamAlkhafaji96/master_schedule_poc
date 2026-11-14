@@ -279,6 +279,30 @@ html.ab-vm-mobile body { max-width: 430px; margin: 0 auto; box-shadow: 0 0 0 1px
 .ab-strip-row { position: relative; }
 .ab-chev { font-size: .6rem; opacity: .75; margin-left: .3rem; padding-left: .3rem; border-left: 1px solid currentColor; }
 
+/* ——— split style (navStyle B, default): the tab is visibly two targets —
+   name navigates, chevron segment opens the anchored panel ——— */
+.ab-tab .ab-chev {
+  font-size: .68rem; opacity: .9; margin-left: .5rem; margin-right: -.45rem;
+  padding: .22rem .42rem .26rem .42rem; align-self: stretch; display: inline-flex; align-items: center;
+  border-left: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  border-radius: 0 999px 999px 0;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  transition: background .12s;
+}
+.ab-tab .ab-chev:hover { background: color-mix(in srgb, currentColor 20%, transparent); }
+.ab-tab:has(.ab-chev) { padding-right: .45rem; }
+/* anchored dropdown: sits under its own tab instead of spanning the strip; centered content */
+.ab-mega.anch {
+  left: var(--mx, .6rem); right: auto; width: max-content;
+  max-width: min(92vw, 540px); text-align: center;
+}
+.ab-mega.anch.open {
+  grid-template-columns: repeat(auto-fit, minmax(140px, max-content));
+  justify-content: center; gap: .6rem 1.4rem; padding: .85rem 1.3rem;
+}
+.ab-mega.anch .mg { text-align: center; }
+@media (max-width: 700px) { .ab-mega.anch { left: .6rem; right: .6rem; width: auto; max-width: none; } }
+
 /* ——— navStyle rail: the drawer docks as a sidebar on wide screens ——— */
 @media (min-width: 900px) {
   body.ab-docked { padding-left: 238px; }

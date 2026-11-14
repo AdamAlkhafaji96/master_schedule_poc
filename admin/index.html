@@ -96,6 +96,8 @@
   <a href="../practice/glossary/"><b>📖 Glossary browser</b><span id="glosCount">Every term, filterable by tab and list</span></a>
   <a href="../practice/glossary/glossary.xlsx" download><b>📊 Glossary Excel</b><span>The tagged master glossary spreadsheet</span></a>
   <a href="../general/materials/"><b>📚 Materials library</b><span>Awaiting-upload rows show here first</span></a>
+  <a href="roadmap/"><b>🗺️ Feature Checklist</b><span>Shipped / placeholder / planned — the build roadmap</span></a>
+  <a href="../general/grades/"><b>🎓 Class Gradebook</b><span>Roster gradebook (sample metrics) and student progress view</span></a>
 </div>
 
 <h2 class="sect">Source file lineage</h2>
@@ -114,7 +116,7 @@
 </div>
 
 <h2 class="sect">Navigation style</h2>
-<div class="note-box">How the top section tabs behave on internal pages, on this device. <b>Mega-menu</b> (default): a tab opens that section&rsquo;s page panel in place. <b>Split tab</b>: the name navigates as before, the ▾ chevron opens the panel. <b>Docked rail</b>: the page directory stays docked on the left on wide screens. Reloads the page on change.</div>
+<div class="note-box">How the top section tabs behave on internal pages, on this device. <b>Mega-menu</b>: a tab opens that section&rsquo;s full-width page panel in place. <b>Split tab</b> (default): the tab name navigates to the section, the ▾ segment opens a compact panel anchored under that tab. <b>Docked rail</b>: the page directory stays docked on the left on wide screens. Reloads the page on change.</div>
 <div class="modesrow" id="navSeg">
   <button type="button" data-v="mega">A · Mega-menu</button>
   <button type="button" data-v="split">B · Split tab</button>
@@ -239,7 +241,7 @@
 
   /* ---- navigation style seg ---- */
   function paintNav() {
-    var v = (window.AB && AB.settings.navStyle) || 'mega';
+    var v = (window.AB && AB.settings.navStyle) || 'split';
     document.querySelectorAll('#navSeg button').forEach(function (b) {
       b.classList.toggle('on', b.dataset.v === v);
     });

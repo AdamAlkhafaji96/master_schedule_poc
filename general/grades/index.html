@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grades &amp; Progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:      #3a3f4d;
+    --primary-dark: #262a33;
+    --gold:       #c9a13b;
+    --gold-soft:  #e3cf8f;
+    --vellum:     #f7f2e7;
+    --vellum-dim: #ece4d2;
+    --ink:        #22243a;
+    --green:      #1b4d38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--vellum); color: var(--ink); font-family: 'Spectral', Georgia, serif; min-height: 100vh; }
+  header { background: var(--primary); color: var(--vellum); padding: 2rem 1.5rem 2.4rem; text-align: center; border-bottom: 5px solid var(--gold); }
+  header .eyebrow { font-size: .78rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .4rem; }
+  header h1 { font-weight: 500; font-size: clamp(1.3rem, 4vw, 1.9rem); }
+  header .ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold-soft); margin-top: .3rem; }
+  header .sub { font-size: .86rem; color: rgba(247,242,231,.85); margin-top: .5rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+  main { max-width: 980px; margin: 1.6rem auto 2.5rem; padding: 0 1.2rem; }
+  h2.sect { font-weight: 500; font-size: 1.05rem; color: var(--primary); margin: 1.6rem 0 .6rem; letter-spacing: .04em; border-bottom: 2px solid var(--vellum-dim); padding-bottom: .3rem; }
+  .sample-note { font-size: .78rem; color: #8a6d22; background: #faf4df; border: 1px dashed var(--gold); border-radius: 8px; padding: .4rem .7rem; display: inline-block; margin-bottom: .5rem; }
+  .card { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: 1rem 1.1rem; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+
+  /* stat tiles */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .7rem; }
+  .stat { background: var(--surface, #fff); border: 1px solid var(--vellum-dim); border-radius: 12px; padding: .7rem .6rem .6rem; text-align: center; box-shadow: 0 1px 3px rgba(34,36,58,.06); }
+  .stat .big { font-size: 1.45rem; font-weight: 600; color: var(--primary); }
+  .stat .lbl { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #605e54; }
+  .stat .src { font-size: .66rem; color: #8a887c; margin-top: .15rem; }
+  .stat.live { border-left: 4px solid var(--green); }
+  .stat.sample { border-left: 4px solid var(--gold); }
+
+  /* profile */
+  .profile { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .7rem .9rem; }
+  .profile label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: #605e54; display: block; margin-bottom: .2rem; }
+  .profile input { width: 100%; font-family: inherit; font-size: .92rem; padding: .45rem .6rem; border-radius: 8px; border: 1px solid var(--vellum-dim); background: var(--vellum); color: var(--ink); }
+  .profile input:focus { border-color: var(--gold); outline: none; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--surface, #fff); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(34,36,58,.06); font-size: .88rem; }
+  th, td { padding: .5rem .7rem; border-bottom: 1px solid var(--vellum-dim); text-align: left; vertical-align: middle; }
+  th { background: var(--primary); color: var(--vellum); font-weight: 500; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; }
+  td .ar { font-family: 'Amiri', serif; }
+  .grade-pill { display: inline-block; min-width: 2.2rem; text-align: center; padding: .1rem .45rem; border-radius: 999px; font-weight: 600; font-size: .82rem; background: #eef3ee; color: var(--green); }
+  .grade-pill.mid { background: #faf4df; color: #8a6d22; }
+  .tblwrap { overflow-x: auto; border-radius: 12px; }
+
+  .btnrow { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: .8rem; }
+  .btn { font-family: inherit; font-size: .86rem; padding: .55rem 1rem; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--primary); background: var(--primary); color: #fff; transition: opacity .12s; }
+  .btn:hover { opacity: .88; }
+  .btn.ghost { background: transparent; color: var(--primary); }
+  .hint { font-size: .78rem; color: #605e54; margin-top: .5rem; line-height: 1.5; }
+
+  /* admin gradebook */
+  .adminblock { border: 2px solid #4a4466; border-radius: 14px; padding: 1rem 1.1rem 1.2rem; margin-bottom: 1.6rem; background: var(--surface, #fff); }
+  .adminblock .abh { display: flex; align-items: center; gap: .5rem; margin-bottom: .6rem; }
+  .adminblock .abh .tag { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; background: #4a4466; color: #e7e2f7; border-radius: 999px; padding: .2rem .6rem; }
+  .adminblock h2 { font-weight: 500; font-size: 1.1rem; color: #4a4466; }
+  .adminblock th { background: #4a4466; }
+  tr.detail td { background: #f6f4fb; font-size: .82rem; }
+
+  footer { text-align: center; padding: 1.5rem 1.2rem 2.2rem; font-size: .78rem; color: #8a887c; }
+
+  /* dark mode */
+  html[data-theme="dark"] .sample-note { background: #3a3214; color: #e3cf8f; }
+  html[data-theme="dark"] .stat .lbl, html[data-theme="dark"] .profile label, html[data-theme="dark"] .hint { color: #b7b5a6; }
+  html[data-theme="dark"] .stat .big { color: #aeb6c9; }
+  html[data-theme="dark"] h2.sect { color: #aeb6c9; border-color: #332d44; }
+  html[data-theme="dark"] .grade-pill { background: #1d3a28; color: #7fe08a; }
+  html[data-theme="dark"] .grade-pill.mid { background: #3a3214; color: #e3cf8f; }
+  html[data-theme="dark"] tr.detail td { background: #262134; }
+  html[data-theme="dark"] .adminblock { border-color: #6a5fa0; }
+  html[data-theme="dark"] .adminblock h2 { color: #b1a3e3; }
+</style>
+<link rel="stylesheet" href="../../assets/theme.css">
+<script defer src="../../assets/ui.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Al Baseera Academy · Learning</div>
+  <h1>Grades &amp; Progress</h1>
+  <div class="ar">الدرجات والتقدم</div>
+  <p class="sub">Your report card in one place — academics, attendance, memorization, and
+  everything you practice on the portal. Staff see the class gradebook.</p>
+</header>
+
+<main>
+
+  <!-- ══════════ ADMIN: class gradebook (staff mode only) ══════════ -->
+  <div class="adminblock ab-adminonly" id="adminBlock">
+    <div class="abh"><span class="tag">Staff</span><h2>Class Gradebook</h2></div>
+    <p class="sample-note">Sample metrics — the roster is real (<code>admin/users.json</code>), the numbers are
+    illustrative until student accounts and teacher grade entry arrive (Phase F). Tap a row for detail.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>Student</th><th>Grade level</th><th>Enrolled</th><th>Attendance</th><th>GPA</th><th>Surahs ✓</th><th>Last active</th></tr></thead>
+      <tbody id="rosterRows"><tr><td colspan="7">Loading roster…</td></tr></tbody>
+    </table></div>
+  </div>
+
+  <!-- ══════════ STUDENT VIEW ══════════ -->
+  <h2 class="sect">At a glance</h2>
+  <div class="stats" id="tiles"></div>
+  <p class="hint">Green-edged tiles are <b>live from this device</b> (memorization checklist, games,
+  practice deck, time on the portal). Gold-edged tiles are <b>sample figures</b> until student
+  accounts arrive — they show what the full report card will hold.</p>
+
+  <h2 class="sect">My profile</h2>
+  <div class="card">
+    <div class="profile" id="profileForm">
+      <div><label>Name</label><input id="pName" placeholder="Student name"></div>
+      <div><label>Age</label><input id="pAge" type="number" min="4" max="99" placeholder="—"></div>
+      <div><label>Grade level</label><input id="pGrade" placeholder="e.g. Level 2 — Arabic"></div>
+      <div><label>Date enrolled</label><input id="pEnrolled" type="date"></div>
+      <div><label>Classes this term</label><input id="pClasses" placeholder="Arabic, Quran, Islamic Studies"></div>
+      <div><label>Extracurriculars</label><input id="pExtra" placeholder="Competition team, art…"></div>
+    </div>
+    <p class="hint">Saved on this device as you type. With accounts, the office roster fills this in for you.</p>
+  </div>
+
+  <h2 class="sect">Academic grades</h2>
+  <p class="sample-note">Sample grades — teacher grade entry arrives with accounts. The real in-class grades
+  you can already record live on the <a href="../../quran/memorization/">Memorization Checklist</a>.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Subject</th><th>Assignment</th><th>Due</th><th>Grade</th><th>Teacher note</th></tr></thead>
+    <tbody id="gradeRows"></tbody>
+  </table></div>
+
+  <h2 class="sect">Attendance &amp; schedule</h2>
+  <div class="stats">
+    <div class="stat sample"><div class="big">94%</div><div class="lbl">Attendance</div><div class="src">sample</div></div>
+    <div class="stat sample"><div class="big">2</div><div class="lbl">Absences</div><div class="src">sample</div></div>
+    <div class="stat sample"><div class="big">1</div><div class="lbl">Tardies</div><div class="src">sample</div></div>
+    <div class="stat sample" id="classCount"><div class="big">—</div><div class="lbl">Classes / week</div><div class="src">from profile</div></div>
+  </div>
+  <div class="tblwrap" style="margin-top:.7rem"><table>
+    <thead><tr><th>Day</th><th>Class</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td>Saturday</td><td>Arabic — vocabulary &amp; reading</td><td>10:00 – 11:15 AM</td></tr>
+      <tr><td>Saturday</td><td>Quran — recitation &amp; memorization</td><td>11:30 AM – 12:30 PM</td></tr>
+      <tr><td>Sunday</td><td>Islamic Studies</td><td>10:00 – 11:00 AM</td></tr>
+    </table></div>
+  <p class="hint">Sample weekend schedule — the office publishes real sections per student with accounts.</p>
+
+  <h2 class="sect">My activity on the portal <span style="font-size:.75rem;color:var(--green)">● live from this device</span></h2>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Area</th><th>Progress</th><th>Where it comes from</th></tr></thead>
+    <tbody id="liveRows"></tbody>
+  </table></div>
+
+  <h2 class="sect">Export reports</h2>
+  <div class="card">
+    <div class="btnrow">
+      <button class="btn" id="expAcademic">⬇ Report card — academic only</button>
+      <button class="btn ghost" id="expFull">⬇ Full performance report</button>
+    </div>
+    <p class="hint">Both download as printable pages. <b>Academic only</b>: profile, grades, attendance —
+    the report card a family frames. <b>Full performance</b>: adds everything this device tracks —
+    memorization, recordings, games, practice stats, and time on the portal.</p>
+  </div>
+
+</main>
+
+<footer>Live rows read the same on-device records the checklists and games already keep.
+Nothing leaves this device until accounts arrive.</footer>
+
+<script>
+var esc = function (t) { return String(t == null ? '' : t)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+function readLS(k, fb) { try { return JSON.parse(localStorage.getItem(k)) || fb; } catch (e) { return fb; } }
+
+/* ---------- profile (on-device) ---------- */
+var PKEY = 'ab-student-profile';
+var prof = readLS(PKEY, {});
+var pf = { pName:'name', pAge:'age', pGrade:'grade', pEnrolled:'enrolled', pClasses:'classes', pExtra:'extra' };
+Object.keys(pf).forEach(function (id) {
+  var el = document.getElementById(id);
+  if (prof[pf[id]]) el.value = prof[pf[id]];
+  el.addEventListener('input', function () {
+    prof[pf[id]] = el.value;
+    try { localStorage.setItem(PKEY, JSON.stringify(prof)); } catch (e) {}
+    paintTiles();
+  });
+});
+
+/* ---------- sample academic grades ---------- */
+var SAMPLE_GRADES = [
+  ['Arabic', 'Vocabulary quiz — Month 3', '2026-11-07', 'A', 'Strong recall; watch the taa marbuta endings'],
+  ['Arabic', 'Family tree assignment', '2026-10-24', 'A-', 'Beautiful handwriting'],
+  ['Quran', 'Surah Al-Fil recitation', '2026-11-01', 'A', 'Tajweed improving — review qalqalah'],
+  ['Quran', 'Memorization check — Juz Amma set', '2026-10-17', 'B+', 'Two hesitations; re-recite next week'],
+  ['Islamic Studies', 'Prophets timeline worksheet', '2026-11-08', 'A', ''],
+  ['Islamic Studies', 'Wudu steps oral quiz', '2026-10-10', 'Pass', '']
+];
+document.getElementById('gradeRows').innerHTML = SAMPLE_GRADES.map(function (g) {
+  var mid = /^[BC]/.test(g[3]);
+  return '<tr><td>' + g[0] + '</td><td>' + g[1] + '</td><td>' + g[2] +
+    '</td><td><span class="grade-pill' + (mid ? ' mid' : '') + '">' + g[3] + '</span></td><td>' + g[4] + '</td></tr>';
+}).join('');
+
+/* ---------- live device data ---------- */
+function liveData() {
+  var memo = readLS('absr-quran-memorization-v1', {});
+  var memoDone = Object.keys(memo).filter(function (k) { return memo[k] && memo[k].d; }).length;
+  var rec = readLS('absr-quran-recordings', {});
+  var recDone = Object.keys(rec).length;
+  var scores = readLS('ab-game-scores', []);
+  var best = scores.length ? Math.min.apply(null, scores.map(function (s) { return s.misses; })) : null;
+  var deck = readLS('ab-deck-stats', {});
+  var deckSeen = 0, deckRight = 0;
+  Object.keys(deck).forEach(function (k) {
+    var v = deck[k];
+    if (v && typeof v === 'object') { deckSeen += v.seen || 0; deckRight += v.right || 0; }
+  });
+  var time = readLS('ab-time', {});
+  var days = Object.keys(time).sort();
+  var totalMin = Math.round(days.reduce(function (a, k) { return a + time[k]; }, 0) / 60);
+  var last7 = Math.round(days.slice(-7).reduce(function (a, k) { return a + time[k]; }, 0) / 60);
+  var flags = readLS('ab-flags', {});
+  var flagCount = Object.keys(flags).reduce(function (a, s) { return a + Object.keys(flags[s]).length; }, 0);
+  return { memoDone: memoDone, recDone: recDone, games: scores.length, best: best,
+           deckSeen: deckSeen, deckRight: deckRight, totalMin: totalMin, last7: last7,
+           flagCount: flagCount, scores: scores };
+}
+
+function fmtMin(m) { return m >= 90 ? (Math.round(m / 6) / 10) + ' h' : m + ' min'; }
+
+function paintTiles() {
+  var d = liveData();
+  document.getElementById('tiles').innerHTML =
+    '<div class="stat sample"><div class="big">3.7</div><div class="lbl">GPA</div><div class="src">sample</div></div>' +
+    '<div class="stat sample"><div class="big">94%</div><div class="lbl">Attendance</div><div class="src">sample</div></div>' +
+    '<div class="stat live"><div class="big">' + d.memoDone + '</div><div class="lbl">Surahs completed</div><div class="src">memorization checklist</div></div>' +
+    '<div class="stat live"><div class="big">' + d.recDone + '</div><div class="lbl">Recordings logged</div><div class="src">recording checklist</div></div>' +
+    '<div class="stat live"><div class="big">' + d.games + '</div><div class="lbl">Games played</div><div class="src">leaderboard</div></div>' +
+    '<div class="stat live"><div class="big">' + fmtMin(d.totalMin) + '</div><div class="lbl">Time on portal</div><div class="src">this device</div></div>';
+  var pc = (prof.classes || '').split(',').filter(function (x) { return x.trim(); }).length;
+  document.getElementById('classCount').querySelector('.big').textContent = pc || '—';
+}
+paintTiles();
+
+function paintLive() {
+  var d = liveData();
+  var rows = [
+    ['📿 Surah memorization', d.memoDone + ' of 114 surahs completed', '<a href="../../quran/memorization/">Memorization Checklist</a>'],
+    ['🎙️ Recordings submitted', d.recDone + ' surah recordings logged', '<a href="../../quran/recordings/">Recording Checklist</a>'],
+    ['🃏 Practice deck', d.deckSeen ? d.deckRight + ' right of ' + d.deckSeen + ' cards seen' : 'No practice sessions yet', '<a href="../../practice/deck/">Practice Deck</a>'],
+    ['🧩 Games', d.games ? d.games + ' rounds — best round: ' + d.best + ' misses' : 'No games played yet', '<a href="../../games/leaderboard/">Leaderboard</a>'],
+    ['⚑ Quran flags', d.flagCount ? d.flagCount + ' ayahs flagged to revisit' : 'No flagged ayahs', '<a href="../../quran/text/">Full Text reader</a>'],
+    ['⏱️ Time on the portal', fmtMin(d.totalMin) + ' total · ' + fmtMin(d.last7) + ' in the last 7 days', 'Counted on this device while a page is open']
+  ];
+  document.getElementById('liveRows').innerHTML = rows.map(function (r) {
+    return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>';
+  }).join('');
+}
+paintLive();
+
+/* ---------- exports ---------- */
+function reportCSS() {
+  return 'body{font-family:Georgia,serif;max-width:760px;margin:2rem auto;padding:0 1.2rem;color:#22243a}' +
+    'h1{font-size:1.4rem;border-bottom:3px solid #c9a13b;padding-bottom:.4rem}' +
+    'h2{font-size:1.05rem;margin-top:1.4rem;color:#3a3f4d}' +
+    'table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.5rem}' +
+    'th,td{border:1px solid #ddd;padding:.4rem .6rem;text-align:left}' +
+    'th{background:#f2efe6}.meta{color:#666;font-size:.82rem}' +
+    '.sample{color:#8a6d22;font-size:.78rem;font-style:italic}';
+}
+function profileBlock() {
+  return '<h2>Student</h2><table>' +
+    '<tr><th>Name</th><td>' + esc(prof.name || '—') + '</td><th>Age</th><td>' + esc(prof.age || '—') + '</td></tr>' +
+    '<tr><th>Grade level</th><td>' + esc(prof.grade || '—') + '</td><th>Enrolled</th><td>' + esc(prof.enrolled || '—') + '</td></tr>' +
+    '<tr><th>Classes</th><td>' + esc(prof.classes || '—') + '</td><th>Extracurriculars</th><td>' + esc(prof.extra || '—') + '</td></tr></table>';
+}
+function gradesBlock() {
+  return '<h2>Academic grades <span class="sample">(sample until accounts arrive)</span></h2><table>' +
+    '<tr><th>Subject</th><th>Assignment</th><th>Due</th><th>Grade</th><th>Note</th></tr>' +
+    SAMPLE_GRADES.map(function (g) {
+      return '<tr><td>' + g[0] + '</td><td>' + g[1] + '</td><td>' + g[2] + '</td><td>' + g[3] + '</td><td>' + g[4] + '</td></tr>';
+    }).join('') + '</table>' +
+    '<h2>Attendance <span class="sample">(sample)</span></h2>' +
+    '<table><tr><th>Attendance</th><td>94%</td><th>Absences</th><td>2</td><th>Tardies</th><td>1</td></tr></table>';
+}
+function download(name, html) {
+  var blob = new Blob(['<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + name +
+    '</title><style>' + reportCSS() + '</style></head><body>' + html + '</body></html>'],
+    { type: 'text/html' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name.replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+var stamp = function () { return new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }); };
+document.getElementById('expAcademic').addEventListener('click', function () {
+  download('Al Baseera Report Card',
+    '<h1>Al Baseera Academy — Report Card</h1><p class="meta">Generated ' + stamp() + '</p>' +
+    profileBlock() + gradesBlock() +
+    '<p class="meta">Academic-only export. Open this file in a browser and print it.</p>');
+});
+document.getElementById('expFull').addEventListener('click', function () {
+  var d = liveData();
+  download('Al Baseera Full Performance Report',
+    '<h1>Al Baseera Academy — Full Performance Report</h1><p class="meta">Generated ' + stamp() + '</p>' +
+    profileBlock() + gradesBlock() +
+    '<h2>Portal activity (recorded on the student’s device)</h2><table>' +
+    '<tr><th>Surahs memorized (completed)</th><td>' + d.memoDone + ' of 114</td></tr>' +
+    '<tr><th>Recordings logged</th><td>' + d.recDone + '</td></tr>' +
+    '<tr><th>Practice deck</th><td>' + d.deckRight + ' right of ' + d.deckSeen + ' cards seen</td></tr>' +
+    '<tr><th>Game rounds</th><td>' + d.games + (d.best !== null ? ' (best round: ' + d.best + ' misses)' : '') + '</td></tr>' +
+    '<tr><th>Quran ayahs flagged to revisit</th><td>' + d.flagCount + '</td></tr>' +
+    '<tr><th>Time on the portal</th><td>' + fmtMin(d.totalMin) + ' total · ' + fmtMin(d.last7) + ' last 7 days</td></tr>' +
+    '</table><p class="meta">Full export: academics plus every record this device keeps.</p>');
+});
+
+/* ---------- admin gradebook (sample metrics on the real roster) ---------- */
+(function () {
+  function h(s) { var x = 0; for (var i = 0; i < s.length; i++) x = (x * 31 + s.charCodeAt(i)) >>> 0; return x; }
+  fetch('../../admin/users.json').then(function (r) { return r.json(); }).then(function (d) {
+    var students = (d.users || []).filter(function (u) { return u.role === 'student'; });
+    if (!students.length) {
+      document.getElementById('rosterRows').innerHTML =
+        '<tr><td colspan="7">No students on the roster yet — the office adds them in <code>admin/users.json</code>.</td></tr>';
+      return;
+    }
+    var GPAS = ['3.2', '3.5', '3.7', '3.9', '4.0'];
+    document.getElementById('rosterRows').innerHTML = students.map(function (u, i) {
+      var x = h(u.name || 'student' + i);
+      var att = 88 + (x % 12), gpa = GPAS[x % GPAS.length], sur = x % 19,
+          days = 1 + (x % 9);
+      return '<tr class="rrow" data-i="' + i + '" style="cursor:pointer"><td>' + esc(u.name) + '</td>' +
+        '<td>' + esc(u.classes && u.classes.length ? u.classes.join(', ') : '—') + '</td>' +
+        '<td>2026-08-15</td><td>' + att + '%</td><td>' + gpa + '</td><td>' + sur + '</td>' +
+        '<td>' + days + 'd ago</td></tr>' +
+        '<tr class="detail" data-d="' + i + '" style="display:none"><td colspan="7">' +
+        'Attendance, GPA, surah count and last-active above are <b>illustrative</b>. ' +
+        'With accounts, this row expands to the student’s full record: per-assignment grades, ' +
+        'attendance log, submitted recordings, game and practice history, time on the portal, and both exports.' +
+        '</td></tr>';
+    }).join('');
+    document.querySelectorAll('.rrow').forEach(function (tr) {
+      tr.addEventListener('click', function () {
+        var det = document.querySelector('.detail[data-d="' + tr.dataset.i + '"]');
+        det.style.display = det.style.display === 'none' ? '' : 'none';
+      });
+    });
+  }).catch(function () {
+    document.getElementById('rosterRows').innerHTML = '<tr><td colspan="7">Could not load the roster.</td></tr>';
+  });
+})();
+</script>
+</body>
+</html>

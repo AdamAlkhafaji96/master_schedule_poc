@@ -28,15 +28,6 @@
      "status": "soon"
     },
     {
-     "href": "general/schedule/",
-     "en": "Master Schedule",
-     "ar": "",
-     "desc": "Class periods, rooms, and teacher assignments",
-     "emoji": "🗓️",
-     "icon": "schedule",
-     "status": "live"
-    },
-    {
      "href": "general/calendar/",
      "en": "School Calendar",
      "ar": "",
@@ -97,6 +88,15 @@
      "desc": "One exam, three levels — reading, writing, speaking, and comprehension",
      "emoji": "🧪",
      "icon": "exam",
+     "status": "live"
+    },
+    {
+     "href": "general/grades/",
+     "en": "Grades &amp; Progress",
+     "ar": "الدرجات",
+     "desc": "Report card, attendance, memorization and activity — with report exports",
+     "emoji": "🎓",
+     "icon": "ribbon",
      "status": "live"
     },
     {
@@ -528,6 +528,24 @@
      "emoji": "🛡️",
      "icon": "gear",
      "status": "live"
+    },
+    {
+     "href": "general/schedule/",
+     "en": "Master Schedule",
+     "ar": "",
+     "desc": "Class periods, rooms, and teacher assignments — staff planning view",
+     "emoji": "🗓️",
+     "icon": "schedule",
+     "status": "live"
+    },
+    {
+     "href": "admin/roadmap/",
+     "en": "Feature Checklist",
+     "ar": "",
+     "desc": "Build roadmap — shipped, placeholder, and planned features at a glance",
+     "emoji": "🗺️",
+     "icon": "check",
+     "status": "live"
     }
    ]
   }
@@ -547,15 +565,15 @@
     "about/dr-fatin/"
    ],
    "School office": [
-    "general/schedule/",
     "general/calendar/",
     "general/registrations/",
-    "general/diagnostic/",
     "general/accreditation/"
    ],
    "Learning": [
     "general/materials/",
     "general/assignments/",
+    "general/diagnostic/",
+    "general/grades/",
     "general/references/",
     "general/teacher-notes/",
     "general/archives/"
@@ -635,7 +653,9 @@
   },
   "admin": {
    "Staff": [
-    "admin/"
+    "admin/",
+    "general/schedule/",
+    "admin/roadmap/"
    ]
   }
  }
