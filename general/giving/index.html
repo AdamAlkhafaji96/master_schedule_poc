@@ -125,17 +125,18 @@ const money = n => '$' + Number(n).toLocaleString();
         '<p class="desc">' + esc(c.desc) + '</p>' +
         (pct != null
           ? '<div class="goal-wrap">' +
+              (ph ? '<div class="goal-label" style="color:#8a6d22;font-weight:600">Example figures — not a live campaign total</div>' : '') +
               '<div class="goal-label"><span>' + money(c.raised) + ' raised</span>' +
               '<span>goal ' + money(c.goal) + '</span></div>' +
               '<div class="goal-bar"><div class="fill" style="width:' + pct + '%"></div></div>' +
             '</div>'
           : '') +
-        (c.url && c.action
+        (c.url && c.action && !ph
           ? '<div class="act"><a href="' + esc(c.url) + '"' +
               (c.url.startsWith('http') ? ' target="_blank" rel="noopener"' : '') + '>' +
               esc(c.action) + ' &rarr;</a></div>'
           : '') +
-        (ph ? '<div class="ph-note">Placeholder campaign — details to come.</div>' : '') +
+        (ph ? '<div class="ph-note">Not yet configured — this channel activates once the school approves its official destination. The portal never takes payment itself.</div>' : '') +
       '</div>';
     }).join('');
 })();

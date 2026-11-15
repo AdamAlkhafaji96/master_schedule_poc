@@ -252,7 +252,13 @@ document.getElementById('importFile').addEventListener('change', async e => {
   if (!f) return;
   try {
     const d = JSON.parse(await f.text());
-    saved = d.data || d;
+    const raw = d.data || d;
+    /* validate shape strictly — keys and marks are rendered into the page */
+    saved = {};
+    Object.keys(raw).forEach(k => {
+      if (/^\d{4}-\d{2}-\d{2}$/.test(k) && /^[01]{1,5}$/.test(String(raw[k])))
+        saved[k] = String(raw[k]);
+    });
     persist(); render();
   } catch (err) { alert('Could not read that file — expected the exported JSON.'); }
   e.target.value = '';

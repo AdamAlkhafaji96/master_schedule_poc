@@ -196,7 +196,7 @@
   .mast-row .mini { width: clamp(52px, 7vw, 68px); height: clamp(52px, 7vw, 68px); border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex: none; background: var(--surface, #fff); display: grid; place-items: center; }
   .mast-row .mini img, .mast-row .mini svg { width: 100%; height: 100%; object-fit: cover; display: block; }
   .mast-row .wm { line-height: 1.25; padding: .1rem 0; }
-  .mast-row .wm .en { font-weight: 600; font-size: clamp(1.25rem, 3vw, 1.7rem); }
+  .mast-row .wm .en, .mast-row .wm h1.en { font-weight: 600; font-size: clamp(1.25rem, 3vw, 1.7rem); }
   .mast-row .wm .ar { font-family: 'Amiri', serif; font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--gold); margin-top: .25rem; }
   .mast-actions { margin-left: auto; display: flex; gap: .4rem; align-items: center; }
   .tabsrow { max-width: 1020px; margin: 0 auto; padding: 0 1rem; display: flex; gap: .35rem; overflow-x: auto; scrollbar-width: none; }
@@ -206,8 +206,8 @@
   }
   .mtab { font: inherit; font-size: .88rem; cursor: pointer; white-space: nowrap; background: var(--surface, #fff); color: var(--ab-muted, #6b6d85); border: 1px solid var(--vellum-dim); border-bottom: none; border-radius: 10px 10px 0 0; padding: .48rem .9rem .5rem; display: inline-flex; align-items: center; gap: .45rem; position: relative; top: 1px; }
   html[data-theme="dark"] .mtab { background: var(--ab-surface); }
-  .mtab[aria-selected="true"] { color: #f7f2e7; font-weight: 600; background: var(--tabc, var(--gold)); border-color: var(--tabc, var(--gold)); border-top-width: 3px; border-top-color: var(--gold); }
-  .mtab[aria-selected="true"] .ab-ic { color: var(--gold-soft, #e3cf8f); }
+  .mtab[aria-selected="true"] { color: var(--tabon, #f7f2e7); font-weight: 600; background: var(--tabc, var(--gold)); border-color: var(--tabc, var(--gold)); border-top-width: 3px; border-top-color: var(--gold); }
+  .mtab[aria-selected="true"] .ab-ic { color: var(--tabon, var(--gold-soft, #e3cf8f)); }
   .mtab[aria-selected="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--tabc, var(--gold)); }
 
   main { max-width: 1020px; margin: 1.1rem auto 2.4rem; padding: 0 1rem; }
@@ -326,7 +326,7 @@
     <button class="ab-iconbtn" id="railBtn" title="Show or hide the navigation panel">☰</button>
     <a class="mini" href="./" title="Al Baseera Academy"><img src="assets/logo.jpeg" alt="Al Baseera Academy"></a>
     <div class="wm">
-      <div class="en">Al Baseera Academy — Learning Portal</div>
+      <h1 class="en" style="margin:0;font-size:inherit;font-weight:inherit;line-height:inherit">Al Baseera Academy — Learning Portal</h1>
       <div class="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
     </div>
     <div class="mast-actions">
@@ -444,6 +444,14 @@
         '<div class="connect-icons">' +
           links.map(l => {
             const ic = ICONS[l.id] || { bg: '#6b6a60', svg: '<circle cx="12" cy="12" r="7" fill="#fff"/>' };
+            /* pending: account not created yet — show the icon dimmed, no link,
+               so nobody is routed to a generic platform homepage */
+            if (l.pending) {
+              return '<span><span class="app-icon" style="background:' + ic.bg + ';opacity:.38;cursor:default" ' +
+                'title="' + l.label + ' — account coming soon" aria-label="' + l.label + ' (coming soon)">' +
+                '<svg viewBox="0 0 24 24" aria-hidden="true">' + ic.svg + '</svg></span>' +
+                '<span class="app-label" style="opacity:.55">' + l.label + '</span></span>';
+            }
             const ext = l.url.startsWith('http');
             return '<span><a class="app-icon" style="background:' + ic.bg + '" href="' + l.url + '"' +
               (ext ? ' target="_blank" rel="noopener"' : '') +
@@ -571,7 +579,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var tr = document.getElementById('tabsrow');
       tr.innerHTML = SECS.map(function (s) {
         return '<button class="mtab" role="tab" data-t="' + s.id +
-          '" aria-selected="' + (state.tab === s.id) + '" style="--tabc:' + COLOR[s.color] + '">' +
+          '" aria-selected="' + (state.tab === s.id) + '" style="--tabc:' + COLOR[s.color] +
+          (s.color === 'gold' ? ';--tabon:#2b2108' : '') + '">' +
           AB.icon(s.icon, s.emoji, s.id) + s.title + '</button>';
       }).join('');
       tr.querySelectorAll('.mtab').forEach(function (b) {

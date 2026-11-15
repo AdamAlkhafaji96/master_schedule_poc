@@ -513,10 +513,10 @@
      "href": "games/leaderboard/",
      "en": "Leaderboard",
      "ar": "",
-     "desc": "Your best scores on this device",
+     "desc": "Your best scores on this device — shared class boards arrive with accounts",
      "emoji": "🏆",
      "icon": "trophy",
-     "status": "soon"
+     "status": "live"
     }
    ]
   },

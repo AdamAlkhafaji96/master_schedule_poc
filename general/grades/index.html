@@ -209,28 +209,51 @@ document.getElementById('gradeRows').innerHTML = SAMPLE_GRADES.map(function (g) 
 }).join('');
 
 /* ---------- live device data ---------- */
+/* recordings live in IndexedDB (absr-quran-recordings / recs), not localStorage —
+   counted asynchronously, then the tiles and rows repaint */
+var REC_COUNT = 0;
+(function () {
+  try {
+    var r = indexedDB.open('absr-quran-recordings', 1);
+    r.onupgradeneeded = function () { try { r.result.createObjectStore('recs', { keyPath: 'n' }); } catch (e) {} };
+    r.onsuccess = function () {
+      try {
+        var rq = r.result.transaction('recs').objectStore('recs').count();
+        rq.onsuccess = function () { REC_COUNT = rq.result || 0; paintTiles(); paintLive(); };
+      } catch (e) {}
+    };
+  } catch (e) {}
+})();
 function liveData() {
   var memo = readLS('absr-quran-memorization-v1', {});
   var memoDone = Object.keys(memo).filter(function (k) { return memo[k] && memo[k].d; }).length;
-  var rec = readLS('absr-quran-recordings', {});
-  var recDone = Object.keys(rec).length;
+  var recDone = REC_COUNT;
   var scores = readLS('ab-game-scores', []);
   var best = scores.length ? Math.min.apply(null, scores.map(function (s) { return s.misses; })) : null;
+  /* deck contract: {scopeId: {label, rounds:[{score, of, pct, date}], missed:{}}} */
   var deck = readLS('ab-deck-stats', {});
-  var deckSeen = 0, deckRight = 0;
+  var deckRounds = 0, deckRight = 0, deckOf = 0;
   Object.keys(deck).forEach(function (k) {
     var v = deck[k];
-    if (v && typeof v === 'object') { deckSeen += v.seen || 0; deckRight += v.right || 0; }
+    if (v && Array.isArray(v.rounds)) {
+      deckRounds += v.rounds.length;
+      v.rounds.forEach(function (r) { deckRight += r.score || 0; deckOf += r.of || 0; });
+    }
   });
   var time = readLS('ab-time', {});
   var days = Object.keys(time).sort();
   var totalMin = Math.round(days.reduce(function (a, k) { return a + time[k]; }, 0) / 60);
-  var last7 = Math.round(days.slice(-7).reduce(function (a, k) { return a + time[k]; }, 0) / 60);
+  /* last 7 CALENDAR days (local time), not the last seven active dates */
+  var cut = new Date(); cut.setDate(cut.getDate() - 6);
+  var cutKey = cut.getFullYear() + '-' + String(cut.getMonth() + 1).padStart(2, '0') + '-' +
+    String(cut.getDate()).padStart(2, '0');
+  var last7 = Math.round(days.filter(function (k) { return k >= cutKey; })
+    .reduce(function (a, k) { return a + time[k]; }, 0) / 60);
   var flags = readLS('ab-flags', {});
   var flagCount = Object.keys(flags).reduce(function (a, s) { return a + Object.keys(flags[s]).length; }, 0);
   return { memoDone: memoDone, recDone: recDone, games: scores.length, best: best,
-           deckSeen: deckSeen, deckRight: deckRight, totalMin: totalMin, last7: last7,
-           flagCount: flagCount, scores: scores };
+           deckRounds: deckRounds, deckRight: deckRight, deckOf: deckOf,
+           totalMin: totalMin, last7: last7, flagCount: flagCount, scores: scores };
 }
 
 function fmtMin(m) { return m >= 90 ? (Math.round(m / 6) / 10) + ' h' : m + ' min'; }
@@ -254,7 +277,7 @@ function paintLive() {
   var rows = [
     ['📿 Surah memorization', d.memoDone + ' of 114 surahs completed', '<a href="../../quran/memorization/">Memorization Checklist</a>'],
     ['🎙️ Recordings submitted', d.recDone + ' surah recordings logged', '<a href="../../quran/recordings/">Recording Checklist</a>'],
-    ['🃏 Practice deck', d.deckSeen ? d.deckRight + ' right of ' + d.deckSeen + ' cards seen' : 'No practice sessions yet', '<a href="../../practice/deck/">Practice Deck</a>'],
+    ['🃏 Practice deck', d.deckRounds ? d.deckRounds + ' Learn round' + (d.deckRounds === 1 ? '' : 's') + ' — ' + d.deckRight + ' right of ' + d.deckOf + ' questions' : 'No Learn rounds yet', '<a href="../../practice/deck/">Practice Deck</a>'],
     ['🧩 Games', d.games ? d.games + ' rounds — best round: ' + d.best + ' misses' : 'No games played yet', '<a href="../../games/leaderboard/">Leaderboard</a>'],
     ['⚑ Quran flags', d.flagCount ? d.flagCount + ' ayahs flagged to revisit' : 'No flagged ayahs', '<a href="../../quran/text/">Full Text reader</a>'],
     ['⏱️ Time on the portal', fmtMin(d.totalMin) + ' total · ' + fmtMin(d.last7) + ' in the last 7 days', 'Counted on this device while a page is open']
@@ -315,7 +338,7 @@ document.getElementById('expFull').addEventListener('click', function () {
     '<h2>Portal activity (recorded on the student’s device)</h2><table>' +
     '<tr><th>Surahs memorized (completed)</th><td>' + d.memoDone + ' of 114</td></tr>' +
     '<tr><th>Recordings logged</th><td>' + d.recDone + '</td></tr>' +
-    '<tr><th>Practice deck</th><td>' + d.deckRight + ' right of ' + d.deckSeen + ' cards seen</td></tr>' +
+    '<tr><th>Practice deck</th><td>' + d.deckRounds + ' Learn rounds — ' + d.deckRight + ' right of ' + d.deckOf + '</td></tr>' +
     '<tr><th>Game rounds</th><td>' + d.games + (d.best !== null ? ' (best round: ' + d.best + ' misses)' : '') + '</td></tr>' +
     '<tr><th>Quran ayahs flagged to revisit</th><td>' + d.flagCount + '</td></tr>' +
     '<tr><th>Time on the portal</th><td>' + fmtMin(d.totalMin) + ' total · ' + fmtMin(d.last7) + ' last 7 days</td></tr>' +

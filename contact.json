@@ -1,105 +1,118 @@
 {
-  "note": "PLACEHOLDER links for the Connect panel on the home page. Replace each url with the real account/room/number when available — the icons and layout stay the same. Phone uses tel: and email uses mailto:. Set \"hidden\": true on any entry to remove its icon without deleting it.",
-  "groups": [
+ "note": "PLACEHOLDER links for the Connect panel on the home page. Replace each url with the real account/room/number when available — the icons and layout stay the same. Phone uses tel: and email uses mailto:. Set \"hidden\": true on any entry to remove its icon without deleting it.",
+ "groups": [
+  {
+   "title": "Social Media",
+   "links": [
     {
-      "title": "Social Media",
-      "links": [
-        {
-          "id": "instagram",
-          "label": "Instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id": "facebook",
-          "label": "Facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id": "reddit",
-          "label": "Reddit",
-          "url": "https://www.reddit.com/"
-        },
-        {
-          "id": "linkedin",
-          "label": "LinkedIn",
-          "url": "https://www.linkedin.com/"
-        },
-        {
-          "id": "tiktok",
-          "label": "TikTok",
-          "url": "https://www.tiktok.com/"
-        },
-        {
-          "id": "bluesky",
-          "label": "Bluesky",
-          "url": "https://bsky.app/"
-        },
-        {
-          "id": "twitter",
-          "label": "X / Twitter",
-          "url": "https://x.com/"
-        },
-        {
-          "id": "threads",
-          "label": "Threads",
-          "url": "https://www.threads.net/"
-        }
-      ]
+     "id": "instagram",
+     "label": "Instagram",
+     "url": "https://www.instagram.com/",
+     "pending": true
     },
     {
-      "title": "Live Classroom",
-      "links": [
-        {
-          "id": "zoom",
-          "label": "Zoom",
-          "url": "https://zoom.us/"
-        },
-        {
-          "id": "classroom",
-          "label": "G Classroom",
-          "url": "https://classroom.google.com/"
-        }
-      ]
+     "id": "facebook",
+     "label": "Facebook",
+     "url": "https://www.facebook.com/",
+     "pending": true
     },
     {
-      "title": "Phone",
-      "links": [
-        {
-          "id": "whatsapp",
-          "label": "WhatsApp",
-          "url": "https://www.whatsapp.com/"
-        },
-        {
-          "id": "telegram",
-          "label": "Telegram",
-          "url": "https://telegram.org/"
-        },
-        {
-          "id": "phone",
-          "label": "Call",
-          "url": "tel:+10000000000"
-        }
-      ]
+     "id": "reddit",
+     "label": "Reddit",
+     "url": "https://www.reddit.com/",
+     "pending": true
     },
     {
-      "title": "Email",
-      "links": [
-        {
-          "id": "email",
-          "label": "Email",
-          "url": "mailto:office@albaseeraacademy.com"
-        }
-      ]
+     "id": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://www.linkedin.com/",
+     "pending": true
     },
     {
-      "title": "Support",
-      "links": [
-        {
-          "id": "donate",
-          "label": "Donate",
-          "url": "general/giving/"
-        }
-      ]
+     "id": "tiktok",
+     "label": "TikTok",
+     "url": "https://www.tiktok.com/",
+     "pending": true
+    },
+    {
+     "id": "bluesky",
+     "label": "Bluesky",
+     "url": "https://bsky.app/",
+     "pending": true
+    },
+    {
+     "id": "twitter",
+     "label": "X / Twitter",
+     "url": "https://x.com/",
+     "pending": true
+    },
+    {
+     "id": "threads",
+     "label": "Threads",
+     "url": "https://www.threads.net/",
+     "pending": true
     }
-  ]
+   ]
+  },
+  {
+   "title": "Live Classroom",
+   "links": [
+    {
+     "id": "zoom",
+     "label": "Zoom",
+     "url": "https://zoom.us/",
+     "pending": true
+    },
+    {
+     "id": "classroom",
+     "label": "G Classroom",
+     "url": "https://classroom.google.com/",
+     "pending": true
+    }
+   ]
+  },
+  {
+   "title": "Phone",
+   "links": [
+    {
+     "id": "whatsapp",
+     "label": "WhatsApp",
+     "url": "https://www.whatsapp.com/",
+     "pending": true
+    },
+    {
+     "id": "telegram",
+     "label": "Telegram",
+     "url": "https://telegram.org/",
+     "pending": true
+    },
+    {
+     "id": "phone",
+     "label": "Call",
+     "url": "tel:+10000000000",
+     "hidden": true
+    }
+   ]
+  },
+  {
+   "title": "Email",
+   "links": [
+    {
+     "id": "email",
+     "label": "Email",
+     "url": "mailto:office@albaseeraacademy.com"
+    }
+   ]
+  },
+  {
+   "title": "Support",
+   "links": [
+    {
+     "id": "donate",
+     "label": "Donate",
+     "url": "general/giving/"
+    }
+   ]
+  }
+ ]
 }

@@ -34,7 +34,7 @@
   {
    "feature": "Glossary + Practice deck",
    "contract": "practice/glossary/glossary.json (+ glossary.xlsx)",
-   "source": "ALL word contracts above + letters/numbers/names extracts",
+   "source": "All word contracts above + letters/numbers/names extracts (theme word banks join once a theme has 2+ scanned cards with Arabic AND English - none yet)",
    "rebuild": "python3 tools/build_glossary.py"
   },
   {

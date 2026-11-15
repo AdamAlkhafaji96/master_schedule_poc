@@ -91,7 +91,9 @@
   .controls input[type=number] { width: 74px; }
   .toggle {
     display: inline-flex; align-items: center; gap: .45rem;
-    color: var(--vellum); font-size: .88rem; letter-spacing: .04em;
+    /* literal cream: the controls bar is dark in BOTH themes, and dark mode
+       remaps --vellum to a dark value (external-review contrast finding) */
+    color: #f1ead9; font-size: .88rem; letter-spacing: .04em;
     cursor: pointer; user-select: none;
   }
   .toggle input { accent-color: var(--gold); width: 18px; height: 18px; cursor: pointer; }
@@ -568,11 +570,16 @@ const params = new URLSearchParams(location.search);
 let HL = {};
 try { HL = JSON.parse(localStorage.getItem('ab-hl') || '{}'); } catch (e) {}
 function saveHL() { try { localStorage.setItem('ab-hl', JSON.stringify(HL)); } catch (e) {} }
+/* URL numbers are clamped to 1..286 (the longest surah) so a malformed link
+   can never expand into an unbounded loop (external-review finding) */
+const AYAH_MAX = 286;
+const clampAyah = v => Math.min(AYAH_MAX, Math.max(1, parseInt(v) || 1));
 const urlHL = {};
 (params.get('hl') || '').split(',').forEach(part => {
   const m = part.match(/^(\d+)(?:-(\d+))?:(gold|mint|rose|sky|lilac|peach)$/);
   if (!m) return;
-  for (let n = +m[1]; n <= +(m[2] || m[1]); n++) urlHL[n] = m[3];
+  const a = clampAyah(m[1]), b = clampAyah(m[2] || m[1]);
+  for (let n = Math.min(a, b); n <= Math.max(a, b); n++) urlHL[n] = m[3];
 });
 /* mode: null | 'hl' | 'fl' | 'rg' — highlight, flag, or range-setting */
 let mode = null, hlColor = 'gold';
@@ -585,7 +592,8 @@ const urlFL = {};
 (params.get('fl') || '').split(',').forEach(part => {
   const m = part.match(/^(\d+)(?:-(\d+))?$/);
   if (!m) return;
-  for (let n = +m[1]; n <= +(m[2] || m[1]); n++) urlFL[n] = 1;
+  const a = clampAyah(m[1]), b = clampAyah(m[2] || m[1]);
+  for (let n = Math.min(a, b); n <= Math.max(a, b); n++) urlFL[n] = 1;
 });
 function flFor(n) { return (FL[state.surah] || {})[n] || urlFL[n] || 0; }
 
@@ -594,7 +602,8 @@ let RG = {};
 try { RG = JSON.parse(localStorage.getItem('ab-range') || '{}'); } catch (e) {}
 function saveRG() { try { localStorage.setItem('ab-range', JSON.stringify(RG)); } catch (e) {} }
 let urlRG = null;
-{ const m = (params.get('range') || '').match(/^(\d+)-(\d+)$/); if (m) urlRG = [+m[1], +m[2]]; }
+{ const m = (params.get('range') || '').match(/^(\d+)-(\d+)$/);
+  if (m) { const a = clampAyah(m[1]), b = clampAyah(m[2]); urlRG = [Math.min(a, b), Math.max(a, b)]; } }
 let rgPending = null;   /* first tap of a new range while in rg mode */
 function rangeFor() { return RG[state.surah] || urlRG || null; }
 
@@ -792,12 +801,15 @@ async function render() {
           document.getElementById('status').textContent =
             'Start set at ayah ' + n + ' — now tap the stop ayah.';
         } else {
-          RG[state.surah] = [Math.min(rgPending, n), Math.max(rgPending, n)];
+          const lo = Math.min(rgPending, n), hi = Math.max(rgPending, n);
+          RG[state.surah] = [lo, hi];
           rgPending = null;
           saveRG();
-          document.getElementById('status').textContent = '';
           setMode(null);
-          render();
+          render().then(() => {
+            document.getElementById('status').textContent =
+              'Range selected: ayahs ' + lo + '–' + hi + '. Clear it from the bar above the text.';
+          });
         }
         return;
       }
@@ -809,6 +821,7 @@ async function render() {
   });
 
   renderMeta();
+  if (window.bookNote) window.bookNote();
 
   document.getElementById('pageLabel').textContent =
     'Page ' + (state.page + 1) + ' of ' + pages;
@@ -939,8 +952,22 @@ async function init() {
   const viewBtn = document.getElementById('viewBtn');
   function paintViewBtn() {
     viewBtn.textContent = view === 'book' ? '☰ Line view' : '📖 Book view';
-    document.getElementById('transToggle').disabled = view === 'book';
+    const tt = document.getElementById('transToggle');
+    tt.disabled = view === 'book';
+    /* say WHY the control is disabled instead of greying it silently */
+    tt.parentElement.title = view === 'book'
+      ? 'Book view shows the Arabic flow only, like the printed mushaf — switch to Line view for the English translation'
+      : '';
+    tt.parentElement.style.opacity = view === 'book' ? '.55' : '';
   }
+  /* the status line is cleared on every render, so the book-view note is
+     re-applied after each one from inside render() via this hook */
+  window.bookNote = function () {
+    const st = document.getElementById('status');
+    if (view === 'book' && !st.textContent) {
+      st.textContent = 'Book view shows Arabic only — switch to ☰ Line view for the English translation.';
+    }
+  };
   paintViewBtn();
   viewBtn.addEventListener('click', () => {
     view = view === 'book' ? 'lines' : 'book';

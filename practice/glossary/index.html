@@ -95,14 +95,15 @@
     var rows = G.terms.filter(function (t) {
       if (s && t.section !== s) return false;
       if (sc && t.scope !== sc) return false;
-      if (needle && (t.ar + ' ' + t.tr + ' ' + t.en).toLowerCase().indexOf(needle) < 0) return false;
+      if (needle && (t.ar + ' ' + t.tr + ' ' + t.en + ' ' + (t.ctx || '')).toLowerCase().indexOf(needle) < 0) return false;
       return true;
     });
     document.getElementById('count').innerHTML = rows.length + ' of ' + G.terms.length + ' terms' +
       (sc ? ' &nbsp;·&nbsp; <a class="practice-link" href="../deck/?src=' + encodeURIComponent(sc) + '">🃏 Practice this list &rarr;</a>' : '');
     document.getElementById('rows').innerHTML = rows.slice(0, 600).map(function (t) {
       return '<tr><td class="ar" lang="ar">' + esc(t.ar) + '</td>' +
-        '<td>' + esc(t.tr) + '</td><td>' + esc(t.en) + '</td>' +
+        '<td>' + esc(t.tr) + '</td><td>' + esc(t.en) +
+        (t.ctx ? ' <span style="color:var(--abd-8a887c,#8a887c);font-style:italic">(' + esc(t.ctx) + ')</span>' : '') + '</td>' +
         '<td class="meta">' + esc(t.section) + '<br><a href="../../' + esc(t.src) + '">' + esc(t.list) + '</a></td></tr>';
     }).join('');
     document.getElementById('empty').style.display = rows.length ? 'none' : '';

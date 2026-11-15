@@ -264,6 +264,11 @@
   }
   .replay-row { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
 </style>
+<style>
+  /* dark-mode legibility (external-review finding): glyphs sat near-black on dark tiles */
+  html[data-theme="dark"] body .glyph { color: #f1ead9 !important; }
+  html[data-theme="dark"] body .pager-btn { color: #8fa2e8; border-color: #8fa2e8; }
+</style>
 <link rel="stylesheet" href="../../assets/theme.css">
 <script defer src="../../assets/ui.js"></script>
 </head>

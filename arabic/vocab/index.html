@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arabic Vocabulary — Levels 1 &amp; 2</title>
+<title>Arabic Vocabulary — by Level</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Spectral:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -147,7 +147,7 @@
 <header>
   <img class="header-logo" src="../../assets/logo.jpeg" alt="Al Baseera Academy">
   <div class="eyebrow">Arabic</div>
-  <h1>Arabic Vocabulary — Levels 1 &amp; 2</h1>
+  <h1>Arabic Vocabulary — by Level</h1>
   <div class="site-nav">
     <a href="../letters/">Alphabet</a>
     <a href="../numbers/">Numbers</a>
@@ -300,6 +300,22 @@ function fillMonths(filter) {
     const t = await (await fetch('themes.json')).json();
     LEVELS.themes = t.themes || {};
   } catch (e) { LEVELS.themes = {}; }
+
+  /* derive level labels from the data instead of hardcoding "(planned)"
+     (external-review finding: Level 3 said planned while rendering words) */
+  ['level1', 'level2', 'level3', 'level4'].forEach(lk => {
+    const opt = document.querySelector('#levelSelect option[value="' + lk + '"]');
+    if (!opt || !LEVELS[lk]) return;
+    let words = 0, months = 0;
+    Object.keys(LEVELS[lk]).forEach(mk => {
+      const m = LEVELS[lk][mk];
+      if (m && typeof m === 'object' && m.words) { months++; words += m.words.length; }
+    });
+    const name = 'Level ' + lk.slice(-1);
+    opt.textContent = words === 0 ? name + ' (planned)'
+      : months < 3 ? name + ' (in progress — ' + words + ' words)'
+      : name;
+  });
 
   const params = new URLSearchParams(location.search);
   const pl = params.get('level'), pm = parseInt(params.get('month'));

@@ -106,8 +106,12 @@ function render() {
   const cards = [];
   themes.forEach(t => t.cards.forEach(c => cards.push([t, c])));
   cards.sort((a, b) => a[1].num - b[1].num);
-  document.getElementById('count').textContent = cards.length + ' card' + (cards.length === 1 ? '' : 's') +
-    (themeFilter === 'All' ? ' scanned so far · ' + DATA.themes.length + ' themes' : ' in ' + themeFilter);
+  const scanned = cards.filter(([t, c]) => c.ar).length;
+  const pending = cards.length - scanned;
+  document.getElementById('count').textContent =
+    scanned + ' card' + (scanned === 1 ? '' : 's') + ' scanned' +
+    (pending ? ' · ' + pending + ' awaiting scan' : '') +
+    (themeFilter === 'All' ? ' · ' + DATA.themes.length + ' themes' : ' in ' + themeFilter);
   document.getElementById('grid').innerHTML = cards.map(([t, c]) =>
     '<div class="card">' +
     '<div class="top"><span class="num">#' + c.num + '</span><span class="theme">' + t.name + '</span></div>' +

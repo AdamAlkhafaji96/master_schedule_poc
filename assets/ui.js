@@ -196,10 +196,14 @@
 
   var SECTION_COLOR = { gold: '#c9a13b', general: '#3a3f4d', arabic: '#1b2a5e', quran: '#4d1b30', islamic: '#1b4d38', games: '#14555c', practice: '#a85318', admin: '#4a4466' };
   var SECTION_LUM = { gold: '#d2ac4b', general: '#aeb6c9', arabic: '#8fa2e8', quran: '#d98aa6', islamic: '#7fc9a4', games: '#7bc8cf', practice: '#e0a35c', admin: '#b1a3e3' };
-  var SECTION_DEEP = { gold: '#8a6d22', games: '#8a6d22', practice: '#8a4512' };
+  var SECTION_DEEP = { gold: '#755914', games: '#755914', practice: '#8a4512' };
+  /* text ON a section-color fill: dark ink for the light gold fill (cream fails
+     WCAG AA at ~2.2:1 there), cream for every dark fill (the default) */
+  var SECTION_ON = { gold: '#2b2108', games: '#2b2108' };
   function tabVars(color) {
     return '--tabc:' + (SECTION_COLOR[color] || '#c9a13b') + ';--tabcl:' + (SECTION_LUM[color] || '#d2ac4b') +
-      ';--tabcd:' + (SECTION_DEEP[color] || SECTION_COLOR[color] || '#8a6d22');
+      ';--tabcd:' + (SECTION_DEEP[color] || SECTION_COLOR[color] || '#755914') +
+      (SECTION_ON[color] ? ';--tabon:' + SECTION_ON[color] : '');
   }
   function injectStrip(nav) {
     var path = pagePath();
@@ -239,7 +243,8 @@
         return '<a class="ab-tab' + (section && s.id === section.id ? ' on' : '') +
           '" data-sec="' + s.id + '" style="' + tabVars(s.color) + '" href="' + ROOT + '?tab=' + s.id + '">' +
           AB.icon(s.icon, s.emoji, s.id) + s.title +
-          (split ? '<span class="ab-chev" aria-label="Pages in ' + s.title + '">\u25be</span>' : '') +
+          (split ? '<span class="ab-chev" role="button" tabindex="0" aria-expanded="false"' +
+            ' aria-label="Pages in ' + s.title + '">\u25be</span>' : '') +
         '</a>';
       }).join('');
     }
@@ -281,6 +286,9 @@
       mega.classList.toggle('anch', !!(split && anchor));
       mega.style.removeProperty('--mx');
       mega.classList.add('open');
+      tabs.querySelectorAll('.ab-chev').forEach(function (c) {
+        c.setAttribute('aria-expanded', String(c.closest('a').dataset.sec === id));
+      });
       if (split && anchor) {
         var rowEl = strip.querySelector('.ab-strip-row') || strip;
         var ar = anchor.getBoundingClientRect(), rr = rowEl.getBoundingClientRect();
@@ -289,7 +297,18 @@
         mega.style.setProperty('--mx', Math.round(x) + 'px');
       }
     }
-    function closeMega() { mega.classList.remove('open'); megaSec = null; }
+    function closeMega() {
+      mega.classList.remove('open'); megaSec = null;
+      tabs.querySelectorAll('.ab-chev').forEach(function (c) { c.setAttribute('aria-expanded', 'false'); });
+    }
+    /* keyboard: the chevron is its own focusable disclosure (external-review a11y finding) */
+    tabs.addEventListener('keydown', function (e) {
+      var c = e.target.closest ? e.target.closest('.ab-chev') : null;
+      if (!c || (e.key !== 'Enter' && e.key !== ' ')) return;
+      e.preventDefault(); e.stopPropagation();
+      var id = c.closest('a').dataset.sec;
+      megaSec === id ? closeMega() : openMega(id, c.closest('a'));
+    });
     tabs.addEventListener('click', function (e) {
       var a = e.target.closest('a.ab-tab');
       if (!a) return;

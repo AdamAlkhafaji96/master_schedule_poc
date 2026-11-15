@@ -155,7 +155,7 @@
   var G = await (await fetch('../glossary/glossary.json')).json();
   var byScope = {};
   G.terms.forEach(function (t) {
-    (byScope[t.scope] = byScope[t.scope] || []).push({ ar: t.ar, tr: t.tr, en: t.en, tag: t.list });
+    (byScope[t.scope] = byScope[t.scope] || []).push({ ar: t.ar, tr: t.tr, en: t.en, ctx: t.ctx || '', tag: t.list });
   });
   var scopes = G.lists.map(function (L) {
     return { id: L.scope, group: L.section, label: L.list, words: byScope[L.scope] || [] };
@@ -241,7 +241,7 @@
     document.getElementById('fTag').textContent = w.tag || '';
     document.getElementById('fAr').textContent = w.ar;
     document.getElementById('fTr').textContent = w.tr || '';
-    document.getElementById('fEn').textContent = w.en;
+    document.getElementById('fEn').textContent = w.en + (w.ctx ? ' (' + w.ctx + ')' : '');
     document.getElementById('fTrB').textContent = w.tr || '';
     document.getElementById('fCount').textContent = (fi + 1) + ' / ' + order.length;
   }
@@ -268,13 +268,23 @@
     var w = deck().words[qOrder[qi]];
     document.getElementById('qPos').textContent = 'Question ' + (qi + 1) + ' of ' + qOrder.length;
     document.getElementById('qScore').textContent = qScore;
-    document.getElementById('qPrompt').textContent = w.ar;
-    var pool = deck().words.filter(function (x) { return x.en !== w.en; })
-      .sort(function () { return Math.random() - .5; }).slice(0, 3).concat([w])
+    /* show the grammatical context with the prompt, and never offer another
+       valid reading of the SAME Arabic word as a "wrong" answer
+       (external-review finding: هِيَ is both she (fg) and they (for br.pl)) */
+    document.getElementById('qPrompt').innerHTML = esc(w.ar) +
+      (w.ctx ? ' <span style="font-size:.38em;font-family:Spectral,Georgia,serif;font-style:italic;color:var(--abd-8a887c,#8a887c)">(' + esc(w.ctx) + ')</span>' : '');
+    var seenEn = {};
+    var pool = deck().words.filter(function (x) {
+      if (x.en === w.en || x.ar === w.ar) return false;
+      if (seenEn[x.en]) return false;
+      seenEn[x.en] = 1;
+      return true;
+    }).sort(function () { return Math.random() - .5; }).slice(0, 3).concat([w])
       .sort(function () { return Math.random() - .5; });
     var box = document.getElementById('qOpts');
     box.innerHTML = pool.map(function (x) {
-      return '<button type="button" data-ok="' + (x.en === w.en ? 1 : 0) + '">' + esc(x.en) + '</button>';
+      return '<button type="button" data-ok="' + (x.en === w.en ? 1 : 0) + '">' + esc(x.en) +
+        (x.ctx && x.en === w.en ? '' : '') + '</button>';
     }).join('');
     qLock = false;
     box.querySelectorAll('button').forEach(function (b) {
@@ -331,7 +341,8 @@
   function renderWords() {
     var d = deck();
     document.getElementById('wordRows').innerHTML = d.words.map(function (w) {
-      return '<tr><td lang="ar">' + esc(w.ar) + '</td><td>' + esc(w.tr) + '</td><td>' + esc(w.en) + '</td></tr>';
+      return '<tr><td lang="ar">' + esc(w.ar) + '</td><td>' + esc(w.tr) + '</td><td>' + esc(w.en) +
+        (w.ctx ? ' <span style="color:var(--abd-8a887c,#8a887c);font-style:italic">(' + esc(w.ctx) + ')</span>' : '') + '</td></tr>';
     }).join('');
     document.getElementById('scopeCount').textContent = d.words.length + ' words \u00b7 ' + d.label;
   }

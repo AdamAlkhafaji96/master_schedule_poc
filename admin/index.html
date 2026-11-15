@@ -195,14 +195,25 @@
   }).join('');
 
   /* ---- device data manager ---- */
+  /* ONE registry of every on-device store (external-review finding: the old
+     list covered only part of a student's local data) */
   var STORES = [
     ['ab-deck-stats', 'Practice scores & benchmarks'],
     ['ab-hl', 'Quran highlights'],
+    ['ab-flags', 'Quran flags (revisit marks)'],
+    ['ab-range', 'Quran reading ranges'],
+    ['ab-reader-view', 'Reader view (lines/book)'],
     ['ab-game-scores', 'Game leaderboard scores'],
     ['ab-match-best', 'Vocab Match best'],
     ['ab-units-l3', 'Quran unit tracker'],
+    ['absr-quran-memorization-v1', 'Memorization checklist'],
+    ['absr-salah-tracker-v1', 'Salah daily tracker'],
+    ['ab-student-profile', 'Grades page profile'],
+    ['ab-time', 'Time-on-portal counter'],
     ['albaseera-fc-deck', 'Legacy flashcards pick']
   ];
+  /* audio recordings live in IndexedDB, not localStorage */
+  var IDB_STORES = [['absr-quran-recordings', 'Recitation recordings (audio files)']];
   function renderDev() {
     var host = document.getElementById('devTools');
     host.innerHTML = STORES.map(function (s) {
@@ -218,6 +229,30 @@
         try { localStorage.removeItem(b.dataset.k); } catch (e) {}
         renderDev();
       };
+    });
+    /* IndexedDB stores (recordings) — counted async, cleared whole-database */
+    IDB_STORES.forEach(function (s) {
+      try {
+        var r = indexedDB.open(s[0]);
+        r.onsuccess = function () {
+          var db = r.result;
+          if (!db.objectStoreNames.length) { db.close(); return; }
+          var rq = db.transaction(db.objectStoreNames[0]).objectStore(db.objectStoreNames[0]).count();
+          rq.onsuccess = function () {
+            db.close();
+            if (!rq.result) return;
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.innerHTML = '✕ Clear: ' + s[1] + ' <span class="size">(' + rq.result + ' saved, IndexedDB)</span>';
+            b.onclick = function () {
+              if (!window.confirm('Delete ALL saved recordings on this device?')) return;
+              try { indexedDB.deleteDatabase(s[0]); } catch (e) {}
+              b.remove();
+            };
+            host.appendChild(b);
+          };
+        };
+      } catch (e) {}
     });
   }
   renderDev();
